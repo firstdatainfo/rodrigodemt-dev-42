@@ -22,14 +22,14 @@ const Hero = () => {
               </Button>
             </div>
             <div className="flex flex-row items-center justify-center gap-4 animate-fade-up">
-              <div className="w-[180px] h-[180px] md:w-[300px] md:h-[300px] bg-black rounded-lg p-4">
+              <div className="w-[180px] h-[180px] md:w-[300px] md:h-[300px]">
                 <img 
                   src="/lovable-uploads/3cd42689-d953-409e-be7c-a086e97c130a.png" 
                   alt="Sistema 1"
                   className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div className="w-[180px] h-[180px] md:w-[300px] md:h-[300px] bg-black rounded-lg p-4">
+              <div className="w-[180px] h-[180px] md:w-[300px] md:h-[300px]">
                 <img 
                   src="/lovable-uploads/b0db2735-0ba8-4c37-bbc2-0cec9837d6b5.png" 
                   alt="Sistema 2"

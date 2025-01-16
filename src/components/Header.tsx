@@ -16,16 +16,18 @@ const Header = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-full h-full"
               >
-                {/* Triângulo principal */}
+                {/* Triângulo principal com sombra */}
                 <path
                   d="M20 4L36 32H4L20 4Z"
                   fill="url(#gradient-blue)"
+                  filter="drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1))"
                 />
                 
-                {/* Triângulo sobreposto */}
+                {/* Triângulo sobreposto com efeito de brilho */}
                 <path
                   d="M20 12L28 28H12L20 12Z"
                   fill="url(#gradient-orange)"
+                  filter="drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.05))"
                 />
                 
                 {/* Definição dos gradientes */}
@@ -38,7 +40,8 @@ const Header = () => {
                     y2="32"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop offset="0%" stopColor="#0046BB" />
+                    <stop offset="0%" stopColor="#0052D4" />
+                    <stop offset="50%" stopColor="#4364F7" />
                     <stop offset="100%" stopColor="#00A3FF" />
                   </linearGradient>
                   
@@ -51,7 +54,8 @@ const Header = () => {
                     gradientUnits="userSpaceOnUse"
                   >
                     <stop offset="0%" stopColor="#FF9500" />
-                    <stop offset="100%" stopColor="#FF5E3A" />
+                    <stop offset="50%" stopColor="#FF5E3A" />
+                    <stop offset="100%" stopColor="#FF3B2E" />
                   </linearGradient>
                 </defs>
               </svg>

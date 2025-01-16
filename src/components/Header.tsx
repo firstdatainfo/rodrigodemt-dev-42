@@ -9,11 +9,40 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center gap-2">
-            <img 
-              src="/lovable-uploads/3cd42689-d953-409e-be7c-a086e97c130a.png" 
-              alt="First Sistemas Logo" 
-              className="w-10 h-10 object-contain"
-            />
+            <div className="w-10 h-10">
+              <svg
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-full h-full"
+              >
+                <rect width="40" height="40" rx="8" fill="#0046BB" />
+                <path
+                  d="M8 20H20"
+                  stroke="white"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M14 12V28"
+                  stroke="white"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M24 12L24 28"
+                  stroke="white"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M32 12L32 28"
+                  stroke="white"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
             <a href="/" className="text-2xl font-bold text-primary">
               First Sistemas
             </a>

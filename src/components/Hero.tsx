@@ -21,15 +21,15 @@ const Hero = () => {
                 Fale Conosco
               </Button>
             </div>
-            <div className="flex flex-row items-center justify-center gap-2.5 animate-fade-up overflow-visible">
-              <div className="w-[180px] h-[180px] md:w-[400px] md:h-[400px] p-4 overflow-visible">
+            <div className="flex flex-row items-center justify-center gap-2.5 animate-fade-up overflow-visible relative z-10">
+              <div className="w-[180px] h-[180px] md:w-[400px] md:h-[400px] p-4 overflow-visible relative">
                 <img 
                   src="/lovable-uploads/3cd42689-d953-409e-be7c-a086e97c130a.png" 
                   alt="Sistema 1"
                   className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div className="w-[180px] h-[180px] md:w-[400px] md:h-[400px] p-4 overflow-visible">
+              <div className="w-[180px] h-[180px] md:w-[400px] md:h-[400px] p-4 overflow-visible relative">
                 <img 
                   src="/lovable-uploads/b0db2735-0ba8-4c37-bbc2-0cec9837d6b5.png" 
                   alt="Sistema 2"

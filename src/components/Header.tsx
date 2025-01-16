@@ -16,31 +16,47 @@ const Header = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-full h-full"
               >
-                <rect width="40" height="40" rx="8" fill="#0046BB" />
+                {/* Fundo azul com gradiente */}
+                <rect width="40" height="40" rx="8" fill="url(#gradient)" />
+                
+                {/* Letra F estilizada */}
                 <path
-                  d="M8 20H20"
+                  d="M12 10H28"
                   stroke="white"
                   strokeWidth="4"
                   strokeLinecap="round"
                 />
                 <path
-                  d="M14 12V28"
+                  d="M12 10V30"
                   stroke="white"
                   strokeWidth="4"
                   strokeLinecap="round"
                 />
                 <path
-                  d="M24 12L24 28"
+                  d="M12 20H24"
                   stroke="white"
                   strokeWidth="4"
                   strokeLinecap="round"
                 />
-                <path
-                  d="M32 12L32 28"
-                  stroke="white"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
+                
+                {/* Elementos decorativos */}
+                <circle cx="28" cy="20" r="2" fill="white" />
+                <circle cx="28" cy="26" r="2" fill="white" />
+                
+                {/* Gradiente definição */}
+                <defs>
+                  <linearGradient
+                    id="gradient"
+                    x1="0"
+                    y1="0"
+                    x2="40"
+                    y2="40"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0%" stopColor="#0046BB" />
+                    <stop offset="100%" stopColor="#00A3FF" />
+                  </linearGradient>
+                </defs>
               </svg>
             </div>
             <a href="/" className="text-2xl font-bold text-primary">

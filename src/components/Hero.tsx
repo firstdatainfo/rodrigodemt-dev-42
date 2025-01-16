@@ -21,15 +21,15 @@ const Hero = () => {
                 Fale Conosco
               </Button>
             </div>
-            <div className="flex-1 flex items-center justify-end space-x-4 animate-fade-up">
-              <div className="w-[160px] h-[320px] md:w-[200px] md:h-[400px]">
+            <div className="flex-1 flex items-center justify-end gap-4 animate-fade-up">
+              <div className="w-[180px] h-[180px] md:w-[400px] md:h-[400px]">
                 <img 
                   src="/lovable-uploads/3cd42689-d953-409e-be7c-a086e97c130a.png" 
                   alt="Sistema 1"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="w-[160px] h-[320px] md:w-[200px] md:h-[400px]">
+              <div className="w-[180px] h-[180px] md:w-[400px] md:h-[400px]">
                 <img 
                   src="/lovable-uploads/b0db2735-0ba8-4c37-bbc2-0cec9837d6b5.png" 
                   alt="Sistema 2"

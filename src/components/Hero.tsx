@@ -25,12 +25,12 @@ const Hero = () => {
               <img 
                 src="/lovable-uploads/3cd42689-d953-409e-be7c-a086e97c130a.png" 
                 alt="Sistema 1"
-                className="w-1/2 md:w-96 h-auto object-contain hover:scale-105 transition-transform duration-300"
+                className="w-1/2 md:w-[384px] h-[384px] object-contain hover:scale-105 transition-transform duration-300"
               />
               <img 
                 src="/lovable-uploads/b0db2735-0ba8-4c37-bbc2-0cec9837d6b5.png" 
                 alt="Sistema 2"
-                className="w-1/2 md:w-96 h-auto object-contain hover:scale-105 transition-transform duration-300"
+                className="w-1/2 md:w-[384px] h-[384px] object-contain hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>

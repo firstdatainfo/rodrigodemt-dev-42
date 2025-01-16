@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Instagram } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -12,33 +12,46 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-4">Contato</h3>
-            <div className="space-y-2">
-              <div className="flex items-center">
-                <Phone className="w-5 h-5 mr-2" />
-                <span>(66) 99248-0993</span>
-              </div>
-              <div className="flex items-center">
-                <Mail className="w-5 h-5 mr-2" />
-                <span>rodrigodev@yahoo.com</span>
-              </div>
-              <div className="flex items-center">
-                <MapPin className="w-5 h-5 mr-2" />
-                <span>Mato Grosso</span>
-              </div>
-            </div>
+            <h3 className="text-xl font-bold mb-4">Links Rápidos</h3>
+            <ul className="space-y-2">
+              <li>
+                <a href="#inicio" className="hover:text-gray-300 transition-colors">
+                  Início
+                </a>
+              </li>
+              <li>
+                <a href="#servicos" className="hover:text-gray-300 transition-colors">
+                  Serviços
+                </a>
+              </li>
+              <li>
+                <a href="#portfolio" className="hover:text-gray-300 transition-colors">
+                  Portfólio
+                </a>
+              </li>
+              <li>
+                <a href="#contato" className="hover:text-gray-300 transition-colors">
+                  Contato
+                </a>
+              </li>
+            </ul>
           </div>
           <div>
             <h3 className="text-xl font-bold mb-4">Redes Sociais</h3>
             <div className="flex items-center space-x-4">
-              <a href="#" className="hover:text-primary-light transition-colors">
+              <a 
+                href="https://instagram.com/first_developer_mt" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-gray-300 transition-colors"
+              >
                 <Instagram className="w-6 h-6" />
               </a>
             </div>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700 text-center">
-          <p>&copy; 2024 First Sistemas. Todos os direitos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} First Sistemas. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

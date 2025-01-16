@@ -5,7 +5,7 @@ const Hero = () => {
     <section className="pt-32 pb-20 bg-gradient-to-br from-primary to-primary-light">
       <div className="container mx-auto px-4">
         <div className="text-center text-white max-w-4xl mx-auto relative">
-          <div className="flex items-center justify-center gap-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex-1">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-up">
                 Transformando Ideias em Soluções Digitais
@@ -21,16 +21,16 @@ const Hero = () => {
                 Fale Conosco
               </Button>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex gap-4 animate-fade-up">
               <img 
                 src="/lovable-uploads/3cd42689-d953-409e-be7c-a086e97c130a.png" 
                 alt="Sistema 1"
-                className="w-32 h-32 object-contain animate-fade-up"
+                className="w-32 h-32 object-contain rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
               />
               <img 
                 src="/lovable-uploads/b0db2735-0ba8-4c37-bbc2-0cec9837d6b5.png" 
                 alt="Sistema 2"
-                className="w-32 h-32 object-contain animate-fade-up"
+                className="w-32 h-32 object-contain rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>

@@ -7,7 +7,7 @@ import {
   SiFlutter,
   SiSupabase,
   SiEspressif,
-  SiJava,
+  SiJavascript, // Changed from SiJava since it's not available
   SiTypescript,
   SiFigma,
 } from "react-icons/si";
@@ -20,7 +20,7 @@ const technologies = [
   { name: "Flutter", icon: SiFlutter },
   { name: "Supabase", icon: SiSupabase },
   { name: "ESP32", icon: SiEspressif },
-  { name: "Java", icon: SiJava },
+  { name: "JavaScript", icon: SiJavascript }, // Updated name to match icon
   { name: "TypeScript", icon: SiTypescript },
   { name: "Figma", icon: SiFigma },
 ];

@@ -57,7 +57,7 @@ const Products = () => {
                         key={idx}
                         src={image}
                         alt={`${product.title} - Imagem ${idx + 1}`}
-                        className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300 w-full h-auto object-cover"
+                        className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                       />
                     ))}
                   </div>

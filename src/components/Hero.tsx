@@ -22,7 +22,7 @@ const Hero = () => {
               </Button>
             </div>
             <div className="flex flex-row items-center justify-center gap-2.5 animate-fade-up">
-              <div className="w-[180px] h-[180px] md:w-[400px] md:h-[400px] p-4">
+              <div className="w-[180px] h-[180px] md:w-[400px] md:h-[400px] p-4 overflow-visible">
                 <img 
                   src="/lovable-uploads/3cd42689-d953-409e-be7c-a086e97c130a.png" 
                   alt="Sistema 1"

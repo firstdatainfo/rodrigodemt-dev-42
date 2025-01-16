@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">First Sistemas</h3>
             <p className="text-gray-300">
-              Soluções em software para sua empresa crescer
+              Transformando ideias em soluções digitais para seu negócio
             </p>
           </div>
           <div>
@@ -16,29 +16,23 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center">
                 <Phone className="w-5 h-5 mr-2" />
-                <span>(XX) XXXX-XXXX</span>
+                <span>(66) 99248-0993</span>
               </div>
               <div className="flex items-center">
                 <Mail className="w-5 h-5 mr-2" />
-                <span>contato@firstsistemas.com.br</span>
+                <span>rodrigodev@yahoo.com</span>
               </div>
               <div className="flex items-center">
                 <MapPin className="w-5 h-5 mr-2" />
-                <span>São Paulo, SP</span>
+                <span>Mato Grosso</span>
               </div>
             </div>
           </div>
           <div>
             <h3 className="text-xl font-bold mb-4">Redes Sociais</h3>
-            <div className="flex space-x-4">
+            <div className="flex items-center space-x-4">
               <a href="#" className="hover:text-primary-light transition-colors">
-                LinkedIn
-              </a>
-              <a href="#" className="hover:text-primary-light transition-colors">
-                Facebook
-              </a>
-              <a href="#" className="hover:text-primary-light transition-colors">
-                Instagram
+                <Instagram className="w-6 h-6" />
               </a>
             </div>
           </div>

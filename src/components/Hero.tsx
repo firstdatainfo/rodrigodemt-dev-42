@@ -25,12 +25,12 @@ const Hero = () => {
               <img 
                 src="/lovable-uploads/3cd42689-d953-409e-be7c-a086e97c130a.png" 
                 alt="Sistema 1"
-                className="w-32 h-auto animate-fade-up"
+                className="w-32 h-32 object-contain animate-fade-up"
               />
               <img 
                 src="/lovable-uploads/b0db2735-0ba8-4c37-bbc2-0cec9837d6b5.png" 
                 alt="Sistema 2"
-                className="w-32 h-auto animate-fade-up"
+                className="w-32 h-32 object-contain animate-fade-up"
               />
             </div>
           </div>

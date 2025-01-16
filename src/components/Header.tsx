@@ -16,42 +16,45 @@ const Header = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-full h-full"
               >
-                {/* Triângulo principal */}
+                {/* Fundo azul com gradiente */}
+                <rect width="40" height="40" rx="8" fill="url(#gradient)" />
+                
+                {/* Letra F estilizada */}
                 <path
-                  d="M20 4L36 32H4L20 4Z"
-                  fill="url(#gradient-blue)"
+                  d="M12 10H28"
+                  stroke="white"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M12 10V30"
+                  stroke="white"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M12 20H24"
+                  stroke="white"
+                  strokeWidth="4"
+                  strokeLinecap="round"
                 />
                 
-                {/* Triângulo sobreposto */}
-                <path
-                  d="M20 12L28 28H12L20 12Z"
-                  fill="url(#gradient-orange)"
-                />
+                {/* Elementos decorativos */}
+                <circle cx="28" cy="20" r="2" fill="white" />
+                <circle cx="28" cy="26" r="2" fill="white" />
                 
-                {/* Definição dos gradientes */}
+                {/* Gradiente definição */}
                 <defs>
                   <linearGradient
-                    id="gradient-blue"
-                    x1="20"
-                    y1="4"
-                    x2="20"
-                    y2="32"
+                    id="gradient"
+                    x1="0"
+                    y1="0"
+                    x2="40"
+                    y2="40"
                     gradientUnits="userSpaceOnUse"
                   >
                     <stop offset="0%" stopColor="#0046BB" />
                     <stop offset="100%" stopColor="#00A3FF" />
-                  </linearGradient>
-                  
-                  <linearGradient
-                    id="gradient-orange"
-                    x1="20"
-                    y1="12"
-                    x2="20"
-                    y2="28"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop offset="0%" stopColor="#FF9500" />
-                    <stop offset="100%" stopColor="#FF5E3A" />
                   </linearGradient>
                 </defs>
               </svg>

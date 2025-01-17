@@ -1,5 +1,5 @@
 import React from 'react';
-import { Circuit, Cpu } from 'lucide-react';
+import { CircuitBoard, Cpu } from 'lucide-react';
 
 const ChipAnimation = () => {
   return (
@@ -54,7 +54,7 @@ const ChipAnimation = () => {
       {/* Circuitos animados */}
       <div className="absolute inset-0">
         {[...Array(4)].map((_, i) => (
-          <Circuit
+          <CircuitBoard
             key={i}
             className="absolute text-primary/30 animate-pulse"
             style={{

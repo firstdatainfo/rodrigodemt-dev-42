@@ -112,13 +112,11 @@ const NeuralNetwork = () => {
       if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Atualizar e desenhar nós
       nodes.forEach(node => {
         node.update();
         node.draw();
       });
 
-      // Desenhar conexões entre nós
       nodes.forEach((node1, i) => {
         nodes.slice(i + 1).forEach(node2 => {
           const distance = Math.hypot(node1.x - node2.x, node1.y - node2.y);
@@ -128,21 +126,16 @@ const NeuralNetwork = () => {
         });
       });
 
-      // Atualizar posições das logos e criar conexões com os nós próximos
       techLogosRef.current.forEach(logo => {
-        // Movimento suave
         logo.vx += (Math.random() - 0.5) * 0.1;
         logo.vy += (Math.random() - 0.5) * 0.1;
         
-        // Limitar velocidade máxima
         logo.vx = Math.max(Math.min(logo.vx, 2), -2);
         logo.vy = Math.max(Math.min(logo.vy, 2), -2);
         
-        // Atualizar posição
         logo.x += logo.vx;
         logo.y += logo.vy;
 
-        // Colisão com as bordas
         if (logo.x < 0 || logo.x > canvas.width - 32) {
           logo.vx *= -1;
           logo.vx += (Math.random() - 0.5) * 0.5;
@@ -152,7 +145,6 @@ const NeuralNetwork = () => {
           logo.vy += (Math.random() - 0.5) * 0.5;
         }
 
-        // Criar conexões entre logos e nós próximos
         nodes.forEach(node => {
           const distance = Math.hypot(logo.x - node.x, logo.y - node.y);
           if (distance < 150) {
@@ -160,7 +152,6 @@ const NeuralNetwork = () => {
           }
         });
 
-        // Criar conexões entre logos próximas
         techLogosRef.current.forEach(otherLogo => {
           if (logo === otherLogo) return;
           const distance = Math.hypot(logo.x - otherLogo.x, logo.y - otherLogo.y);
@@ -190,12 +181,13 @@ const NeuralNetwork = () => {
       {techLogosRef.current.map((logo, index) => (
         <div
           key={index}
-          className="absolute text-white/50"
+          className="absolute text-white"
           style={{
             left: `${logo.x}px`,
             top: `${logo.y}px`,
             transform: 'translate(-50%, -50%)',
             transition: 'all 0.1s linear',
+            zIndex: 10,
           }}
         >
           <logo.Icon size={32} />

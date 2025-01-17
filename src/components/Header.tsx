@@ -5,7 +5,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed w-full bg-white shadow-md z-50">
+    <header className="fixed w-full bg-black shadow-md z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center gap-2">
@@ -16,51 +16,25 @@ const Header = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-full h-full"
               >
-                {/* Fundo azul com gradiente */}
-                <rect width="40" height="40" rx="8" fill="url(#gradient)" />
+                {/* Fundo branco */}
+                <rect width="40" height="40" rx="8" fill="white" />
                 
-                {/* Letra F estilizada */}
-                <path
-                  d="M12 10H28"
-                  stroke="white"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M12 10V30"
-                  stroke="white"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M12 20H24"
-                  stroke="white"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-                
-                {/* Elementos decorativos */}
-                <circle cx="28" cy="20" r="2" fill="white" />
-                <circle cx="28" cy="26" r="2" fill="white" />
-                
-                {/* Gradiente definição */}
-                <defs>
-                  <linearGradient
-                    id="gradient"
-                    x1="0"
-                    y1="0"
-                    x2="40"
-                    y2="40"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop offset="0%" stopColor="#0046BB" />
-                    <stop offset="100%" stopColor="#00A3FF" />
-                  </linearGradient>
-                </defs>
+                {/* Letras FD em azul */}
+                <text
+                  x="50%"
+                  y="50%"
+                  dominantBaseline="middle"
+                  textAnchor="middle"
+                  fill="#0046BB"
+                  fontSize="20"
+                  fontWeight="bold"
+                >
+                  FD
+                </text>
               </svg>
             </div>
-            <a href="/" className="text-2xl font-bold text-primary">
-              First Sistemas
+            <a href="/" className="text-2xl font-bold text-white">
+              First <span className="text-primary-light">Developer</span>
             </a>
           </div>
 
@@ -70,7 +44,7 @@ const Header = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-textGray hover:text-primary transition-colors duration-300"
+                className="text-white hover:text-primary-light transition-colors duration-300"
               >
                 {item}
               </a>
@@ -79,7 +53,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="md:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -93,7 +67,7 @@ const Header = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="block py-2 text-textGray hover:text-primary transition-colors duration-300"
+                className="block py-2 text-white hover:text-primary-light transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item}

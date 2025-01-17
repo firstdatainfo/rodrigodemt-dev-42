@@ -9,28 +9,40 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 animate-[bounce_2s_ease-in-out_infinite] hover:animate-pulse transition-all duration-300">
+            <div className="w-10 h-10 hover:scale-105 transition-all duration-300 ease-in-out">
               <svg
                 viewBox="0 0 40 40"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-full h-full"
+                className="w-full h-full animate-[float_3s_ease-in-out_infinite]"
               >
-                {/* Fundo branco */}
-                <rect width="40" height="40" rx="8" fill="white" />
+                {/* Fundo gradiente */}
+                <rect width="40" height="40" rx="8" fill="url(#gradient)" />
                 
-                {/* Letras FD em azul */}
+                {/* Letras FD com sombra e estilo mais moderno */}
                 <text
                   x="50%"
                   y="50%"
                   dominantBaseline="middle"
                   textAnchor="middle"
-                  fill="#0046BB"
-                  fontSize="20"
+                  fill="white"
+                  fontSize="18"
                   fontWeight="bold"
+                  style={{ 
+                    filter: 'drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.3))',
+                    fontFamily: 'Arial, sans-serif'
+                  }}
                 >
                   FD
                 </text>
+
+                {/* Definição do gradiente */}
+                <defs>
+                  <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stopColor="#0046BB" />
+                    <stop offset="100%" stopColor="#00A3FF" />
+                  </linearGradient>
+                </defs>
               </svg>
             </div>
             <a href="/" className="text-2xl font-bold text-white">

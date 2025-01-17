@@ -126,25 +126,21 @@ const NeuralNetwork = () => {
         });
       });
 
+      // Atualizar movimento das logos usando a mesma lógica dos nós
       techLogosRef.current.forEach(logo => {
-        logo.vx += (Math.random() - 0.5) * 0.1;
-        logo.vy += (Math.random() - 0.5) * 0.1;
-        
-        logo.vx = Math.max(Math.min(logo.vx, 2), -2);
-        logo.vy = Math.max(Math.min(logo.vy, 2), -2);
-        
+        // Aplicar a mesma velocidade e comportamento dos nós
         logo.x += logo.vx;
         logo.y += logo.vy;
 
+        // Colisão com as bordas igual aos nós
         if (logo.x < 0 || logo.x > canvas.width - 32) {
           logo.vx *= -1;
-          logo.vx += (Math.random() - 0.5) * 0.5;
         }
         if (logo.y < 0 || logo.y > canvas.height - 32) {
           logo.vy *= -1;
-          logo.vy += (Math.random() - 0.5) * 0.5;
         }
 
+        // Conexões com nós próximos
         nodes.forEach(node => {
           const distance = Math.hypot(logo.x - node.x, logo.y - node.y);
           if (distance < 150) {
@@ -152,6 +148,7 @@ const NeuralNetwork = () => {
           }
         });
 
+        // Conexões entre logos próximas
         techLogosRef.current.forEach(otherLogo => {
           if (logo === otherLogo) return;
           const distance = Math.hypot(logo.x - otherLogo.x, logo.y - otherLogo.y);

@@ -45,8 +45,8 @@ const NeuralNetwork = () => {
 
     // Set canvas size
     const setCanvasSize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
       
       // Initialize tech logos if not already done
       if (techLogosRef.current.length === 0) {
@@ -127,6 +127,15 @@ const NeuralNetwork = () => {
         });
       });
 
+      // Update tech logos positions
+      techLogosRef.current.forEach(logo => {
+        logo.x += logo.vx;
+        logo.y += logo.vy;
+
+        if (logo.x < 0 || logo.x > canvas.width - 32) logo.vx *= -1;
+        if (logo.y < 0 || logo.y > canvas.height - 32) logo.vy *= -1;
+      });
+
       requestAnimationFrame(animate);
     };
 
@@ -147,11 +156,12 @@ const NeuralNetwork = () => {
       {techLogosRef.current.map((logo, index) => (
         <div
           key={index}
-          className="absolute text-white/50 animate-float"
+          className="absolute text-white/50 transition-all duration-300"
           style={{
             left: `${logo.x}px`,
             top: `${logo.y}px`,
-            animationDelay: `${index * 0.2}s`,
+            transform: 'translate(-50%, -50%)',
+            transition: 'left 0.3s ease-out, top 0.3s ease-out',
           }}
         >
           <logo.Icon size={32} />

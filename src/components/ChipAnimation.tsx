@@ -1,36 +1,38 @@
-import { CircuitBoard, Cpu } from "lucide-react";
+import { CircuitBoard, Cpu, Network } from "lucide-react";
 
 const ChipAnimation = () => {
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden">
-      {/* Partículas animadas com maior visibilidade */}
+      {/* Rede neural animada */}
       <div id="particles-js" className="absolute inset-0">
-        {[...Array(40)].map((_, i) => (
+        {[...Array(60)].map((_, i) => (
           <div
             key={i}
             className="absolute animate-float"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`,
+              animationDelay: `${Math.random() * 5}s`,
               transform: `scale(${0.8 + Math.random() * 0.7})`,
-              opacity: 0.6,
+              opacity: 0.7,
             }}
           >
-            {i % 2 === 0 ? (
-              <CircuitBoard className="w-10 h-10 text-white" />
+            {i % 3 === 0 ? (
+              <CircuitBoard className="w-12 h-12 text-blue-200" />
+            ) : i % 3 === 1 ? (
+              <Cpu className="w-12 h-12 text-blue-200" />
             ) : (
-              <Cpu className="w-10 h-10 text-white" />
+              <Network className="w-12 h-12 text-blue-200" />
             )}
           </div>
         ))}
       </div>
 
-      {/* Gradiente mais suave e vibrante */}
+      {/* Gradiente mais vibrante */}
       <div 
-        className="absolute inset-0 bg-gradient-to-br from-primary via-primary-light to-primary opacity-90"
+        className="absolute inset-0"
         style={{
-          background: "linear-gradient(135deg, rgba(0,11,46,0.95) 0%, rgba(0,31,92,0.90) 100%)",
+          background: "linear-gradient(135deg, rgba(0,11,46,0.92) 0%, rgba(0,31,92,0.85) 100%)",
         }}
       />
     </div>

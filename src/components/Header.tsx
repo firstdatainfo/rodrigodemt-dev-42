@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    "Início",
-    "Sistema ERP",
-    "Sistema de Eventos",
-    "Sistema de Automações",
-    "Sobre",
-    "Contato"
+    { name: "Início", path: "/" },
+    { name: "Sistema ERP", path: "/sistema-erp" },
+    { name: "Sistema de Eventos", path: "#sistema-de-eventos" },
+    { name: "Sistema de Automações", path: "#sistema-de-automacoes" },
+    { name: "Sobre", path: "#sobre" },
+    { name: "Contato", path: "#contato" }
   ];
 
   return (
@@ -25,10 +26,7 @@ const Header = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-full h-full animate-[float_3s_ease-in-out_infinite]"
               >
-                {/* Fundo gradiente */}
                 <rect width="40" height="40" rx="8" fill="url(#gradient)" />
-                
-                {/* Letras FD com sombra e estilo mais moderno */}
                 <text
                   x="50%"
                   y="50%"
@@ -44,8 +42,6 @@ const Header = () => {
                 >
                   FD
                 </text>
-
-                {/* Definição do gradiente */}
                 <defs>
                   <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
                     <stop offset="0%" stopColor="#0046BB" />
@@ -54,21 +50,31 @@ const Header = () => {
                 </defs>
               </svg>
             </div>
-            <a href="/" className="text-2xl font-bold text-white">
+            <Link to="/" className="text-2xl font-bold text-white">
               First Developer <span className="text-primary-light">MT</span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6">
             {menuItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-white hover:text-primary-light transition-colors duration-300 text-sm"
-              >
-                {item}
-              </a>
+              item.path.startsWith('#') ? (
+                <a
+                  key={item.name}
+                  href={item.path}
+                  className="text-white hover:text-primary-light transition-colors duration-300 text-sm"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className="text-white hover:text-primary-light transition-colors duration-300 text-sm"
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -85,14 +91,25 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden py-4 animate-fade-down">
             {menuItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                className="block py-2 text-white hover:text-primary-light transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
-              </a>
+              item.path.startsWith('#') ? (
+                <a
+                  key={item.name}
+                  href={item.path}
+                  className="block py-2 text-white hover:text-primary-light transition-colors duration-300"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className="block py-2 text-white hover:text-primary-light transition-colors duration-300"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </nav>
         )}

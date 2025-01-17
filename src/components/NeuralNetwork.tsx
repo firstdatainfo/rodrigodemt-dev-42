@@ -43,7 +43,6 @@ const NeuralNetwork = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Set canvas size
     const setCanvasSize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -53,8 +52,8 @@ const NeuralNetwork = () => {
         techLogosRef.current = icons.map((Icon) => ({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
+          vx: (Math.random() - 0.5) * 2,
+          vy: (Math.random() - 0.5) * 2,
           Icon,
         }));
       }
@@ -62,7 +61,6 @@ const NeuralNetwork = () => {
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    // Node class
     class Node {
       x: number;
       y: number;
@@ -74,8 +72,8 @@ const NeuralNetwork = () => {
         this.x = x;
         this.y = y;
         this.radius = 2;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
+        this.vx = (Math.random() - 0.5) * 2;
+        this.vy = (Math.random() - 0.5) * 2;
       }
 
       update() {
@@ -95,24 +93,20 @@ const NeuralNetwork = () => {
       }
     }
 
-    // Create nodes
     const nodes: Node[] = [];
     for (let i = 0; i < 50; i++) {
       nodes.push(new Node(Math.random() * canvas.width, Math.random() * canvas.height));
     }
 
-    // Animation loop
     const animate = () => {
       if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Update and draw nodes
       nodes.forEach(node => {
         node.update();
         node.draw();
       });
 
-      // Draw connections
       nodes.forEach((node1, i) => {
         nodes.slice(i + 1).forEach(node2 => {
           const distance = Math.hypot(node1.x - node2.x, node1.y - node2.y);
@@ -127,13 +121,29 @@ const NeuralNetwork = () => {
         });
       });
 
-      // Update tech logos positions
+      // Update tech logos positions with smoother movement
       techLogosRef.current.forEach(logo => {
+        // Add slight randomness to movement
+        logo.vx += (Math.random() - 0.5) * 0.1;
+        logo.vy += (Math.random() - 0.5) * 0.1;
+        
+        // Limit maximum speed
+        logo.vx = Math.max(Math.min(logo.vx, 2), -2);
+        logo.vy = Math.max(Math.min(logo.vy, 2), -2);
+        
+        // Update position
         logo.x += logo.vx;
         logo.y += logo.vy;
 
-        if (logo.x < 0 || logo.x > canvas.width - 32) logo.vx *= -1;
-        if (logo.y < 0 || logo.y > canvas.height - 32) logo.vy *= -1;
+        // Bounce off walls with some randomness
+        if (logo.x < 0 || logo.x > canvas.width - 32) {
+          logo.vx *= -1;
+          logo.vx += (Math.random() - 0.5) * 0.5;
+        }
+        if (logo.y < 0 || logo.y > canvas.height - 32) {
+          logo.vy *= -1;
+          logo.vy += (Math.random() - 0.5) * 0.5;
+        }
       });
 
       requestAnimationFrame(animate);
@@ -156,12 +166,12 @@ const NeuralNetwork = () => {
       {techLogosRef.current.map((logo, index) => (
         <div
           key={index}
-          className="absolute text-white/50 transition-all duration-300"
+          className="absolute text-white/50"
           style={{
             left: `${logo.x}px`,
             top: `${logo.y}px`,
             transform: 'translate(-50%, -50%)',
-            transition: 'left 0.3s ease-out, top 0.3s ease-out',
+            transition: 'all 0.1s linear',
           }}
         >
           <logo.Icon size={32} />

@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
+import ChipAnimation from "./ChipAnimation";
 
 const Hero = () => {
   return (
-    <section className="pt-32 pb-20 bg-gradient-to-br from-primary to-primary-light">
-      <div className="container mx-auto px-4">
+    <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary to-primary-light overflow-hidden">
+      <ChipAnimation />
+      <div className="container mx-auto px-4 relative z-20">
         <div className="text-center text-white max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex-1">
@@ -20,22 +22,6 @@ const Hero = () => {
               >
                 Fale Conosco
               </Button>
-            </div>
-            <div className="flex-1 flex items-center justify-end gap-4 animate-fade-up">
-              <div className="w-[180px] h-[180px] md:w-[310px] md:h-[310px]">
-                <img 
-                  src="/lovable-uploads/3cd42689-d953-409e-be7c-a086e97c130a.png" 
-                  alt="Sistema 1"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="w-[180px] h-[180px] md:w-[310px] md:h-[310px]">
-                <img 
-                  src="/lovable-uploads/b0db2735-0ba8-4c37-bbc2-0cec9837d6b5.png" 
-                  alt="Sistema 2"
-                  className="w-full h-full object-contain"
-                />
-              </div>
             </div>
           </div>
         </div>

@@ -1,7 +1,21 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { BarChart3, Users2, DollarSign, Package, FileText, Factory, Phone, Mail, MapPin } from "lucide-react";
+import { 
+  BarChart3, 
+  Box, 
+  ClipboardCheck, 
+  DollarSign, 
+  Users, 
+  FileText, 
+  Factory,
+  Shield,
+  Clock,
+  Zap,
+  CheckCircle2,
+  PhoneCall
+} from "lucide-react";
+import ChipAnimation from "@/components/ChipAnimation";
 
 const SistemaErp = () => {
   const { toast } = useToast();
@@ -13,190 +27,160 @@ const SistemaErp = () => {
     });
   };
 
+  const modules = [
+    {
+      icon: <Box className="w-6 h-6" />,
+      title: "Gestão de Estoque",
+      description: "Controle completo de produtos, entradas, saídas e inventário"
+    },
+    {
+      icon: <DollarSign className="w-6 h-6" />,
+      title: "Financeiro",
+      description: "Contas a pagar, receber, fluxo de caixa e conciliação bancária"
+    },
+    {
+      icon: <ClipboardCheck className="w-6 h-6" />,
+      title: "Vendas",
+      description: "PDV, orçamentos, pedidos e acompanhamento de vendas"
+    },
+    {
+      icon: <Users className="w-6 h-6" />,
+      title: "Recursos Humanos",
+      description: "Gestão de funcionários, folha de pagamento e ponto eletrônico"
+    },
+    {
+      icon: <FileText className="w-6 h-6" />,
+      title: "Fiscal",
+      description: "Emissão de NF-e, NFC-e, controle de impostos e obrigações"
+    },
+    {
+      icon: <BarChart3 className="w-6 h-6" />,
+      title: "Relatórios",
+      description: "Dashboards e relatórios personalizados para tomada de decisão"
+    }
+  ];
+
+  const features = [
+    {
+      icon: <Factory className="w-6 h-6" />,
+      title: "Integração Total",
+      description: "Todos os módulos integrados em tempo real"
+    },
+    {
+      icon: <Shield className="w-6 h-6" />,
+      title: "Segurança",
+      description: "Proteção de dados e backup automático"
+    },
+    {
+      icon: <Clock className="w-6 h-6" />,
+      title: "Disponibilidade",
+      description: "Acesso 24/7 de qualquer dispositivo"
+    },
+    {
+      icon: <Zap className="w-6 h-6" />,
+      title: "Performance",
+      description: "Sistema rápido e otimizado"
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50">
-      {/* Hero Section - Mais moderno e impactante */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-primary via-blue-600 to-primary-light py-32">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-        <div className="container mx-auto px-4 relative">
-          <div className="text-center mb-12 animate-fade-down">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Sistema ERP First Sistemas
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Transforme sua gestão empresarial com nossa solução completa e integrada.
-              Desenvolvido para impulsionar a eficiência e o crescimento do seu negócio.
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <section className="relative pt-20 pb-32 overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="flex-1 text-center lg:text-left">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light animate-fade-up">
+                Sistema ERP Completo para sua Empresa
+              </h1>
+              <p className="text-xl text-gray-600 mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+                Transforme sua gestão empresarial com nossa solução integrada e moderna
+              </p>
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary-light animate-fade-up"
+                style={{ animationDelay: "0.4s" }}
+                onClick={handleDemoRequest}
+              >
+                Solicitar Demonstração
+              </Button>
+            </div>
+            <div className="flex-1 w-full max-w-2xl animate-fade-up" style={{ animationDelay: "0.6s" }}>
+              <ChipAnimation />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Módulos Principais</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {modules.map((module, index) => (
+              <div
+                key={index}
+                className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  {module.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{module.title}</h3>
+                <p className="text-gray-600">{module.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Diferenciais</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="bg-primary rounded-2xl p-8 lg:p-12 text-white text-center">
+            <h2 className="text-3xl font-bold mb-6">Pronto para Começar?</h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto">
+              Agende uma demonstração gratuita e descubra como nosso sistema pode
+              transformar sua empresa
             </p>
-          </div>
-          <div className="flex justify-center gap-4 animate-fade-up">
-            <Button 
-              size="lg" 
-              className="bg-white text-primary hover:bg-gray-100"
-              onClick={handleDemoRequest}
-            >
-              Solicitar Demonstração
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="bg-transparent border-white text-white hover:bg-white/10"
-            >
-              Saiba Mais
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Features Grid - Cards mais modernos e interativos */}
-      <div className="container mx-auto px-4 -mt-16 mb-24">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <Card className="bg-white/80 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-up">
-            <CardHeader className="space-y-1">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <BarChart3 className="w-6 h-6 text-primary" />
-              </div>
-              <CardTitle className="text-2xl font-bold text-primary">Gestão Financeira</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-center gap-2">
-                  <DollarSign className="w-5 h-5 text-primary" />
-                  Controle de contas
-                </li>
-                <li className="flex items-center gap-2">
-                  <BarChart3 className="w-5 h-5 text-primary" />
-                  Fluxo de caixa detalhado
-                </li>
-                <li className="flex items-center gap-2">
-                  <FileText className="w-5 h-5 text-primary" />
-                  Relatórios gerenciais
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-white/80 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-up [animation-delay:200ms]">
-            <CardHeader className="space-y-1">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Package className="w-6 h-6 text-primary" />
-              </div>
-              <CardTitle className="text-2xl font-bold text-primary">Controle de Estoque</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-center gap-2">
-                  <Package className="w-5 h-5 text-primary" />
-                  Gestão completa de produtos
-                </li>
-                <li className="flex items-center gap-2">
-                  <BarChart3 className="w-5 h-5 text-primary" />
-                  Controle de entrada/saída
-                </li>
-                <li className="flex items-center gap-2">
-                  <FileText className="w-5 h-5 text-primary" />
-                  Relatórios de estoque
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-white/80 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-up [animation-delay:400ms]">
-            <CardHeader className="space-y-1">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Users2 className="w-6 h-6 text-primary" />
-              </div>
-              <CardTitle className="text-2xl font-bold text-primary">Recursos Humanos</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-center gap-2">
-                  <Users2 className="w-5 h-5 text-primary" />
-                  Folha de pagamento
-                </li>
-                <li className="flex items-center gap-2">
-                  <FileText className="w-5 h-5 text-primary" />
-                  eSocial integrado
-                </li>
-                <li className="flex items-center gap-2">
-                  <BarChart3 className="w-5 h-5 text-primary" />
-                  Gestão de benefícios
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Seção de Benefícios - Nova seção moderna */}
-        <div className="mt-32 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-16">Por que escolher a First Sistemas?</h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="group">
-              <div className="bg-white p-8 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Users2 className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Suporte Especializado</h3>
-                <p className="text-gray-600">Equipe técnica sempre disponível para auxiliar em todas as etapas.</p>
-              </div>
-            </div>
-
-            <div className="group">
-              <div className="bg-white p-8 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Package className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Sistema Personalizado</h3>
-                <p className="text-gray-600">Adaptamos o sistema às necessidades específicas da sua empresa.</p>
-              </div>
-            </div>
-
-            <div className="group">
-              <div className="bg-white p-8 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Factory className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Tecnologia Avançada</h3>
-                <p className="text-gray-600">Sistema sempre atualizado com as últimas inovações do mercado.</p>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                variant="secondary"
+                className="bg-white text-primary hover:bg-gray-100"
+                onClick={handleDemoRequest}
+              >
+                <PhoneCall className="w-4 h-4 mr-2" />
+                Solicitar Contato
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+              >
+                <CheckCircle2 className="w-4 h-4 mr-2" />
+                Ver Planos
+              </Button>
             </div>
           </div>
         </div>
-
-        {/* Seção de Contato - Nova seção moderna */}
-        <div className="mt-32 mb-16">
-          <div className="bg-gradient-to-r from-primary to-primary-light rounded-3xl p-12 text-white">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Entre em Contato</h2>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-6 h-6" />
-                    <span>(11) 4444-5555</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Mail className="w-6 h-6" />
-                    <span>contato@firstsistemas.com.br</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <MapPin className="w-6 h-6" />
-                    <span>São Paulo - SP</span>
-                  </div>
-                </div>
-              </div>
-              <div className="text-center">
-                <h3 className="text-2xl font-bold mb-6">Pronto para transformar sua gestão?</h3>
-                <Button 
-                  size="lg" 
-                  className="bg-white text-primary hover:bg-gray-100"
-                  onClick={handleDemoRequest}
-                >
-                  Solicitar Demonstração Gratuita
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   );
 };

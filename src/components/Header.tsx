@@ -34,7 +34,7 @@ const Header = () => {
               </svg>
             </div>
             <a href="/" className="text-2xl font-bold text-white">
-              First <span className="text-primary-light">Developer</span>
+              First <span className="text-primary-light">Developer MT</span>
             </a>
           </div>
 

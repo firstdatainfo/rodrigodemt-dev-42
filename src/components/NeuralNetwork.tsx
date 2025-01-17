@@ -47,7 +47,6 @@ const NeuralNetwork = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       
-      // Initialize tech logos if not already done
       if (techLogosRef.current.length === 0) {
         techLogosRef.current = icons.map((Icon) => ({
           x: Math.random() * canvas.width,
@@ -58,6 +57,7 @@ const NeuralNetwork = () => {
         }));
       }
     };
+    
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
@@ -98,44 +98,51 @@ const NeuralNetwork = () => {
       nodes.push(new Node(Math.random() * canvas.width, Math.random() * canvas.height));
     }
 
+    const drawConnection = (x1: number, y1: number, x2: number, y2: number, alpha: number) => {
+      if (!ctx) return;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+    };
+
     const animate = () => {
       if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      // Atualizar e desenhar nós
       nodes.forEach(node => {
         node.update();
         node.draw();
       });
 
+      // Desenhar conexões entre nós
       nodes.forEach((node1, i) => {
         nodes.slice(i + 1).forEach(node2 => {
           const distance = Math.hypot(node1.x - node2.x, node1.y - node2.y);
           if (distance < 100) {
-            ctx.beginPath();
-            ctx.moveTo(node1.x, node1.y);
-            ctx.lineTo(node2.x, node2.y);
-            ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / 100})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
+            drawConnection(node1.x, node1.y, node2.x, node2.y, 1 - distance / 100);
           }
         });
       });
 
-      // Update tech logos positions with smoother movement
+      // Atualizar posições das logos e criar conexões com os nós próximos
       techLogosRef.current.forEach(logo => {
-        // Add slight randomness to movement
+        // Movimento suave
         logo.vx += (Math.random() - 0.5) * 0.1;
         logo.vy += (Math.random() - 0.5) * 0.1;
         
-        // Limit maximum speed
+        // Limitar velocidade máxima
         logo.vx = Math.max(Math.min(logo.vx, 2), -2);
         logo.vy = Math.max(Math.min(logo.vy, 2), -2);
         
-        // Update position
+        // Atualizar posição
         logo.x += logo.vx;
         logo.y += logo.vy;
 
-        // Bounce off walls with some randomness
+        // Colisão com as bordas
         if (logo.x < 0 || logo.x > canvas.width - 32) {
           logo.vx *= -1;
           logo.vx += (Math.random() - 0.5) * 0.5;
@@ -144,6 +151,23 @@ const NeuralNetwork = () => {
           logo.vy *= -1;
           logo.vy += (Math.random() - 0.5) * 0.5;
         }
+
+        // Criar conexões entre logos e nós próximos
+        nodes.forEach(node => {
+          const distance = Math.hypot(logo.x - node.x, logo.y - node.y);
+          if (distance < 150) {
+            drawConnection(logo.x, logo.y, node.x, node.y, 0.5 - distance / 300);
+          }
+        });
+
+        // Criar conexões entre logos próximas
+        techLogosRef.current.forEach(otherLogo => {
+          if (logo === otherLogo) return;
+          const distance = Math.hypot(logo.x - otherLogo.x, logo.y - otherLogo.y);
+          if (distance < 200) {
+            drawConnection(logo.x, logo.y, otherLogo.x, otherLogo.y, 0.3 - distance / 600);
+          }
+        });
       });
 
       requestAnimationFrame(animate);

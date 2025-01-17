@@ -17,7 +17,7 @@ interface TechLogo {
   y: number;
   vx: number;
   vy: number;
-  Icon: React.ComponentType;
+  Icon: React.ComponentType<{ size?: number | string }>;
 }
 
 const NeuralNetwork = () => {
@@ -154,7 +154,7 @@ const NeuralNetwork = () => {
             animationDelay: `${index * 0.2}s`,
           }}
         >
-          <logo.Icon className="w-8 h-8" />
+          <logo.Icon size={32} />
         </div>
       ))}
     </div>

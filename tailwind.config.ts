@@ -58,7 +58,7 @@ export default {
       animation: {
         "fade-up": "fadeUp 0.5s ease-out forwards",
         "fade-down": "fadeDown 0.5s ease-out forwards",
-        "float": "float 3s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite",
       },
       keyframes: {
         fadeUp: {

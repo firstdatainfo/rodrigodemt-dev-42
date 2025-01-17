@@ -3,30 +3,31 @@ import { CircuitBoard, Cpu } from 'lucide-react';
 
 const ChipAnimation = () => {
   return (
-    <div className="absolute inset-0 w-full h-full">
+    <div className="absolute inset-0 w-full h-full overflow-hidden">
       {/* Partículas de fundo */}
       <div className="absolute inset-0 opacity-20">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <div
             key={i}
             className="absolute animate-float"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 2}s`,
+              animationDelay: `${Math.random() * 3}s`,
+              transform: `scale(${0.5 + Math.random() * 0.5})`,
             }}
           >
             {i % 2 === 0 ? (
-              <CircuitBoard className="w-8 h-8 text-white" />
+              <CircuitBoard className="w-8 h-8 text-white/50" />
             ) : (
-              <Cpu className="w-8 h-8 text-white" />
+              <Cpu className="w-8 h-8 text-white/50" />
             )}
           </div>
         ))}
       </div>
 
-      {/* Efeito de gradiente adicional */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/50" />
+      {/* Gradiente dinâmico */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-light to-primary opacity-90" />
     </div>
   );
 };

@@ -1,11 +1,13 @@
-import ChipAnimation from "./ChipAnimation";
 import { Button } from "./ui/button";
 import { Facebook, Twitter, Linkedin } from "lucide-react";
+import NeuralNetwork from "./NeuralNetwork";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-primary">
-      <ChipAnimation />
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
+      <div className="absolute inset-0 opacity-50">
+        <NeuralNetwork />
+      </div>
       
       <div className="container mx-auto px-4 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -15,8 +17,8 @@ const Hero = () => {
               data-aos="fade-up"
               data-aos-duration="800"
             >
-              <span className="bg-white/20 text-white px-4 py-1 rounded-full text-sm mr-3">Hot</span>
-              <span className="text-white/90 text-sm">Delivering Superior Services & IT Solutions</span>
+              <span className="bg-white/20 text-white px-4 py-1 rounded-full text-sm mr-3">New</span>
+              <span className="text-white/90 text-sm">Inteligência Artificial & Soluções Inovadoras</span>
             </div>
 
             <h1 
@@ -24,7 +26,7 @@ const Hero = () => {
               data-aos="fade-up"
               data-aos-duration="800"
             >
-              Providing The Best Services & IT Solutions
+              Transformando o Futuro com Inteligência Artificial
             </h1>
 
             <p 
@@ -32,7 +34,7 @@ const Hero = () => {
               data-aos="fade-up"
               data-aos-duration="800"
             >
-              Easily customize this template to your preferences. It's SEO-friendly and highly customizable for your unique needs.
+              Soluções avançadas de IA para impulsionar sua empresa ao próximo nível de inovação e eficiência.
             </p>
 
             <div 
@@ -41,10 +43,10 @@ const Hero = () => {
               data-aos-duration="800"
             >
               <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/20">
-                Get Started
+                Começar Agora
               </Button>
               <Button size="lg" className="bg-white text-primary hover:bg-white/90">
-                Get Quotes
+                Fale Conosco
               </Button>
             </div>
 
@@ -66,13 +68,13 @@ const Hero = () => {
           </div>
 
           <div 
-            className="hidden lg:block"
+            className="hidden lg:block relative"
             data-aos="fade-left"
             data-aos-duration="1000"
           >
             <img 
-              src="/lovable-uploads/3cd42689-d953-409e-be7c-a086e97c130a.png"
-              alt="AI Assistant"
+              src="/lovable-uploads/19c607c2-dd16-4d89-8f9c-3cf97ecabce4.png"
+              alt="AI Robot"
               className="w-full max-w-[600px] mx-auto animate-float"
             />
           </div>

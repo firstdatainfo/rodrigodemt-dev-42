@@ -9,7 +9,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 animate-bounce hover:animate-pulse transition-all duration-300">
+            <div className="w-10 h-10 animate-[bounce_2s_ease-in-out_infinite] hover:animate-pulse transition-all duration-300">
               <svg
                 viewBox="0 0 40 40"
                 fill="none"

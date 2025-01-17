@@ -47,6 +47,7 @@ const NeuralNetwork = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       
+      // Inicializar as logos com posições e velocidades aleatórias
       if (techLogosRef.current.length === 0) {
         techLogosRef.current = icons.map((Icon) => ({
           x: Math.random() * canvas.width,
@@ -126,13 +127,13 @@ const NeuralNetwork = () => {
         });
       });
 
-      // Atualizar movimento das logos usando a mesma lógica dos nós
+      // Atualizar movimento das logos
       techLogosRef.current.forEach(logo => {
-        // Aplicar a mesma velocidade e comportamento dos nós
+        // Atualizar posição
         logo.x += logo.vx;
         logo.y += logo.vy;
 
-        // Colisão com as bordas igual aos nós
+        // Verificar colisões com as bordas
         if (logo.x < 0 || logo.x > canvas.width - 32) {
           logo.vx *= -1;
         }
@@ -140,20 +141,26 @@ const NeuralNetwork = () => {
           logo.vy *= -1;
         }
 
-        // Conexões com nós próximos
+        // Desenhar conexões com nós próximos
         nodes.forEach(node => {
           const distance = Math.hypot(logo.x - node.x, logo.y - node.y);
           if (distance < 150) {
-            drawConnection(logo.x, logo.y, node.x, node.y, 0.5 - distance / 300);
+            drawConnection(logo.x + 16, logo.y + 16, node.x, node.y, 0.5 - distance / 300);
           }
         });
 
-        // Conexões entre logos próximas
+        // Desenhar conexões entre logos próximas
         techLogosRef.current.forEach(otherLogo => {
           if (logo === otherLogo) return;
           const distance = Math.hypot(logo.x - otherLogo.x, logo.y - otherLogo.y);
           if (distance < 200) {
-            drawConnection(logo.x, logo.y, otherLogo.x, otherLogo.y, 0.3 - distance / 600);
+            drawConnection(
+              logo.x + 16,
+              logo.y + 16,
+              otherLogo.x + 16,
+              otherLogo.y + 16,
+              0.3 - distance / 600
+            );
           }
         });
       });
@@ -178,7 +185,7 @@ const NeuralNetwork = () => {
       {techLogosRef.current.map((logo, index) => (
         <div
           key={index}
-          className="absolute text-white"
+          className="absolute text-white/90"
           style={{
             left: `${logo.x}px`,
             top: `${logo.y}px`,

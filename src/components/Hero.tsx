@@ -68,16 +68,18 @@ const Hero = () => {
           </div>
 
           <div 
-            className="hidden md:flex items-center justify-center relative h-full"
+            className="hidden md:flex items-center justify-center relative"
             data-aos="fade-left"
             data-aos-duration="1000"
           >
-            <img
-              src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
-              alt="AI Technology Visualization"
-              className="w-full h-auto max-w-[500px] animate-float object-contain"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-red-900/20 pointer-events-none" />
+            <div className="w-full h-full flex items-center justify-center py-8">
+              <img
+                src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
+                alt="AI Technology Visualization"
+                className="w-full h-auto max-w-[450px] animate-float object-contain"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-red-900/20 pointer-events-none" />
+            </div>
           </div>
         </div>
       </div>

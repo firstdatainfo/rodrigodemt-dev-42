@@ -68,17 +68,16 @@ const Hero = () => {
           </div>
 
           <div 
-            className="hidden md:block relative group"
+            className="hidden md:block relative"
             data-aos="fade-left"
             data-aos-duration="1000"
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
             <img
               src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
               alt="AI Technology Visualization"
-              className="relative w-full h-auto max-w-[600px] ml-auto rounded-lg shadow-2xl animate-float hover:scale-105 transition-transform duration-300 ease-in-out"
+              className="w-full h-auto max-w-[600px] ml-auto animate-float"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-900/20 to-red-900/30 rounded-lg pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-red-900/20 pointer-events-none" />
           </div>
         </div>
       </div>

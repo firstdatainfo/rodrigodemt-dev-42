@@ -10,7 +10,7 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-20">
-        <div className="grid grid-cols-1 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <div 
               className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full inline-flex items-center mb-6"
@@ -65,6 +65,19 @@ const Hero = () => {
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
+          </div>
+
+          <div 
+            className="hidden md:block relative"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
+            <img
+              src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
+              alt="AI Technology Visualization"
+              className="w-full h-auto max-w-[600px] ml-auto animate-float"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-red-900/20 pointer-events-none" />
           </div>
         </div>
       </div>

@@ -53,11 +53,11 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <div 
-              className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full inline-flex items-center mb-6"
+              className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full inline-flex items-center mb-6"
               data-aos="fade-up"
               data-aos-duration="800"
             >
-              <span className="bg-white/20 text-white px-4 py-1 rounded-full text-sm mr-3">New</span>
+              <span className="bg-white/30 text-white px-4 py-1 rounded-full text-sm mr-3">New</span>
               <span className="text-white/90 text-sm">Inteligência Artificial & Soluções Inovadoras</span>
             </div>
 
@@ -91,7 +91,7 @@ const Hero = () => {
             </div>
 
             <div 
-              className="flex justify-start gap-4 mb-8"
+              className="flex items-center gap-4 flex-wrap"
               data-aos="fade-up"
               data-aos-duration="800"
             >
@@ -104,13 +104,7 @@ const Hero = () => {
               <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
-            </div>
 
-            <div 
-              className="flex flex-wrap gap-4 items-center"
-              data-aos="fade-up"
-              data-aos-duration="800"
-            >
               {technologies.map((tech) => (
                 <div
                   key={tech.name}

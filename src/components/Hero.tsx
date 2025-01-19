@@ -30,20 +30,17 @@ const technologies = [
 const Hero = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
-      <div 
-        className="hidden md:flex items-center justify-end absolute inset-0"
-      >
+      <div className="hidden md:flex items-center justify-end absolute inset-0">
         <div className="flex items-center justify-end w-full">
           <img
             src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
             alt="AI Technology Visualization"
             className="w-full h-auto max-w-[400px] object-contain opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-red-900/20 pointer-events-none" />
         </div>
       </div>
 
-      <div className="absolute inset-0 opacity-50">
+      <div className="absolute inset-0">
         <NeuralNetwork />
       </div>
       

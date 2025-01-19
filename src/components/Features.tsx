@@ -54,7 +54,7 @@ const Features = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div 
-                className="w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto bg-gradient-to-r from-blue-500 to-blue-600"
+                className="w-16 h-16 rounded-full bg-gradient-to-r from-accent-foreground to-secondary flex items-center justify-center mb-4 mx-auto"
               >
                 <feature.icon 
                   className="w-8 h-8 text-white"

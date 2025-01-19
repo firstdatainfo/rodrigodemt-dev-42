@@ -9,7 +9,7 @@ const Hero = () => {
         <NeuralNetwork />
       </div>
       
-      <div className="container mx-auto px-4 relative z-20">
+      <div className="container mx-auto relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <div 
@@ -68,7 +68,7 @@ const Hero = () => {
           </div>
 
           <div 
-            className="hidden md:flex items-center justify-end relative"
+            className="hidden md:flex items-center justify-end relative -mr-8"
             data-aos="fade-left"
             data-aos-duration="1000"
           >
@@ -76,7 +76,7 @@ const Hero = () => {
               <img
                 src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
                 alt="AI Technology Visualization"
-                className="w-full h-auto max-w-[400px] object-contain"
+                className="w-full h-auto max-w-[500px] object-contain"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent to-red-900/20 pointer-events-none" />
             </div>

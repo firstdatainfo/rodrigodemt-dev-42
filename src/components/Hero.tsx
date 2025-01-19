@@ -5,6 +5,21 @@ import NeuralNetwork from "./NeuralNetwork";
 const Hero = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
+      <div 
+        className="hidden md:flex items-center justify-end absolute inset-0 opacity-30"
+        data-aos="fade-left"
+        data-aos-duration="1000"
+      >
+        <div className="flex items-center justify-end w-full">
+          <img
+            src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
+            alt="AI Technology Visualization"
+            className="w-full h-auto max-w-[400px] object-contain"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-red-900/20 pointer-events-none" />
+        </div>
+      </div>
+
       <div className="absolute inset-0 opacity-50">
         <NeuralNetwork />
       </div>
@@ -64,21 +79,6 @@ const Hero = () => {
               <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
-            </div>
-          </div>
-
-          <div 
-            className="hidden md:flex items-center justify-end relative -mr-8"
-            data-aos="fade-left"
-            data-aos-duration="1000"
-          >
-            <div className="flex items-center justify-end w-full">
-              <img
-                src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
-                alt="AI Technology Visualization"
-                className="w-full h-auto max-w-[500px] object-contain"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-red-900/20 pointer-events-none" />
             </div>
           </div>
         </div>

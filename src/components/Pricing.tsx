@@ -67,7 +67,7 @@ const plans = [
 
 const Pricing = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-primary to-blue-900">
+    <section className="py-12 bg-gradient-to-b from-primary to-blue-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">

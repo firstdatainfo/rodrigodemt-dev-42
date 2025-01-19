@@ -42,7 +42,7 @@ const portfolioItems = [
 
 const Portfolio = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-blue-900 to-primary">
+    <section className="py-12 bg-gradient-to-b from-blue-900 to-primary">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
           Portfólio

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const Contact = () => {
   return (
-    <section id="contato" className="py-20 bg-gradient-to-b from-primary to-primary-light">
+    <section id="contato" className="py-12 bg-gradient-to-b from-primary to-primary-light">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
           Entre em Contato

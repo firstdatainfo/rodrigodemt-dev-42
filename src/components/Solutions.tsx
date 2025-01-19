@@ -31,26 +31,26 @@ const solutions = [
 
 const Solutions = () => {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gradient-to-b from-accent-foreground to-primary">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
           Nossas Soluções
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {solutions.map((solution, index) => (
             <Card
               key={solution.title}
-              className="hover:shadow-lg transition-shadow duration-300 animate-fade-up"
+              className="glass-card animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardHeader>
-                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                  <solution.icon className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-accent-foreground/20 rounded-lg flex items-center justify-center mb-4">
+                  <solution.icon className="w-6 h-6 text-accent-foreground" />
                 </div>
-                <CardTitle className="text-xl">{solution.title}</CardTitle>
+                <CardTitle className="text-xl text-white">{solution.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-textGray">{solution.description}</p>
+                <p className="text-white/80">{solution.description}</p>
               </CardContent>
             </Card>
           ))}

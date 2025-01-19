@@ -30,8 +30,12 @@ export default {
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#8B5CF6",
+          foreground: "#D946EF",
+        },
+        accent: {
+          DEFAULT: "#F97316",
+          foreground: "#0EA5E9",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -40,10 +44,6 @@ export default {
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -54,6 +54,10 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         textGray: "#666666",
+        glass: {
+          DEFAULT: "rgba(255, 255, 255, 0.1)",
+          dark: "rgba(0, 0, 0, 0.1)",
+        },
       },
       animation: {
         "fade-up": "fadeUp 0.5s ease-out forwards",
@@ -83,6 +87,11 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(to right, #000B2E, #001F5C, #8B5CF6)',
+        'gradient-secondary': 'linear-gradient(to right, #8B5CF6, #D946EF)',
+        'gradient-accent': 'linear-gradient(to right, #F97316, #0EA5E9)',
       },
     },
   },

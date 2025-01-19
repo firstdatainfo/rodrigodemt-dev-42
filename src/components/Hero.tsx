@@ -31,9 +31,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
       <div 
-        className="hidden md:flex items-center justify-end absolute inset-0 opacity-30"
-        data-aos="fade-left"
-        data-aos-duration="1000"
+        className="hidden md:flex items-center justify-end absolute inset-0 opacity-30 transition-opacity duration-300"
       >
         <div className="flex items-center justify-end w-full">
           <img

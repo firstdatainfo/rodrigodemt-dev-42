@@ -9,7 +9,7 @@ const Contact = () => {
           Entre em Contato
         </h2>
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="space-y-6">
+          <div className="glass-card p-6 rounded-xl space-y-6">
             <h3 className="text-2xl font-semibold mb-4 text-white">Vamos conversar sobre seu projeto</h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
@@ -30,7 +30,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="glass-card p-6 rounded-lg">
+          <div className="glass-card p-6 rounded-xl">
             <form className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-white">

@@ -38,21 +38,17 @@ const Solutions = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {solutions.map((solution, index) => (
-            <Card
+            <div
               key={solution.title}
-              className="glass-card animate-fade-up"
+              className="glass-card p-6 rounded-xl animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <CardHeader>
-                <div className="w-12 h-12 bg-accent-foreground/20 rounded-lg flex items-center justify-center mb-4">
-                  <solution.icon className="w-6 h-6 text-accent-foreground" />
-                </div>
-                <CardTitle className="text-xl text-white">{solution.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-white/80">{solution.description}</p>
-              </CardContent>
-            </Card>
+              <div className="w-16 h-16 rounded-full bg-accent-foreground/20 flex items-center justify-center mb-4 mx-auto">
+                <solution.icon className="w-8 h-8 text-accent-foreground" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4 text-white text-center">{solution.title}</h3>
+              <p className="text-white/80 text-center">{solution.description}</p>
+            </div>
           ))}
         </div>
       </div>

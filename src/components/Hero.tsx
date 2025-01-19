@@ -68,11 +68,11 @@ const Hero = () => {
           </div>
 
           <div 
-            className="hidden md:block relative"
+            className="hidden md:flex items-center justify-end relative"
             data-aos="fade-left"
             data-aos-duration="1000"
           >
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-end w-full">
               <img
                 src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
                 alt="AI Technology Visualization"

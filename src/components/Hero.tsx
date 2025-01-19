@@ -53,12 +53,12 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <div 
-              className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full inline-flex items-center mb-6"
+              className="bg-white/40 backdrop-blur-sm px-4 py-2 rounded-full inline-flex items-center mb-6"
               data-aos="fade-up"
               data-aos-duration="800"
             >
-              <span className="bg-white/30 text-white px-4 py-1 rounded-full text-sm mr-3">New</span>
-              <span className="text-white/90 text-sm">Inteligência Artificial & Soluções Inovadoras</span>
+              <span className="bg-white/50 text-white px-4 py-1 rounded-full text-sm mr-3">New</span>
+              <span className="text-white text-sm">Inteligência Artificial & Soluções Inovadoras</span>
             </div>
 
             <h1 
@@ -91,7 +91,7 @@ const Hero = () => {
             </div>
 
             <div 
-              className="flex items-center gap-4 flex-wrap"
+              className="flex items-center gap-4"
               data-aos="fade-up"
               data-aos-duration="800"
             >

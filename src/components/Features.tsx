@@ -50,16 +50,14 @@ const Features = () => {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className="glass-card p-6 rounded-xl animate-fade-up"
+              className="glass-effect p-6 rounded-xl hover:bg-white/5 transition-all duration-300 animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div 
-                className="w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto transition-transform hover:scale-110 duration-300"
-                style={{ backgroundColor: `${feature.color}20` }}
+                className="w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto bg-gradient-to-r from-blue-500 to-blue-600"
               >
                 <feature.icon 
-                  className="w-8 h-8 transition-colors duration-300"
-                  style={{ color: feature.color }}
+                  className="w-8 h-8 text-white"
                 />
               </div>
               <h3 className="text-xl font-semibold mb-2 text-white text-center">{feature.title}</h3>

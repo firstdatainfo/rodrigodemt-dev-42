@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Building2, Store, Home, Factory, Cpu } from "lucide-react";
 
 const solutions = [
@@ -36,15 +35,15 @@ const Solutions = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
           Nossas Soluções
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {solutions.map((solution, index) => (
             <div
               key={solution.title}
-              className="glass-card p-6 rounded-xl animate-fade-up"
+              className="glass-effect p-6 rounded-xl hover:bg-white/5 transition-all duration-300 animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-16 h-16 rounded-full bg-accent-foreground/20 flex items-center justify-center mb-4 mx-auto">
-                <solution.icon className="w-8 h-8 text-accent-foreground" />
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mb-4 mx-auto">
+                <solution.icon className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-4 text-white text-center">{solution.title}</h3>
               <p className="text-white/80 text-center">{solution.description}</p>

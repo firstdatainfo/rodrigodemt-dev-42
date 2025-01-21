@@ -14,7 +14,6 @@ import {
   SiFigma,
 } from "react-icons/si";
 
-// Removendo as tecnologias duplicadas, mantendo apenas uma lista
 const technologies = [
   { name: "Node.js", icon: SiNodedotjs },
   { name: "React", icon: SiReact },
@@ -35,7 +34,7 @@ const Hero = () => {
         <img
           src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
           alt="AI Technology Visualization"
-          className="w-full h-full object-cover"
+          className="w-full h-[90vh] object-cover object-bottom"
           style={{ position: 'absolute', bottom: 0 }}
         />
       </div>
@@ -69,7 +68,7 @@ const Hero = () => {
               </Button>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 mb-6">
               <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
@@ -79,6 +78,18 @@ const Hero = () => {
               <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              {technologies.map((tech) => (
+                <div
+                  key={tech.name}
+                  className="flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full w-10 h-10 transition-colors"
+                  title={tech.name}
+                >
+                  <tech.icon className="w-5 h-5 text-white" />
+                </div>
+              ))}
             </div>
           </div>
         </div>

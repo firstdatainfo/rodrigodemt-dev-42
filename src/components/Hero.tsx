@@ -30,12 +30,12 @@ const technologies = [
 const Hero = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
-      <div className="hidden md:block absolute inset-0 bottom-0">
+      <div className="hidden md:block absolute inset-0">
         <img
           src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
           alt="AI Technology Visualization"
-          className="w-full h-auto object-contain"
-          style={{ position: 'absolute', bottom: 0, opacity: 1 }}
+          className="w-full h-full object-cover"
+          style={{ position: 'absolute', bottom: 0 }}
         />
       </div>
 

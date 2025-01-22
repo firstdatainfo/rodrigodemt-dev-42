@@ -102,7 +102,7 @@ const SistemaErp = () => {
               <p className="text-xl text-white mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
                 Transforme sua gestão empresarial com nossa solução integrada e moderna
               </p>
-              <div className="flex items-center gap-8">
+              <div className="flex flex-col md:flex-row items-center gap-8">
                 <Button
                   size="lg"
                   className="bg-white text-primary hover:bg-white/90 animate-fade-up"
@@ -111,16 +111,16 @@ const SistemaErp = () => {
                 >
                   Solicitar Demonstração
                 </Button>
-                <div className="flex gap-4">
+                <div className="flex gap-4 items-center">
                   <img
                     src="/lovable-uploads/bdc9b654-0bf9-46a1-8aa1-08fcdcd5baee.png"
                     alt="First Tickets Device 1"
-                    className="w-48 h-auto object-contain"
+                    className="w-32 h-auto object-contain"
                   />
                   <img
                     src="/lovable-uploads/280b36d6-3e6c-4f4c-be94-2471e02a8260.png"
                     alt="First Tickets Device 2"
-                    className="w-48 h-auto object-contain"
+                    className="w-32 h-auto object-contain"
                   />
                 </div>
               </div>

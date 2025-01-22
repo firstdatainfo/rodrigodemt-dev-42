@@ -84,7 +84,7 @@ const SistemaErp = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary via-primary-light to-secondary relative">
+    <div className="min-h-screen bg-gradient-to-b from-[#8B5CF6] via-[#D946EF] to-[#0EA5E9] relative">
       {/* Background Neural Network */}
       <div className="absolute inset-0 opacity-20">
         <NeuralNetwork />
@@ -102,21 +102,12 @@ const SistemaErp = () => {
               </p>
               <Button
                 size="lg"
-                className="bg-white text-primary hover:bg-white/90 animate-fade-up"
+                className="bg-white text-[#8B5CF6] hover:bg-white/90 animate-fade-up"
                 style={{ animationDelay: "0.4s" }}
                 onClick={handleDemoRequest}
               >
                 Solicitar Demonstração
               </Button>
-            </div>
-            <div className="flex-1 relative w-full max-w-2xl">
-              <div className="relative z-10 p-6">
-                <img
-                  src="/lovable-uploads/29f32a30-4b59-40fb-b6c1-a86d9887d1c3.png"
-                  alt="ERP System"
-                  className="w-full h-auto rounded-lg shadow-xl animate-float"
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -131,7 +122,7 @@ const SistemaErp = () => {
                 key={index}
                 className="p-6 bg-white/10 backdrop-blur-lg rounded-xl shadow-lg hover:shadow-xl transition-shadow"
               >
-                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4 text-white">
                   {module.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{module.title}</h3>
@@ -151,7 +142,7 @@ const SistemaErp = () => {
                 key={index}
                 className="p-6 bg-white/10 backdrop-blur-lg rounded-xl shadow-lg hover:shadow-xl transition-shadow"
               >
-                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4 text-white">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
@@ -174,7 +165,7 @@ const SistemaErp = () => {
               <Button
                 size="lg"
                 variant="secondary"
-                className="bg-white text-primary hover:bg-gray-100"
+                className="bg-white text-[#8B5CF6] hover:bg-gray-100"
                 onClick={handleDemoRequest}
               >
                 <PhoneCall className="w-4 h-4 mr-2" />

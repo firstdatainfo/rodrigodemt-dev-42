@@ -7,6 +7,10 @@ import {
   DollarSign, 
   Users, 
   FileText, 
+  Database,
+  Ticket,
+  Car,
+  Receipt,
   Factory,
   Shield,
   Clock,
@@ -18,32 +22,32 @@ import NeuralNetwork from "@/components/NeuralNetwork";
 
 const modules = [
     {
-      icon: <Box className="w-6 h-6" />,
+      icon: <Box className="w-6 h-6 text-blue-500" />,
       title: "Gestão de Estoque",
       description: "Controle completo de produtos, entradas, saídas e inventário"
     },
     {
-      icon: <DollarSign className="w-6 h-6" />,
+      icon: <DollarSign className="w-6 h-6 text-green-500" />,
       title: "Financeiro",
       description: "Contas a pagar, receber, fluxo de caixa e conciliação bancária"
     },
     {
-      icon: <ClipboardCheck className="w-6 h-6" />,
+      icon: <ClipboardCheck className="w-6 h-6 text-purple-500" />,
       title: "Vendas",
       description: "PDV, orçamentos, pedidos e acompanhamento de vendas"
     },
     {
-      icon: <Users className="w-6 h-6" />,
+      icon: <Users className="w-6 h-6 text-yellow-500" />,
       title: "Recursos Humanos",
       description: "Gestão de funcionários, folha de pagamento e ponto eletrônico"
     },
     {
-      icon: <FileText className="w-6 h-6" />,
+      icon: <FileText className="w-6 h-6 text-red-500" />,
       title: "Fiscal",
       description: "Emissão de NF-e, NFC-e, controle de impostos e obrigações"
     },
     {
-      icon: <BarChart3 className="w-6 h-6" />,
+      icon: <BarChart3 className="w-6 h-6 text-indigo-500" />,
       title: "Relatórios",
       description: "Dashboards e relatórios personalizados para tomada de decisão"
     }
@@ -51,24 +55,24 @@ const modules = [
 
 const features = [
     {
-      icon: <Factory className="w-6 h-6" />,
-      title: "Integração Total",
-      description: "Todos os módulos integrados em tempo real"
+      icon: <Database className="w-6 h-6 text-blue-500" />,
+      title: "Sistema de gestão ERP em nuvem",
+      description: "Facilita o seu negócio e a sua vida"
     },
     {
-      icon: <Shield className="w-6 h-6" />,
-      title: "Segurança",
-      description: "Proteção de dados e backup automático"
+      icon: <Ticket className="w-6 h-6 text-purple-500" />,
+      title: "Sistema para Eventos",
+      description: "Bilheterias, bares, shows, boates, parques, cinema"
     },
     {
-      icon: <Clock className="w-6 h-6" />,
-      title: "Disponibilidade",
-      description: "Acesso 24/7 de qualquer dispositivo"
+      icon: <Car className="w-6 h-6 text-green-500" />,
+      title: "Sistema para estacionamentos",
+      description: "Gestão completa do seu estacionamento"
     },
     {
-      icon: <Zap className="w-6 h-6" />,
-      title: "Performance",
-      description: "Sistema rápido e otimizado"
+      icon: <Receipt className="w-6 h-6 text-orange-500" />,
+      title: "Sistema de emissão de notas",
+      description: "Emissão e gestão de notas fiscais"
     }
 ];
 
@@ -84,23 +88,8 @@ const SistemaErp = () => {
 
   return (
     <div className="min-h-screen bg-gradient-primary relative">
-      {/* Background Neural Network */}
       <div className="absolute inset-0 opacity-60">
         <NeuralNetwork />
-      </div>
-
-      {/* Images Container - Fixed position on the right */}
-      <div className="fixed right-8 top-24 z-20 flex gap-4">
-        <img
-          src="/lovable-uploads/bdc9b654-0bf9-46a1-8aa1-08fcdcd5baee.png"
-          alt="First Tickets Device 1"
-          className="w-64 h-auto object-contain"
-        />
-        <img
-          src="/lovable-uploads/280b36d6-3e6c-4f4c-be94-2471e02a8260.png"
-          alt="First Tickets Device 2"
-          className="w-64 h-auto object-contain"
-        />
       </div>
 
       <section className="relative pt-20 pb-32 overflow-hidden">
@@ -113,14 +102,28 @@ const SistemaErp = () => {
               <p className="text-xl text-white mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
                 Transforme sua gestão empresarial com nossa solução integrada e moderna
               </p>
-              <Button
-                size="lg"
-                className="bg-white text-primary hover:bg-white/90 animate-fade-up"
-                style={{ animationDelay: "0.4s" }}
-                onClick={handleDemoRequest}
-              >
-                Solicitar Demonstração
-              </Button>
+              <div className="flex items-center gap-8">
+                <Button
+                  size="lg"
+                  className="bg-white text-primary hover:bg-white/90 animate-fade-up"
+                  style={{ animationDelay: "0.4s" }}
+                  onClick={handleDemoRequest}
+                >
+                  Solicitar Demonstração
+                </Button>
+                <div className="flex gap-4">
+                  <img
+                    src="/lovable-uploads/bdc9b654-0bf9-46a1-8aa1-08fcdcd5baee.png"
+                    alt="First Tickets Device 1"
+                    className="w-48 h-auto object-contain"
+                  />
+                  <img
+                    src="/lovable-uploads/280b36d6-3e6c-4f4c-be94-2471e02a8260.png"
+                    alt="First Tickets Device 2"
+                    className="w-48 h-auto object-contain"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -135,7 +138,7 @@ const SistemaErp = () => {
                 key={index}
                 className="p-6 glass-card rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-white/30 rounded-lg flex items-center justify-center mb-4 text-white">
+                <div className="w-12 h-12 bg-white/30 rounded-lg flex items-center justify-center mb-4">
                   {module.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{module.title}</h3>
@@ -148,14 +151,14 @@ const SistemaErp = () => {
 
       <section className="py-20 relative z-10">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-white">Diferenciais</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-white">Soluções</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <div
                 key={index}
                 className="p-6 glass-card rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-white/30 rounded-lg flex items-center justify-center mb-4 text-white">
+                <div className="w-12 h-12 bg-white/30 rounded-lg flex items-center justify-center mb-4">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>

@@ -12,48 +12,38 @@ import {
   Clock,
   Zap,
   CheckCircle2,
-  PhoneCall,
-  Cloud,
-  Ticket,
-  Car,
-  Receipt,
-  Package,
-  Wallet,
-  UserCheck,
-  FileSpreadsheet,
-  BarChart4,
-  Building2
+  PhoneCall
 } from "lucide-react";
 import NeuralNetwork from "@/components/NeuralNetwork";
 
 const modules = [
     {
-      icon: <Package className="w-8 h-8 text-accent-foreground" />,
+      icon: <Box className="w-6 h-6" />,
       title: "Gestão de Estoque",
       description: "Controle completo de produtos, entradas, saídas e inventário"
     },
     {
-      icon: <Wallet className="w-8 h-8 text-secondary" />,
+      icon: <DollarSign className="w-6 h-6" />,
       title: "Financeiro",
       description: "Contas a pagar, receber, fluxo de caixa e conciliação bancária"
     },
     {
-      icon: <Building2 className="w-8 h-8 text-accent" />,
+      icon: <ClipboardCheck className="w-6 h-6" />,
       title: "Vendas",
       description: "PDV, orçamentos, pedidos e acompanhamento de vendas"
     },
     {
-      icon: <UserCheck className="w-8 h-8 text-secondary-foreground" />,
+      icon: <Users className="w-6 h-6" />,
       title: "Recursos Humanos",
       description: "Gestão de funcionários, folha de pagamento e ponto eletrônico"
     },
     {
-      icon: <FileSpreadsheet className="w-8 h-8 text-accent-foreground" />,
+      icon: <FileText className="w-6 h-6" />,
       title: "Fiscal",
       description: "Emissão de NF-e, NFC-e, controle de impostos e obrigações"
     },
     {
-      icon: <BarChart4 className="w-8 h-8 text-secondary" />,
+      icon: <BarChart3 className="w-6 h-6" />,
       title: "Relatórios",
       description: "Dashboards e relatórios personalizados para tomada de decisão"
     }
@@ -82,29 +72,6 @@ const features = [
     }
 ];
 
-const solutions = [
-  {
-    icon: <Cloud className="w-6 h-6 text-secondary" />,
-    title: "Sistema de gestão ERP em nuvem",
-    description: "que facilita o seu negócio e a sua vida"
-  },
-  {
-    icon: <Ticket className="w-6 h-6 text-accent" />,
-    title: "Sistema para Eventos",
-    description: "(bilheterias, bares, shows, boates, parques, cinema)"
-  },
-  {
-    icon: <Car className="w-6 h-6 text-secondary-foreground" />,
-    title: "Sistema para estacionamentos",
-    description: "Gestão completa do seu estacionamento"
-  },
-  {
-    icon: <Receipt className="w-6 h-6 text-accent-foreground" />,
-    title: "Sistema de emissão de notas",
-    description: "Emissão e gestão de notas fiscais"
-  }
-];
-
 const SistemaErp = () => {
   const { toast } = useToast();
 
@@ -122,6 +89,20 @@ const SistemaErp = () => {
         <NeuralNetwork />
       </div>
 
+      {/* Images Container - Fixed position on the right */}
+      <div className="fixed right-8 top-24 z-20 flex gap-4">
+        <img
+          src="/lovable-uploads/bdc9b654-0bf9-46a1-8aa1-08fcdcd5baee.png"
+          alt="First Tickets Device 1"
+          className="w-64 h-auto object-contain"
+        />
+        <img
+          src="/lovable-uploads/280b36d6-3e6c-4f4c-be94-2471e02a8260.png"
+          alt="First Tickets Device 2"
+          className="w-64 h-auto object-contain"
+        />
+      </div>
+
       <section className="relative pt-20 pb-32 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -129,48 +110,17 @@ const SistemaErp = () => {
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white animate-fade-up">
                 Sistema ERP Completo para sua Empresa
               </h1>
-              
-              {/* Solutions with Icons */}
-              <div className="space-y-4 mb-8">
-                {solutions.map((solution, index) => (
-                  <div 
-                    key={index} 
-                    className="flex items-center gap-3 animate-fade-up"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className="bg-white/10 p-2 rounded-lg">
-                      {solution.icon}
-                    </div>
-                    <div className="text-left">
-                      <h3 className="text-white font-semibold">{solution.title}</h3>
-                      <p className="text-white/80 text-sm">{solution.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Images and Button Container */}
-              <div className="flex items-center gap-6 justify-center lg:justify-start animate-fade-up">
-                <div className="flex gap-4">
-                  <img
-                    src="/lovable-uploads/bdc9b654-0bf9-46a1-8aa1-08fcdcd5baee.png"
-                    alt="First Tickets Device 1"
-                    className="w-32 h-auto object-contain"
-                  />
-                  <img
-                    src="/lovable-uploads/280b36d6-3e6c-4f4c-be94-2471e02a8260.png"
-                    alt="First Tickets Device 2"
-                    className="w-32 h-auto object-contain"
-                  />
-                </div>
-                <Button
-                  size="lg"
-                  className="bg-white text-primary hover:bg-white/90"
-                  onClick={handleDemoRequest}
-                >
-                  Solicitar Demonstração
-                </Button>
-              </div>
+              <p className="text-xl text-white mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+                Transforme sua gestão empresarial com nossa solução integrada e moderna
+              </p>
+              <Button
+                size="lg"
+                className="bg-white text-primary hover:bg-white/90 animate-fade-up"
+                style={{ animationDelay: "0.4s" }}
+                onClick={handleDemoRequest}
+              >
+                Solicitar Demonstração
+              </Button>
             </div>
           </div>
         </div>
@@ -185,7 +135,7 @@ const SistemaErp = () => {
                 key={index}
                 className="p-6 glass-card rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-white/30 rounded-lg flex items-center justify-center mb-4 text-white">
                   {module.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{module.title}</h3>

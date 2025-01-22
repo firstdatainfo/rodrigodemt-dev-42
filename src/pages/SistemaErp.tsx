@@ -15,7 +15,7 @@ import {
   CheckCircle2,
   PhoneCall
 } from "lucide-react";
-import HumanoidAnimation from "@/components/HumanoidAnimation";
+import ChipAnimation from "@/components/ChipAnimation";
 
 const SistemaErp = () => {
   const { toast } = useToast();
@@ -105,7 +105,7 @@ const SistemaErp = () => {
               </Button>
             </div>
             <div className="flex-1 w-full max-w-2xl animate-fade-up" style={{ animationDelay: "0.6s" }}>
-              <HumanoidAnimation />
+              <ChipAnimation />
             </div>
           </div>
         </div>

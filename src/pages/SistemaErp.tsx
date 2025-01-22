@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import NeuralNetwork from "@/components/NeuralNetwork";
 
-  const modules = [
+const modules = [
     {
       icon: <Box className="w-6 h-6" />,
       title: "Gestão de Estoque",
@@ -47,9 +47,9 @@ import NeuralNetwork from "@/components/NeuralNetwork";
       title: "Relatórios",
       description: "Dashboards e relatórios personalizados para tomada de decisão"
     }
-  ];
+];
 
-  const features = [
+const features = [
     {
       icon: <Factory className="w-6 h-6" />,
       title: "Integração Total",
@@ -70,7 +70,7 @@ import NeuralNetwork from "@/components/NeuralNetwork";
       title: "Performance",
       description: "Sistema rápido e otimizado"
     }
-  ];
+];
 
 const SistemaErp = () => {
   const { toast } = useToast();
@@ -87,6 +87,20 @@ const SistemaErp = () => {
       {/* Background Neural Network */}
       <div className="absolute inset-0 opacity-60">
         <NeuralNetwork />
+      </div>
+
+      {/* Images Container - Fixed position on the right */}
+      <div className="fixed right-8 top-24 z-20 flex gap-4">
+        <img
+          src="/lovable-uploads/bdc9b654-0bf9-46a1-8aa1-08fcdcd5baee.png"
+          alt="First Tickets Device 1"
+          className="w-64 h-auto object-contain"
+        />
+        <img
+          src="/lovable-uploads/280b36d6-3e6c-4f4c-be94-2471e02a8260.png"
+          alt="First Tickets Device 2"
+          className="w-64 h-auto object-contain"
+        />
       </div>
 
       <section className="relative pt-20 pb-32 overflow-hidden">
@@ -121,11 +135,11 @@ const SistemaErp = () => {
                 key={index}
                 className="p-6 glass-card rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-white/40 rounded-lg flex items-center justify-center mb-4 text-white">
+                <div className="w-12 h-12 bg-white/30 rounded-lg flex items-center justify-center mb-4 text-white">
                   {module.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{module.title}</h3>
-                <p className="text-white">{module.description}</p>
+                <p className="text-white/90">{module.description}</p>
               </div>
             ))}
           </div>
@@ -141,11 +155,11 @@ const SistemaErp = () => {
                 key={index}
                 className="p-6 glass-card rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-white/40 rounded-lg flex items-center justify-center mb-4 text-white">
+                <div className="w-12 h-12 bg-white/30 rounded-lg flex items-center justify-center mb-4 text-white">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
-                <p className="text-white">{feature.description}</p>
+                <p className="text-white/90">{feature.description}</p>
               </div>
             ))}
           </div>

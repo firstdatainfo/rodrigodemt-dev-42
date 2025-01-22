@@ -17,16 +17,6 @@ import {
 } from "lucide-react";
 import NeuralNetwork from "@/components/NeuralNetwork";
 
-const SistemaErp = () => {
-  const { toast } = useToast();
-
-  const handleDemoRequest = () => {
-    toast({
-      title: "Solicitação Recebida!",
-      description: "Em breve nossa equipe entrará em contato.",
-    });
-  };
-
   const modules = [
     {
       icon: <Box className="w-6 h-6" />,
@@ -83,10 +73,20 @@ const SistemaErp = () => {
     }
   ];
 
+const SistemaErp = () => {
+  const { toast } = useToast();
+
+  const handleDemoRequest = () => {
+    toast({
+      title: "Solicitação Recebida!",
+      description: "Em breve nossa equipe entrará em contato.",
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#8B5CF6] via-[#D946EF] to-[#0EA5E9] relative">
       {/* Background Neural Network */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-40">
         <NeuralNetwork />
       </div>
 
@@ -97,7 +97,7 @@ const SistemaErp = () => {
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white animate-fade-up">
                 Sistema ERP Completo para sua Empresa
               </h1>
-              <p className="text-xl text-white/80 mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+              <p className="text-xl text-white/90 mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
                 Transforme sua gestão empresarial com nossa solução integrada e moderna
               </p>
               <Button
@@ -120,13 +120,13 @@ const SistemaErp = () => {
             {modules.map((module, index) => (
               <div
                 key={index}
-                className="p-6 bg-white/10 backdrop-blur-lg rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                className="p-6 bg-white/20 backdrop-blur-lg rounded-xl shadow-lg hover:shadow-xl transition-shadow hover:bg-white/30"
               >
-                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4 text-white">
+                <div className="w-12 h-12 bg-white/30 rounded-lg flex items-center justify-center mb-4 text-white">
                   {module.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{module.title}</h3>
-                <p className="text-white/80">{module.description}</p>
+                <p className="text-white/90">{module.description}</p>
               </div>
             ))}
           </div>
@@ -140,13 +140,13 @@ const SistemaErp = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="p-6 bg-white/10 backdrop-blur-lg rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                className="p-6 bg-white/20 backdrop-blur-lg rounded-xl shadow-lg hover:shadow-xl transition-shadow hover:bg-white/30"
               >
-                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4 text-white">
+                <div className="w-12 h-12 bg-white/30 rounded-lg flex items-center justify-center mb-4 text-white">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
-                <p className="text-white/80">{feature.description}</p>
+                <p className="text-white/90">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -155,9 +155,9 @@ const SistemaErp = () => {
 
       <section className="py-20 relative z-10">
         <div className="container mx-auto px-4">
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 lg:p-12 text-center">
+          <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-8 lg:p-12 text-center">
             <h2 className="text-3xl font-bold mb-6 text-white">Pronto para Começar?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto text-white/80">
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-white/90">
               Agende uma demonstração gratuita e descubra como nosso sistema pode
               transformar sua empresa
             </p>

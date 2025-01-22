@@ -79,8 +79,8 @@ export default {
           "50%": { transform: "translateY(-20px)" },
         },
         pulse: {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: ".5" },
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.05)" },
         },
       },
       borderRadius: {

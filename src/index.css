@@ -94,11 +94,11 @@
   }
 
   .glass-effect {
-    @apply bg-glass backdrop-blur-lg border border-white/20;
+    @apply bg-white/20 backdrop-blur-lg border border-white/20;
   }
 
   .glass-card {
-    @apply glass-effect hover:bg-glass/20 transition-all duration-300;
+    @apply glass-effect hover:bg-white/30 transition-all duration-300;
   }
 
   .gradient-text {

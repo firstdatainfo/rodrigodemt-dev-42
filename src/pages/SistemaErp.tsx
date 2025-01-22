@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { 
@@ -84,9 +83,9 @@ const SistemaErp = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#8B5CF6] via-[#D946EF] to-[#0EA5E9] relative">
+    <div className="min-h-screen bg-gradient-to-br from-[#8B5CF6] via-[#D946EF] to-[#0EA5E9] relative">
       {/* Background Neural Network */}
-      <div className="absolute inset-0 opacity-40">
+      <div className="absolute inset-0 opacity-60">
         <NeuralNetwork />
       </div>
 
@@ -97,7 +96,7 @@ const SistemaErp = () => {
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white animate-fade-up">
                 Sistema ERP Completo para sua Empresa
               </h1>
-              <p className="text-xl text-white/90 mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+              <p className="text-xl text-white mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
                 Transforme sua gestão empresarial com nossa solução integrada e moderna
               </p>
               <Button
@@ -120,13 +119,13 @@ const SistemaErp = () => {
             {modules.map((module, index) => (
               <div
                 key={index}
-                className="p-6 bg-white/20 backdrop-blur-lg rounded-xl shadow-lg hover:shadow-xl transition-shadow hover:bg-white/30"
+                className="p-6 glass-card rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-white/30 rounded-lg flex items-center justify-center mb-4 text-white">
+                <div className="w-12 h-12 bg-white/40 rounded-lg flex items-center justify-center mb-4 text-white">
                   {module.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{module.title}</h3>
-                <p className="text-white/90">{module.description}</p>
+                <p className="text-white">{module.description}</p>
               </div>
             ))}
           </div>
@@ -140,13 +139,13 @@ const SistemaErp = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="p-6 bg-white/20 backdrop-blur-lg rounded-xl shadow-lg hover:shadow-xl transition-shadow hover:bg-white/30"
+                className="p-6 glass-card rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-white/30 rounded-lg flex items-center justify-center mb-4 text-white">
+                <div className="w-12 h-12 bg-white/40 rounded-lg flex items-center justify-center mb-4 text-white">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
-                <p className="text-white/90">{feature.description}</p>
+                <p className="text-white">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -155,9 +154,9 @@ const SistemaErp = () => {
 
       <section className="py-20 relative z-10">
         <div className="container mx-auto px-4">
-          <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-8 lg:p-12 text-center">
+          <div className="glass-card rounded-2xl p-8 lg:p-12 text-center">
             <h2 className="text-3xl font-bold mb-6 text-white">Pronto para Começar?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto text-white/90">
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-white">
               Agende uma demonstração gratuita e descubra como nosso sistema pode
               transformar sua empresa
             </p>

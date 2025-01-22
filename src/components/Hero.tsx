@@ -34,7 +34,7 @@ const Hero = () => {
         <img
           src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
           alt="AI Technology Visualization"
-          className="w-full h-[70vh] object-contain object-right-top"
+          className="w-full h-full object-contain object-right"
           style={{ position: 'absolute', top: 0, right: 0 }}
         />
       </div>

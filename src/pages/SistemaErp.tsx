@@ -84,20 +84,25 @@ const SistemaErp = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-primary via-primary-light to-secondary relative">
+      {/* Background Neural Network */}
+      <div className="absolute inset-0 opacity-20">
+        <NeuralNetwork />
+      </div>
+
       <section className="relative pt-20 pb-32 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 text-center lg:text-left z-10">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light animate-fade-up">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white animate-fade-up">
                 Sistema ERP Completo para sua Empresa
               </h1>
-              <p className="text-xl text-gray-600 mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+              <p className="text-xl text-white/80 mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
                 Transforme sua gestão empresarial com nossa solução integrada e moderna
               </p>
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary-light animate-fade-up"
+                className="bg-white text-primary hover:bg-white/90 animate-fade-up"
                 style={{ animationDelay: "0.4s" }}
                 onClick={handleDemoRequest}
               >
@@ -105,9 +110,6 @@ const SistemaErp = () => {
               </Button>
             </div>
             <div className="flex-1 relative w-full max-w-2xl">
-              <div className="absolute inset-0 z-0">
-                <NeuralNetwork />
-              </div>
               <div className="relative z-10 p-6">
                 <img
                   src="/lovable-uploads/29f32a30-4b59-40fb-b6c1-a86d9887d1c3.png"
@@ -120,51 +122,51 @@ const SistemaErp = () => {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-20 relative z-10">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Módulos Principais</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-white">Módulos Principais</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {modules.map((module, index) => (
               <div
                 key={index}
-                className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                className="p-6 bg-white/10 backdrop-blur-lg rounded-xl shadow-lg hover:shadow-xl transition-shadow"
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
                   {module.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{module.title}</h3>
-                <p className="text-gray-600">{module.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-white">{module.title}</h3>
+                <p className="text-white/80">{module.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 relative z-10">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Diferenciais</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-white">Diferenciais</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                className="p-6 bg-white/10 backdrop-blur-lg rounded-xl shadow-lg hover:shadow-xl transition-shadow"
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
+                <p className="text-white/80">{feature.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-20 relative z-10">
         <div className="container mx-auto px-4">
-          <div className="bg-primary rounded-2xl p-8 lg:p-12 text-white text-center">
-            <h2 className="text-3xl font-bold mb-6">Pronto para Começar?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 lg:p-12 text-center">
+            <h2 className="text-3xl font-bold mb-6 text-white">Pronto para Começar?</h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-white/80">
               Agende uma demonstração gratuita e descubra como nosso sistema pode
               transformar sua empresa
             </p>

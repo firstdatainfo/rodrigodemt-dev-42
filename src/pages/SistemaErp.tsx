@@ -15,7 +15,7 @@ import {
   CheckCircle2,
   PhoneCall
 } from "lucide-react";
-import ChipAnimation from "@/components/ChipAnimation";
+import NeuralNetwork from "@/components/NeuralNetwork";
 
 const SistemaErp = () => {
   const { toast } = useToast();
@@ -88,7 +88,7 @@ const SistemaErp = () => {
       <section className="relative pt-20 pb-32 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="flex-1 text-center lg:text-left">
+            <div className="flex-1 text-center lg:text-left z-10">
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light animate-fade-up">
                 Sistema ERP Completo para sua Empresa
               </h1>
@@ -104,8 +104,17 @@ const SistemaErp = () => {
                 Solicitar Demonstração
               </Button>
             </div>
-            <div className="flex-1 w-full max-w-2xl animate-fade-up" style={{ animationDelay: "0.6s" }}>
-              <ChipAnimation />
+            <div className="flex-1 relative w-full max-w-2xl">
+              <div className="absolute inset-0 z-0">
+                <NeuralNetwork />
+              </div>
+              <div className="relative z-10 p-6">
+                <img
+                  src="/lovable-uploads/29f32a30-4b59-40fb-b6c1-a86d9887d1c3.png"
+                  alt="ERP System"
+                  className="w-full h-auto rounded-lg shadow-xl animate-float"
+                />
+              </div>
             </div>
           </div>
         </div>

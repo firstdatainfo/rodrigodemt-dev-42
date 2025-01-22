@@ -84,6 +84,20 @@
   }
 }
 
+@layer components {
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 hover:bg-white/20 transition-all duration-300;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-secondary;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -91,17 +105,5 @@
 
   body {
     @apply bg-background text-foreground;
-  }
-
-  .glass-effect {
-    @apply bg-glass backdrop-blur-lg border border-white/20;
-  }
-
-  .glass-card {
-    @apply glass-effect hover:bg-glass/20 transition-all duration-300;
-  }
-
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-secondary;
   }
 }

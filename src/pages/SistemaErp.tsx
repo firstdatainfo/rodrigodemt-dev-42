@@ -1,5 +1,4 @@
 import React from "react";
-import HumanoidAnimation from "@/components/HumanoidAnimation";
 import NeuralNetwork from "@/components/NeuralNetwork";
 
 const SistemaErp = () => {
@@ -17,11 +16,6 @@ const SistemaErp = () => {
       {/* Neural Network Animation Layer */}
       <div className="absolute inset-0 z-10">
         <NeuralNetwork />
-      </div>
-
-      {/* Content Layer */}
-      <div className="relative z-20">
-        <HumanoidAnimation />
       </div>
     </div>
   );

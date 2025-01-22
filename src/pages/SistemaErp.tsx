@@ -16,38 +16,44 @@ import {
   Cloud,
   Ticket,
   Car,
-  Receipt
+  Receipt,
+  Package,
+  Wallet,
+  UserCheck,
+  FileSpreadsheet,
+  BarChart4,
+  Building2
 } from "lucide-react";
 import NeuralNetwork from "@/components/NeuralNetwork";
 
 const modules = [
     {
-      icon: <Box className="w-6 h-6" />,
+      icon: <Package className="w-8 h-8 text-accent-foreground" />,
       title: "Gestão de Estoque",
       description: "Controle completo de produtos, entradas, saídas e inventário"
     },
     {
-      icon: <DollarSign className="w-6 h-6" />,
+      icon: <Wallet className="w-8 h-8 text-secondary" />,
       title: "Financeiro",
       description: "Contas a pagar, receber, fluxo de caixa e conciliação bancária"
     },
     {
-      icon: <ClipboardCheck className="w-6 h-6" />,
+      icon: <Building2 className="w-8 h-8 text-accent" />,
       title: "Vendas",
       description: "PDV, orçamentos, pedidos e acompanhamento de vendas"
     },
     {
-      icon: <Users className="w-6 h-6" />,
+      icon: <UserCheck className="w-8 h-8 text-secondary-foreground" />,
       title: "Recursos Humanos",
       description: "Gestão de funcionários, folha de pagamento e ponto eletrônico"
     },
     {
-      icon: <FileText className="w-6 h-6" />,
+      icon: <FileSpreadsheet className="w-8 h-8 text-accent-foreground" />,
       title: "Fiscal",
       description: "Emissão de NF-e, NFC-e, controle de impostos e obrigações"
     },
     {
-      icon: <BarChart3 className="w-6 h-6" />,
+      icon: <BarChart4 className="w-8 h-8 text-secondary" />,
       title: "Relatórios",
       description: "Dashboards e relatórios personalizados para tomada de decisão"
     }
@@ -179,7 +185,7 @@ const SistemaErp = () => {
                 key={index}
                 className="p-6 glass-card rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-white/30 rounded-lg flex items-center justify-center mb-4 text-white">
+                <div className="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center mb-4">
                   {module.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{module.title}</h3>

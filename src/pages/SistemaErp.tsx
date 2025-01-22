@@ -83,7 +83,7 @@ const SistemaErp = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#8B5CF6] via-[#D946EF] to-[#0EA5E9] relative">
+    <div className="min-h-screen bg-gradient-primary relative">
       {/* Background Neural Network */}
       <div className="absolute inset-0 opacity-60">
         <NeuralNetwork />
@@ -101,7 +101,7 @@ const SistemaErp = () => {
               </p>
               <Button
                 size="lg"
-                className="bg-white text-[#8B5CF6] hover:bg-white/90 animate-fade-up"
+                className="bg-white text-primary hover:bg-white/90 animate-fade-up"
                 style={{ animationDelay: "0.4s" }}
                 onClick={handleDemoRequest}
               >
@@ -164,7 +164,7 @@ const SistemaErp = () => {
               <Button
                 size="lg"
                 variant="secondary"
-                className="bg-white text-[#8B5CF6] hover:bg-gray-100"
+                className="bg-white text-primary hover:bg-gray-100"
                 onClick={handleDemoRequest}
               >
                 <PhoneCall className="w-4 h-4 mr-2" />

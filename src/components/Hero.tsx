@@ -87,7 +87,7 @@ const Hero = () => {
                 className="bg-white/10 hover:bg-white/20 text-white border-white/20"
                 onClick={handleSocialRedirect}
               >
-                Começar Agora
+                @first_developer_mt
               </Button>
               <Button 
                 size="lg" 

@@ -18,98 +18,71 @@ const ParticlesBackground = () => {
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
-        fullScreen: {
-          enable: false,
-          zIndex: 1
-        },
         background: {
           color: {
             value: "transparent",
           },
         },
         fpsLimit: 120,
+        interactivity: {
+          events: {
+            onClick: {
+              enable: true,
+              mode: "push",
+            },
+            onHover: {
+              enable: true,
+              mode: "repulse",
+            },
+            resize: true,
+          },
+          modes: {
+            push: {
+              quantity: 4,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+          },
+        },
         particles: {
+          color: {
+            value: "#ffffff",
+          },
+          links: {
+            color: "#ffffff",
+            distance: 150,
+            enable: true,
+            opacity: 0.5,
+            width: 1,
+          },
+          move: {
+            direction: "none",
+            enable: true,
+            outModes: {
+              default: "bounce",
+            },
+            random: false,
+            speed: 2,
+            straight: false,
+          },
           number: {
-            value: 160,
             density: {
               enable: true,
-              value_area: 800
-            }
+              area: 800,
+            },
+            value: 80,
           },
-          color: {
-            value: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"],
+          opacity: {
+            value: 0.5,
           },
           shape: {
             type: "circle",
           },
-          opacity: {
-            value: { min: 0.1, max: 1 },
-            animation: {
-              enable: true,
-              speed: 1,
-              sync: false
-            }
-          },
           size: {
-            value: { min: 1, max: 3 },
-            animation: {
-              enable: true,
-              speed: 2,
-              sync: false
-            }
+            value: { min: 1, max: 5 },
           },
-          move: {
-            enable: true,
-            speed: 3,
-            direction: "none",
-            random: true,
-            straight: false,
-            outModes: {
-              default: "out"
-            },
-            attract: {
-              enable: true,
-              rotateX: 600,
-              rotateY: 1200
-            }
-          },
-          life: {
-            duration: {
-              sync: false,
-              value: 2
-            },
-            count: 1
-          }
-        },
-        interactivity: {
-          events: {
-            onHover: {
-              enable: true,
-              mode: ["grab", "bubble"],
-            },
-            onClick: {
-              enable: true,
-              mode: "push"
-            },
-            resize: true
-          },
-          modes: {
-            grab: {
-              distance: 140,
-              links: {
-                opacity: 1
-              }
-            },
-            bubble: {
-              distance: 200,
-              size: 12,
-              duration: 2,
-              opacity: 0.8
-            },
-            push: {
-              quantity: 4
-            }
-          }
         },
         detectRetina: true,
       }}

@@ -98,7 +98,7 @@ const Features = () => {
                         key={item}
                         className="text-white/80 hover:text-white transition-colors duration-200 flex items-center space-x-2"
                       >
-                        <span className="w-2 h-2 bg-accent rounded-full" />
+                        <span className="w-2 h-2 bg-blue-500 rounded-full" />
                         <span>{item}</span>
                       </li>
                     ))}

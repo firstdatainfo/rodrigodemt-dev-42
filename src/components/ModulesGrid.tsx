@@ -77,7 +77,7 @@ const ModulesGrid = () => {
               <Code className="w-5 h-5" />
               {service.title}
             </h3>
-            <div className="bg-black/40 rounded-lg p-4">
+            <div className="bg-primary/40 rounded-lg p-4">
               <pre className="text-sm text-blue-300 overflow-x-auto">
                 <code>
                   {service.items.map((item, i) => (

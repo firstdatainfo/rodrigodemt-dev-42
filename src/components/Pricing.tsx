@@ -116,7 +116,7 @@ const Pricing = () => {
                   ))}
                 </ul>
                 <Button
-                  className={`w-full mt-8 ${
+                  className={`w-full mt-8 relative z-30 ${
                     plan.popular
                       ? "bg-white text-primary hover:bg-white/90"
                       : "bg-white/10 hover:bg-white/20 text-white border border-white/20"

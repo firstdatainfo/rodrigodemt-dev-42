@@ -28,14 +28,14 @@ const Contact = () => {
     try {
       await emailjs.send(
         'service_m50h8iv',
-        'template_contact', // Você precisará criar um template no EmailJS
+        'template_contact',
         {
           to_email: 'rodrigodev@yahoo.com',
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        'Yahoo' // Sua chave pública do EmailJS
+        'template_contact' // Atualizei para usar o mesmo ID do template
       );
 
       toast({

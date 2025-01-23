@@ -164,7 +164,7 @@ const SistemaErp = () => {
 
       <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
             Módulos Principais
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -226,9 +226,9 @@ const SistemaErp = () => {
 
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 rounded-2xl p-8 lg:p-12 text-center">
+          <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 rounded-2xl p-8 lg:p-12 text-center shadow-xl">
             <h2 className="text-3xl font-bold mb-6 text-white">Pronto para Começar?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto text-white/80">
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-white">
               Agende uma demonstração gratuita e descubra como nosso sistema pode
               transformar sua empresa
             </p>

@@ -66,6 +66,15 @@ const plans = [
 ];
 
 const Pricing = () => {
+  const handleWhatsAppRedirect = (plan: typeof plans[0]) => {
+    const message = `Olá! Gostaria de saber mais sobre o plano ${plan.title}.\n\nDetalhes do plano:\n- Preço: R$ ${plan.price}${plan.period || ''}\n\nRecursos incluídos:\n${plan.features.map(feature => `- ${feature}`).join('\n')}`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/5566992480993?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <section className="py-12 bg-gradient-to-b from-primary to-blue-900">
       <div className="container mx-auto px-4">
@@ -121,6 +130,7 @@ const Pricing = () => {
                       ? "bg-white text-primary hover:bg-white/90"
                       : "bg-white/10 hover:bg-white/20 text-white border border-white/20"
                   }`}
+                  onClick={() => handleWhatsAppRedirect(plan)}
                 >
                   Começar Agora
                 </Button>

@@ -23,12 +23,6 @@ const ProfileHeader = () => {
           </Avatar>
         </div>
       </div>
-
-      <div className="absolute top-52 right-4 md:right-24 z-50">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          RODRIGO DEV
-        </h2>
-      </div>
     </>
   );
 };

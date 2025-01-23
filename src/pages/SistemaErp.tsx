@@ -18,6 +18,10 @@ const SistemaErp = () => {
     });
   };
 
+  const handleSocialRedirect = () => {
+    window.open('https://instagram.com/first_developer_mt', '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary via-primary-light to-secondary">
       <section className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-32">
@@ -26,7 +30,7 @@ const SistemaErp = () => {
         <div className="absolute inset-0 opacity-30">
           <ParticlesBackground />
         </div>
-
+        
         <div className="container relative z-20 px-4 mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 text-center lg:text-left">
@@ -58,10 +62,11 @@ const SistemaErp = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white/20 text-white hover:bg-white/10 w-full sm:w-auto text-lg px-8 py-6 backdrop-blur-sm"
+                  className="border-2 border-white/20 text-white hover:bg-white/10 w-full sm:w-auto text-lg px-8 py-6"
+                  onClick={handleSocialRedirect}
                 >
                   <Cpu className="w-5 h-5 mr-2" />
-                  Ver Tecnologias
+                  @first_developer_mt
                 </Button>
               </div>
             </div>
@@ -69,7 +74,6 @@ const SistemaErp = () => {
         </div>
 
         <AboutMe />
-
         <CodeSnippets />
         <ModulesGrid />
         <Features />

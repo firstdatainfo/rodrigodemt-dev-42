@@ -67,9 +67,9 @@ const Hero = () => {
       <div className="container mx-auto relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
-            <div className="bg-white/40 backdrop-blur-sm px-4 py-2 rounded-full inline-flex items-center mb-6">
+            <div className="bg-white/40 backdrop-blur-sm px-4 py-2 rounded-full inline-flex items-center mb-6 block w-auto">
               <span className="bg-white/50 text-white px-4 py-1 rounded-full text-sm mr-3">New</span>
-              <span className="text-white text-sm">Inteligência Artificial & Soluções Inovadoras</span>
+              <span className="text-white text-sm whitespace-nowrap">Inteligência Artificial & Soluções Inovadoras</span>
             </div>
 
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">

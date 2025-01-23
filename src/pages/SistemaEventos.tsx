@@ -26,7 +26,7 @@ const SistemaEventos = () => {
             backgroundImage: 'url("/lovable-uploads/deae0225-56db-4a40-9702-c232fc1b8504.png")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: 0.4
+            opacity: 0.7
           }}
         />
         

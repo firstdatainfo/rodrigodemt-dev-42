@@ -107,7 +107,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full rounded-md bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-500 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-md bg-white/10 border border-white/20 text-white placeholder-white/50 focus:border-blue-500 focus:ring-blue-500 p-2"
                 />
               </div>
               <div>
@@ -121,7 +121,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full rounded-md bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-500 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-md bg-white/10 border border-white/20 text-white placeholder-white/50 focus:border-blue-500 focus:ring-blue-500 p-2"
                 />
               </div>
               <div>
@@ -135,7 +135,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full rounded-md bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-500 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-md bg-white/10 border border-white/20 text-white placeholder-white/50 focus:border-blue-500 focus:ring-blue-500 p-2"
                 />
               </div>
               <Button 

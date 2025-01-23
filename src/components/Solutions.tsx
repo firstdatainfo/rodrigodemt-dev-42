@@ -39,7 +39,7 @@ const Solutions = () => {
           {solutions.map((solution, index) => (
             <div
               key={solution.title}
-              className="glass-effect p-6 rounded-xl hover:bg-white/5 transition-all duration-300 animate-fade-up"
+              className="glass-effect p-6 rounded-xl hover:bg-white/5 transition-all duration-300 animate-fade-up relative z-30"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="w-16 h-16 rounded-full bg-gradient-to-r from-accent-foreground to-secondary flex items-center justify-center mb-4 mx-auto">

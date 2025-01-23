@@ -81,7 +81,7 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <Card
               key={plan.title}
-              className={`relative overflow-hidden transition-all duration-300 hover:-translate-y-1 bg-white/10 backdrop-blur-sm border-white/20 ${
+              className={`relative overflow-hidden transition-all duration-300 hover:-translate-y-1 bg-white/10 backdrop-blur-sm border-white/20 z-30 ${
                 plan.popular
                   ? "border-2 border-white shadow-lg scale-105 z-10"
                   : ""

@@ -65,7 +65,7 @@ const Contact = () => {
           Entre em Contato
         </h2>
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="glass-effect p-6 rounded-xl hover:bg-white/5 transition-all duration-300">
+          <div className="glass-effect p-6 rounded-xl hover:bg-white/5 transition-all duration-300 relative z-30">
             <h3 className="text-2xl font-semibold mb-6 text-white">Vamos conversar sobre seu projeto</h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
@@ -100,7 +100,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="glass-effect p-6 rounded-xl hover:bg-white/5 transition-all duration-300">
+          <div className="glass-effect p-6 rounded-xl hover:bg-white/5 transition-all duration-300 relative z-30">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-white">

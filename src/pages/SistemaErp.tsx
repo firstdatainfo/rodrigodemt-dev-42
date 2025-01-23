@@ -139,7 +139,7 @@ const SistemaErp = () => {
           </div>
         </div>
 
-        {/* Avatar Component - Updated size and position */}
+        {/* Avatar Component */}
         <div className="absolute top-8 right-4 z-50">
           <div className="bg-white/10 p-3 rounded-full backdrop-blur-md">
             <Avatar className="w-24 h-24 border-4 border-white/20 hover:scale-105 transition-transform duration-300">
@@ -149,8 +149,8 @@ const SistemaErp = () => {
           </div>
         </div>
 
-        {/* New Description Section */}
-        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-50 max-w-2xl">
+        {/* Description Section - Moved to right side */}
+        <div className="absolute top-32 right-4 z-50 max-w-md">
           <div className="bg-white/10 p-6 rounded-xl backdrop-blur-md border border-white/20">
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-white">Sobre Mim</h3>
@@ -158,7 +158,7 @@ const SistemaErp = () => {
                 Desenvolvedor apaixonado por tecnologia com mais de 8 anos de experiência em desenvolvimento de sistemas. 
                 Especializado em criar soluções inovadoras que transformam desafios em oportunidades.
               </p>
-              <div className="grid grid-cols-2 gap-4 mt-4">
+              <div className="grid grid-cols-1 gap-4 mt-4">
                 <div>
                   <h4 className="text-lg font-medium text-white mb-2">Habilidades Técnicas</h4>
                   <ul className="space-y-2 text-white/80">

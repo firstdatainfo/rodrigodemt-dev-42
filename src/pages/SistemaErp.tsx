@@ -59,7 +59,7 @@ const SistemaErp = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white/20 text-white hover:bg-white/10 w-full sm:w-auto text-lg px-8 py-6"
+                  className="bg-transparent backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/10 w-full sm:w-auto text-lg px-8 py-6"
                   onClick={handleSocialRedirect}
                 >
                   <Cpu className="w-5 h-5 mr-2" />
@@ -96,7 +96,7 @@ const SistemaErp = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white/20 text-white hover:bg-white/10 font-bold text-lg px-8 py-6"
+                  className="bg-transparent backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/10 font-bold text-lg px-8 py-6"
                   onClick={handleSocialRedirect}
                 >
                   <Cpu className="w-5 h-5 mr-2" />

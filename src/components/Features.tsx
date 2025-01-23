@@ -1,68 +1,111 @@
-import { Smartphone, FileText, QrCode, Printer, Shield, RefreshCw } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const features = [
   {
-    title: "App Mobile",
-    description: "Controle total na palma da sua mão",
-    icon: Smartphone,
-    color: "#0EA5E9",
+    category: "Financeiro",
+    items: [
+      "Agrupamento de Faturas e Renegociações",
+      "Baixa em Lote",
+      "Boleto Híbrido (Boleto+PIX)",
+      "Contas a Pagar",
+      "Contas a Receber",
+      "Emissão de Boletos",
+      "Gerador de Comissão",
+      "Importação e Extrato OFX",
+      "PIX Agendado",
+      "PIX Integrado",
+      "PIX em todas operadoras Smart POS",
+      "Link de Pagamento",
+    ]
   },
   {
-    title: "Relatórios",
-    description: "Análises e estatísticas em tempo real",
-    icon: FileText,
-    color: "#0EA5E9",
+    category: "PDV e Vendas",
+    items: [
+      "PDV (Web/Desk/Mobile)",
+      "Cardápio Digital em QR Code",
+      "Chama Senha",
+      "Delivery (Gestor de Entregas)",
+      "Despesas no PDV",
+      "Devolução do PDV",
+      "Etapas e Montagens (Venda)",
+      "Grade",
+      "KDS",
+      "Lançamento (Garçom)",
+      "Mesas/Fichas",
+      "Modo Ficha",
+      "Pedido Online Delivery VIP",
+      "Pedido Online PDV Flow",
+      "Preço Tabela por PDV",
+      "QR Code na Mesa",
+    ]
   },
   {
-    title: "QR Code",
-    description: "Validação rápida e segura",
-    icon: QrCode,
-    color: "#0EA5E9",
+    category: "Gestão e Controle",
+    items: [
+      "Módulo de Estoque",
+      "Módulo Financeiro",
+      "Gestão de Contratos",
+      "Matriz e Filial",
+      "Permissões",
+      "Programa de Fidelidade + Mensageria",
+      "Portal do Contador",
+    ]
   },
   {
-    title: "Impressão",
-    description: "Impressão de tickets e comprovantes",
-    icon: Printer,
-    color: "#0EA5E9",
+    category: "Integrações",
+    items: [
+      "Hub E-commerce/Marketplace",
+      "Integração com Catraca",
+      "Integração com Chopeira via RFID",
+      "Integração com iFood",
+      "Integração com WhatsApp",
+      "Integração de Boletos via API do Pense Bank",
+      "Integrações de Boletos via Remessa de Arquivo para todos os Bancos",
+      "Conta Digital do Pense Bank",
+      "Conciliações para Operadora Stone",
+    ]
   },
   {
-    title: "Segurança",
-    description: "Controle de acesso e permissões",
-    icon: Shield,
-    color: "#0EA5E9",
-  },
-  {
-    title: "Sincronização",
-    description: "Dados atualizados em tempo real",
-    icon: RefreshCw,
-    color: "#0EA5E9",
+    category: "Fiscal",
+    items: [
+      "CT-e",
+      "EFD Contribuições e EFD Fiscal",
+      "Gestor Tributário iMendes",
+      "Manifesto Fiscal",
+    ]
   },
 ];
 
 const Features = () => {
   return (
-    <section className="py-12 bg-gradient-to-b from-primary via-primary-light to-accent-foreground">
+    <section className="py-20 bg-gradient-to-br from-primary via-primary-light to-blue-900">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
-          Recursos
+          Conheça todas as funcionalidades que podemos oferecer!
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div
-              key={feature.title}
-              className="glass-effect p-6 rounded-xl hover:bg-white/5 transition-all duration-300 animate-fade-up"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div 
-                className="w-16 h-16 rounded-full bg-gradient-to-r from-accent-foreground to-secondary flex items-center justify-center mb-4 mx-auto"
-              >
-                <feature.icon 
-                  className="w-8 h-8 text-white"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-white text-center">{feature.title}</h3>
-              <p className="text-white/80 text-center">{feature.description}</p>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((category) => (
+            <Card key={category.category} className="bg-white/10 backdrop-blur-lg border-white/20 hover:bg-white/20 transition-all duration-300">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4 text-white">
+                  {category.category}
+                </h3>
+                <ScrollArea className="h-[300px] pr-4">
+                  <ul className="space-y-2">
+                    {category.items.map((item) => (
+                      <li
+                        key={item}
+                        className="text-white/80 hover:text-white transition-colors duration-200 flex items-center space-x-2"
+                      >
+                        <span className="w-2 h-2 bg-accent rounded-full" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </ScrollArea>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

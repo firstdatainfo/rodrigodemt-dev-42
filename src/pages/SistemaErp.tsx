@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import NeuralNetwork from "@/components/NeuralNetwork";
 import ParticlesBackground from "@/components/ParticlesBackground";
+import Features from "@/components/Features";
 
 const modules = [
     {
@@ -63,7 +64,7 @@ const features = [
     {
       icon: <Ticket className="w-6 h-6 text-purple-500" />,
       title: "Sistema para Eventos",
-      description: "Bilheterias, bares, shows, boates, parques, cinema"
+      description: "Bilheteiras, bares, shows, boates, parques, cinema"
     },
     {
       icon: <Car className="w-6 h-6 text-green-500" />,
@@ -220,6 +221,8 @@ const SistemaErp = () => {
           </div>
         </div>
       </section>
+
+      <Features />
 
       <section className="py-20">
         <div className="container mx-auto px-4">

@@ -19,7 +19,8 @@ const SistemaErp = () => {
   };
 
   const handleGithubRedirect = () => {
-    window.open('https://github.com/RodrigoDevMT', '_blank');
+    console.log('Opening GitHub profile...');
+    window.open('https://github.com/RodrigoDevMT', '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -71,7 +72,7 @@ const SistemaErp = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="bg-transparent backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/10 w-full sm:w-auto text-lg px-8 py-6"
+                  className="bg-transparent backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/10 hover:scale-105 transition-transform w-full sm:w-auto text-lg px-8 py-6"
                   onClick={handleGithubRedirect}
                 >
                   <Github className="w-5 h-5 mr-2" />

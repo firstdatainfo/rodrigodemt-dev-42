@@ -64,29 +64,6 @@ const modules = [
     }
 ];
 
-const features = [
-    {
-      icon: <Database className="w-6 h-6 text-blue-500" />,
-      title: "Sistema de gestão ERP em nuvem",
-      description: "Facilita o seu negócio e a sua vida"
-    },
-    {
-      icon: <Ticket className="w-6 h-6 text-purple-500" />,
-      title: "Sistema para Eventos",
-      description: "Bilheteiras, bares, shows, boates, parques, cinema"
-    },
-    {
-      icon: <Car className="w-6 h-6 text-green-500" />,
-      title: "Sistema para estacionamentos",
-      description: "Gestão completa do seu estacionamento"
-    },
-    {
-      icon: <Receipt className="w-6 h-6 text-orange-500" />,
-      title: "Sistema de emissão de notas",
-      description: "Emissão e gestão de notas fiscais"
-    }
-];
-
 const codeSnippets = [
   {
     language: "TypeScript",
@@ -117,6 +94,21 @@ const codeSnippets = [
     language: "Tailwind CSS",
     code: "const styles = {\n  card: 'bg-gradient-to-r from-blue-500/20 to-purple-500/20',\n  text: 'text-transparent bg-clip-text bg-gradient-primary'\n};",
     title: "Styling"
+  },
+  {
+    language: "Flutter",
+    code: "class MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: MyHomePage(),\n    );\n  }\n}",
+    title: "Flutter App"
+  },
+  {
+    language: "FlutterFlow",
+    code: "// FlutterFlow Generated Code\nreturn Scaffold(\n  body: SafeArea(\n    child: Column(\n      children: [\n        CustomWidget(),\n      ],\n    ),\n  ),\n);",
+    title: "FlutterFlow Build"
+  },
+  {
+    language: "Java",
+    code: "public class Main {\n  public static void main(String[] args) {\n    System.out.println('Hello Java!');\n  }\n}",
+    title: "Java Development"
   }
 ];
 
@@ -132,9 +124,9 @@ const SistemaErp = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary via-primary-light to-secondary">
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Logo */}
-        <div className="absolute top-4 left-4 z-50">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
+        {/* Logo moved down with padding-top */}
+        <div className="absolute top-20 left-4 z-50">
           <div className="flex items-center gap-2 bg-white/10 p-3 rounded-lg backdrop-blur-md">
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 w-12 h-12 rounded-lg flex items-center justify-center">
               <span className="text-2xl font-bold text-white">RD</span>
@@ -158,18 +150,12 @@ const SistemaErp = () => {
         <div className="container relative z-20 px-4 mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 text-center lg:text-left">
-              <div className="relative inline-block mb-8">
+              <div className="relative inline-block mb-8 mt-16">
                 <div className="text-5xl md:text-7xl font-bold text-white relative z-10 tracking-tight">
                   Rodrigo Dev
                 </div>
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl rounded-full" />
               </div>
-              <h1 className="text-3xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-                Desenvolvimento de Sistemas <br />
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Inteligentes e Modernos
-                </span>
-              </h1>
 
               {/* Tech Icons Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-8">
@@ -183,7 +169,7 @@ const SistemaErp = () => {
                 ))}
               </div>
 
-              {/* Code Snippets Grid - Updated with new layout */}
+              {/* Code Snippets Grid - Updated with new layout and additional cards */}
               <div className="container mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {codeSnippets.map((snippet, index) => (

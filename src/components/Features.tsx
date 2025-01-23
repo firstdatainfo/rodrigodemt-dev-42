@@ -86,7 +86,7 @@ const Features = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((category) => (
-            <Card key={category.category} className="bg-white/10 backdrop-blur-lg border-white/20 hover:bg-white/20 transition-all duration-300">
+            <Card key={category.category} className="bg-primary border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-primary-light">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4 text-white">
                   {category.category}

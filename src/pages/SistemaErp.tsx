@@ -88,14 +88,26 @@ const SistemaErp = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative pt-20 pb-32 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <NeuralNetwork />
-        </div>
+      <section className="relative pt-20 pb-32 bg-[#000B2E] overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('/lovable-uploads/5e4f7f88-f9aa-4f35-93f6-4a3302bc94f4.png')`,
+            opacity: 0.15
+          }}
+        />
+        
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/80 to-blue-700/80" />
 
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="flex-1 text-center lg:text-left z-10">
+            <div className="flex-1 text-center lg:text-left">
+              <div className="relative inline-block mb-8">
+                <div className="text-6xl font-bold text-white relative z-10">
+                  ERP FIRST
+                </div>
+                <div className="absolute -inset-4 bg-blue-500/20 blur-xl rounded-full" />
+              </div>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white animate-fade-up">
                 Sistema ERP Completo para sua Empresa
               </h1>
@@ -121,7 +133,7 @@ const SistemaErp = () => {
                 </Button>
               </div>
             </div>
-            <div className="flex-1 relative z-10">
+            <div className="flex-1 relative">
               <div className="relative">
                 <div className="absolute -top-4 -left-4 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
                 <div className="absolute -bottom-8 -right-4 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>

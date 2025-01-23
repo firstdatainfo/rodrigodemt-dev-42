@@ -2,7 +2,6 @@ import { Button } from "./ui/button";
 import { Facebook, Twitter, Linkedin } from "lucide-react";
 import NeuralNetwork from "./NeuralNetwork";
 import ParticlesBackground from "./ParticlesBackground";
-import { useState } from "react";
 import {
   SiNodedotjs,
   SiReact,
@@ -30,8 +29,6 @@ const technologies = [
 ];
 
 const Hero = () => {
-  const [showNeuralNetwork, setShowNeuralNetwork] = useState(false);
-
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
       {/* Imagem para desktop */}
@@ -60,7 +57,7 @@ const Hero = () => {
 
       <div className="absolute inset-0">
         <ParticlesBackground />
-        <NeuralNetwork isVisible={showNeuralNetwork} />
+        <NeuralNetwork />
       </div>
       
       <div className="container mx-auto relative z-20">
@@ -80,21 +77,10 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 justify-start mb-12">
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="bg-white/10 hover:bg-white/20 text-white border-white/20"
-                onMouseEnter={() => setShowNeuralNetwork(true)}
-                onMouseLeave={() => setShowNeuralNetwork(false)}
-              >
+              <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/20">
                 Começar Agora
               </Button>
-              <Button 
-                size="lg" 
-                className="bg-white text-primary hover:bg-white/90"
-                onMouseEnter={() => setShowNeuralNetwork(true)}
-                onMouseLeave={() => setShowNeuralNetwork(false)}
-              >
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90">
                 Fale Conosco
               </Button>
             </div>

@@ -37,21 +37,34 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-4">Redes Sociais</h3>
-            <div className="flex items-center space-x-4">
-              <a 
-                href="https://instagram.com/first_developer_mt" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="hover:text-gray-300 transition-colors"
-              >
-                <Instagram className="w-6 h-6" />
-              </a>
-            </div>
+            <h3 className="text-xl font-bold mb-4">Contato</h3>
+            <ul className="space-y-2">
+              <li>
+                <a href="tel:+5566992480993" className="hover:text-gray-300 transition-colors">
+                  Telefone: (66) 99248-0993
+                </a>
+              </li>
+              <li>
+                <a href="mailto:rodrigodev@yahoo.com" className="hover:text-gray-300 transition-colors">
+                  Email: rodrigodev@yahoo.com
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://instagram.com/first_developer_mt" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-gray-300 transition-colors flex items-center gap-2"
+                >
+                  <Instagram className="w-5 h-5" />
+                  @first_developer_mt
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700 text-center">
-          <p>&copy; {new Date().getFullYear()} First Sistemas. Todos os direitos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} Rodrigo Dev MT. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

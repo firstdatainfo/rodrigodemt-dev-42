@@ -138,19 +138,6 @@ const SistemaErp = () => {
                 </Button>
               </div>
             </div>
-            <div className="flex-1 relative">
-              <div className="relative">
-                <div className="absolute -top-4 -left-4 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-                <div className="absolute -bottom-8 -right-4 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-                <div className="relative">
-                  <img
-                    src="/lovable-uploads/19c607c2-dd16-4d89-8f9c-3cf97ecabce4.png"
-                    alt="Sistema ERP Dashboard"
-                    className="w-full max-w-md mx-auto rounded-lg shadow-2xl"
-                  />
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

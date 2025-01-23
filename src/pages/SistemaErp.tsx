@@ -16,7 +16,11 @@ import {
   Clock,
   Zap,
   CheckCircle2,
-  PhoneCall
+  PhoneCall,
+  Globe,
+  Instagram,
+  Phone,
+  Mail
 } from "lucide-react";
 import NeuralNetwork from "@/components/NeuralNetwork";
 import ParticlesBackground from "@/components/ParticlesBackground";
@@ -227,12 +231,12 @@ const SistemaErp = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 rounded-2xl p-8 lg:p-12 text-center shadow-xl">
-            <h2 className="text-3xl font-bold mb-6 text-white">Pronto para Começar?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto text-white">
+            <h2 className="text-4xl font-bold mb-6 text-white">Pronto para Começar?</h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-white font-medium">
               Agende uma demonstração gratuita e descubra como nosso sistema pode
               transformar sua empresa
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button
                 size="lg"
                 className="bg-white text-blue-900 hover:bg-white/90"
@@ -249,6 +253,36 @@ const SistemaErp = () => {
                 <CheckCircle2 className="w-4 h-4 mr-2" />
                 Ver Planos
               </Button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-white text-left max-w-3xl mx-auto">
+              <div className="space-y-2">
+                <p className="flex items-center gap-2">
+                  <Globe className="w-5 h-5" />
+                  firstsistemas.acess.app
+                </p>
+                <p className="flex items-center gap-2">
+                  <Instagram className="w-5 h-5" />
+                  first_developer_mt
+                </p>
+                <p className="flex items-center gap-2">
+                  <Phone className="w-5 h-5" />
+                  (66) 99248-0993
+                </p>
+                <p className="flex items-center gap-2">
+                  <Phone className="w-5 h-5" />
+                  (66) 99225-8469
+                </p>
+              </div>
+              <div className="space-y-2">
+                <p className="flex items-center gap-2">
+                  <Mail className="w-5 h-5" />
+                  rodrigodev@yahoo.com
+                </p>
+                <p className="flex items-center gap-2">
+                  <Mail className="w-5 h-5" />
+                  rodrigodev@firstsistemas.com.br
+                </p>
+              </div>
             </div>
           </div>
         </div>

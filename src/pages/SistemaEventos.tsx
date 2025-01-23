@@ -22,11 +22,12 @@ const SistemaEventos = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: 'url("/lovable-uploads/deae0225-56db-4a40-9702-c232fc1b8504.png")',
+          backgroundImage: 'url("/lovable-uploads/96dae26a-eb3a-4bd0-918b-0f32f37e7470.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           objectFit: 'cover',
+          opacity: 0.8,
         }}
       />
       

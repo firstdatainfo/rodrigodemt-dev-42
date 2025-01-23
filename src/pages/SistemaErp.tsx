@@ -130,7 +130,7 @@ const SistemaErp = () => {
                     />
                   </div>
                   <Button
-                    className="w-full bg-secondary hover:bg-secondary/80 text-white font-semibold py-3"
+                    className="w-full bg-gradient-to-r from-secondary to-accent-foreground hover:from-secondary/90 hover:to-accent-foreground/90 text-white"
                   >
                     Enviar Mensagem
                   </Button>

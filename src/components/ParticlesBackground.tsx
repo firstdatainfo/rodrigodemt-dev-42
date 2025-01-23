@@ -30,20 +30,20 @@ const ParticlesBackground = () => {
         fpsLimit: 120,
         particles: {
           number: {
-            value: 160,
+            value: 100,
             density: {
               enable: true,
               value_area: 800
             }
           },
           color: {
-            value: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"],
+            value: ["#ffffff", "#87ceeb", "#00bfff", "#1e90ff", "#00ffff"],
           },
           shape: {
             type: "circle",
           },
           opacity: {
-            value: { min: 0.1, max: 1 },
+            value: { min: 0.3, max: 0.8 },
             animation: {
               enable: true,
               speed: 1,
@@ -51,7 +51,7 @@ const ParticlesBackground = () => {
             }
           },
           size: {
-            value: { min: 1, max: 3 },
+            value: { min: 1, max: 4 },
             animation: {
               enable: true,
               speed: 2,
@@ -60,7 +60,7 @@ const ParticlesBackground = () => {
           },
           move: {
             enable: true,
-            speed: 3,
+            speed: 2,
             direction: "none",
             random: true,
             straight: false,
@@ -76,7 +76,7 @@ const ParticlesBackground = () => {
           life: {
             duration: {
               sync: false,
-              value: 2
+              value: 3
             },
             count: 1
           }
@@ -85,7 +85,7 @@ const ParticlesBackground = () => {
           events: {
             onHover: {
               enable: true,
-              mode: ["grab", "bubble"],
+              mode: ["bubble"],
             },
             onClick: {
               enable: true,
@@ -94,20 +94,14 @@ const ParticlesBackground = () => {
             resize: true
           },
           modes: {
-            grab: {
-              distance: 140,
-              links: {
-                opacity: 1
-              }
-            },
             bubble: {
               distance: 200,
-              size: 12,
+              size: 6,
               duration: 2,
-              opacity: 0.8
+              opacity: 1
             },
             push: {
-              quantity: 4
+              quantity: 6
             }
           }
         },

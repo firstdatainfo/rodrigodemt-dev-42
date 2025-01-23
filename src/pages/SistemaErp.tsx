@@ -111,20 +111,20 @@ const SistemaErp = () => {
           </div>
         </div>
 
-        {/* Background Image */}
-        <img 
-          id="backgroundImage"
-          src="/lovable-uploads/8e5468c5-aea9-4018-8084-7aacd2d38e80.png"
-          alt="Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
-          style={{
-            position: 'fixed'
-          }}
-        />
-        
-        {/* Particles Effect */}
-        <div className="absolute inset-0 z-10">
-          <ParticlesBackground />
+        {/* Background Image Container */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="relative w-full h-full">
+            <img 
+              id="backgroundImage"
+              src="/lovable-uploads/8e5468c5-aea9-4018-8084-7aacd2d38e80.png"
+              alt="Background"
+              className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
+            />
+            {/* Particles Container */}
+            <div className="absolute inset-0 z-10">
+              <ParticlesBackground />
+            </div>
+          </div>
         </div>
 
         {/* Neural Network Animation */}

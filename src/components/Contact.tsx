@@ -72,19 +72,25 @@ const Contact = () => {
                 <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
                   <Instagram className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-white">first_developer_mt</span>
+                <a href="https://instagram.com/first_developer_mt" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-300 transition-colors">
+                  first_developer_mt
+                </a>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
                   <Phone className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-white">(66) 99248-0993</span>
+                <a href="tel:+5566992480993" className="text-white hover:text-blue-300 transition-colors">
+                  (66) 99248-0993
+                </a>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
                   <Mail className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-white">rodrigodev@yahoo.com</span>
+                <a href="mailto:rodrigodev@yahoo.com" className="text-white hover:text-blue-300 transition-colors">
+                  rodrigodev@yahoo.com
+                </a>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">

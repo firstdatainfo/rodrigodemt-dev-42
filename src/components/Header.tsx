@@ -40,7 +40,7 @@ const Header = () => {
                     fontFamily: 'Arial, sans-serif'
                   }}
                 >
-                  FD
+                  RD
                 </text>
                 <defs>
                   <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
@@ -51,7 +51,7 @@ const Header = () => {
               </svg>
             </div>
             <Link to="/" className="text-2xl font-bold text-white">
-              First Developer <span className="text-primary-light">MT</span>
+              Rodrigo Dev <span className="text-primary-light">MT</span>
             </Link>
           </div>
 

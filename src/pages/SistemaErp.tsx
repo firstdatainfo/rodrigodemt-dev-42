@@ -28,9 +28,7 @@ import {
   Receipt
 } from "lucide-react";
 import Features from "@/components/Features";
-import NeuralNetwork from "@/components/NeuralNetwork";
 import ParticlesBackground from "@/components/ParticlesBackground";
-import ChipAnimation from "@/components/ChipAnimation";
 
 const modules = [
     {
@@ -187,10 +185,6 @@ const SistemaErp = () => {
         </div>
 
         <div className="absolute inset-0 opacity-30">
-          <NeuralNetwork />
-          <ChipAnimation />
-        </div>
-        <div className="absolute inset-0 z-10">
           <ParticlesBackground />
         </div>
 

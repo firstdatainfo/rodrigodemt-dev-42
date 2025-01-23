@@ -171,6 +171,7 @@ const SistemaErp = () => {
               <div
                 key={index}
                 className="p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 group hover:-translate-y-1"
+                style={{ backdropFilter: 'none' }}
               >
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
                   {module.icon}
@@ -193,12 +194,13 @@ const SistemaErp = () => {
               <div
                 key={index}
                 className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-1 group"
+                style={{ backdropFilter: 'none' }}
               >
                 <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors duration-300">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-4 text-gray-800">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <p className="text-gray-600">{feature.description}</p>
               </div>
             ))}
           </div>

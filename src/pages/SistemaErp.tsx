@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { Code, Cpu, PhoneCall, CheckCircle2, Mail, MapPin } from "lucide-react";
-import Features from "@/components/Features";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import ProfileHeader from "@/components/ProfileHeader";
 import AboutMe from "@/components/AboutMe";
@@ -73,7 +72,6 @@ const SistemaErp = () => {
         <AboutMe />
         <CodeSnippets />
         <ModulesGrid />
-        <Features />
 
         <section className="py-20 relative w-full">
           <div className="container mx-auto px-4">

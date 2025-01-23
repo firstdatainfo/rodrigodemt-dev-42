@@ -26,7 +26,7 @@ const SistemaEventos = () => {
             backgroundImage: 'url("/lovable-uploads/deae0225-56db-4a40-9702-c232fc1b8504.png")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: 0.2
+            opacity: 0.4
           }}
         />
         
@@ -90,14 +90,6 @@ const SistemaEventos = () => {
                   @first_developer_mt
                 </Button>
               </div>
-            </div>
-
-            <div className="flex-1 relative">
-              <img
-                src="/lovable-uploads/deae0225-56db-4a40-9702-c232fc1b8504.png"
-                alt="Evento com luzes e efeitos especiais"
-                className="w-full h-auto rounded-2xl shadow-2xl animate-float"
-              />
             </div>
           </div>
         </div>

@@ -12,10 +12,7 @@ const SistemaErp = () => {
   const { toast } = useToast();
 
   const handleDemoRequest = () => {
-    toast({
-      title: "Solicitação Recebida!",
-      description: "Em breve nossa equipe entrará em contato.",
-    });
+    window.open('https://wa.me/5566992480993', '_blank');
   };
 
   const handleSocialRedirect = () => {
@@ -53,11 +50,11 @@ const SistemaErp = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-8">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 w-full sm:w-auto text-lg px-8 py-6 shadow-lg"
+                  className="bg-transparent backdrop-blur-sm border border-white/20 text-white hover:bg-white/10 w-full sm:w-auto text-lg px-8 py-6 shadow-lg"
                   onClick={handleDemoRequest}
                 >
-                  <Code className="w-5 h-5 mr-2" />
-                  Começar Agora
+                  <PhoneCall className="w-5 h-5 mr-2" />
+                  Falar no WhatsApp
                 </Button>
                 <Button
                   size="lg"
@@ -80,30 +77,30 @@ const SistemaErp = () => {
 
         <section className="py-20 relative w-full">
           <div className="container mx-auto px-4">
-            <div className="bg-gradient-to-r from-blue-900/80 via-blue-800/80 to-purple-900/80 rounded-2xl p-8 lg:p-12 backdrop-blur-xl border border-white/20 shadow-2xl">
+            <div className="bg-transparent backdrop-blur-sm border border-white/20 rounded-2xl p-8 lg:p-12 shadow-2xl">
               <h2 className="text-3xl md:text-6xl font-extrabold mb-6 text-white drop-shadow-lg bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Pronto para Começar?
               </h2>
               <p className="text-lg md:text-2xl mb-8 max-w-2xl mx-auto text-white font-semibold">
-                Agende uma demonstração gratuita e descubra como nosso sistema pode
-                transformar sua empresa
+                Entre em contato agora mesmo e descubra como posso ajudar no seu projeto
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 font-bold text-lg px-8 py-6"
+                  className="bg-transparent backdrop-blur-sm border border-white/20 text-white hover:bg-white/10 font-bold text-lg px-8 py-6"
                   onClick={handleDemoRequest}
                 >
                   <PhoneCall className="w-5 h-5 mr-2" />
-                  Solicitar Contato
+                  Falar no WhatsApp
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
                   className="border-2 border-white/20 text-white hover:bg-white/10 font-bold text-lg px-8 py-6"
+                  onClick={handleSocialRedirect}
                 >
-                  <CheckCircle2 className="w-5 h-5 mr-2" />
-                  Ver Planos
+                  <Cpu className="w-5 h-5 mr-2" />
+                  @first_developer_mt
                 </Button>
               </div>
             </div>

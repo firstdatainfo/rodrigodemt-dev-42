@@ -99,9 +99,24 @@ const codeSnippets = [
     title: "React Hooks"
   },
   {
-    language: "Node.js",
-    code: "async function connect() {\n  try {\n    await db.connect();\n  } catch (err) {\n    console.error(err);\n  }\n}",
-    title: "Async/Await"
+    language: "React Custom Hook",
+    code: "const useDevTools = () => {\n  const [isOpen, setIsOpen] = useState(false);\n  return { isOpen, setIsOpen };\n};",
+    title: "Custom Hooks"
+  },
+  {
+    language: "React Context",
+    code: "export const DevContext = createContext({});\n\nexport const DevProvider = ({ children }) => {\n  return <DevContext.Provider>{children}</DevContext.Provider>;\n};",
+    title: "Context API"
+  },
+  {
+    language: "React Query",
+    code: "const { data, isLoading } = useQuery({\n  queryKey: ['projects'],\n  queryFn: fetchProjects\n});",
+    title: "Data Fetching"
+  },
+  {
+    language: "Tailwind CSS",
+    code: "const styles = {\n  card: 'bg-gradient-to-r from-blue-500/20 to-purple-500/20',\n  text: 'text-transparent bg-clip-text bg-gradient-primary'\n};",
+    title: "Styling"
   }
 ];
 
@@ -168,19 +183,26 @@ const SistemaErp = () => {
                 ))}
               </div>
 
-              {/* Code Snippets */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                {codeSnippets.map((snippet, index) => (
-                  <div
-                    key={index}
-                    className="bg-black/30 backdrop-blur-md p-4 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300"
-                  >
-                    <h3 className="text-white font-semibold mb-2">{snippet.title}</h3>
-                    <pre className="text-xs text-blue-300 overflow-x-auto">
-                      <code>{snippet.code}</code>
-                    </pre>
-                  </div>
-                ))}
+              {/* Code Snippets Grid - Updated with new layout */}
+              <div className="container mx-auto px-4 py-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {codeSnippets.map((snippet, index) => (
+                    <div
+                      key={index}
+                      className="glass-card p-6 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1"
+                    >
+                      <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                        <Code className="w-5 h-5" />
+                        {snippet.title}
+                      </h3>
+                      <div className="bg-black/40 rounded-lg p-4">
+                        <pre className="text-sm text-blue-300 overflow-x-auto">
+                          <code>{snippet.code}</code>
+                        </pre>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
@@ -245,11 +267,11 @@ const SistemaErp = () => {
       {/* Features Section */}
       <Features />
 
-      {/* Contact Section */}
+      {/* Contact Section - Updated styling */}
       <section className="py-20 relative">
         <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-r from-blue-900/80 via-blue-800/80 to-purple-900/80 rounded-2xl p-8 lg:p-12 text-center backdrop-blur-xl border border-white/20 shadow-2xl">
-            <h2 className="text-4xl md:text-6xl font-extrabold mb-6 text-white drop-shadow-lg bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
+          <div className="bg-gradient-to-r from-blue-900/80 via-blue-800/80 to-purple-900/80 rounded-2xl p-8 lg:p-12 backdrop-blur-xl border border-white/20 shadow-2xl">
+            <h2 className="text-4xl md:text-6xl font-extrabold mb-6 text-white drop-shadow-lg bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Pronto para Começar?
             </h2>
             <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-white font-semibold">

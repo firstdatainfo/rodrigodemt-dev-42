@@ -149,8 +149,8 @@ const SistemaErp = () => {
           </div>
         </div>
 
-        {/* Description Section - Moved to right side */}
-        <div className="absolute top-32 right-4 z-50 max-w-md">
+        {/* Description Section - Adjusted position */}
+        <div className="absolute top-48 right-12 z-50 max-w-md">
           <div className="bg-white/10 p-6 rounded-xl backdrop-blur-md border border-white/20">
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-white">Sobre Mim</h3>

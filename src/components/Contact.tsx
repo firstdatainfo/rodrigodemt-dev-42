@@ -1,7 +1,6 @@
 import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
 import { useToast } from "@/components/ui/use-toast";
 
 const Contact = () => {
@@ -26,28 +25,28 @@ const Contact = () => {
     setIsLoading(true);
 
     try {
-      await emailjs.send(
-        'service_m50h8iv',
-        'template_contact',
-        {
-          to_email: 'rodrigodev@yahoo.com',
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
+      const response = await fetch("https://formspree.io/f/xzbnbwzk", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        'template_contact' // Atualizei para usar o mesmo ID do template
-      );
-
-      toast({
-        title: "Mensagem enviada!",
-        description: "Obrigado pelo contato, retornaremos em breve.",
+        body: JSON.stringify(formData),
       });
 
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
+      if (response.ok) {
+        toast({
+          title: "Mensagem enviada!",
+          description: "Obrigado pelo contato, retornaremos em breve.",
+        });
+
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Falha ao enviar mensagem');
+      }
     } catch (error) {
       toast({
         title: "Erro ao enviar mensagem",

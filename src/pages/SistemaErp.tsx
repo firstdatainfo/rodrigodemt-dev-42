@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { 
   Code,
   Cpu,
@@ -135,6 +136,16 @@ const SistemaErp = () => {
               <span className="text-2xl font-bold text-white">Rodrigo Dev</span>
               <span className="text-sm text-white/80 -mt-1">MT</span>
             </div>
+          </div>
+        </div>
+
+        {/* Avatar Component */}
+        <div className="absolute top-20 right-4 z-50">
+          <div className="bg-white/10 p-2 rounded-full backdrop-blur-md">
+            <Avatar className="w-16 h-16 border-2 border-white/20">
+              <AvatarImage src="/lovable-uploads/4a344239-9e8e-497e-b498-026599010a26.png" alt="Rodrigo Dev" />
+              <AvatarFallback>RD</AvatarFallback>
+            </Avatar>
           </div>
         </div>
 

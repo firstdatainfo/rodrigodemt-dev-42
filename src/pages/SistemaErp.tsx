@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { Code, Cpu, PhoneCall, CheckCircle2, Mail, MapPin } from "lucide-react";
+import { Code, Cpu, PhoneCall, CheckCircle2, Mail, MapPin, Github } from "lucide-react";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import ProfileHeader from "@/components/ProfileHeader";
 import AboutMe from "@/components/AboutMe";
@@ -16,6 +16,10 @@ const SistemaErp = () => {
 
   const handleSocialRedirect = () => {
     window.open('https://instagram.com/first_developer_mt', '_blank');
+  };
+
+  const handleGithubRedirect = () => {
+    window.open('https://github.com/RodrigoDevMT', '_blank');
   };
 
   return (
@@ -63,6 +67,15 @@ const SistemaErp = () => {
                 >
                   <Cpu className="w-5 h-5 mr-2" />
                   @first_developer_mt
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/10 w-full sm:w-auto text-lg px-8 py-6"
+                  onClick={handleGithubRedirect}
+                >
+                  <Github className="w-5 h-5 mr-2" />
+                  GitHub
                 </Button>
               </div>
             </div>

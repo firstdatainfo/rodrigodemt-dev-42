@@ -93,7 +93,7 @@ const SistemaErp = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: `url('/lovable-uploads/5e4f7f88-f9aa-4f35-93f6-4a3302bc94f4.png')`
+            backgroundImage: `url('/lovable-uploads/8e5468c5-aea9-4018-8084-7aacd2d38e80.png')`
           }}
         />
         

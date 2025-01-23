@@ -168,7 +168,7 @@ const SistemaErp = () => {
 
       <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 bg-clip-text">
             Módulos Principais
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -230,56 +230,58 @@ const SistemaErp = () => {
 
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 rounded-2xl p-8 lg:p-12 text-center shadow-xl">
-            <h2 className="text-4xl font-bold mb-6 text-white">Pronto para Começar?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto text-white font-medium">
+          <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 rounded-2xl p-8 lg:p-12 text-center shadow-2xl border-2 border-blue-400">
+            <h2 className="text-5xl font-extrabold mb-6 text-white drop-shadow-lg">
+              Pronto para Começar?
+            </h2>
+            <p className="text-2xl mb-8 max-w-2xl mx-auto text-white font-semibold drop-shadow-md">
               Agende uma demonstração gratuita e descubra como nosso sistema pode
               transformar sua empresa
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button
                 size="lg"
-                className="bg-white text-blue-900 hover:bg-white/90"
+                className="bg-white text-blue-900 hover:bg-white/90 font-bold text-lg px-8 py-6"
                 onClick={handleDemoRequest}
               >
-                <PhoneCall className="w-4 h-4 mr-2" />
+                <PhoneCall className="w-5 h-5 mr-2" />
                 Solicitar Contato
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10"
+                className="border-white text-white hover:bg-white/10 font-bold text-lg px-8 py-6"
               >
-                <CheckCircle2 className="w-4 h-4 mr-2" />
+                <CheckCircle2 className="w-5 h-5 mr-2" />
                 Ver Planos
               </Button>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-white text-left max-w-3xl mx-auto">
-              <div className="space-y-2">
-                <p className="flex items-center gap-2">
-                  <Globe className="w-5 h-5" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-white text-left max-w-3xl mx-auto bg-blue-900/30 p-6 rounded-xl backdrop-blur-sm">
+              <div className="space-y-4">
+                <p className="flex items-center gap-3 text-lg hover:text-blue-200 transition-colors">
+                  <Globe className="w-6 h-6" />
                   firstsistemas.acess.app
                 </p>
-                <p className="flex items-center gap-2">
-                  <Instagram className="w-5 h-5" />
+                <p className="flex items-center gap-3 text-lg hover:text-blue-200 transition-colors">
+                  <Instagram className="w-6 h-6" />
                   first_developer_mt
                 </p>
-                <p className="flex items-center gap-2">
-                  <Phone className="w-5 h-5" />
+                <p className="flex items-center gap-3 text-lg hover:text-blue-200 transition-colors">
+                  <Phone className="w-6 h-6" />
                   (66) 99248-0993
                 </p>
-                <p className="flex items-center gap-2">
-                  <Phone className="w-5 h-5" />
+                <p className="flex items-center gap-3 text-lg hover:text-blue-200 transition-colors">
+                  <Phone className="w-6 h-6" />
                   (66) 99225-8469
                 </p>
               </div>
-              <div className="space-y-2">
-                <p className="flex items-center gap-2">
-                  <Mail className="w-5 h-5" />
+              <div className="space-y-4">
+                <p className="flex items-center gap-3 text-lg hover:text-blue-200 transition-colors">
+                  <Mail className="w-6 h-6" />
                   rodrigodev@yahoo.com
                 </p>
-                <p className="flex items-center gap-2">
-                  <Mail className="w-5 h-5" />
+                <p className="flex items-center gap-3 text-lg hover:text-blue-200 transition-colors">
+                  <Mail className="w-6 h-6" />
                   rodrigodev@firstsistemas.com.br
                 </p>
               </div>

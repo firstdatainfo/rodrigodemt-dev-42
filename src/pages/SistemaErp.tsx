@@ -77,7 +77,7 @@ const SistemaErp = () => {
 
         <section className="py-20 relative w-full">
           <div className="container mx-auto px-4">
-            <div className="bg-transparent backdrop-blur-sm border border-white/20 rounded-2xl p-8 lg:p-12 shadow-2xl">
+            <div className="bg-transparent backdrop-blur-sm border border-white/20 rounded-2xl p-8 lg:p-12">
               <h2 className="text-3xl md:text-6xl font-extrabold mb-6 text-white drop-shadow-lg bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Pronto para Começar?
               </h2>

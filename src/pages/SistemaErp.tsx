@@ -19,6 +19,7 @@ import {
   PhoneCall
 } from "lucide-react";
 import NeuralNetwork from "@/components/NeuralNetwork";
+import ParticlesBackground from "@/components/ParticlesBackground";
 
 const modules = [
     {
@@ -102,16 +103,21 @@ const SistemaErp = () => {
           </div>
         </div>
 
-        {/* Imagem de fundo - sem animação, carregamento imediato */}
+        {/* Background Image */}
         <img 
           src="/lovable-uploads/8e5468c5-aea9-4018-8084-7aacd2d38e80.png"
           alt="Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
           style={{
             position: 'fixed'
           }}
         />
         
+        {/* Particles Effect */}
+        <div className="absolute inset-0 z-10">
+          <ParticlesBackground />
+        </div>
+
         {/* Neural Network Animation */}
         <div className="absolute inset-0">
           <NeuralNetwork />

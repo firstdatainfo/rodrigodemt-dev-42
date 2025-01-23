@@ -89,6 +89,14 @@ const SistemaErp = () => {
   return (
     <div className="min-h-screen bg-white">
       <section className="relative pt-20 pb-32 bg-[#000B2E] overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{
+            backgroundImage: `url('/lovable-uploads/5e4f7f88-f9aa-4f35-93f6-4a3302bc94f4.png')`
+          }}
+        />
+        
         {/* Neural Network Animation */}
         <div className="absolute inset-0">
           <NeuralNetwork />

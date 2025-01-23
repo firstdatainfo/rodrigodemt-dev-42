@@ -150,7 +150,9 @@ const SistemaErp = () => {
         </div>
 
         {/* Description Section - Adjusted position */}
-        <div className="absolute top-48 right-12 z-50 max-w-md">
+
+        {/* Description Section - Further adjusted position */}
+        <div className="absolute top-64 right-24 z-50 max-w-md">
           <div className="bg-white/10 p-6 rounded-xl backdrop-blur-md border border-white/20">
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-white">Sobre Mim</h3>
@@ -389,3 +391,4 @@ const SistemaErp = () => {
 };
 
 export default SistemaErp;
+

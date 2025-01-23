@@ -121,7 +121,7 @@ const SistemaErp = () => {
                     <img
                       src="/lovable-uploads/280b36d6-3e6c-4f4c-be94-2471e02a8260.png"
                       alt="First Tickets Device 2"
-                      className="w-14 h-[67px] object-contain"
+                      className="w-24 h-[120px] object-contain"
                     />
                   </div>
                 </div>

@@ -15,7 +15,7 @@ const ProfileHeader = () => {
         </div>
       </div>
 
-      <div className="absolute top-8 right-4 z-50">
+      <div className="absolute top-16 md:top-8 right-4 z-50">
         <div className="bg-white/10 p-3 rounded-full backdrop-blur-md">
           <Avatar className="w-16 h-16 md:w-24 md:h-24 border-4 border-white/20 hover:scale-105 transition-transform duration-300">
             <AvatarImage src="/lovable-uploads/4a344239-9e8e-497e-b498-026599010a26.png" alt="Rodrigo Dev" />

@@ -89,15 +89,20 @@ const SistemaErp = () => {
   return (
     <div className="min-h-screen bg-white">
       <section className="relative pt-20 pb-32 bg-[#000B2E] overflow-hidden">
+        {/* Background Image */}
         <div 
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center opacity-30" // Aumentei a opacidade de 0.15 para 0.30
           style={{
-            backgroundImage: `url('/lovable-uploads/5e4f7f88-f9aa-4f35-93f6-4a3302bc94f4.png')`,
-            opacity: 0.15
+            backgroundImage: `url('/lovable-uploads/5e4f7f88-f9aa-4f35-93f6-4a3302bc94f4.png')`
           }}
         />
         
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/80 to-blue-700/80" />
+        {/* Neural Network Animation */}
+        <div className="absolute inset-0">
+          <NeuralNetwork />
+        </div>
+
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 via-blue-800/60 to-blue-700/60" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12">

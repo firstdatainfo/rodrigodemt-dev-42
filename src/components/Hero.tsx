@@ -30,7 +30,7 @@ const technologies = [
 const Hero = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
-      {/* Imagem para desktop - à direita */}
+      {/* Desktop image */}
       <div className="hidden md:block absolute inset-0">
         <img
           src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
@@ -38,10 +38,11 @@ const Hero = () => {
           className="w-full h-full object-contain object-right"
           style={{ position: 'absolute', top: 0, right: 0, pointerEvents: 'none' }}
           loading="eager"
+          decoding="async"
         />
       </div>
 
-      {/* Imagem para mobile - atrás do conteúdo */}
+      {/* Mobile image */}
       <div className="md:hidden absolute inset-0">
         <img
           src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
@@ -49,6 +50,7 @@ const Hero = () => {
           className="w-full h-full object-cover opacity-20"
           style={{ position: 'absolute', top: 0, right: 0, pointerEvents: 'none' }}
           loading="eager"
+          decoding="async"
         />
       </div>
 

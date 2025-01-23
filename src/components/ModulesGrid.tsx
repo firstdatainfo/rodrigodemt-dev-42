@@ -65,22 +65,22 @@ const ModulesGrid = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">
           Serviços
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
           {services.map((service, index) => (
             <Card
               key={service.title}
-              className="hover:shadow-lg transition-shadow duration-300 animate-fade-up bg-white"
+              className="hover:shadow-lg transition-shadow duration-300 animate-fade-up bg-transparent backdrop-blur-sm border border-white/20 hover:bg-white/10"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <CardContent className="flex flex-col items-start p-6">
+              <CardContent className="flex flex-col items-center justify-center p-6">
                 <h3 className="text-xl font-semibold mb-4 text-primary">
                   {service.title}
                 </h3>
-                <ul className="space-y-2 w-full">
+                <ul className="space-y-2">
                   {service.items.map((item) => (
                     <li 
                       key={item} 
-                      className="flex items-center text-sm text-textGray hover:text-primary transition-colors"
+                      className="text-sm text-textGray hover:text-primary transition-colors flex items-center"
                     >
                       <span className="w-1.5 h-1.5 bg-secondary rounded-full mr-2"></span>
                       {item}

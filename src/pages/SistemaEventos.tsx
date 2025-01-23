@@ -17,30 +17,29 @@ const SistemaEventos = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-900 via-pink-800 to-orange-700">
-      <section className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-32">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: 'url("/lovable-uploads/deae0225-56db-4a40-9702-c232fc1b8504.png")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            width: '100%',
-            height: '100%'
-          }}
-        />
-        
-        {/* Particles Overlay */}
-        <div className="absolute inset-0 z-10">
-          <ParticlesBackground />
-        </div>
-        
-        <div className="container relative z-20 px-4 mx-auto">
+    <div className="relative min-h-screen">
+      {/* Background Image Container */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url("/lovable-uploads/deae0225-56db-4a40-9702-c232fc1b8504.png")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          objectFit: 'cover',
+        }}
+      />
+      
+      {/* Particles Overlay */}
+      <div className="absolute inset-0 z-10">
+        <ParticlesBackground />
+      </div>
+      
+      <div className="relative z-20 min-h-screen">
+        <section className="container px-4 mx-auto pt-32">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 text-center lg:text-left">
-              <div className="relative inline-block mb-4 mt-16">
+              <div className="relative inline-block mb-4">
                 <div className="text-4xl md:text-7xl font-bold text-white relative z-10 tracking-tight">
                   Sistema de Eventos
                 </div>
@@ -94,8 +93,8 @@ const SistemaEventos = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };

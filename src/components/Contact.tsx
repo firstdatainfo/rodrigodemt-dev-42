@@ -27,15 +27,15 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        'YOUR_SERVICE_ID', // Você precisará substituir isso
-        'YOUR_TEMPLATE_ID', // Você precisará substituir isso
+        'service_m50h8iv',
+        'template_contact', // Você precisará criar um template no EmailJS
         {
           to_email: 'rodrigodev@yahoo.com',
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        'YOUR_PUBLIC_KEY' // Você precisará substituir isso
+        'Yahoo' // Sua chave pública do EmailJS
       );
 
       toast({

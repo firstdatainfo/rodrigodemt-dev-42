@@ -23,11 +23,11 @@ const SistemaEventos = () => {
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: 'url("/lovable-uploads/96dae26a-eb3a-4bd0-918b-0f32f37e7470.png")',
-          backgroundSize: '100%',
+          backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'repeat-y',
-          imageRendering: 'high-quality',
+          backgroundRepeat: 'no-repeat',
           opacity: 0.8,
+          imageRendering: 'crisp-edges',
         }}
       />
       

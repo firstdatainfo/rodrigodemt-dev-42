@@ -89,7 +89,7 @@ const SistemaErp = () => {
   return (
     <div className="min-h-screen bg-white">
       <section className="relative pt-20 pb-32 bg-[#000B2E] overflow-hidden">
-        {/* Logo - Removed animation classes */}
+        {/* Logo */}
         <div className="absolute top-4 left-4 z-20">
           <div className="flex items-center gap-2">
             <div className="bg-blue-600 w-10 h-10 rounded-lg flex items-center justify-center">
@@ -102,11 +102,12 @@ const SistemaErp = () => {
           </div>
         </div>
 
-        {/* Background Image - Fixed position */}
+        {/* Background Image - No animation, appears immediately */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-50 bg-fixed"
           style={{
-            backgroundImage: `url('/lovable-uploads/8e5468c5-aea9-4018-8084-7aacd2d38e80.png')`
+            backgroundImage: `url('/lovable-uploads/8e5468c5-aea9-4018-8084-7aacd2d38e80.png')`,
+            willChange: 'auto'
           }}
         />
         
@@ -126,17 +127,16 @@ const SistemaErp = () => {
                 </div>
                 <div className="absolute -inset-4 bg-blue-500/20 blur-xl rounded-full" />
               </div>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white animate-fade-up">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white">
                 Sistema ERP Completo para sua Empresa
               </h1>
-              <p className="text-xl text-white/80 mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+              <p className="text-xl text-white/80 mb-8">
                 Transforme sua gestão empresarial com nossa solução integrada e moderna
               </p>
               <div className="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-4">
                 <Button
                   size="lg"
-                  className="bg-white text-blue-900 hover:bg-white/90 animate-fade-up w-full md:w-auto"
-                  style={{ animationDelay: "0.4s" }}
+                  className="bg-white text-blue-900 hover:bg-white/90 w-full md:w-auto"
                   onClick={handleDemoRequest}
                 >
                   Solicitar Demonstração
@@ -144,8 +144,7 @@ const SistemaErp = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 animate-fade-up w-full md:w-auto"
-                  style={{ animationDelay: "0.6s" }}
+                  className="border-white text-white hover:bg-white/10 w-full md:w-auto"
                 >
                   Conhecer Planos
                 </Button>

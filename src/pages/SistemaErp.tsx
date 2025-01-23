@@ -92,8 +92,13 @@ const SistemaErp = () => {
         {/* Logo */}
         <div className="absolute top-4 left-4 z-20">
           <div className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-white" />
-            <span className="text-2xl font-bold text-white">First</span>
+            <div className="bg-blue-600 w-10 h-10 rounded-lg flex items-center justify-center">
+              <span className="text-xl font-bold text-white">FD</span>
+            </div>
+            <div className="flex flex-col items-start">
+              <span className="text-2xl font-bold text-white">FirstDeveloper</span>
+              <span className="text-sm text-white/80 -mt-1">MT</span>
+            </div>
           </div>
         </div>
 

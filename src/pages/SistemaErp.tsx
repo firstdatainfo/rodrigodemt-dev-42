@@ -170,7 +170,7 @@ const SistemaErp = () => {
             {modules.map((module, index) => (
               <div
                 key={index}
-                className="p-8 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100 group hover:-translate-y-1"
+                className="p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 group hover:-translate-y-1"
               >
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
                   {module.icon}
@@ -192,7 +192,7 @@ const SistemaErp = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-t-blue-600 hover:-translate-y-1 group"
+                className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-1 group"
               >
                 <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors duration-300">
                   {feature.icon}

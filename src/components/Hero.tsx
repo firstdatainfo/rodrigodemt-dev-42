@@ -29,6 +29,10 @@ const technologies = [
 ];
 
 const Hero = () => {
+  const handleSocialRedirect = () => {
+    window.open('https://www.instagram.com/first_developer_mt/', '_blank');
+  };
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
       {/* Imagem para desktop */}
@@ -81,7 +85,7 @@ const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="bg-white/10 hover:bg-white/20 text-white border-white/20"
-                onClick={() => window.location.href = '#services'}
+                onClick={handleSocialRedirect}
               >
                 Começar Agora
               </Button>

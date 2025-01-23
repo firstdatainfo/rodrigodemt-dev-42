@@ -55,7 +55,7 @@ const CodeSnippets = () => {
         {codeSnippets.map((snippet, index) => (
           <div
             key={index}
-            className="bg-primary p-6 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 hover:bg-primary-light"
+            className="glass-card p-6 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1"
           >
             <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
               <Code className="w-5 h-5" />

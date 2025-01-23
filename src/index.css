@@ -16,8 +16,8 @@
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 222.2 47.4% 11.2%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 261 47% 66%;
+    --secondary-foreground: 317 92% 61%;
 
     --accent: 24 94% 53%;
     --accent-foreground: 199 92% 48%;
@@ -94,14 +94,14 @@
   }
 
   .glass-effect {
-    @apply bg-primary/20 backdrop-blur-lg border border-white/20;
+    @apply bg-white/20 backdrop-blur-lg border border-white/20;
   }
 
   .glass-card {
-    @apply glass-effect hover:bg-primary-light/30 transition-all duration-300;
+    @apply glass-effect hover:bg-white/30 transition-all duration-300;
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-primary;
+    @apply bg-clip-text text-transparent bg-gradient-secondary;
   }
 }

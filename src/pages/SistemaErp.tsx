@@ -114,14 +114,14 @@ const SistemaErp = () => {
                   </Button>
                   <div className="flex gap-4 items-center">
                     <img
-                      src="/lovable-uploads/bdc9b654-0bf9-46a1-8aa1-08fcdcd5baee.png"
-                      alt="First Tickets Device 1"
-                      className="w-24 h-[190px] object-contain"
+                      src="/lovable-uploads/19c607c2-dd16-4d89-8f9c-3cf97ecabce4.png"
+                      alt="Sistema ERP Dashboard"
+                      className="w-24 h-[190px] object-contain rounded-lg shadow-lg"
                     />
                     <img
-                      src="/lovable-uploads/280b36d6-3e6c-4f4c-be94-2471e02a8260.png"
-                      alt="First Tickets Device 2"
-                      className="w-24 h-[190px] object-contain"
+                      src="/lovable-uploads/29f32a30-4b59-40fb-b6c1-a86d9887d1c3.png"
+                      alt="Sistema ERP Mobile"
+                      className="w-24 h-[190px] object-contain rounded-lg shadow-lg"
                     />
                   </div>
                 </div>

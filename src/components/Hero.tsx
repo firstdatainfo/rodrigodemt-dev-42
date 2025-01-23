@@ -13,6 +13,7 @@ import {
   SiTypescript,
   SiFigma,
 } from "react-icons/si";
+import { useEffect, useRef } from "react";
 
 const technologies = [
   { name: "Node.js", icon: SiNodedotjs },
@@ -28,12 +29,26 @@ const technologies = [
 ];
 
 const Hero = () => {
+  const desktopImageRef = useRef<HTMLImageElement>(null);
+  const mobileImageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const imageUrl = "/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png";
+    
+    if (desktopImageRef.current) {
+      desktopImageRef.current.src = imageUrl;
+    }
+    if (mobileImageRef.current) {
+      mobileImageRef.current.src = imageUrl;
+    }
+  }, []);
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
       {/* Imagem para desktop - à direita */}
       <div className="hidden md:block absolute inset-0">
         <img
-          src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
+          ref={desktopImageRef}
           alt="AI Technology Visualization"
           className="w-full h-full object-contain object-right"
           style={{ position: 'absolute', top: 0, right: 0, pointerEvents: 'none' }}
@@ -43,7 +58,7 @@ const Hero = () => {
       {/* Imagem para mobile - atrás do conteúdo */}
       <div className="md:hidden absolute inset-0">
         <img
-          src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
+          ref={mobileImageRef}
           alt="AI Technology Visualization"
           className="w-full h-full object-cover opacity-20"
           style={{ position: 'absolute', top: 0, right: 0, pointerEvents: 'none' }}

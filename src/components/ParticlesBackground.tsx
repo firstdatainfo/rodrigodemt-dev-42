@@ -9,7 +9,7 @@ const ParticlesBackground = () => {
   }, []);
 
   const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    console.log("Particles carregadas", container);
+    console.log("Particles loaded", container);
   }, []);
 
   return (
@@ -48,7 +48,7 @@ const ParticlesBackground = () => {
         },
         particles: {
           color: {
-            value: "#ffffff",
+            value: ["#FF1493", "#9400D3", "#FF69B4", "#8A2BE2", "#FF00FF"],
           },
           links: {
             color: "#ffffff",

@@ -1,33 +1,25 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { 
-  BarChart3, 
-  Box, 
-  ClipboardCheck, 
-  DollarSign, 
-  Users, 
-  FileText, 
+  Code,
+  Cpu,
+  Network,
+  Github,
+  Terminal,
+  CircuitBoard,
   Database,
-  Ticket,
-  Car,
-  Receipt,
-  Factory,
-  Shield,
-  Clock,
-  Zap,
-  CheckCircle2,
+  Server,
+  Codesandbox,
   PhoneCall,
   Globe,
   Instagram,
   Phone,
   Mail,
-  Code,
-  Cpu,
-  Network
+  CheckCircle2
 } from "lucide-react";
 import NeuralNetwork from "@/components/NeuralNetwork";
 import ParticlesBackground from "@/components/ParticlesBackground";
-import Features from "@/components/Features";
+import ChipAnimation from "@/components/ChipAnimation";
 
 const modules = [
     {
@@ -85,6 +77,24 @@ const features = [
     }
 ];
 
+const codeSnippets = [
+  {
+    language: "TypeScript",
+    code: "interface Developer {\n  name: string;\n  skills: string[];\n  experience: number;\n}",
+    title: "Clean TypeScript"
+  },
+  {
+    language: "React",
+    code: "const [state, setState] = useState<Developer>();\nuseEffect(() => {\n  // Magic happens here\n}, []);",
+    title: "React Hooks"
+  },
+  {
+    language: "Node.js",
+    code: "async function connect() {\n  try {\n    await db.connect();\n  } catch (err) {\n    console.error(err);\n  }\n}",
+    title: "Async/Await"
+  }
+];
+
 const SistemaErp = () => {
   const { toast } = useToast();
 
@@ -102,21 +112,20 @@ const SistemaErp = () => {
         <div className="absolute top-4 left-4 z-50">
           <div className="flex items-center gap-2 bg-white/10 p-3 rounded-lg backdrop-blur-md">
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 w-12 h-12 rounded-lg flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">FD</span>
+              <span className="text-2xl font-bold text-white">RD</span>
             </div>
             <div className="flex flex-col items-start">
-              <span className="text-2xl font-bold text-white">FirstDeveloper</span>
+              <span className="text-2xl font-bold text-white">Rodrigo Dev</span>
               <span className="text-sm text-white/80 -mt-1">MT</span>
             </div>
           </div>
         </div>
 
-        {/* Neural Network Background */}
+        {/* Background Effects */}
         <div className="absolute inset-0 opacity-30">
           <NeuralNetwork />
+          <ChipAnimation />
         </div>
-
-        {/* Particles Effect */}
         <div className="absolute inset-0 z-10">
           <ParticlesBackground />
         </div>
@@ -126,7 +135,7 @@ const SistemaErp = () => {
             <div className="flex-1 text-center lg:text-left">
               <div className="relative inline-block mb-8">
                 <div className="text-5xl md:text-7xl font-bold text-white relative z-10 tracking-tight">
-                  ERP FIRST
+                  Rodrigo Dev
                 </div>
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl rounded-full" />
               </div>
@@ -136,10 +145,34 @@ const SistemaErp = () => {
                   Inteligentes e Modernos
                 </span>
               </h1>
-              <p className="text-xl text-white/90 mb-8 max-w-2xl">
-                Transforme sua gestão empresarial com nossa solução integrada, 
-                moderna e desenvolvida com as mais recentes tecnologias
-              </p>
+
+              {/* Tech Icons Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-8">
+                {[Github, Terminal, CircuitBoard, Database, Server, Codesandbox, Cpu, Network, Code].map((Icon, index) => (
+                  <div
+                    key={index}
+                    className="bg-white/10 p-4 rounded-xl backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group"
+                  >
+                    <Icon className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
+                  </div>
+                ))}
+              </div>
+
+              {/* Code Snippets */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                {codeSnippets.map((snippet, index) => (
+                  <div
+                    key={index}
+                    className="bg-black/30 backdrop-blur-md p-4 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300"
+                  >
+                    <h3 className="text-white font-semibold mb-2">{snippet.title}</h3>
+                    <pre className="text-xs text-blue-300 overflow-x-auto">
+                      <code>{snippet.code}</code>
+                    </pre>
+                  </div>
+                ))}
+              </div>
+
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <Button
                   size="lg"
@@ -159,6 +192,8 @@ const SistemaErp = () => {
                 </Button>
               </div>
             </div>
+
+            {/* Right side animation */}
             <div className="flex-1 relative">
               <div className="relative w-full aspect-square">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse" />
@@ -171,7 +206,6 @@ const SistemaErp = () => {
         </div>
       </section>
 
-      {/* Módulos Section with Glass Effect */}
       <section className="py-20 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-white drop-shadow-lg">

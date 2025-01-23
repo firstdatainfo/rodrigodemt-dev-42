@@ -48,7 +48,7 @@ const ParticlesBackground = () => {
         },
         particles: {
           color: {
-            value: ["#FF1493", "#9400D3", "#FF69B4", "#8A2BE2", "#FF00FF"],
+            value: ["#8B5CF6", "#D946EF", "#F97316", "#0EA5E9", "#EC4899", "#F43F5E"],
           },
           links: {
             color: "#ffffff",
@@ -75,7 +75,7 @@ const ParticlesBackground = () => {
             value: 80,
           },
           opacity: {
-            value: 0.5,
+            value: 0.7,
           },
           shape: {
             type: "circle",

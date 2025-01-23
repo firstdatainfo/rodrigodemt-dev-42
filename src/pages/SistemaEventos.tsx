@@ -19,7 +19,19 @@ const SistemaEventos = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-900 via-pink-800 to-orange-700">
       <section className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-32">
-        <div className="absolute inset-0 opacity-40">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url("/lovable-uploads/deae0225-56db-4a40-9702-c232fc1b8504.png")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: 0.2
+          }}
+        />
+        
+        {/* Particles Overlay */}
+        <div className="absolute inset-0 z-10">
           <ParticlesBackground />
         </div>
         

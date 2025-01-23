@@ -1,14 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { Calendar, Music, Users, Sparkles, Phone, Instagram } from "lucide-react";
+import { Code, Cpu, PhoneCall, CheckCircle2, Mail, MapPin, Github } from "lucide-react";
 import ParticlesBackground from "@/components/ParticlesBackground";
-import { useNavigate } from "react-router-dom";
+import ProfileHeader from "@/components/ProfileHeader";
+import AboutMe from "@/components/AboutMe";
+import CodeSnippets from "@/components/CodeSnippets";
+import ModulesGrid from "@/components/ModulesGrid";
 
 const SistemaErp = () => {
   const { toast } = useToast();
-  const navigate = useNavigate();
 
-  const handleContactClick = () => {
+  const handleDemoRequest = () => {
     window.open('https://wa.me/5566992480993', '_blank');
   };
 
@@ -16,21 +18,17 @@ const SistemaErp = () => {
     window.open('https://instagram.com/first_developer_mt', '_blank');
   };
 
+  const handleGithubRedirect = () => {
+    console.log('Opening GitHub profile...');
+    window.open('https://github.com/RodrigoDevMT', '_blank', 'noopener,noreferrer');
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-900 via-pink-800 to-orange-700">
+    <div className="min-h-screen bg-gradient-to-b from-primary via-primary-light to-secondary">
       <section className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-32">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: 'url("/lovable-uploads/deae0225-56db-4a40-9702-c232fc1b8504.png")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
-        
-        {/* Particles Overlay */}
-        <div className="absolute inset-0 z-10">
+        <ProfileHeader />
+
+        <div className="absolute inset-0 opacity-30">
           <ParticlesBackground />
         </div>
         
@@ -39,44 +37,27 @@ const SistemaErp = () => {
             <div className="flex-1 text-center lg:text-left">
               <div className="relative inline-block mb-4 mt-16">
                 <div className="text-4xl md:text-7xl font-bold text-white relative z-10 tracking-tight">
-                  Sistema ERP
+                  Rodrigo Dev
                 </div>
-                <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl rounded-full" />
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl rounded-full" />
               </div>
               
               <div className="mb-8 animate-fade-up">
                 <p className="text-lg md:text-2xl text-white/90 font-light leading-relaxed">
-                  Transforme sua gestão empresarial
-                  <span className="block mt-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">
-                    com nossa plataforma completa de ERP
+                  Transformando ideias em código, com a paixão de quem vive para criar 
+                  <span className="block mt-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">
+                    e a expertise de quem respira tecnologia.
                   </span>
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                {[
-                  { icon: Calendar, text: "Gestão Financeira" },
-                  { icon: Music, text: "Controle de Estoque" },
-                  { icon: Users, text: "Recursos Humanos" },
-                  { icon: Sparkles, text: "Business Intelligence" }
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300"
-                  >
-                    <item.icon className="w-8 h-8 text-white mb-4" />
-                    <h3 className="text-white font-semibold">{item.text}</h3>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-8">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white w-full sm:w-auto text-lg px-8 py-6"
-                  onClick={handleContactClick}
+                  className="bg-transparent backdrop-blur-sm border border-white/20 text-white hover:bg-white/10 w-full sm:w-auto text-lg px-8 py-6 shadow-lg"
+                  onClick={handleDemoRequest}
                 >
-                  <Phone className="w-5 h-5 mr-2" />
+                  <PhoneCall className="w-5 h-5 mr-2" />
                   Falar no WhatsApp
                 </Button>
                 <Button
@@ -85,13 +66,93 @@ const SistemaErp = () => {
                   className="bg-transparent backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/10 w-full sm:w-auto text-lg px-8 py-6"
                   onClick={handleSocialRedirect}
                 >
-                  <Instagram className="w-5 h-5 mr-2" />
+                  <Cpu className="w-5 h-5 mr-2" />
                   @first_developer_mt
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/10 hover:scale-105 transition-transform w-full sm:w-auto text-lg px-8 py-6"
+                  onClick={handleGithubRedirect}
+                >
+                  <Github className="w-5 h-5 mr-2" />
+                  GitHub
                 </Button>
               </div>
             </div>
           </div>
         </div>
+
+        <AboutMe />
+        <CodeSnippets />
+        <ModulesGrid />
+
+        <section className="py-20 relative w-full">
+          <div className="container mx-auto px-4">
+            <div className="bg-primary rounded-2xl p-8 lg:p-12 shadow-xl">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-white">
+                Entre em Contato
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <h3 className="text-2xl font-semibold text-white mb-6">
+                    Vamos conversar sobre seu projeto
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
+                        <Mail className="w-5 h-5 text-secondary" />
+                      </div>
+                      <span className="text-white">rodrigodev@yahoo.com</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
+                        <MapPin className="w-5 h-5 text-secondary" />
+                      </div>
+                      <span className="text-white">Mato Grosso</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <form className="space-y-4">
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Seu Nome"
+                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-secondary"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="email"
+                      placeholder="Seu Email"
+                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-secondary"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Assunto"
+                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-secondary"
+                    />
+                  </div>
+                  <div>
+                    <textarea
+                      placeholder="Sua Mensagem"
+                      rows={4}
+                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-secondary resize-none"
+                    />
+                  </div>
+                  <Button
+                    className="w-full bg-gradient-to-r from-secondary to-accent-foreground hover:from-secondary/90 hover:to-accent-foreground/90 text-white"
+                  >
+                    Enviar Mensagem
+                  </Button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
     </div>
   );

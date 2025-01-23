@@ -157,18 +157,20 @@ const SistemaErp = () => {
 
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Módulos Principais</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Módulos Principais
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {modules.map((module, index) => (
               <div
                 key={index}
-                className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                className="p-8 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100 group hover:-translate-y-1"
               >
-                <div className="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
                   {module.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{module.title}</h3>
-                <p className="text-gray-600">{module.description}</p>
+                <h3 className="text-2xl font-semibold mb-4 text-gray-800">{module.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{module.description}</p>
               </div>
             ))}
           </div>
@@ -177,18 +179,20 @@ const SistemaErp = () => {
 
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Soluções</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Soluções
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-t-blue-600 hover:-translate-y-1 group"
               >
-                <div className="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-xl font-semibold mb-4 text-gray-800">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>

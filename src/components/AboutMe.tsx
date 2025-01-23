@@ -1,6 +1,6 @@
 const AboutMe = () => {
   return (
-    <div className="absolute top-72 right-4 md:right-24 z-50 w-full max-w-[90%] md:max-w-md">
+    <div className="w-full max-w-[90%] md:max-w-3xl mx-auto mt-8 z-50">
       <div className="bg-white/10 p-6 rounded-xl backdrop-blur-md border border-white/20">
         <div className="space-y-4">
           <h3 className="text-xl font-semibold text-white">Sobre Mim</h3>

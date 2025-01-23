@@ -20,9 +20,8 @@ const SistemaErp = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary via-primary-light to-secondary">
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
+      <section className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-32">
         <ProfileHeader />
-        <AboutMe />
 
         <div className="absolute inset-0 opacity-30">
           <ParticlesBackground />
@@ -68,42 +67,44 @@ const SistemaErp = () => {
             </div>
           </div>
         </div>
-      </section>
 
-      <CodeSnippets />
-      <ModulesGrid />
-      <Features />
+        <AboutMe />
 
-      <section className="py-20 relative">
-        <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-r from-blue-900/80 via-blue-800/80 to-purple-900/80 rounded-2xl p-8 lg:p-12 backdrop-blur-xl border border-white/20 shadow-2xl">
-            <h2 className="text-3xl md:text-6xl font-extrabold mb-6 text-white drop-shadow-lg bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Pronto para Começar?
-            </h2>
-            <p className="text-lg md:text-2xl mb-8 max-w-2xl mx-auto text-white font-semibold">
-              Agende uma demonstração gratuita e descubra como nosso sistema pode
-              transformar sua empresa
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 font-bold text-lg px-8 py-6"
-                onClick={handleDemoRequest}
-              >
-                <PhoneCall className="w-5 h-5 mr-2" />
-                Solicitar Contato
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white/20 text-white hover:bg-white/10 font-bold text-lg px-8 py-6"
-              >
-                <CheckCircle2 className="w-5 h-5 mr-2" />
-                Ver Planos
-              </Button>
+        <CodeSnippets />
+        <ModulesGrid />
+        <Features />
+
+        <section className="py-20 relative w-full">
+          <div className="container mx-auto px-4">
+            <div className="bg-gradient-to-r from-blue-900/80 via-blue-800/80 to-purple-900/80 rounded-2xl p-8 lg:p-12 backdrop-blur-xl border border-white/20 shadow-2xl">
+              <h2 className="text-3xl md:text-6xl font-extrabold mb-6 text-white drop-shadow-lg bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Pronto para Começar?
+              </h2>
+              <p className="text-lg md:text-2xl mb-8 max-w-2xl mx-auto text-white font-semibold">
+                Agende uma demonstração gratuita e descubra como nosso sistema pode
+                transformar sua empresa
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 font-bold text-lg px-8 py-6"
+                  onClick={handleDemoRequest}
+                >
+                  <PhoneCall className="w-5 h-5 mr-2" />
+                  Solicitar Contato
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-white/20 text-white hover:bg-white/10 font-bold text-lg px-8 py-6"
+                >
+                  <CheckCircle2 className="w-5 h-5 mr-2" />
+                  Ver Planos
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </section>
     </div>
   );

@@ -149,52 +149,38 @@ const SistemaErp = () => {
           </div>
         </div>
 
-        {/* Description Section - Adjusted position */}
+        {/* Name above the card */}
+        <div className="absolute top-52 right-24 z-50">
+          <h2 className="text-4xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            RODRIGO DEV
+          </h2>
+        </div>
 
         {/* Description Section - Further adjusted position */}
-        <div className="absolute top-64 right-24 z-50 max-w-md">
+        <div className="absolute top-72 right-24 z-50 max-w-md">
           <div className="bg-white/10 p-6 rounded-xl backdrop-blur-md border border-white/20">
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-white">Sobre Mim</h3>
               <p className="text-white/90 leading-relaxed">
-                Desenvolvedor apaixonado por tecnologia com mais de 8 anos de experiência em desenvolvimento de sistemas. 
-                Especializado em criar soluções inovadoras que transformam desafios em oportunidades.
+                Rodrigo Oliveira é um desenvolvedor de 39 anos, apaixonado por sistemas e tecnologia. Com uma sólida formação em desenvolvimento de software, ele tem se destacado na criação de soluções inovadoras que otimizam processos e melhoram a experiência do usuário.
               </p>
-              <div className="grid grid-cols-1 gap-4 mt-4">
-                <div>
-                  <h4 className="text-lg font-medium text-white mb-2">Habilidades Técnicas</h4>
-                  <ul className="space-y-2 text-white/80">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-green-400" />
-                      Desenvolvimento Full Stack
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-green-400" />
-                      Arquitetura de Software
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-green-400" />
-                      Sistemas ERP & Automação
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-lg font-medium text-white mb-2">Especialidades</h4>
-                  <ul className="space-y-2 text-white/80">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
-                      Soluções Empresariais
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
-                      Integração de Sistemas
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
-                      Otimização de Processos
-                    </li>
-                  </ul>
-                </div>
+              <div>
+                <h4 className="text-lg font-medium text-white mb-2">Experiência Profissional</h4>
+                <p className="text-white/80 leading-relaxed">
+                  Rodrigo acumulou experiência em diversas áreas da tecnologia, incluindo desenvolvimento web, aplicativos móveis e sistemas de gestão. Ele já trabalhou em projetos desafiadores que exigiram habilidades em linguagens de programação como Java, Python e JavaScript, além de ter experiência com bancos de dados e metodologias ágeis.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-lg font-medium text-white mb-2">Interesses e Hobbies</h4>
+                <p className="text-white/80 leading-relaxed">
+                  Fora do ambiente profissional, Rodrigo é um entusiasta da tecnologia e adora acompanhar as últimas tendências do setor. Ele também se dedica a projetos pessoais, como desenvolver aplicativos que ajudam a resolver problemas do dia a dia. Além disso, é fã de jogos eletrônicos e frequentemente participa de comunidades online para compartilhar suas experiências e aprender com outros desenvolvedores.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-lg font-medium text-white mb-2">Objetivos Futuros</h4>
+                <p className="text-white/80 leading-relaxed">
+                  Rodrigo busca constantemente aprimorar suas habilidades e expandir seu conhecimento em áreas como inteligência artificial e aprendizado de máquina. Ele está sempre em busca de novos desafios que possam contribuir para seu crescimento profissional e pessoal.
+                </p>
               </div>
             </div>
           </div>
@@ -391,4 +377,3 @@ const SistemaErp = () => {
 };
 
 export default SistemaErp;
-

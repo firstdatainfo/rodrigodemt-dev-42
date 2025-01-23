@@ -32,30 +32,30 @@ const Hero = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
       {/* Imagem para desktop */}
-      <div className="hidden md:block absolute inset-0">
+      <div className="hidden md:block absolute inset-0 pointer-events-none">
         <img
           src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
           alt="AI Technology Visualization"
           className="w-full h-full object-contain object-right opacity-30"
-          style={{ position: 'absolute', top: 0, right: 0, pointerEvents: 'none' }}
+          style={{ position: 'absolute', top: 0, right: 0 }}
           loading="eager"
           decoding="async"
         />
       </div>
 
       {/* Imagem para mobile */}
-      <div className="md:hidden absolute inset-0">
+      <div className="md:hidden absolute inset-0 pointer-events-none">
         <img
           src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
           alt="AI Technology Visualization"
           className="w-full h-full object-cover opacity-20"
-          style={{ position: 'absolute', top: 0, right: 0, pointerEvents: 'none' }}
+          style={{ position: 'absolute', top: 0, right: 0 }}
           loading="eager"
           decoding="async"
         />
       </div>
 
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         <ParticlesBackground />
         <NeuralNetwork />
       </div>
@@ -76,11 +76,20 @@ const Hero = () => {
               Soluções avançadas de IA para impulsionar sua empresa ao próximo nível de inovação e eficiência.
             </p>
 
-            <div className="flex flex-wrap gap-4 justify-start mb-12">
-              <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/20">
+            <div className="flex flex-wrap gap-4 justify-start mb-12 relative z-30">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="bg-white/10 hover:bg-white/20 text-white border-white/20"
+                onClick={() => window.location.href = '#services'}
+              >
                 Começar Agora
               </Button>
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90">
+              <Button 
+                size="lg" 
+                className="bg-white text-primary hover:bg-white/90"
+                onClick={() => window.location.href = '#contato'}
+              >
                 Fale Conosco
               </Button>
             </div>

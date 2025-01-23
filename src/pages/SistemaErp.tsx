@@ -149,7 +149,55 @@ const SistemaErp = () => {
           </div>
         </div>
 
-        {/* Background Effects */}
+        {/* New Description Section */}
+        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-50 max-w-2xl">
+          <div className="bg-white/10 p-6 rounded-xl backdrop-blur-md border border-white/20">
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-white">Sobre Mim</h3>
+              <p className="text-white/90 leading-relaxed">
+                Desenvolvedor apaixonado por tecnologia com mais de 8 anos de experiência em desenvolvimento de sistemas. 
+                Especializado em criar soluções inovadoras que transformam desafios em oportunidades.
+              </p>
+              <div className="grid grid-cols-2 gap-4 mt-4">
+                <div>
+                  <h4 className="text-lg font-medium text-white mb-2">Habilidades Técnicas</h4>
+                  <ul className="space-y-2 text-white/80">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-green-400" />
+                      Desenvolvimento Full Stack
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-green-400" />
+                      Arquitetura de Software
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-green-400" />
+                      Sistemas ERP & Automação
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-lg font-medium text-white mb-2">Especialidades</h4>
+                  <ul className="space-y-2 text-white/80">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                      Soluções Empresariais
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                      Integração de Sistemas
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                      Otimização de Processos
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="absolute inset-0 opacity-30">
           <NeuralNetwork />
           <ChipAnimation />

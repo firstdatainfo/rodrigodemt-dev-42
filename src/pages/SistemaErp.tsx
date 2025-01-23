@@ -150,11 +150,21 @@ const SistemaErp = () => {
         <div className="container relative z-20 px-4 mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 text-center lg:text-left">
-              <div className="relative inline-block mb-8 mt-16">
+              <div className="relative inline-block mb-4 mt-16">
                 <div className="text-5xl md:text-7xl font-bold text-white relative z-10 tracking-tight">
                   Rodrigo Dev
                 </div>
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl rounded-full" />
+              </div>
+              
+              {/* Nova frase impactante */}
+              <div className="mb-8 animate-fade-up">
+                <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed">
+                  Transformando ideias em código, com a paixão de quem vive para criar 
+                  <span className="block mt-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">
+                    e a expertise de quem respira tecnologia.
+                  </span>
+                </p>
               </div>
 
               {/* Tech Icons Grid */}

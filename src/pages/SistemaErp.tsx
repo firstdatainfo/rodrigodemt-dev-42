@@ -102,12 +102,13 @@ const SistemaErp = () => {
           </div>
         </div>
 
-        {/* Background Image - No animation, appears immediately */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-50 bg-fixed"
+        {/* Imagem de fundo - sem animação, carregamento imediato */}
+        <img 
+          src="/lovable-uploads/8e5468c5-aea9-4018-8084-7aacd2d38e80.png"
+          alt="Background"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
           style={{
-            backgroundImage: `url('/lovable-uploads/8e5468c5-aea9-4018-8084-7aacd2d38e80.png')`,
-            willChange: 'auto'
+            position: 'fixed'
           }}
         />
         

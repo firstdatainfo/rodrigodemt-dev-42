@@ -116,12 +116,12 @@ const SistemaErp = () => {
                     <img
                       src="/lovable-uploads/bdc9b654-0bf9-46a1-8aa1-08fcdcd5baee.png"
                       alt="First Tickets Device 1"
-                      className="w-24 h-[120px] object-contain"
+                      className="w-24 h-[190px] object-contain"
                     />
                     <img
                       src="/lovable-uploads/280b36d6-3e6c-4f4c-be94-2471e02a8260.png"
                       alt="First Tickets Device 2"
-                      className="w-24 h-[120px] object-contain"
+                      className="w-24 h-[190px] object-contain"
                     />
                   </div>
                 </div>

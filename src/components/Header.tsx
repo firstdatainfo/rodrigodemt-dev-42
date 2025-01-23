@@ -8,7 +8,7 @@ const Header = () => {
   const menuItems = [
     { name: "Início", path: "/" },
     { name: "Bio Rodrigo Dev MT", path: "/sistema-erp" },
-    { name: "Sistema de Eventos", path: "#sistema-de-eventos" },
+    { name: "Sistema de Eventos", path: "/sistema-eventos" },
     { name: "Sistema de Automações", path: "#sistema-de-automacoes" },
     { name: "Sobre", path: "#sobre" },
     { name: "Contato", path: "#contato" }

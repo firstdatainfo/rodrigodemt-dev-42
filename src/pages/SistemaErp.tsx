@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import NeuralNetwork from "@/components/NeuralNetwork";
 import ParticlesBackground from "@/components/ParticlesBackground";
+import { useEffect } from "react";
 
 const modules = [
     {
@@ -80,6 +81,13 @@ const features = [
 const SistemaErp = () => {
   const { toast } = useToast();
 
+  useEffect(() => {
+    const img = document.getElementById('backgroundImage');
+    if (img) {
+      img.style.opacity = '1';
+    }
+  }, []);
+
   const handleDemoRequest = () => {
     toast({
       title: "Solicitação Recebida!",
@@ -105,9 +113,10 @@ const SistemaErp = () => {
 
         {/* Background Image */}
         <img 
+          id="backgroundImage"
           src="/lovable-uploads/8e5468c5-aea9-4018-8084-7aacd2d38e80.png"
           alt="Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
           style={{
             position: 'fixed'
           }}

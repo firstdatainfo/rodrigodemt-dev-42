@@ -37,6 +37,7 @@ const Hero = () => {
           alt="AI Technology Visualization"
           className="w-full h-full object-contain object-right"
           style={{ position: 'absolute', top: 0, right: 0, pointerEvents: 'none' }}
+          loading="eager"
         />
       </div>
 
@@ -47,6 +48,7 @@ const Hero = () => {
           alt="AI Technology Visualization"
           className="w-full h-full object-cover opacity-20"
           style={{ position: 'absolute', top: 0, right: 0, pointerEvents: 'none' }}
+          loading="eager"
         />
       </div>
 

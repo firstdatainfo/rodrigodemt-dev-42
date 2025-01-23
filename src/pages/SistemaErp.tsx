@@ -89,7 +89,7 @@ const SistemaErp = () => {
   return (
     <div className="min-h-screen bg-white">
       <section className="relative pt-20 pb-32 bg-[#000B2E] overflow-hidden">
-        {/* Logo */}
+        {/* Logo - Removed animation classes */}
         <div className="absolute top-4 left-4 z-20">
           <div className="flex items-center gap-2">
             <div className="bg-blue-600 w-10 h-10 rounded-lg flex items-center justify-center">
@@ -102,9 +102,9 @@ const SistemaErp = () => {
           </div>
         </div>
 
-        {/* Background Image */}
+        {/* Background Image - Fixed position */}
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-50"
+          className="absolute inset-0 bg-cover bg-center opacity-50 bg-fixed"
           style={{
             backgroundImage: `url('/lovable-uploads/8e5468c5-aea9-4018-8084-7aacd2d38e80.png')`
           }}

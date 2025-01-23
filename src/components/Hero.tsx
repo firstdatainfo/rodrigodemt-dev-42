@@ -1,6 +1,7 @@
 import { Button } from "./ui/button";
 import { Facebook, Twitter, Linkedin } from "lucide-react";
 import NeuralNetwork from "./NeuralNetwork";
+import ParticlesBackground from "./ParticlesBackground";
 import {
   SiNodedotjs,
   SiReact,
@@ -55,6 +56,7 @@ const Hero = () => {
       </div>
 
       <div className="absolute inset-0">
+        <ParticlesBackground />
         <NeuralNetwork />
       </div>
       

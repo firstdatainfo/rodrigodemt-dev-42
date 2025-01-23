@@ -147,7 +147,7 @@ const Contact = () => {
               <Button 
                 type="submit" 
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white"
+                className="w-full bg-gradient-to-r from-secondary to-accent-foreground hover:from-secondary/90 hover:to-accent-foreground/90 text-white"
               >
                 {isLoading ? 'Enviando...' : 'Enviar Mensagem'}
               </Button>

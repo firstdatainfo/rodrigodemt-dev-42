@@ -20,7 +20,7 @@ const EventosBackground = () => {
       {imageLoaded && (
         <MagicParticles 
           imageSrc={backgroundImage}
-          className="fixed inset-0 z-0"
+          className="fixed top-0 inset-x-0 h-screen object-cover object-top z-0"
         />
       )}
       <div className="fixed inset-0 z-0 bg-gradient-to-br from-purple-900/50 via-primary/50 to-pink-900/50" />

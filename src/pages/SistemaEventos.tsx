@@ -52,28 +52,28 @@ const SistemaEventos = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Background Image with adjusted size */}
+      {/* Background Image with adjusted scale and position */}
       <div 
         className="absolute inset-0 z-0 bg-fixed"
         style={{
           backgroundImage: "url('/lovable-uploads/6b644bc7-2f02-43e3-a255-2c3a249e4f51.png')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: '150%', // Increased size to make it appear further
+          backgroundPosition: 'center 40%', // Adjusted position
           backgroundRepeat: 'no-repeat',
-          transform: 'scale(1.1)',
-          filter: 'brightness(1.1) contrast(1.1)',
+          transform: 'scale(1.2) translateY(-5%)', // Increased scale and slight upward shift
+          filter: 'brightness(1.2) contrast(1.1)',
         }}
       />
       
       {/* Overlay gradient with reduced opacity */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-purple-900/40 via-primary/50 to-pink-900/40" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-purple-900/30 via-primary/40 to-pink-900/30" />
 
       <div className="absolute inset-0 z-10 opacity-20">
         <ParticlesBackground />
       </div>
       
       <div className="relative z-20 min-h-screen">
-        {/* Logo with enhanced glassmorphism */}
+        {/* Logo */}
         <div className="absolute top-8 left-8 z-30">
           <div className="flex items-center gap-2">
             <div className="bg-white/15 backdrop-blur-md p-3 rounded-xl border border-white/30 hover:bg-white/20 transition-all duration-300">

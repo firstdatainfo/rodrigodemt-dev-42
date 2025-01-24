@@ -29,7 +29,7 @@ const BackgroundMusic = () => {
       {/* Player do YouTube (oculto visualmente) */}
       <iframe
         id="youtube-player"
-        src="https://www.youtube.com/embed/jfKfPfyJRdk?enablejsapi=1&autoplay=0&controls=0"
+        src="https://www.youtube.com/embed/czNEZdZggbY?enablejsapi=1&autoplay=0&controls=0"
         className="w-0 h-0"
         allow="autoplay"
       />

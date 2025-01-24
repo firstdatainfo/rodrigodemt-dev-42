@@ -18,7 +18,6 @@ const SistemaEventos = () => {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-purple-900 via-primary to-pink-900 overflow-hidden">
-      {/* Particles Overlay */}
       <div className="absolute inset-0 z-10 opacity-30">
         <ParticlesBackground />
       </div>

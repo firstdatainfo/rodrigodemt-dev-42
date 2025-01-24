@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 const BackgroundMusic = () => {
-  const [isPlaying, setIsPlaying] = useState(true); // Começa como true para autoplay
-  const [audio] = useState(new Audio('/lovable-uploads/czNEZdZggbY.mp3'));
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const { toast } = useToast();
 
   useEffect(() => {
-    audio.loop = true;
-    audio.volume = 0.3;
-    
-    const handleError = (e: Event) => {
-      console.error("Erro ao carregar áudio:", e);
+    // Criar o elemento de áudio apenas quando o componente montar
+    const audioElement = new Audio('/lovable-uploads/czNEZdZggbY.mp3');
+    audioElement.loop = true;
+    audioElement.volume = 0.3;
+    setAudio(audioElement);
+
+    const handleError = () => {
+      console.error("Erro ao carregar áudio");
       setIsPlaying(false);
       toast({
         title: "Erro ao carregar música",
@@ -22,37 +25,40 @@ const BackgroundMusic = () => {
       });
     };
 
-    audio.addEventListener('error', handleError);
-    
-    // Tenta iniciar a reprodução automaticamente
-    const playAudio = async () => {
+    audioElement.addEventListener('error', handleError);
+
+    // Tenta iniciar a reprodução quando o usuário interagir com a página
+    const handleUserInteraction = async () => {
       try {
-        await audio.play();
-        toast({
-          title: "Música iniciada",
-          description: "A música de fundo está tocando.",
-        });
+        if (audioElement) {
+          await audioElement.play();
+          setIsPlaying(true);
+          toast({
+            title: "Música iniciada",
+            description: "A música de fundo está tocando.",
+          });
+          // Remove o listener após sucesso
+          document.removeEventListener('click', handleUserInteraction);
+        }
       } catch (error) {
         console.error("Erro ao reproduzir áudio:", error);
-        setIsPlaying(false);
-        toast({
-          title: "Erro ao reproduzir música",
-          description: "Não foi possível iniciar a reprodução do áudio.",
-          variant: "destructive"
-        });
       }
     };
 
-    playAudio();
-    
+    document.addEventListener('click', handleUserInteraction);
+
+    // Cleanup
     return () => {
-      audio.pause();
-      audio.currentTime = 0;
-      audio.removeEventListener('error', handleError);
+      audioElement.removeEventListener('error', handleError);
+      document.removeEventListener('click', handleUserInteraction);
+      audioElement.pause();
+      audioElement.src = '';
     };
-  }, [audio, toast]);
+  }, [toast]);
 
   const togglePlay = async () => {
+    if (!audio) return;
+
     try {
       if (isPlaying) {
         audio.pause();

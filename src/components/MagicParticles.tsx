@@ -20,9 +20,9 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
   const animationStartRef = useRef<number>(0);
   const requestRef = useRef<number>();
 
-  const PARTICLE_SPACING = 8;
+  const PARTICLE_SPACING = 4; // Reduzido para maior densidade de partículas
   const ANIMATION_DURATION = 2000;
-  const PARTICLE_SIZE = 2;
+  const PARTICLE_SIZE = 1.5; // Reduzido para partículas menores
 
   const initParticles = (ctx: CanvasRenderingContext2D, img: HTMLImageElement) => {
     const scale = Math.min(
@@ -48,12 +48,12 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
         const b = imageData.data[pixelIndex + 2];
         const a = imageData.data[pixelIndex + 3];
         
-        if(r + g + b > 50 && a > 200) {
+        if(a > 200) { // Apenas pixels totalmente opacos
           particles.push({
             targetX: x,
             targetY: y,
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
+            x: x, // Começa na posição final
+            y: y, // Começa na posição final
             color: `rgba(${r},${g},${b},${a/255})`,
             size: PARTICLE_SIZE
           });
@@ -74,6 +74,12 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
     const progress = Math.min(elapsed / ANIMATION_DURATION, 1);
     
     ctx.clearRect(0, 0, canvasRef.current!.width, canvasRef.current!.height);
+
+    if (progress >= 1) {
+      // Quando a animação termina, desenha a imagem real
+      ctx.drawImage(img, 0, 0, canvasRef.current!.width, canvasRef.current!.height);
+      return;
+    }
 
     particlesRef.current.forEach(particle => {
       const currentX = particle.x + (particle.targetX - particle.x) * easeInOutQuad(progress);

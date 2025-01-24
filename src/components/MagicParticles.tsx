@@ -20,9 +20,9 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
   const animationStartRef = useRef<number>(0);
   const requestRef = useRef<number>();
 
-  const PARTICLE_SPACING = 4; // Reduzido para maior densidade de partículas
-  const ANIMATION_DURATION = 2000;
-  const PARTICLE_SIZE = 1.5; // Reduzido para partículas menores
+  const PARTICLE_SPACING = 4;
+  const ANIMATION_DURATION = 800; // Reduzido para menos de 1 segundo
+  const PARTICLE_SIZE = 1.5;
 
   const initParticles = (ctx: CanvasRenderingContext2D, img: HTMLImageElement) => {
     const scale = Math.min(

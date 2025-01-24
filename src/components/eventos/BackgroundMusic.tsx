@@ -20,35 +20,17 @@ const BackgroundMusic = () => {
       setAudio(audioElement);
     });
 
-    const handleError = (e: ErrorEvent) => {
-      console.error("Erro detalhado ao carregar áudio:", {
-        error: e.error,
-        message: e.message,
-        filename: e.filename,
-        lineno: e.lineno,
-        colno: e.colno
-      });
-      setIsPlaying(false);
+    audioElement.addEventListener('error', (e) => {
+      console.error("Erro ao carregar áudio:", e);
       toast({
-        title: "Erro ao carregar música",
-        description: "Não foi possível reproduzir o áudio de fundo.",
+        title: "Erro no áudio",
+        description: "Não foi possível carregar a música de fundo.",
         variant: "destructive"
-      });
-    };
-
-    audioElement.addEventListener('error', () => {
-      const error = audioElement.error;
-      console.error("Erro do elemento de áudio:", {
-        code: error?.code,
-        message: error?.message
       });
     });
 
-    window.addEventListener('error', handleError);
-
     const handleUserInteraction = async () => {
       try {
-        console.log("Tentando reproduzir áudio após interação do usuário...");
         if (audioElement && audioElement.readyState >= 2) {
           await audioElement.play();
           setIsPlaying(true);
@@ -58,11 +40,14 @@ const BackgroundMusic = () => {
           });
           document.removeEventListener('click', handleUserInteraction);
           console.log("Reprodução iniciada com sucesso!");
-        } else {
-          console.log("Áudio ainda não está pronto para reprodução");
         }
       } catch (error) {
-        console.error("Erro detalhado ao reproduzir áudio:", error);
+        console.error("Erro ao reproduzir áudio:", error);
+        toast({
+          title: "Erro na reprodução",
+          description: "Não foi possível iniciar a música. Por favor, tente novamente.",
+          variant: "destructive"
+        });
       }
     };
 
@@ -70,10 +55,11 @@ const BackgroundMusic = () => {
 
     return () => {
       console.log("Limpando recursos de áudio...");
-      window.removeEventListener('error', handleError);
       document.removeEventListener('click', handleUserInteraction);
-      audioElement.pause();
-      audioElement.src = '';
+      if (audioElement) {
+        audioElement.pause();
+        audioElement.src = '';
+      }
       setAudio(null);
     };
   }, [toast]);
@@ -81,6 +67,10 @@ const BackgroundMusic = () => {
   const togglePlay = async () => {
     if (!audio) {
       console.log("Elemento de áudio não está disponível");
+      toast({
+        title: "Aguarde",
+        description: "O áudio ainda está carregando. Por favor, aguarde um momento.",
+      });
       return;
     }
 
@@ -94,7 +84,6 @@ const BackgroundMusic = () => {
         });
         console.log("Áudio pausado");
       } else {
-        console.log("Tentando reproduzir áudio...");
         await audio.play();
         setIsPlaying(true);
         toast({
@@ -104,11 +93,10 @@ const BackgroundMusic = () => {
         console.log("Áudio reproduzindo");
       }
     } catch (error) {
-      console.error("Erro detalhado ao controlar áudio:", error);
-      setIsPlaying(false);
+      console.error("Erro ao controlar áudio:", error);
       toast({
-        title: "Erro ao reproduzir música",
-        description: "Não foi possível iniciar a reprodução do áudio.",
+        title: "Erro na reprodução",
+        description: "Não foi possível controlar a música. Por favor, tente novamente.",
         variant: "destructive"
       });
     }

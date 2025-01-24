@@ -5,75 +5,39 @@ import { useToast } from "@/hooks/use-toast";
 
 const BackgroundMusic = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+  const [audio] = useState<HTMLAudioElement>(new Audio('/lovable-uploads/ezyZip.mp3'));
   const { toast } = useToast();
 
   useEffect(() => {
-    console.log("Iniciando configuração do áudio...");
-    const audioElement = new Audio();
-    audioElement.src = '/lovable-uploads/ezyZip.mp3';
-    audioElement.loop = true;
-    audioElement.volume = 0.3;
+    audio.loop = true;
+    audio.volume = 0.3;
     
-    audioElement.addEventListener('loadeddata', () => {
+    const handleLoadedData = () => {
       console.log("Áudio carregado com sucesso!");
-      setAudio(audioElement);
-    });
+    };
 
-    audioElement.addEventListener('error', (e) => {
+    const handleError = (e: Event) => {
       console.error("Erro ao carregar áudio:", e);
       toast({
         title: "Erro no áudio",
         description: "Não foi possível carregar a música de fundo.",
         variant: "destructive"
       });
-    });
-
-    const handleUserInteraction = async () => {
-      try {
-        if (audioElement && audioElement.readyState >= 2) {
-          await audioElement.play();
-          setIsPlaying(true);
-          toast({
-            title: "Música iniciada",
-            description: "A música de fundo está tocando.",
-          });
-          document.removeEventListener('click', handleUserInteraction);
-          console.log("Reprodução iniciada com sucesso!");
-        }
-      } catch (error) {
-        console.error("Erro ao reproduzir áudio:", error);
-        toast({
-          title: "Erro na reprodução",
-          description: "Não foi possível iniciar a música. Por favor, tente novamente.",
-          variant: "destructive"
-        });
-      }
     };
 
-    document.addEventListener('click', handleUserInteraction);
+    audio.addEventListener('loadeddata', handleLoadedData);
+    audio.addEventListener('error', handleError);
 
     return () => {
       console.log("Limpando recursos de áudio...");
-      document.removeEventListener('click', handleUserInteraction);
-      if (audioElement) {
-        audioElement.pause();
-        audioElement.src = '';
-      }
-      setAudio(null);
+      audio.removeEventListener('loadeddata', handleLoadedData);
+      audio.removeEventListener('error', handleError);
+      audio.pause();
+      audio.src = '';
     };
-  }, [toast]);
+  }, [audio, toast]);
 
   const togglePlay = async () => {
-    if (!audio) {
-      console.log("Elemento de áudio não está disponível");
-      toast({
-        title: "Aguarde",
-        description: "O áudio ainda está carregando. Por favor, aguarde um momento.",
-      });
-      return;
-    }
-
     try {
       if (isPlaying) {
         audio.pause();

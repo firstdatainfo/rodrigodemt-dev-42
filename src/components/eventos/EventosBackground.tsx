@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ParticlesBackground from '../ParticlesBackground';
 import NeuralNetwork from '../NeuralNetwork';
+import MagicParticles from '../MagicParticles';
 
 const EventosBackground = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -16,17 +17,12 @@ const EventosBackground = () => {
 
   return (
     <>
-      <div 
-        className={`fixed inset-0 z-0 bg-purple-900 ${
-          imageLoaded ? 'opacity-0 animate-load-explosion' : 'opacity-0'
-        }`}
-        style={{
-          backgroundImage: `url('${backgroundImage}')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          filter: 'brightness(0.9)'
-        }}
-      />
+      {imageLoaded && (
+        <MagicParticles 
+          imageSrc={backgroundImage}
+          className="fixed inset-0 z-0"
+        />
+      )}
       <div className="fixed inset-0 z-0 bg-gradient-to-br from-purple-900/50 via-primary/50 to-pink-900/50" />
       <div className="absolute inset-0 z-10 opacity-30">
         <ParticlesBackground />

@@ -2,6 +2,7 @@ import { Button } from "./ui/button";
 import { Facebook, Twitter, Linkedin } from "lucide-react";
 import NeuralNetwork from "./NeuralNetwork";
 import ParticlesBackground from "./ParticlesBackground";
+import ParticleImage from "./ParticleImage";
 import {
   SiNodedotjs,
   SiReact,
@@ -35,34 +36,20 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
-      {/* Imagem para desktop */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none group">
-        <img
-          src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
-          alt="AI Technology Visualization"
-          className="w-full h-full object-contain object-right opacity-0 animate-load-explosion"
-          style={{ position: 'absolute', top: 0, right: 0 }}
-          loading="eager"
-          decoding="async"
-          width="1920"
-          height="1080"
+      {/* Imagem para desktop com efeito de partículas */}
+      <div className="hidden md:block absolute inset-0 pointer-events-none">
+        <ParticleImage
+          imageSrc="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
+          className="w-full h-full object-contain object-right"
         />
-        <div className="absolute inset-0 before:content-[''] before:absolute before:top-1/2 before:left-1/2 before:w-5 before:h-5 before:bg-white/80 before:rounded-full before:scale-0 before:opacity-0 group-hover:before:animate-explosion" />
       </div>
 
-      {/* Imagem para mobile */}
-      <div className="md:hidden absolute inset-0 pointer-events-none group">
-        <img
-          src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
-          alt="AI Technology Visualization"
-          className="w-full h-[80vh] object-cover opacity-0 mt-20 animate-load-explosion"
-          style={{ position: 'absolute', top: 0, right: 0 }}
-          loading="eager"
-          decoding="async"
-          width="768"
-          height="1024"
+      {/* Imagem para mobile com efeito de partículas */}
+      <div className="md:hidden absolute inset-0 pointer-events-none">
+        <ParticleImage
+          imageSrc="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
+          className="w-full h-[80vh] object-cover mt-20"
         />
-        <div className="absolute inset-0 before:content-[''] before:absolute before:top-1/2 before:left-1/2 before:w-5 before:h-5 before:bg-white/80 before:rounded-full before:scale-0 before:opacity-0 group-hover:before:animate-explosion" />
       </div>
 
       <div className="absolute inset-0 pointer-events-none">

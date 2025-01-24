@@ -1,24 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { 
-  Calendar,
-  ArrowRight,
-  Smartphone,
-  ChartBar,
-  QrCode,
-  Printer,
-  Shield,
-  RefreshCw,
-  Mail,
-  Globe,
-  Phone,
-  Instagram
-} from "lucide-react";
-import ParticlesBackground from "@/components/ParticlesBackground";
+import { Calendar, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import EventosHeader from "@/components/eventos/EventosHeader";
 import EventosServices from "@/components/eventos/EventosServices";
 import BackgroundMusic from "@/components/eventos/BackgroundMusic";
+import EventosBackground from "@/components/eventos/EventosBackground";
+import EventosContact from "@/components/eventos/EventosContact";
+import EventosFeatures from "@/components/eventos/EventosFeatures";
 
 const SistemaEventos = () => {
   const { toast } = useToast();
@@ -36,57 +25,10 @@ const SistemaEventos = () => {
     window.open('https://firstsistemas.acess.app', '_blank');
   };
 
-  const features = [
-    {
-      icon: Smartphone,
-      title: "App Mobile",
-      description: "Controle total na palma da sua mão"
-    },
-    {
-      icon: ChartBar,
-      title: "Relatórios",
-      description: "Análises e estatísticas em tempo real"
-    },
-    {
-      icon: QrCode,
-      title: "QR Code",
-      description: "Validação rápida e segura"
-    },
-    {
-      icon: Printer,
-      title: "Impressão",
-      description: "Impressão de tickets e comprovantes"
-    },
-    {
-      icon: Shield,
-      title: "Segurança",
-      description: "Controle de acesso e permissões"
-    },
-    {
-      icon: RefreshCw,
-      title: "Sincronização",
-      description: "Dados atualizados em tempo real"
-    }
-  ];
-
   return (
     <div className="relative min-h-screen">
       <BackgroundMusic />
-      <div 
-        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/lovable-uploads/6b644bc7-2f02-43e3-a255-2c3a249e4f51.png')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          filter: 'brightness(0.9)'
-        }}
-      />
-      
-      <div className="fixed inset-0 z-0 bg-gradient-to-br from-purple-900/50 via-primary/50 to-pink-900/50" />
-
-      <div className="absolute inset-0 z-10 opacity-30">
-        <ParticlesBackground />
-      </div>
+      <EventosBackground />
       
       <div className="relative z-20 min-h-screen">
         <section className="container px-4 mx-auto pt-20 lg:pt-32">
@@ -130,71 +72,8 @@ const SistemaEventos = () => {
               </div>
 
               <EventosServices />
-
-              <div className="mt-20">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
-                  Recursos Principais
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {features.map((feature, index) => (
-                    <div
-                      key={index}
-                      className="group bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300 hover:transform hover:-translate-y-2 hover:bg-white/15"
-                    >
-                      <feature.icon className="w-8 h-8 text-purple-400 mb-4 group-hover:text-purple-300 transition-colors" />
-                      <h3 className="text-white text-xl font-semibold mb-2">{feature.title}</h3>
-                      <p className="text-white/80 text-sm">{feature.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-20 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-                  Contato e Redes Sociais
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                  <a 
-                    href="https://instagram.com/first_developer_mt" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
-                  >
-                    <Instagram className="w-5 h-5" />
-                    first_developer_mt
-                  </a>
-                  <a 
-                    href="https://firstsistemas.acess.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
-                  >
-                    <Globe className="w-5 h-5" />
-                    firstsistemas.acess.app
-                  </a>
-                  <a 
-                    href="tel:+5566992480993"
-                    className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
-                  >
-                    <Phone className="w-5 h-5" />
-                    (66) 99248-0993 / 99225-8469
-                  </a>
-                  <a 
-                    href="mailto:rodrigodev@yahoo.com"
-                    className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
-                  >
-                    <Mail className="w-5 h-5" />
-                    rodrigodev@yahoo.com
-                  </a>
-                  <a 
-                    href="mailto:rodrigodev@firstsistemas.com.br"
-                    className="flex items-center gap-2 text-white/80 hover:text-white transition-colors md:col-span-2"
-                  >
-                    <Mail className="w-5 h-5" />
-                    rodrigodev@firstsistemas.com.br
-                  </a>
-                </div>
-              </div>
+              <EventosFeatures />
+              <EventosContact />
             </div>
           </div>
         </section>

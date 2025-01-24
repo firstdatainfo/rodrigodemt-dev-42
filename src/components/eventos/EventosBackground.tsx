@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ParticlesBackground from '../ParticlesBackground';
 import NeuralNetwork from '../NeuralNetwork';
 
 const EventosBackground = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const backgroundImage = '/lovable-uploads/6b644bc7-2f02-43e3-a255-2c3a249e4f51.png';
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = backgroundImage;
+    img.onload = () => {
+      setImageLoaded(true);
+    };
+  }, []);
+
   return (
     <>
       <div 
-        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat bg-purple-900"
+        className={`fixed inset-0 z-0 bg-purple-900 transition-opacity duration-500 ${
+          imageLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
         style={{
-          backgroundImage: "url('/lovable-uploads/6b644bc7-2f02-43e3-a255-2c3a249e4f51.png')",
+          backgroundImage: `url('${backgroundImage}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'brightness(0.9)'

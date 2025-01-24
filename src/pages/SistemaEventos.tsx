@@ -63,7 +63,7 @@ const SistemaEventos = () => {
         }}
       />
       
-      {/* Overlay gradient for better text readability */}
+      {/* Overlay gradient */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-purple-900/70 via-primary/70 to-pink-900/70" />
 
       <div className="absolute inset-0 z-10 opacity-30">
@@ -71,6 +71,17 @@ const SistemaEventos = () => {
       </div>
       
       <div className="relative z-20 min-h-screen">
+        {/* Logo */}
+        <div className="absolute top-8 left-8 z-30">
+          <div className="flex items-center gap-2">
+            <div className="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20">
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                IsaPass
+              </h1>
+            </div>
+          </div>
+        </div>
+
         <section className="container px-4 mx-auto pt-20 lg:pt-32">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             <div className="flex-1 text-center lg:text-left max-w-3xl mx-auto">
@@ -122,14 +133,29 @@ const SistemaEventos = () => {
             {solutions.map((solution, index) => (
               <div
                 key={solution.title}
-                className="glass-effect p-6 rounded-xl hover:bg-white/5 transition-all duration-300 animate-fade-up"
+                className="group relative overflow-hidden glass-effect p-8 rounded-2xl hover:bg-white/5 transition-all duration-500 animate-fade-up transform hover:-translate-y-2"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
-                  <solution.icon className="w-6 h-6 text-white" />
+                {/* Gradient border effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Icon container with gradient background */}
+                <div className="relative z-10 w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-500">
+                  <solution.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-white">{solution.title}</h3>
-                <p className="text-white/80">{solution.description}</p>
+
+                {/* Content */}
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-semibold mb-4 text-white group-hover:text-purple-300 transition-colors duration-300">
+                    {solution.title}
+                  </h3>
+                  <p className="text-white/80 group-hover:text-white/90 transition-colors duration-300 text-lg">
+                    {solution.description}
+                  </p>
+                </div>
+
+                {/* Hover gradient effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-pink-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             ))}
           </div>

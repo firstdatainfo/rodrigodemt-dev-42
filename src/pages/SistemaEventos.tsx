@@ -17,25 +17,7 @@ const SistemaEventos = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-primary via-primary-light to-secondary overflow-hidden">
-      {/* Background Image Container */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: 'url("/lovable-uploads/96dae26a-eb3a-4bd0-918b-0f32f37e7470.png")',
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          opacity: '0.15',
-          filter: 'contrast(1.2) brightness(1.1)',
-          maxWidth: '800px',
-          maxHeight: '600px',
-          margin: 'auto',
-          top: '50%',
-          transform: 'translateY(-50%)',
-        }}
-      />
-      
+    <div className="relative min-h-screen bg-gradient-to-br from-purple-900 via-primary to-pink-900 overflow-hidden">
       {/* Particles Overlay */}
       <div className="absolute inset-0 z-10 opacity-30">
         <ParticlesBackground />
@@ -73,7 +55,7 @@ const SistemaEventos = () => {
                 ].map((item, index) => (
                   <div
                     key={index}
-                    className="group bg-white/5 backdrop-blur-lg p-4 lg:p-6 rounded-xl border border-white/10 hover:border-white/30 transition-all duration-300 hover:transform hover:scale-105"
+                    className="group bg-white/10 backdrop-blur-lg p-4 lg:p-6 rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300 hover:transform hover:scale-105 hover:bg-white/15"
                   >
                     <item.icon className="w-8 h-8 text-white mb-3 group-hover:text-purple-400 transition-colors" />
                     <h3 className="text-white text-sm lg:text-base font-medium">{item.text}</h3>

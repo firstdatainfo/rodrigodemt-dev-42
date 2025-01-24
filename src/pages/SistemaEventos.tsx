@@ -1,6 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { Calendar, Music, Users, Sparkles, Phone, Instagram, ArrowRight } from "lucide-react";
+import { 
+  Calendar, 
+  Music, 
+  Users, 
+  Sparkles, 
+  Phone, 
+  Instagram, 
+  ArrowRight,
+  Smartphone,
+  ChartBar,
+  QrCode,
+  Printer,
+  Shield,
+  RefreshCw,
+  Mail,
+  Globe
+} from "lucide-react";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import { useNavigate } from "react-router-dom";
 
@@ -49,6 +65,39 @@ const SistemaEventos = () => {
     }
   ];
 
+  const features = [
+    {
+      icon: Smartphone,
+      title: "App Mobile",
+      description: "Controle total na palma da sua mão"
+    },
+    {
+      icon: ChartBar,
+      title: "Relatórios",
+      description: "Análises e estatísticas em tempo real"
+    },
+    {
+      icon: QrCode,
+      title: "QR Code",
+      description: "Validação rápida e segura"
+    },
+    {
+      icon: Printer,
+      title: "Impressão",
+      description: "Impressão de tickets e comprovantes"
+    },
+    {
+      icon: Shield,
+      title: "Segurança",
+      description: "Controle de acesso e permissões"
+    },
+    {
+      icon: RefreshCw,
+      title: "Sincronização",
+      description: "Dados atualizados em tempo real"
+    }
+  ];
+
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div 
@@ -85,10 +134,7 @@ const SistemaEventos = () => {
               
               <div className="mb-8 animate-fade-up">
                 <p className="text-lg md:text-xl lg:text-2xl text-white/90 font-light leading-relaxed">
-                  Crie, publique e venda eventos na maior e melhor plataforma do Brasil
-                </p>
-                <p className="text-lg md:text-xl text-white/80 mt-2">
-                  Junte-se a mais de 1 mil produtores na IsaPass
+                  Transforme seu negócio com soluções tecnológicas que fazem a diferença. Simplicidade, eficiência e inovação em um só lugar.
                 </p>
               </div>
 
@@ -123,6 +169,71 @@ const SistemaEventos = () => {
                     <p className="text-white/80 text-sm">{service.description}</p>
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-20">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+                  Recursos Principais
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {features.map((feature, index) => (
+                    <div
+                      key={index}
+                      className="group bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300 hover:transform hover:-translate-y-2 hover:bg-white/15"
+                    >
+                      <feature.icon className="w-8 h-8 text-purple-400 mb-4 group-hover:text-purple-300 transition-colors" />
+                      <h3 className="text-white text-xl font-semibold mb-2">{feature.title}</h3>
+                      <p className="text-white/80 text-sm">{feature.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-20 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+                  Contato e Redes Sociais
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                  <a 
+                    href="https://instagram.com/first_developer_mt" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+                  >
+                    <Instagram className="w-5 h-5" />
+                    first_developer_mt
+                  </a>
+                  <a 
+                    href="https://firstsistemas.acess.app" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+                  >
+                    <Globe className="w-5 h-5" />
+                    firstsistemas.acess.app
+                  </a>
+                  <a 
+                    href="tel:+5566992480993"
+                    className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+                  >
+                    <Phone className="w-5 h-5" />
+                    (66) 99248-0993 / 99225-8469
+                  </a>
+                  <a 
+                    href="mailto:rodrigodev@yahoo.com"
+                    className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+                  >
+                    <Mail className="w-5 h-5" />
+                    rodrigodev@yahoo.com
+                  </a>
+                  <a 
+                    href="mailto:rodrigodev@firstsistemas.com.br"
+                    className="flex items-center gap-2 text-white/80 hover:text-white transition-colors md:col-span-2"
+                  >
+                    <Mail className="w-5 h-5" />
+                    rodrigodev@firstsistemas.com.br
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import { useNavigate } from "react-router-dom";
+import IsaPassLogo from "@/components/IsaPassLogo";
 
 const SistemaEventos = () => {
   const { toast } = useToast();
@@ -122,14 +123,8 @@ const SistemaEventos = () => {
         <section className="container px-4 mx-auto pt-20 lg:pt-32">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             <div className="flex-1 text-center lg:text-left max-w-3xl mx-auto">
-              <div className="relative inline-block mb-6">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white relative z-10 tracking-tight leading-tight">
-                  Sistema de 
-                  <span className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    Eventos
-                  </span>
-                </h1>
-                <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl rounded-full" />
+              <div className="flex justify-center lg:justify-start mb-8">
+                <IsaPassLogo />
               </div>
               
               <div className="mb-8 animate-fade-up">

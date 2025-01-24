@@ -48,12 +48,12 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
         const b = imageData.data[pixelIndex + 2];
         const a = imageData.data[pixelIndex + 3];
         
-        if(a > 200) { // Apenas pixels totalmente opacos
+        if(a > 128) { // Reduzido o limiar de opacidade para capturar mais pixels
           particles.push({
             targetX: x,
             targetY: y,
-            x: x, // Começa na posição final
-            y: y, // Começa na posição final
+            x: Math.random() * canvas.width, // Posição inicial aleatória
+            y: Math.random() * canvas.height, // Posição inicial aleatória
             color: `rgba(${r},${g},${b},${a/255})`,
             size: PARTICLE_SIZE
           });
@@ -76,7 +76,6 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
     ctx.clearRect(0, 0, canvasRef.current!.width, canvasRef.current!.height);
 
     if (progress >= 1) {
-      // Quando a animação termina, desenha a imagem real
       ctx.drawImage(img, 0, 0, canvasRef.current!.width, canvasRef.current!.height);
       return;
     }
@@ -110,9 +109,8 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
 
       const handleResize = () => {
         if (canvas) {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
           initParticles(ctx, img);
+          animate(ctx, img);
         }
       };
 
@@ -145,6 +143,7 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
     <canvas 
       ref={canvasRef}
       className={className}
+      style={{ width: '100%', height: '100%', objectFit: 'contain' }}
     />
   );
 };

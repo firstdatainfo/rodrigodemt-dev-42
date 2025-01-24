@@ -75,7 +75,7 @@ const BackgroundMusic = () => {
       <Button
         variant="outline"
         size="icon"
-        className="fixed bottom-4 right-4 z-50 rounded-full w-12 h-12 bg-black/90 hover:bg-black border-red-500 hover:border-red-600 hover:scale-110 transition-all duration-300"
+        className="fixed bottom-4 right-4 z-50 rounded-full w-12 h-12 bg-black/90 hover:bg-black border-red-500 hover:border-red-600 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
         onClick={(e) => {
           e.preventDefault();
           togglePlay();

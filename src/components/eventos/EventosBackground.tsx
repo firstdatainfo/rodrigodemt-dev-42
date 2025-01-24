@@ -17,8 +17,8 @@ const EventosBackground = () => {
   return (
     <>
       <div 
-        className={`fixed inset-0 z-0 bg-purple-900 transition-opacity duration-500 ${
-          imageLoaded ? 'opacity-100' : 'opacity-0'
+        className={`fixed inset-0 z-0 bg-purple-900 ${
+          imageLoaded ? 'opacity-0 animate-load-explosion' : 'opacity-0'
         }`}
         style={{
           backgroundImage: `url('${backgroundImage}')`,

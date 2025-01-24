@@ -18,6 +18,7 @@ import ParticlesBackground from "@/components/ParticlesBackground";
 import { useNavigate } from "react-router-dom";
 import EventosHeader from "@/components/eventos/EventosHeader";
 import EventosServices from "@/components/eventos/EventosServices";
+import BackgroundMusic from "@/components/eventos/BackgroundMusic";
 
 const SistemaEventos = () => {
   const { toast } = useToast();
@@ -70,6 +71,7 @@ const SistemaEventos = () => {
 
   return (
     <div className="relative min-h-screen">
+      <BackgroundMusic />
       <div 
         className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { Calendar, Music, Users, Sparkles, Phone, Instagram } from "lucide-react";
+import { Calendar, Music, Users, Sparkles, Phone, Instagram, ArrowRight } from "lucide-react";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import { useNavigate } from "react-router-dom";
 
@@ -39,11 +39,31 @@ const SistemaEventos = () => {
               
               <div className="mb-8 animate-fade-up">
                 <p className="text-lg md:text-xl lg:text-2xl text-white/90 font-light leading-relaxed">
-                  Transforme seus eventos em experiências inesquecíveis
-                  <span className="block mt-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">
-                    com nossa plataforma completa de gestão
-                  </span>
+                  Crie, publique e venda eventos na maior e melhor plataforma do Brasil
                 </p>
+                <p className="text-lg md:text-xl text-white/80 mt-2">
+                  Junte-se a mais de 1 mil produtores na IsaPass
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12">
+                <Button
+                  size="lg"
+                  className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
+                  onClick={handleContactClick}
+                >
+                  <ArrowRight className="w-5 h-5 mr-2" />
+                  COMEÇAR AGORA
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto bg-white/5 backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/10 px-8 py-6 rounded-full transition-all duration-300 hover:shadow-lg"
+                  onClick={handleSocialRedirect}
+                >
+                  <Calendar className="w-5 h-5 mr-2" />
+                  AGENDAR DEMONSTRAÇÃO
+                </Button>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
@@ -61,26 +81,6 @@ const SistemaEventos = () => {
                     <h3 className="text-white text-sm lg:text-base font-medium">{item.text}</h3>
                   </div>
                 ))}
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <Button
-                  size="lg"
-                  className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
-                  onClick={handleContactClick}
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  Falar no WhatsApp
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="w-full sm:w-auto bg-white/5 backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/10 px-8 py-6 rounded-full transition-all duration-300 hover:shadow-lg"
-                  onClick={handleSocialRedirect}
-                >
-                  <Instagram className="w-5 h-5 mr-2" />
-                  @first_developer_mt
-                </Button>
               </div>
             </div>
           </div>

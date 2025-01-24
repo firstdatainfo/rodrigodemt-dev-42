@@ -48,13 +48,13 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
         const b = imageData.data[pixelIndex + 2];
         const a = imageData.data[pixelIndex + 3];
         
-        if(r + g + b > 50 && a > 128) {
+        if(r + g + b > 50 && a > 200) {
           particles.push({
             targetX: x,
             targetY: y,
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            color: `rgb(${r},${g},${b})`,
+            color: `rgba(${r},${g},${b},${a/255})`,
             size: PARTICLE_SIZE
           });
         }

@@ -4,8 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const BackgroundMusic = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  // Usando uma URL de exemplo - você pode substituir por sua própria música após fazer o upload
-  const [audio] = useState(new Audio('https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3'));
+  const [audio] = useState(new Audio('/lovable-uploads/czNEZdZggbY.mp3'));
 
   useEffect(() => {
     audio.loop = true;

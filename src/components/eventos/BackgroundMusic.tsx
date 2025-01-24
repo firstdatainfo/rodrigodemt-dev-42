@@ -92,7 +92,7 @@ const BackgroundMusic = () => {
         </div>
 
         <div className={`
-          relative
+          relative group
           before:content-['']
           before:absolute
           before:top-1/2
@@ -112,7 +112,8 @@ const BackgroundMusic = () => {
             size="icon"
             className={`
               text-red-500 hover:text-red-600 hover:bg-transparent
-              ${isExploding ? 'scale-150 opacity-0' : 'scale-100 opacity-100'}
+              transition-all duration-500
+              ${isExploding ? 'animate-scale-fade' : 'scale-100 opacity-100'}
             `}
             onClick={togglePlay}
             title={isPlaying ? "Pausar música" : "Tocar música"}

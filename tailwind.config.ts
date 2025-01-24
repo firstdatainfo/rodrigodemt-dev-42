@@ -66,6 +66,7 @@ export default {
         "pulse": "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "blob": "blob 7s infinite",
         "explosion": "explosion 0.5s ease-out forwards",
+        "scale-fade": "scaleFade 0.5s ease-in-out forwards",
       },
       keyframes: {
         fadeUp: {
@@ -104,7 +105,17 @@ export default {
             opacity: "1",
           },
           "100%": {
-            transform: "translate(-50%, -50%) scale(10)",
+            transform: "translate(-50%, -50%) scale(15)",
+            opacity: "0",
+          },
+        },
+        scaleFade: {
+          "0%": {
+            transform: "scale(1)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "scale(1.5)",
             opacity: "0",
           },
         },

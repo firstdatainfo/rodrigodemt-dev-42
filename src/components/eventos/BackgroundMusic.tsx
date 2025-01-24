@@ -4,19 +4,17 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
 const BackgroundMusic = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true); // Começa como true para autoplay
   const [audio] = useState(new Audio('/lovable-uploads/czNEZdZggbY.mp3'));
   const { toast } = useToast();
 
   useEffect(() => {
     audio.loop = true;
-    
-    // Ajusta o volume para não ficar muito alto
     audio.volume = 0.3;
     
-    // Adiciona listener para erros de áudio
     const handleError = (e: Event) => {
       console.error("Erro ao carregar áudio:", e);
+      setIsPlaying(false);
       toast({
         title: "Erro ao carregar música",
         description: "Não foi possível reproduzir o áudio de fundo.",
@@ -25,6 +23,27 @@ const BackgroundMusic = () => {
     };
 
     audio.addEventListener('error', handleError);
+    
+    // Tenta iniciar a reprodução automaticamente
+    const playAudio = async () => {
+      try {
+        await audio.play();
+        toast({
+          title: "Música iniciada",
+          description: "A música de fundo está tocando.",
+        });
+      } catch (error) {
+        console.error("Erro ao reproduzir áudio:", error);
+        setIsPlaying(false);
+        toast({
+          title: "Erro ao reproduzir música",
+          description: "Não foi possível iniciar a reprodução do áudio.",
+          variant: "destructive"
+        });
+      }
+    };
+
+    playAudio();
     
     return () => {
       audio.pause();
@@ -38,11 +57,13 @@ const BackgroundMusic = () => {
       if (isPlaying) {
         audio.pause();
         setIsPlaying(false);
+        toast({
+          title: "Música pausada",
+          description: "A música de fundo foi pausada.",
+        });
       } else {
-        // Tenta reproduzir o áudio
         await audio.play();
         setIsPlaying(true);
-        
         toast({
           title: "Música iniciada",
           description: "A música de fundo está tocando.",
@@ -50,6 +71,7 @@ const BackgroundMusic = () => {
       }
     } catch (error) {
       console.error("Erro ao reproduzir áudio:", error);
+      setIsPlaying(false);
       toast({
         title: "Erro ao reproduzir música",
         description: "Não foi possível iniciar a reprodução do áudio.",

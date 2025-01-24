@@ -46,13 +46,14 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
         const r = imageData.data[pixelIndex];
         const g = imageData.data[pixelIndex + 1];
         const b = imageData.data[pixelIndex + 2];
+        const a = imageData.data[pixelIndex + 3];
         
-        if(r + g + b > 50) {
+        if(r + g + b > 50 && a > 128) {
           particles.push({
             targetX: x,
             targetY: y,
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
             color: `rgb(${r},${g},${b})`,
             size: PARTICLE_SIZE
           });
@@ -72,8 +73,7 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
     const elapsed = Date.now() - animationStartRef.current;
     const progress = Math.min(elapsed / ANIMATION_DURATION, 1);
     
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-    ctx.fillRect(0, 0, canvasRef.current!.width, canvasRef.current!.height);
+    ctx.clearRect(0, 0, canvasRef.current!.width, canvasRef.current!.height);
 
     particlesRef.current.forEach(particle => {
       const currentX = particle.x + (particle.targetX - particle.x) * easeInOutQuad(progress);
@@ -87,8 +87,6 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
 
     if(progress < 1) {
       requestRef.current = requestAnimationFrame(() => animate(ctx, img));
-    } else {
-      ctx.drawImage(img, 0, 0, canvasRef.current!.width, canvasRef.current!.height);
     }
   };
 
@@ -140,8 +138,7 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
   return (
     <canvas 
       ref={canvasRef}
-      className={`max-w-full max-h-full ${className}`}
-      style={{ background: '#000' }}
+      className={className}
     />
   );
 };

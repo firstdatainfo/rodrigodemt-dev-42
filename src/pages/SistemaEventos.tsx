@@ -16,9 +16,41 @@ const SistemaEventos = () => {
     window.open('https://instagram.com/first_developer_mt', '_blank');
   };
 
+  const services = [
+    {
+      title: "Sistema de gestão ERP em nuvem",
+      description: "Facilita o seu negócio e a sua vida",
+      icon: Calendar
+    },
+    {
+      title: "Sistema para Eventos",
+      description: "Bilheterias, bares, shows, boates, parques, cinema",
+      icon: Music
+    },
+    {
+      title: "Sistema para estacionamentos",
+      description: "Gestão completa de estacionamentos",
+      icon: Users
+    },
+    {
+      title: "Sistema de emissão de notas",
+      description: "Emissão e gestão de notas fiscais",
+      icon: Sparkles
+    },
+    {
+      title: "Automação Industrial e IoT",
+      description: "Soluções inteligentes para sua indústria",
+      icon: Calendar
+    },
+    {
+      title: "Inteligência Artificial",
+      description: "Soluções avançadas com IA",
+      icon: Sparkles
+    }
+  ];
+
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Background Image */}
       <div 
         className="absolute inset-0 z-0"
         style={{
@@ -26,11 +58,12 @@ const SistemaEventos = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
+          transform: 'scale(1.1)',
+          filter: 'brightness(0.9)'
         }}
       />
       
-      {/* Overlay gradient for better text readability */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-purple-900/70 via-primary/70 to-pink-900/70" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-purple-900/50 via-primary/50 to-pink-900/50" />
 
       <div className="absolute inset-0 z-10 opacity-30">
         <ParticlesBackground />
@@ -79,25 +112,25 @@ const SistemaEventos = () => {
                 </Button>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-                {[
-                  { icon: Calendar, text: "Gestão de Datas" },
-                  { icon: Music, text: "Controle de Shows" },
-                  { icon: Users, text: "Gestão de Público" },
-                  { icon: Sparkles, text: "Efeitos Especiais" }
-                ].map((item, index) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {services.map((service, index) => (
                   <div
                     key={index}
-                    className="group bg-white/10 backdrop-blur-lg p-4 lg:p-6 rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300 hover:transform hover:scale-105 hover:bg-white/15"
+                    className="group bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300 hover:transform hover:-translate-y-2 hover:bg-white/15"
                   >
-                    <item.icon className="w-8 h-8 text-white mb-3 group-hover:text-purple-400 transition-colors" />
-                    <h3 className="text-white text-sm lg:text-base font-medium">{item.text}</h3>
+                    <service.icon className="w-8 h-8 text-purple-400 mb-4 group-hover:text-purple-300 transition-colors" />
+                    <h3 className="text-white text-xl font-semibold mb-2">{service.title}</h3>
+                    <p className="text-white/80 text-sm">{service.description}</p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
         </section>
+
+        <footer className="relative z-20 mt-20 py-6 text-center text-white/80 border-t border-white/10">
+          <p>&copy; {new Date().getFullYear()} RodrigoDevMT. Todos os direitos reservados.</p>
+        </footer>
       </div>
     </div>
   );

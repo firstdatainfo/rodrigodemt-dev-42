@@ -21,7 +21,7 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
   const requestRef = useRef<number>();
 
   const PARTICLE_SPACING = 4;
-  const ANIMATION_DURATION = 200; // Reduzido para 200 milissegundos
+  const ANIMATION_DURATION = 50; // Reduzido para 50 milissegundos
   const PARTICLE_SIZE = 1.5;
 
   const initParticles = (ctx: CanvasRenderingContext2D, img: HTMLImageElement) => {
@@ -48,12 +48,12 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
         const b = imageData.data[pixelIndex + 2];
         const a = imageData.data[pixelIndex + 3];
         
-        if(a > 128) { // Reduzido o limiar de opacidade para capturar mais pixels
+        if(a > 128) {
           particles.push({
             targetX: x,
             targetY: y,
-            x: Math.random() * canvas.width, // Posição inicial aleatória
-            y: Math.random() * canvas.height, // Posição inicial aleatória
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
             color: `rgba(${r},${g},${b},${a/255})`,
             size: PARTICLE_SIZE
           });

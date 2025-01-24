@@ -18,7 +18,8 @@ import {
   Globe,
   CreditCard,
   Tablet,
-  ContactlessPayment
+  Nfc,
+  LogIn
 } from "lucide-react";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import { useNavigate } from "react-router-dom";
@@ -34,6 +35,10 @@ const SistemaEventos = () => {
 
   const handleSocialRedirect = () => {
     window.open('https://instagram.com/first_developer_mt', '_blank');
+  };
+
+  const handleSystemAccess = () => {
+    window.open('https://firstsistemas.acess.app', '_blank');
   };
 
   const services = [
@@ -55,7 +60,7 @@ const SistemaEventos = () => {
     {
       title: "Sistema de Pulseiras NFC",
       description: "Controle de acesso e consumo via pulseiras inteligentes",
-      icon: ContactlessPayment
+      icon: Nfc
     },
     {
       title: "Cartões por Aproximação",
@@ -140,10 +145,10 @@ const SistemaEventos = () => {
                 <Button
                   size="lg"
                   className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
-                  onClick={handleContactClick}
+                  onClick={handleSystemAccess}
                 >
-                  <ArrowRight className="w-5 h-5 mr-2" />
-                  COMEÇAR AGORA
+                  <LogIn className="w-5 h-5 mr-2" />
+                  ACESSAR SISTEMA
                 </Button>
                 <Button
                   size="lg"
@@ -153,6 +158,14 @@ const SistemaEventos = () => {
                 >
                   <Calendar className="w-5 h-5 mr-2" />
                   AGENDAR DEMONSTRAÇÃO
+                </Button>
+                <Button
+                  size="lg"
+                  className="w-full sm:w-auto bg-gradient-to-r from-accent to-accent-foreground hover:from-accent-foreground hover:to-accent text-white px-8 py-6 rounded-full transition-all duration-300 hover:shadow-lg"
+                  onClick={handleContactClick}
+                >
+                  <ArrowRight className="w-5 h-5 mr-2" />
+                  FALAR COM CONSULTOR
                 </Button>
               </div>
 

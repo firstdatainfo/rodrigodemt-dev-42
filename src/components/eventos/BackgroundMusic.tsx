@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 
 const BackgroundMusic = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio] = useState(new Audio('/lovable-uploads/czNEZdZggbY.mp3'));
+  const { toast } = useToast();
 
   useEffect(() => {
     audio.loop = true;
@@ -12,25 +14,48 @@ const BackgroundMusic = () => {
     // Ajusta o volume para não ficar muito alto
     audio.volume = 0.3;
     
+    // Adiciona listener para erros de áudio
+    const handleError = (e: Event) => {
+      console.error("Erro ao carregar áudio:", e);
+      toast({
+        title: "Erro ao carregar música",
+        description: "Não foi possível reproduzir o áudio de fundo.",
+        variant: "destructive"
+      });
+    };
+
+    audio.addEventListener('error', handleError);
+    
     return () => {
       audio.pause();
       audio.currentTime = 0;
+      audio.removeEventListener('error', handleError);
     };
-  }, [audio]);
+  }, [audio, toast]);
 
-  const togglePlay = () => {
-    if (isPlaying) {
-      audio.pause();
-    } else {
-      // Tenta reproduzir o áudio e trata possíveis erros
-      const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.error("Erro ao reproduzir áudio:", error);
+  const togglePlay = async () => {
+    try {
+      if (isPlaying) {
+        audio.pause();
+        setIsPlaying(false);
+      } else {
+        // Tenta reproduzir o áudio
+        await audio.play();
+        setIsPlaying(true);
+        
+        toast({
+          title: "Música iniciada",
+          description: "A música de fundo está tocando.",
         });
       }
+    } catch (error) {
+      console.error("Erro ao reproduzir áudio:", error);
+      toast({
+        title: "Erro ao reproduzir música",
+        description: "Não foi possível iniciar a reprodução do áudio.",
+        variant: "destructive"
+      });
     }
-    setIsPlaying(!isPlaying);
   };
 
   return (

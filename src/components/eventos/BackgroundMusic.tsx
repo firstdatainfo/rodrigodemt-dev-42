@@ -1,33 +1,22 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, Pause } from "lucide-react";
 
 const BackgroundMusic = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isExploding, setIsExploding] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  useEffect(() => {
-    audioRef.current = new Audio("/lovable-uploads/ezyZip.mp3");
-    audioRef.current.loop = true;
-
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
-    };
-  }, []);
 
   const togglePlay = () => {
-    if (!audioRef.current) return;
-
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play().catch((error) => {
-        console.error("Erro ao reproduzir áudio:", error);
-      });
+    const iframe = document.getElementById('youtube-player') as HTMLIFrameElement;
+    if (iframe && iframe.contentWindow) {
+      // Envia mensagem para o iframe do YouTube
+      iframe.contentWindow.postMessage(
+        JSON.stringify({
+          event: 'command',
+          func: isPlaying ? 'pauseVideo' : 'playVideo'
+        }),
+        '*'
+      );
     }
     
     setIsPlaying(!isPlaying);
@@ -37,6 +26,14 @@ const BackgroundMusic = () => {
 
   return (
     <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2">
+      {/* Player do YouTube (oculto visualmente) */}
+      <iframe
+        id="youtube-player"
+        src="https://www.youtube.com/embed/jfKfPfyJRdk?enablejsapi=1&autoplay=0&controls=0"
+        className="w-0 h-0"
+        allow="autoplay"
+      />
+
       <div className={`
         relative
         before:content-['']
@@ -73,14 +70,6 @@ const BackgroundMusic = () => {
           }
         </Button>
       </div>
-      <a 
-        href="/lovable-uploads/ezyZip.mp3" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="text-xs text-white/70 hover:text-white underline"
-      >
-        Baixar música
-      </a>
     </div>
   );
 };

@@ -67,19 +67,12 @@ const BackgroundMusic = () => {
   };
 
   return (
-    <a 
-      href="/lovable-uploads/ezyZip.mp3" 
-      target="_blank" 
-      rel="noopener noreferrer"
-    >
+    <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2">
       <Button
         variant="outline"
         size="icon"
-        className="fixed bottom-4 right-4 z-50 rounded-full w-12 h-12 bg-black/90 hover:bg-black border-red-500 hover:border-red-600 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
-        onClick={(e) => {
-          e.preventDefault();
-          togglePlay();
-        }}
+        className="rounded-full w-12 h-12 bg-black/90 hover:bg-black border-red-500 hover:border-red-600 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
+        onClick={togglePlay}
         title={isPlaying ? "Pausar música" : "Tocar música"}
       >
         {isPlaying ? 
@@ -87,7 +80,15 @@ const BackgroundMusic = () => {
           <Play className="h-6 w-6 text-red-500" />
         }
       </Button>
-    </a>
+      <a 
+        href="/lovable-uploads/ezyZip.mp3" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="text-xs text-white/70 hover:text-white underline"
+      >
+        Baixar música
+      </a>
+    </div>
   );
 };
 

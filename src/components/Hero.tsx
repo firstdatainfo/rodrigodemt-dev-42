@@ -36,27 +36,29 @@ const Hero = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
       {/* Imagem para desktop */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none">
+      <div className="hidden md:block absolute inset-0 pointer-events-none group">
         <img
           src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
           alt="AI Technology Visualization"
-          className="w-full h-full object-contain object-right opacity-30"
+          className="w-full h-full object-contain object-right opacity-30 transition-all duration-500 group-hover:scale-150 group-hover:opacity-0"
           style={{ position: 'absolute', top: 0, right: 0 }}
           loading="eager"
           decoding="async"
         />
+        <div className="absolute inset-0 before:content-[''] before:absolute before:top-1/2 before:left-1/2 before:w-5 before:h-5 before:bg-white/80 before:rounded-full before:scale-0 before:opacity-0 group-hover:before:animate-explosion" />
       </div>
 
       {/* Imagem para mobile */}
-      <div className="md:hidden absolute inset-0 pointer-events-none">
+      <div className="md:hidden absolute inset-0 pointer-events-none group">
         <img
           src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
           alt="AI Technology Visualization"
-          className="w-full h-[80vh] object-cover opacity-20 mt-20"
+          className="w-full h-[80vh] object-cover opacity-20 mt-20 transition-all duration-500 group-hover:scale-150 group-hover:opacity-0"
           style={{ position: 'absolute', top: 0, right: 0 }}
           loading="eager"
           decoding="async"
         />
+        <div className="absolute inset-0 before:content-[''] before:absolute before:top-1/2 before:left-1/2 before:w-5 before:h-5 before:bg-white/80 before:rounded-full before:scale-0 before:opacity-0 group-hover:before:animate-explosion" />
       </div>
 
       <div className="absolute inset-0 pointer-events-none">

@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 import { Facebook, Twitter, Linkedin } from "lucide-react";
 import NeuralNetwork from "./NeuralNetwork";
 import ParticlesBackground from "./ParticlesBackground";
-import ParticleImage from "./ParticleImage";
+import MagicParticles from "./MagicParticles";
 import {
   SiNodedotjs,
   SiReact,
@@ -36,17 +36,17 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
-      {/* Imagem para desktop com efeito de partículas */}
+      {/* Imagem para desktop com efeito de partículas mágicas */}
       <div className="hidden md:block absolute inset-0 pointer-events-none">
-        <ParticleImage
+        <MagicParticles
           imageSrc="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
           className="w-full h-full object-contain object-right"
         />
       </div>
 
-      {/* Imagem para mobile com efeito de partículas */}
+      {/* Imagem para mobile com efeito de partículas mágicas */}
       <div className="md:hidden absolute inset-0 pointer-events-none">
-        <ParticleImage
+        <MagicParticles
           imageSrc="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
           className="w-full h-[80vh] object-cover mt-20"
         />

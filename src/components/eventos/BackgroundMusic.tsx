@@ -11,11 +11,10 @@ const BackgroundMusic = () => {
   useEffect(() => {
     console.log("Iniciando configuração do áudio...");
     const audioElement = new Audio();
-    audioElement.src = '/lovable-uploads/czNEZdZggbY.mp3';
+    audioElement.src = '/lovable-uploads/ezyZip.mp3';
     audioElement.loop = true;
     audioElement.volume = 0.3;
     
-    // Adiciona listener para carregar o áudio
     audioElement.addEventListener('loadeddata', () => {
       console.log("Áudio carregado com sucesso!");
       setAudio(audioElement);
@@ -47,7 +46,6 @@ const BackgroundMusic = () => {
 
     window.addEventListener('error', handleError);
 
-    // Tenta iniciar a reprodução quando o usuário interagir com a página
     const handleUserInteraction = async () => {
       try {
         console.log("Tentando reproduzir áudio após interação do usuário...");
@@ -70,7 +68,6 @@ const BackgroundMusic = () => {
 
     document.addEventListener('click', handleUserInteraction);
 
-    // Cleanup
     return () => {
       console.log("Limpando recursos de áudio...");
       window.removeEventListener('error', handleError);

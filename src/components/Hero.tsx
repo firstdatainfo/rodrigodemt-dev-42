@@ -44,6 +44,8 @@ const Hero = () => {
           style={{ position: 'absolute', top: 0, right: 0 }}
           loading="eager"
           decoding="async"
+          width="1920"
+          height="1080"
         />
         <div className="absolute inset-0 before:content-[''] before:absolute before:top-1/2 before:left-1/2 before:w-5 before:h-5 before:bg-white/80 before:rounded-full before:scale-0 before:opacity-0 group-hover:before:animate-explosion" />
       </div>
@@ -57,6 +59,8 @@ const Hero = () => {
           style={{ position: 'absolute', top: 0, right: 0 }}
           loading="eager"
           decoding="async"
+          width="768"
+          height="1024"
         />
         <div className="absolute inset-0 before:content-[''] before:absolute before:top-1/2 before:left-1/2 before:w-5 before:h-5 before:bg-white/80 before:rounded-full before:scale-0 before:opacity-0 group-hover:before:animate-explosion" />
       </div>

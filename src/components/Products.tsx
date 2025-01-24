@@ -58,6 +58,10 @@ const Products = () => {
                         src={image}
                         alt={`${product.title} - Imagem ${idx + 1}`}
                         className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+                        loading="eager"
+                        decoding="async"
+                        width="300"
+                        height="200"
                       />
                     ))}
                   </div>

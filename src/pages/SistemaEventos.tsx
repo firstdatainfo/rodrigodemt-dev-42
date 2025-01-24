@@ -1,6 +1,7 @@
-import { Button } from "@/components/ui/button";
+import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/components/ui/use-toast";
-import { Calendar, Music, Users, Sparkles, Phone, Instagram, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Calendar, ArrowRight, Phone, Instagram, Building2, Ticket, Car, Receipt, Factory, BrainCircuit } from "lucide-react";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import { useNavigate } from "react-router-dom";
 
@@ -15,6 +16,39 @@ const SistemaEventos = () => {
   const handleSocialRedirect = () => {
     window.open('https://instagram.com/first_developer_mt', '_blank');
   };
+
+  const solutions = [
+    {
+      icon: Building2,
+      title: "Sistema de gestão ERP em nuvem",
+      description: "Facilita o seu negócio e a sua vida com uma solução completa e integrada."
+    },
+    {
+      icon: Ticket,
+      title: "Sistema para Eventos",
+      description: "Solução completa para bilheterias, bares, shows, boates, parques e cinema."
+    },
+    {
+      icon: Car,
+      title: "Sistema para estacionamentos",
+      description: "Gestão eficiente de vagas, pagamentos e controle de acesso."
+    },
+    {
+      icon: Receipt,
+      title: "Sistema de emissão de notas",
+      description: "Emissão simplificada de notas fiscais eletrônicas integrada ao seu negócio."
+    },
+    {
+      icon: Factory,
+      title: "Automação Industrial e IoT",
+      description: "Soluções inteligentes para indústria 4.0 e Internet das Coisas."
+    },
+    {
+      icon: BrainCircuit,
+      title: "Inteligência Artificial",
+      description: "Tecnologia de ponta para otimizar processos e tomada de decisões."
+    }
+  ];
 
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -78,27 +112,30 @@ const SistemaEventos = () => {
                   AGENDAR DEMONSTRAÇÃO
                 </Button>
               </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-                {[
-                  { icon: Calendar, text: "Gestão de Datas" },
-                  { icon: Music, text: "Controle de Shows" },
-                  { icon: Users, text: "Gestão de Público" },
-                  { icon: Sparkles, text: "Efeitos Especiais" }
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className="group bg-white/10 backdrop-blur-lg p-4 lg:p-6 rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300 hover:transform hover:scale-105 hover:bg-white/15"
-                  >
-                    <item.icon className="w-8 h-8 text-white mb-3 group-hover:text-purple-400 transition-colors" />
-                    <h3 className="text-white text-sm lg:text-base font-medium">{item.text}</h3>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>
+
+        {/* Solutions Grid */}
+        <section className="container px-4 mx-auto py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {solutions.map((solution, index) => (
+              <div
+                key={solution.title}
+                className="glass-effect p-6 rounded-xl hover:bg-white/5 transition-all duration-300 animate-fade-up"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
+                  <solution.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-white">{solution.title}</h3>
+                <p className="text-white/80">{solution.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
+      <Toaster />
     </div>
   );
 };

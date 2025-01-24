@@ -21,7 +21,7 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
   const requestRef = useRef<number>();
 
   const PARTICLE_SPACING = 4;
-  const ANIMATION_DURATION = 800; // Reduzido para menos de 1 segundo
+  const ANIMATION_DURATION = 200; // Reduzido para 200 milissegundos
   const PARTICLE_SIZE = 1.5;
 
   const initParticles = (ctx: CanvasRenderingContext2D, img: HTMLImageElement) => {

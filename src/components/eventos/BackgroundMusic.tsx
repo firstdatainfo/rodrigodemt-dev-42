@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Play, Pause } from "lucide-react";
+import { Play, Pause, Volume2, VolumeX } from "lucide-react";
+import { Slider } from "@/components/ui/slider";
 
 const BackgroundMusic = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isExploding, setIsExploding] = useState(false);
+  const [volume, setVolume] = useState(50);
+  const [isMuted, setIsMuted] = useState(false);
 
   const togglePlay = () => {
     const iframe = document.getElementById('youtube-player') as HTMLIFrameElement;
     if (iframe && iframe.contentWindow) {
-      // Envia mensagem para o iframe do YouTube
       iframe.contentWindow.postMessage(
         JSON.stringify({
           event: 'command',
@@ -24,8 +26,38 @@ const BackgroundMusic = () => {
     setTimeout(() => setIsExploding(false), 500);
   };
 
+  const handleVolumeChange = (value: number[]) => {
+    const newVolume = value[0];
+    setVolume(newVolume);
+    const iframe = document.getElementById('youtube-player') as HTMLIFrameElement;
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage(
+        JSON.stringify({
+          event: 'command',
+          func: 'setVolume',
+          args: [newVolume]
+        }),
+        '*'
+      );
+    }
+  };
+
+  const toggleMute = () => {
+    const iframe = document.getElementById('youtube-player') as HTMLIFrameElement;
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage(
+        JSON.stringify({
+          event: 'command',
+          func: isMuted ? 'unMute' : 'mute'
+        }),
+        '*'
+      );
+    }
+    setIsMuted(!isMuted);
+  };
+
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2">
+    <div className="fixed bottom-4 right-4 z-50 flex items-center gap-4">
       {/* Player do YouTube (oculto visualmente) */}
       <iframe
         id="youtube-player"
@@ -34,41 +66,63 @@ const BackgroundMusic = () => {
         allow="autoplay"
       />
 
-      <div className={`
-        relative
-        before:content-['']
-        before:absolute
-        before:top-1/2
-        before:left-1/2
-        before:w-5
-        before:h-5
-        before:bg-white/80
-        before:rounded-full
-        before:-translate-x-1/2
-        before:-translate-y-1/2
-        before:scale-0
-        before:opacity-0
-        ${isExploding ? 'before:animate-explosion' : ''}
-      `}>
+      <div className="flex items-center bg-black/90 rounded-full p-2 gap-2">
         <Button
-          variant="outline"
+          variant="ghost"
           size="icon"
-          className={`
-            rounded-full w-12 h-12 
-            bg-black/90 hover:bg-black 
-            border-red-500 hover:border-red-600 
-            transition-all duration-300 
-            shadow-lg hover:shadow-xl
-            ${isExploding ? 'scale-150 opacity-0' : 'scale-100 opacity-100'}
-          `}
-          onClick={togglePlay}
-          title={isPlaying ? "Pausar música" : "Tocar música"}
+          className="text-red-500 hover:text-red-600 hover:bg-transparent"
+          onClick={toggleMute}
+          title={isMuted ? "Ativar som" : "Mutar"}
         >
-          {isPlaying ? 
-            <Pause className="h-6 w-6 text-red-500" /> : 
-            <Play className="h-6 w-6 text-red-500" />
+          {isMuted ? 
+            <VolumeX className="h-6 w-6" /> : 
+            <Volume2 className="h-6 w-6" />
           }
         </Button>
+
+        <div className="w-24">
+          <Slider
+            value={[volume]}
+            min={0}
+            max={100}
+            step={1}
+            onValueChange={handleVolumeChange}
+            className="cursor-pointer"
+          />
+        </div>
+
+        <div className={`
+          relative
+          before:content-['']
+          before:absolute
+          before:top-1/2
+          before:left-1/2
+          before:w-5
+          before:h-5
+          before:bg-white/80
+          before:rounded-full
+          before:-translate-x-1/2
+          before:-translate-y-1/2
+          before:scale-0
+          before:opacity-0
+          ${isExploding ? 'before:animate-explosion' : ''}
+        `}>
+          <Button
+            variant="ghost"
+            size="icon"
+            className={`
+              text-red-500 hover:text-red-600 hover:bg-transparent
+              ${isExploding ? 'scale-150 opacity-0' : 'scale-100 opacity-100'}
+            `}
+            onClick={togglePlay}
+            title={isPlaying ? "Pausar música" : "Tocar música"}
+          >
+            {isPlaying ? 
+              <Pause className="h-6 w-6" /> : 
+              <Play className="h-6 w-6" />
+            }
+          </Button>
+        </div>
       </div>
     </div>
   );

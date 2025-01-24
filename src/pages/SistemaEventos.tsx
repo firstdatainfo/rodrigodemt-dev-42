@@ -20,18 +20,24 @@ const SistemaEventos = () => {
     <div className="relative min-h-screen bg-gradient-to-b from-primary via-primary-light to-secondary overflow-hidden">
       {/* Background Image Container */}
       <div 
-        className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 max-w-[1000px] h-4/5 z-0 opacity-80"
+        className="absolute inset-0 z-0"
         style={{
           backgroundImage: 'url("/lovable-uploads/96dae26a-eb3a-4bd0-918b-0f32f37e7470.png")',
           backgroundSize: 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          imageRendering: 'crisp-edges',
+          opacity: '0.15',
+          filter: 'contrast(1.2) brightness(1.1)',
+          maxWidth: '800px',
+          maxHeight: '600px',
+          margin: 'auto',
+          top: '50%',
+          transform: 'translateY(-50%)',
         }}
       />
       
       {/* Particles Overlay */}
-      <div className="absolute inset-0 z-10 opacity-50">
+      <div className="absolute inset-0 z-10 opacity-30">
         <ParticlesBackground />
       </div>
       

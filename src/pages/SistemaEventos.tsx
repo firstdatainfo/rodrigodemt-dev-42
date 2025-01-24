@@ -15,7 +15,10 @@ import {
   Shield,
   RefreshCw,
   Mail,
-  Globe
+  Globe,
+  CreditCard,
+  Tablet,
+  ContactlessPayment
 } from "lucide-react";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import { useNavigate } from "react-router-dom";
@@ -35,9 +38,9 @@ const SistemaEventos = () => {
 
   const services = [
     {
-      title: "Sistema de gestão ERP em nuvem",
-      description: "Facilita o seu negócio e a sua vida",
-      icon: Calendar
+      title: "Sistema de gestão em Terminais Android",
+      description: "Compatível com máquinas de cartões, totens e tablets - a tecnologia que facilita seu negócio",
+      icon: Smartphone
     },
     {
       title: "Sistema para Eventos",
@@ -50,19 +53,19 @@ const SistemaEventos = () => {
       icon: Users
     },
     {
-      title: "Sistema de emissão de notas",
-      description: "Emissão e gestão de notas fiscais",
-      icon: Sparkles
+      title: "Sistema de Pulseiras NFC",
+      description: "Controle de acesso e consumo via pulseiras inteligentes",
+      icon: ContactlessPayment
     },
     {
-      title: "Automação Industrial e IoT",
-      description: "Soluções inteligentes para sua indústria",
-      icon: Calendar
+      title: "Cartões por Aproximação",
+      description: "Sistema completo de pagamento e acesso via NFC",
+      icon: CreditCard
     },
     {
-      title: "Inteligência Artificial",
-      description: "Soluções avançadas com IA",
-      icon: Sparkles
+      title: "Gestão Mobile",
+      description: "Controle total através de smartphones e tablets",
+      icon: Tablet
     }
   ];
 

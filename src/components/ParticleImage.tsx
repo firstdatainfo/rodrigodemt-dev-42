@@ -17,15 +17,15 @@ class Particle {
   vy: number;
 
   constructor(x: number, y: number, color: string) {
-    this.x = x;
-    this.y = y;
+    this.x = x + (Math.random() - 0.5) * 1000; // Espalha as partículas mais longe
+    this.y = y + (Math.random() - 0.5) * 1000;
     this.color = color;
     this.size = Math.random() * 3 + 1;
     this.baseX = x;
     this.baseY = y;
     this.density = (Math.random() * 30) + 1;
-    this.vx = (Math.random() - 0.5) * 10;
-    this.vy = (Math.random() - 0.5) * 10;
+    this.vx = 0;
+    this.vy = 0;
   }
 
   draw(ctx: CanvasRenderingContext2D) {
@@ -37,23 +37,27 @@ class Particle {
   }
 
   update() {
-    this.x += this.vx;
-    this.y += this.vy;
-
-    this.vx *= 0.95;
-    this.vy *= 0.95;
-
+    // Calcula a direção para a posição base
     const dx = this.baseX - this.x;
     const dy = this.baseY - this.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
 
-    if (distance < 5) {
-      this.x = this.baseX;
-      this.y = this.baseY;
-    } else {
-      this.x += dx / 10;
-      this.y += dy / 10;
-    }
+    // Aumenta a velocidade de retorno
+    const forceDirectionX = dx / distance;
+    const forceDirectionY = dy / distance;
+    const force = (distance - 5) / 5; // Força mais forte para juntar mais rápido
+
+    // Aplica a força
+    this.vx += forceDirectionX * force;
+    this.vy += forceDirectionY * force;
+
+    // Atualiza a posição
+    this.x += this.vx;
+    this.y += this.vy;
+
+    // Amortecimento mais forte para parar mais rápido
+    this.vx *= 0.85;
+    this.vy *= 0.85;
   }
 }
 
@@ -69,7 +73,7 @@ const ParticleImage: React.FC<ParticleImageProps> = ({ imageSrc, className }) =>
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const numParticles = 500;
+    const numParticles = 1000; // Aumentei o número de partículas
     const img = new Image();
     img.src = imageSrc;
 

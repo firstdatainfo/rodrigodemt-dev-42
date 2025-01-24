@@ -17,13 +17,13 @@ class Particle {
   vy: number;
 
   constructor(x: number, y: number, color: string) {
-    this.x = x + (Math.random() - 0.5) * 1000;
-    this.y = y + (Math.random() - 0.5) * 1000;
+    this.x = x + (Math.random() - 0.5) * 500; // Reduzido a dispersão inicial
+    this.y = y + (Math.random() - 0.5) * 500;
     this.color = color;
-    this.size = 1; // Tamanho menor para melhor definição
+    this.size = 2; // Aumentado um pouco para melhor visibilidade
     this.baseX = x;
     this.baseY = y;
-    this.density = (Math.random() * 30) + 1;
+    this.density = (Math.random() * 20) + 1;
     this.vx = 0;
     this.vy = 0;
   }
@@ -44,8 +44,7 @@ class Particle {
     const forceDirectionX = dx / distance;
     const forceDirectionY = dy / distance;
     
-    // Força mais forte para junção rápida
-    const force = Math.min(distance * 0.2, 20);
+    const force = Math.min(distance * 0.15, 12);
 
     this.vx += forceDirectionX * force;
     this.vy += forceDirectionY * force;
@@ -53,9 +52,8 @@ class Particle {
     this.x += this.vx;
     this.y += this.vy;
 
-    // Amortecimento mais suave para movimento mais natural
-    this.vx *= 0.9;
-    this.vy *= 0.9;
+    this.vx *= 0.85;
+    this.vy *= 0.85;
   }
 }
 
@@ -84,8 +82,8 @@ const ParticleImage: React.FC<ParticleImageProps> = ({ imageSrc, className }) =>
 
       particles.current = [];
       
-      // Pega cada pixel da imagem para criar partículas
-      const skipPixels = 2; // Pula alguns pixels para melhor performance
+      // Aumentando o intervalo entre pixels para reduzir o número de partículas
+      const skipPixels = 6; // Pulando mais pixels para reduzir partículas
       
       for (let y = 0; y < canvas.height; y += skipPixels) {
         for (let x = 0; x < canvas.width; x += skipPixels) {
@@ -95,7 +93,8 @@ const ParticleImage: React.FC<ParticleImageProps> = ({ imageSrc, className }) =>
           const blue = imageData.data[pixelIndex + 2];
           const alpha = imageData.data[pixelIndex + 3];
           
-          if (alpha > 128) { // Só cria partículas para pixels visíveis
+          // Aumentando o limite de alpha para reduzir ainda mais as partículas
+          if (alpha > 200) {
             const color = `rgb(${red}, ${green}, ${blue})`;
             particles.current.push(new Particle(x, y, color));
           }

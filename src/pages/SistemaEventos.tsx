@@ -1,12 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { 
-  Calendar, 
-  Music, 
-  Users, 
-  Sparkles, 
-  Phone, 
-  Instagram, 
+  Calendar,
   ArrowRight,
   Smartphone,
   ChartBar,
@@ -16,14 +11,13 @@ import {
   RefreshCw,
   Mail,
   Globe,
-  CreditCard,
-  Tablet,
-  Nfc,
-  LogIn
+  Phone,
+  Instagram
 } from "lucide-react";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import { useNavigate } from "react-router-dom";
-import IsaPassLogo from "@/components/IsaPassLogo";
+import EventosHeader from "@/components/eventos/EventosHeader";
+import EventosServices from "@/components/eventos/EventosServices";
 
 const SistemaEventos = () => {
   const { toast } = useToast();
@@ -40,39 +34,6 @@ const SistemaEventos = () => {
   const handleSystemAccess = () => {
     window.open('https://firstsistemas.acess.app', '_blank');
   };
-
-  const services = [
-    {
-      title: "Sistema de gestão em Terminais Android",
-      description: "Compatível com máquinas de cartões, totens e tablets - a tecnologia que facilita seu negócio",
-      icon: Smartphone
-    },
-    {
-      title: "Sistema para Eventos",
-      description: "Bilheterias, bares, shows, boates, parques, cinema",
-      icon: Music
-    },
-    {
-      title: "Sistema para estacionamentos",
-      description: "Gestão completa de estacionamentos",
-      icon: Users
-    },
-    {
-      title: "Sistema de Pulseiras NFC",
-      description: "Controle de acesso e consumo via pulseiras inteligentes",
-      icon: Nfc
-    },
-    {
-      title: "Cartões por Aproximação",
-      description: "Sistema completo de pagamento e acesso via NFC",
-      icon: CreditCard
-    },
-    {
-      title: "Gestão Mobile",
-      description: "Controle total através de smartphones e tablets",
-      icon: Tablet
-    }
-  ];
 
   const features = [
     {
@@ -108,20 +69,18 @@ const SistemaEventos = () => {
   ];
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen">
       <div 
-        className="absolute inset-0 z-0"
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/lovable-uploads/6b644bc7-2f02-43e3-a255-2c3a249e4f51.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          transform: 'scale(1.1)',
           filter: 'brightness(0.9)'
         }}
       />
       
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-purple-900/50 via-primary/50 to-pink-900/50" />
+      <div className="fixed inset-0 z-0 bg-gradient-to-br from-purple-900/50 via-primary/50 to-pink-900/50" />
 
       <div className="absolute inset-0 z-10 opacity-30">
         <ParticlesBackground />
@@ -132,7 +91,7 @@ const SistemaEventos = () => {
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             <div className="flex-1 text-center lg:text-left max-w-3xl mx-auto">
               <div className="flex justify-center lg:justify-start mb-8">
-                <IsaPassLogo />
+                <EventosHeader />
               </div>
               
               <div className="mb-8 animate-fade-up">
@@ -147,7 +106,6 @@ const SistemaEventos = () => {
                   className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
                   onClick={handleSystemAccess}
                 >
-                  <LogIn className="w-5 h-5 mr-2" />
                   ACESSAR SISTEMA
                 </Button>
                 <Button
@@ -169,18 +127,7 @@ const SistemaEventos = () => {
                 </Button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {services.map((service, index) => (
-                  <div
-                    key={index}
-                    className="group bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300 hover:transform hover:-translate-y-2 hover:bg-white/15"
-                  >
-                    <service.icon className="w-8 h-8 text-purple-400 mb-4 group-hover:text-purple-300 transition-colors" />
-                    <h3 className="text-white text-xl font-semibold mb-2">{service.title}</h3>
-                    <p className="text-white/80 text-sm">{service.description}</p>
-                  </div>
-                ))}
-              </div>
+              <EventosServices />
 
               <div className="mt-20">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">

@@ -17,7 +17,21 @@ const SistemaEventos = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-purple-900 via-primary to-pink-900 overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: "url('/lovable-uploads/6b644bc7-2f02-43e3-a255-2c3a249e4f51.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+      
+      {/* Overlay gradient for better text readability */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-purple-900/70 via-primary/70 to-pink-900/70" />
+
       <div className="absolute inset-0 z-10 opacity-30">
         <ParticlesBackground />
       </div>

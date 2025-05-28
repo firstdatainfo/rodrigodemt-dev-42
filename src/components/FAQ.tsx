@@ -38,16 +38,16 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-20 bg-gradient-to-b from-blue-900 to-primary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <HelpCircle className="w-8 h-8 text-primary" />
-            <h2 className="text-4xl md:text-5xl font-bold text-primary">
+            <HelpCircle className="w-8 h-8 text-white" />
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
               Perguntas Frequentes
             </h2>
           </div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-white/80 max-w-2xl mx-auto">
             Tire suas dúvidas sobre nossos serviços e processos
           </p>
         </div>
@@ -56,30 +56,30 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <Card 
               key={index} 
-              className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0 overflow-hidden animate-fade-up"
+              className="bg-white/10 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 border-white/20 overflow-hidden animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-0">
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                  className="w-full p-6 text-left flex items-center justify-between hover:bg-white/10 transition-colors duration-200"
                 >
-                  <h3 className="text-lg font-semibold text-primary pr-4">
+                  <h3 className="text-lg font-semibold text-white pr-4">
                     {faq.question}
                   </h3>
                   <div className="flex-shrink-0">
                     {openIndex === index ? (
-                      <ChevronUp className="w-6 h-6 text-primary" />
+                      <ChevronUp className="w-6 h-6 text-white" />
                     ) : (
-                      <ChevronDown className="w-6 h-6 text-primary" />
+                      <ChevronDown className="w-6 h-6 text-white" />
                     )}
                   </div>
                 </button>
                 
                 {openIndex === index && (
                   <div className="px-6 pb-6 animate-fade-up">
-                    <div className="border-t border-gray-100 pt-4">
-                      <p className="text-gray-700 leading-relaxed">
+                    <div className="border-t border-white/20 pt-4">
+                      <p className="text-white/90 leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
@@ -91,7 +91,7 @@ const FAQ = () => {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
+          <p className="text-white/80 mb-4">
             Não encontrou a resposta que procurava?
           </p>
           <button 

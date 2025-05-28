@@ -39,9 +39,6 @@ const Sobre = () => {
     name: "Início",
     href: "/"
   }, {
-    name: "Bio Rodrigo Dev MT",
-    href: "/sistema-erp"
-  }, {
     name: "Sistema de Eventos",
     href: "/sistema-eventos"
   }, {

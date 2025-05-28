@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -18,7 +17,6 @@ const Header = () => {
 
   const menuItems = [
     { name: "Início", path: "/" },
-    { name: "Sistema ERP", path: "/sistema-erp" },
     { name: "Sistema de Eventos", path: "/sistema-eventos" },
     { name: "Integração Stone", path: "/sistema-stone" },
     { name: "Sistema de Automações", path: "/sistema-automacoes" },

@@ -1,4 +1,3 @@
-
 import { Instagram, MapPin, Phone, Mail, Clock, ExternalLink } from "lucide-react";
 
 const Footer = () => {
@@ -13,7 +12,6 @@ const Footer = () => {
 
   const quickLinks = [
     { name: "Início", href: "/" },
-    { name: "Sistema ERP", href: "/sistema-erp" },
     { name: "Sistema de Eventos", href: "/sistema-eventos" },
     { name: "Integração Stone", href: "/sistema-stone" },
     { name: "Sistema de Automações", href: "/sistema-automacoes" },

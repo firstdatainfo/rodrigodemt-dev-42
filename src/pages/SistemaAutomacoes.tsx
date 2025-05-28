@@ -6,14 +6,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import QuoteModal from "@/components/ui/quote-modal";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
-
 const SistemaAutomacoes = () => {
-  const { isOpen, openModal, closeModal } = useQuoteModal();
-
+  const {
+    isOpen,
+    openModal,
+    closeModal
+  } = useQuoteModal();
   const handleContactClick = () => {
     window.open('https://wa.me/5566992480993', '_blank');
   };
-
   const automationTypes = [{
     icon: Home,
     title: "Automação Residencial",
@@ -52,17 +53,13 @@ const SistemaAutomacoes = () => {
     title: "Economia de Energia",
     description: "Redução de até 30% no consumo elétrico"
   }];
-
   return <div className="min-h-screen bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
       <Header />
       
       {/* Botão Voltar ao Início */}
       <div className="fixed top-24 left-4 z-50">
         <Link to="/">
-          <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105" size="sm">
-            <Home className="w-4 h-4 mr-2" />
-            Voltar ao Início
-          </Button>
+          
         </Link>
       </div>
 
@@ -185,12 +182,7 @@ const SistemaAutomacoes = () => {
       
       <Footer />
       
-      <QuoteModal 
-        open={isOpen} 
-        onOpenChange={closeModal} 
-        service="Automação"
-      />
+      <QuoteModal open={isOpen} onOpenChange={closeModal} service="Automação" />
     </div>;
 };
-
 export default SistemaAutomacoes;

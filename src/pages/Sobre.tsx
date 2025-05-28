@@ -5,10 +5,20 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RodrigoDevLogo from "@/components/RodrigoDevLogo";
+
 const Sobre = () => {
   const handleContactClick = () => {
     window.open('https://wa.me/5566992480993', '_blank');
   };
+
+  const handleEmailClick = () => {
+    window.open('mailto:rodrigodev@yahoo.com', '_blank');
+  };
+
+  const handlePhoneClick = () => {
+    window.open('tel:+5566992480993', '_blank');
+  };
+  
   const handleSocialRedirect = (platform: string) => {
     const links = {
       github: 'https://github.com/RodrigoDevMT',
@@ -17,7 +27,9 @@ const Sobre = () => {
     };
     window.open(links[platform as keyof typeof links], '_blank');
   };
+  
   const skills = ["Flutter & FlutterFlow", "React & TypeScript", "Node.js & Python", "Automação Industrial", "IoT & Sensores", "Inteligência Artificial", "Cloud Computing", "Banco de Dados"];
+  
   const achievements = [{
     icon: Award,
     title: "5+ Anos",
@@ -35,6 +47,7 @@ const Sobre = () => {
     title: "10+",
     description: "Tecnologias dominadas"
   }];
+  
   const quickLinks = [{
     name: "Início",
     href: "/"
@@ -51,6 +64,14 @@ const Sobre = () => {
     name: "Contato",
     href: "#contato"
   }];
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contato');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return <div className="min-h-screen bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
       <Header />
       
@@ -139,11 +160,18 @@ const Sobre = () => {
               </h2>
               
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {quickLinks.map((link, index) => link.href.startsWith('#') ? <a key={index} href={link.href} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-4 rounded-lg text-white hover:text-green-300 font-semibold transition-all duration-300 hover:scale-105 border border-white/20">
-                      {link.name}
-                    </a> : <Link key={index} to={link.href} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-4 rounded-lg text-white hover:text-green-300 font-semibold transition-all duration-300 hover:scale-105 border border-white/20">
-                      {link.name}
-                    </Link>)}
+                {quickLinks.map((link, index) => link.href.startsWith('#') ? 
+                  <button 
+                    key={index} 
+                    onClick={scrollToContact}
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-4 rounded-lg text-white hover:text-green-300 font-semibold transition-all duration-300 hover:scale-105 border border-white/20"
+                  >
+                    {link.name}
+                  </button> : 
+                  <Link key={index} to={link.href} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-4 rounded-lg text-white hover:text-green-300 font-semibold transition-all duration-300 hover:scale-105 border border-white/20">
+                    {link.name}
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -227,7 +255,7 @@ const Sobre = () => {
         </section>
 
         {/* Contato */}
-        <section className="py-20 bg-gradient-to-r from-green-600/80 to-emerald-600/80 backdrop-blur-sm">
+        <section id="contato" className="py-20 bg-gradient-to-r from-green-600/80 to-emerald-600/80 backdrop-blur-sm">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center text-white">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -242,14 +270,20 @@ const Sobre = () => {
                   <MapPin className="w-5 h-5" />
                   <span>Mato Grosso, Brasil</span>
                 </div>
-                <div className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+                <button 
+                  onClick={handleEmailClick}
+                  className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300 cursor-pointer"
+                >
                   <Mail className="w-5 h-5" />
                   <span>rodrigodev@yahoo.com</span>
-                </div>
-                <div className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+                </button>
+                <button 
+                  onClick={handlePhoneClick}
+                  className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300 cursor-pointer"
+                >
                   <Phone className="w-5 h-5" />
                   <span>(66) 99248-0993</span>
-                </div>
+                </button>
               </div>
               
               <div className="flex justify-center gap-4">
@@ -273,4 +307,5 @@ const Sobre = () => {
       <Footer />
     </div>;
 };
+
 export default Sobre;

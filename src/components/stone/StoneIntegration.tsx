@@ -26,17 +26,47 @@ const integrationSteps = [
 
 const StoneIntegration = () => {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
+      <div className="absolute inset-0 bg-black/20"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Processo de <span className="text-green-600">Integração</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Processo de <span className="text-green-400">Integração</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Nosso processo estruturado garante uma integração perfeita e sem complicações 
               com os terminais Stone do seu negócio.
             </p>
+          </div>
+
+          {/* Logos das empresas parceiras */}
+          <div className="mb-16">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Parceiros <span className="text-green-400">Oficiais</span>
+              </h3>
+            </div>
+            <div className="flex justify-center items-center gap-8 mb-8 flex-wrap">
+              {/* Logo Stone */}
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/20 transition-all duration-300">
+                <img 
+                  src="/lovable-uploads/acc8e4f3-a761-4e84-831f-8489518ac3ba.png" 
+                  alt="Stone Official Partner" 
+                  className="h-12 w-auto"
+                />
+              </div>
+              
+              {/* Logo Pagar.me */}
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/20 transition-all duration-300">
+                <img 
+                  src="/lovable-uploads/83ed6efa-5ed6-4771-8ee8-6d1e2b56908f.png" 
+                  alt="Pagar.me - Uma empresa Stone Co." 
+                  className="h-12 w-auto"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -46,16 +76,16 @@ const StoneIntegration = () => {
                 className="relative animate-fade-up"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-green-100">
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/20">
                   <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
                     <step.icon className="w-8 h-8 text-white" />
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl font-bold text-white mb-4">
                     {step.title}
                   </h3>
                   
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-white/80 leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -70,11 +100,11 @@ const StoneIntegration = () => {
           </div>
 
           <div className="mt-16 text-center">
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-4">
                 Pronto para começar sua integração?
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-white/80 mb-6">
                 Entre em contato conosco e receba uma consultoria gratuita sobre a melhor solução para seu negócio.
               </p>
               <button 

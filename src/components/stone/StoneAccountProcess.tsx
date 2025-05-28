@@ -185,127 +185,137 @@ Gostaria de iniciar o processo de abertura da conta Stone.`;
                     💬 Iniciar Processo Agora
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl font-bold text-center text-gray-900 mb-4">
-                      Abertura de Conta Stone
-                    </DialogTitle>
-                  </DialogHeader>
-                  
-                  <div className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="nome">Nome Completo *</Label>
-                        <Input
-                          id="nome"
-                          value={formData.nome}
-                          onChange={(e) => handleInputChange('nome', e.target.value)}
-                          placeholder="Digite seu nome completo"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="email">Email *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => handleInputChange('email', e.target.value)}
-                          placeholder="seu@email.com"
-                          required
-                        />
-                      </div>
-                    </div>
+                <DialogContent className="max-w-4xl w-[95vw] max-h-[90vh] p-0">
+                  <div className="flex flex-col h-full">
+                    <DialogHeader className="p-6 pb-4 border-b">
+                      <DialogTitle className="text-2xl font-bold text-center text-gray-900">
+                        Abertura de Conta Stone
+                      </DialogTitle>
+                    </DialogHeader>
                     
-                    <div>
-                      <Label htmlFor="telefone">Telefone *</Label>
-                      <Input
-                        id="telefone"
-                        value={formData.telefone}
-                        onChange={(e) => handleInputChange('telefone', e.target.value)}
-                        placeholder="(00) 00000-0000"
-                        required
-                      />
-                    </div>
+                    <div className="flex-1 overflow-y-auto p-6">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div className="space-y-4">
+                          <h4 className="text-lg font-semibold text-gray-900 mb-3">Dados Pessoais</h4>
+                          
+                          <div>
+                            <Label htmlFor="nome" className="text-sm">Nome Completo *</Label>
+                            <Input
+                              id="nome"
+                              value={formData.nome}
+                              onChange={(e) => handleInputChange('nome', e.target.value)}
+                              placeholder="Digite seu nome completo"
+                              className="mt-1"
+                              required
+                            />
+                          </div>
+                          
+                          <div>
+                            <Label htmlFor="email" className="text-sm">Email *</Label>
+                            <Input
+                              id="email"
+                              type="email"
+                              value={formData.email}
+                              onChange={(e) => handleInputChange('email', e.target.value)}
+                              placeholder="seu@email.com"
+                              className="mt-1"
+                              required
+                            />
+                          </div>
+                          
+                          <div>
+                            <Label htmlFor="telefone" className="text-sm">Telefone *</Label>
+                            <Input
+                              id="telefone"
+                              value={formData.telefone}
+                              onChange={(e) => handleInputChange('telefone', e.target.value)}
+                              placeholder="(00) 00000-0000"
+                              className="mt-1"
+                              required
+                            />
+                          </div>
 
-                    <div className="border-t pt-6">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Documentos da Empresa</h4>
-                      
-                      <div className="space-y-4">
-                        <div>
-                          <Label htmlFor="cnpj">CNPJ atualizado da empresa *</Label>
-                          <Textarea
-                            id="cnpj"
-                            value={formData.cnpj}
-                            onChange={(e) => handleInputChange('cnpj', e.target.value)}
-                            placeholder="Descreva o status do CNPJ da empresa"
-                            rows={2}
-                          />
+                          <div>
+                            <Label htmlFor="cnpj" className="text-sm">CNPJ atualizado da empresa *</Label>
+                            <Textarea
+                              id="cnpj"
+                              value={formData.cnpj}
+                              onChange={(e) => handleInputChange('cnpj', e.target.value)}
+                              placeholder="Descreva o status do CNPJ"
+                              className="mt-1 h-20 resize-none"
+                            />
+                          </div>
+                          
+                          <div>
+                            <Label htmlFor="contratoSocial" className="text-sm">Contrato Social ou MEI *</Label>
+                            <Textarea
+                              id="contratoSocial"
+                              value={formData.contratoSocial}
+                              onChange={(e) => handleInputChange('contratoSocial', e.target.value)}
+                              placeholder="Informações sobre contrato social"
+                              className="mt-1 h-20 resize-none"
+                            />
+                          </div>
                         </div>
-                        
-                        <div>
-                          <Label htmlFor="contratoSocial">Contrato Social ou MEI *</Label>
-                          <Textarea
-                            id="contratoSocial"
-                            value={formData.contratoSocial}
-                            onChange={(e) => handleInputChange('contratoSocial', e.target.value)}
-                            placeholder="Informações sobre o contrato social ou MEI"
-                            rows={2}
-                          />
-                        </div>
-                        
-                        <div>
-                          <Label htmlFor="rgCpf">RG e CPF dos sócios *</Label>
-                          <Textarea
-                            id="rgCpf"
-                            value={formData.rgCpf}
-                            onChange={(e) => handleInputChange('rgCpf', e.target.value)}
-                            placeholder="Documentos dos sócios disponíveis"
-                            rows={2}
-                          />
-                        </div>
-                        
-                        <div>
-                          <Label htmlFor="comprovante">Comprovante de endereço da empresa *</Label>
-                          <Textarea
-                            id="comprovante"
-                            value={formData.comprovante}
-                            onChange={(e) => handleInputChange('comprovante', e.target.value)}
-                            placeholder="Tipo de comprovante de endereço disponível"
-                            rows={2}
-                          />
-                        </div>
-                        
-                        <div>
-                          <Label htmlFor="extrato">Extrato bancário (3 meses) *</Label>
-                          <Textarea
-                            id="extrato"
-                            value={formData.extrato}
-                            onChange={(e) => handleInputChange('extrato', e.target.value)}
-                            placeholder="Disponibilidade dos extratos bancários"
-                            rows={2}
-                          />
-                        </div>
-                        
-                        <div>
-                          <Label htmlFor="faturamento">Comprovante de faturamento *</Label>
-                          <Textarea
-                            id="faturamento"
-                            value={formData.faturamento}
-                            onChange={(e) => handleInputChange('faturamento', e.target.value)}
-                            placeholder="Informações sobre o faturamento da empresa"
-                            rows={2}
-                          />
+
+                        <div className="space-y-4">
+                          <h4 className="text-lg font-semibold text-gray-900 mb-3">Documentos da Empresa</h4>
+                          
+                          <div>
+                            <Label htmlFor="rgCpf" className="text-sm">RG e CPF dos sócios *</Label>
+                            <Textarea
+                              id="rgCpf"
+                              value={formData.rgCpf}
+                              onChange={(e) => handleInputChange('rgCpf', e.target.value)}
+                              placeholder="Documentos dos sócios disponíveis"
+                              className="mt-1 h-20 resize-none"
+                            />
+                          </div>
+                          
+                          <div>
+                            <Label htmlFor="comprovante" className="text-sm">Comprovante de endereço *</Label>
+                            <Textarea
+                              id="comprovante"
+                              value={formData.comprovante}
+                              onChange={(e) => handleInputChange('comprovante', e.target.value)}
+                              placeholder="Tipo de comprovante disponível"
+                              className="mt-1 h-20 resize-none"
+                            />
+                          </div>
+                          
+                          <div>
+                            <Label htmlFor="extrato" className="text-sm">Extrato bancário (3 meses) *</Label>
+                            <Textarea
+                              id="extrato"
+                              value={formData.extrato}
+                              onChange={(e) => handleInputChange('extrato', e.target.value)}
+                              placeholder="Disponibilidade dos extratos"
+                              className="mt-1 h-20 resize-none"
+                            />
+                          </div>
+                          
+                          <div>
+                            <Label htmlFor="faturamento" className="text-sm">Comprovante de faturamento *</Label>
+                            <Textarea
+                              id="faturamento"
+                              value={formData.faturamento}
+                              onChange={(e) => handleInputChange('faturamento', e.target.value)}
+                              placeholder="Informações sobre faturamento"
+                              className="mt-1 h-20 resize-none"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
                     
-                    <Button 
-                      onClick={handleSubmit}
-                      className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105"
-                    >
-                      📱 Enviar para WhatsApp
-                    </Button>
+                    <div className="p-6 border-t bg-gray-50">
+                      <Button 
+                        onClick={handleSubmit}
+                        className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105"
+                      >
+                        📱 Enviar para WhatsApp
+                      </Button>
+                    </div>
                   </div>
                 </DialogContent>
               </Dialog>

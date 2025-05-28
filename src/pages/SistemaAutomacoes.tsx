@@ -46,14 +46,14 @@ const SistemaAutomacoes = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
       <Header />
       
       {/* Botão Voltar ao Início */}
       <div className="fixed top-24 left-4 z-50">
         <Link to="/">
           <Button
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             size="sm"
           >
             <Home className="w-4 h-4 mr-2" />
@@ -62,21 +62,21 @@ const SistemaAutomacoes = () => {
         </Link>
       </div>
 
-      <main className="pt-20">
+      <main className="pt-20 relative z-10">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/20"></div>
           
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-6xl mx-auto text-center">
               <div className="mb-8">
-                <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
                   Sistemas de
-                  <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  <span className="block bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
                     Automação
                   </span>
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+                <p className="text-xl text-white/90 leading-relaxed max-w-4xl mx-auto">
                   Revolucione seus processos com soluções de automação inteligente. 
                   Conectamos tecnologia avançada para criar ambientes mais eficientes, seguros e sustentáveis.
                 </p>
@@ -85,13 +85,13 @@ const SistemaAutomacoes = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
                 <Button 
                   onClick={handleContactClick}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/25"
+                  className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-500/25"
                 >
                   💬 Solicitar Orçamento
                 </Button>
                 <Button 
                   variant="outline"
-                  className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300"
+                  className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300"
                 >
                   Ver Projetos
                 </Button>
@@ -101,13 +101,13 @@ const SistemaAutomacoes = () => {
         </section>
 
         {/* Tipos de Automação */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-black/10 backdrop-blur-sm">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Soluções de <span className="text-blue-600">Automação</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Soluções de <span className="text-green-400">Automação</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-white/80 max-w-3xl mx-auto">
                 Oferecemos soluções completas para diferentes necessidades de automação
               </p>
             </div>
@@ -116,18 +116,18 @@ const SistemaAutomacoes = () => {
               {automationTypes.map((type, index) => (
                 <Card 
                   key={index}
-                  className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg"
+                  className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg bg-white/10 backdrop-blur-md border border-white/20"
                 >
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <type.icon className="w-8 h-8 text-blue-600" />
+                    <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <type.icon className="w-8 h-8 text-green-400" />
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-2xl font-bold text-white mb-4 text-center group-hover:text-green-400 transition-colors">
                       {type.title}
                     </h3>
                     
-                    <p className="text-gray-600 text-center mb-6 leading-relaxed">
+                    <p className="text-white/80 text-center mb-6 leading-relaxed">
                       {type.description}
                     </p>
 
@@ -137,15 +137,15 @@ const SistemaAutomacoes = () => {
                           key={featureIndex}
                           className="flex items-center gap-3"
                         >
-                          <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
-                          <span className="text-gray-700">{feature}</span>
+                          <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
+                          <span className="text-white/90">{feature}</span>
                         </div>
                       ))}
                     </div>
 
                     <Button 
                       onClick={handleContactClick}
-                      className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
+                      className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
                     >
                       Saber Mais
                     </Button>
@@ -157,11 +157,11 @@ const SistemaAutomacoes = () => {
         </section>
 
         {/* Benefícios */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <section className="py-20 bg-black/20 backdrop-blur-sm">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Por que escolher <span className="text-blue-600">Automação?</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Por que escolher <span className="text-green-400">Automação?</span>
               </h2>
             </div>
 
@@ -169,13 +169,13 @@ const SistemaAutomacoes = () => {
               {benefits.map((benefit, index) => (
                 <div 
                   key={index}
-                  className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                  className="text-center p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full flex items-center justify-center">
-                    <benefit.icon className="w-8 h-8 text-blue-600" />
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-full flex items-center justify-center">
+                    <benefit.icon className="w-8 h-8 text-green-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
-                  <p className="text-gray-600">{benefit.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{benefit.title}</h3>
+                  <p className="text-white/80">{benefit.description}</p>
                 </div>
               ))}
             </div>
@@ -183,7 +183,7 @@ const SistemaAutomacoes = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+        <section className="py-20 bg-gradient-to-r from-green-600/80 to-emerald-600/80 backdrop-blur-sm">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Pronto para automatizar seu ambiente?
@@ -194,13 +194,13 @@ const SistemaAutomacoes = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 onClick={handleContactClick}
-                className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105"
+                className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105"
               >
                 💬 Falar com Especialista
               </Button>
               <Button 
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300"
+                className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300"
               >
                 Ver Portfolio
               </Button>

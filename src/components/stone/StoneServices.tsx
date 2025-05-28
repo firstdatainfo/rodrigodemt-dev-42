@@ -54,6 +54,41 @@ const services = [
 ];
 
 const StoneServices = () => {
+  const handleServiceQuote = (service: typeof services[0]) => {
+    const message = `Olá! Tenho interesse no serviço: *${service.title}*
+
+📋 *Descrição do Serviço:*
+${service.description}
+
+✅ *Recursos Incluídos:*
+${service.features.map(feature => `• ${feature}`).join('\n')}
+
+Gostaria de receber mais informações e um orçamento detalhado para este serviço.
+
+Aguardo seu contato!`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/5566992480993?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const handleSpecialistContact = () => {
+    const message = `Olá! Preciso de uma *solução personalizada* com integração Stone.
+
+🎯 *Interesse:*
+Desenvolver uma solução sob medida para meu negócio com integração Stone completa.
+
+Gostaria de falar com um especialista para entender as possibilidades e receber um orçamento personalizado.
+
+Aguardo seu contato!`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/5566992480993?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
       <div className="container mx-auto px-4">
@@ -100,7 +135,7 @@ const StoneServices = () => {
                 </div>
 
                 <button 
-                  onClick={() => window.open('https://wa.me/5566992480993', '_blank')}
+                  onClick={() => handleServiceQuote(service)}
                   className="w-full mt-4 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white py-2 px-4 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105"
                 >
                   Solicitar Orçamento
@@ -119,7 +154,7 @@ const StoneServices = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={() => window.open('https://wa.me/5566992480993', '_blank')}
+              onClick={handleSpecialistContact}
               className="bg-white text-green-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
             >
               💬 Falar com Especialista

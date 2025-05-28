@@ -1,10 +1,10 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Home, Code, Heart, Users, Award, MapPin, Mail, Phone, Github, Linkedin, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import RodrigoDevLogo from "@/components/RodrigoDevLogo";
 
 const Sobre = () => {
   const handleContactClick = () => {
@@ -65,7 +65,7 @@ const Sobre = () => {
       </div>
 
       <main className="pt-20 relative z-10">
-        {/* Hero Section com foto */}
+        {/* Hero Section com logo */}
         <section className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-black/20"></div>
           
@@ -103,14 +103,11 @@ const Sobre = () => {
                 </div>
                 
                 <div className="relative flex justify-center">
-                  <div className="relative">
-                    <img 
-                      src="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png"
-                      alt="Rodrigo Dev MT"
-                      className="w-80 h-80 object-cover rounded-full shadow-2xl border-4 border-green-400/50"
+                  <div className="relative transform hover:scale-105 transition-all duration-500 ease-in-out">
+                    <RodrigoDevLogo 
+                      className="w-80 h-80 lg:w-96 lg:h-96 animate-[float_6s_ease-in-out_infinite]" 
+                      size={320}
                     />
-                    <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full opacity-20 animate-pulse"></div>
-                    <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-r from-emerald-400 to-green-600 rounded-full opacity-15 animate-pulse" style={{ animationDelay: '1s' }}></div>
                   </div>
                 </div>
               </div>

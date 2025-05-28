@@ -88,7 +88,7 @@ const Sobre = () => {
                     <Button onClick={handleContactClick} className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
                       💬 Vamos Conversar
                     </Button>
-                    <Button onClick={() => handleSocialRedirect('github')} variant="outline" className="border-2 border-green-400 px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-green-400 hover:bg-green-300 text-zinc-50">
+                    <Button onClick={() => handleSocialRedirect('github')} variant="outline" className="border-2 border-green-400 px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-zinc-50 bg-green-700 hover:bg-green-600">
                       <Github className="w-4 h-4 mr-2" />
                       GitHub
                     </Button>

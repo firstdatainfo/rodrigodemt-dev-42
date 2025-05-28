@@ -63,30 +63,30 @@ const Header = () => {
                     </text>
                     <defs>
                       <linearGradient id="gradient" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stopColor="#0046BB" />
-                        <stop offset="50%" stopColor="#8B5CF6" />
-                        <stop offset="100%" stopColor="#00A3FF" />
+                        <stop offset="0%" stopColor="#16a34a" />
+                        <stop offset="50%" stopColor="#059669" />
+                        <stop offset="100%" stopColor="#10b981" />
                       </linearGradient>
                       <linearGradient id="gradientOverlay" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stopColor="#FFD700" />
-                        <stop offset="100%" stopColor="#FF6B35" />
+                        <stop offset="0%" stopColor="#22c55e" />
+                        <stop offset="100%" stopColor="#15803d" />
                       </linearGradient>
                     </defs>
                   </svg>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-400 rounded-xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
               </div>
-              <Link to="/" className="text-2xl md:text-3xl font-bold text-white hover:text-blue-300 transition-colors duration-300">
-                Rodrigo Dev <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">MT</span>
+              <Link to="/" className="text-2xl md:text-3xl font-bold text-white hover:text-green-300 transition-colors duration-300">
+                Rodrigo Dev <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">MT</span>
               </Link>
             </div>
             
             {/* Stone Partner Program Logo */}
             <div className="hidden lg:block ml-4">
               <img 
-                src="/lovable-uploads/467d83eb-7213-49d2-bd51-a536e54a8eda.png" 
+                src="https://storage.googleapis.com/partnerhub_partner_badges_prod/D_61eaefd2d86db30019620e5b.png" 
                 alt="Stone Partner Program" 
-                className="h-10 w-auto hover:scale-105 transition-transform duration-300"
+                className="h-12 w-auto hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>
@@ -98,19 +98,19 @@ const Header = () => {
                 <a
                   key={item.name}
                   href={item.path}
-                  className="relative text-white hover:text-blue-300 transition-colors duration-300 text-sm font-medium group"
+                  className="relative text-white hover:text-green-300 transition-colors duration-300 text-sm font-medium group"
                 >
                   {item.name}
-                  <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                  <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-green-400 to-emerald-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </a>
               ) : (
                 <Link
                   key={item.name}
                   to={item.path}
-                  className="relative text-white hover:text-blue-300 transition-colors duration-300 text-sm font-medium group"
+                  className="relative text-white hover:text-green-300 transition-colors duration-300 text-sm font-medium group"
                 >
                   {item.name}
-                  <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                  <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-green-400 to-emerald-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </Link>
               )
             ))}
@@ -141,7 +141,7 @@ const Header = () => {
                 <a
                   key={item.name}
                   href={item.path}
-                  className="block py-3 px-6 text-white hover:text-blue-300 hover:bg-white/10 transition-all duration-300 rounded-lg mx-2 animate-fade-up"
+                  className="block py-3 px-6 text-white hover:text-green-300 hover:bg-white/10 transition-all duration-300 rounded-lg mx-2 animate-fade-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -151,7 +151,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className="block py-3 px-6 text-white hover:text-blue-300 hover:bg-white/10 transition-all duration-300 rounded-lg mx-2 animate-fade-up"
+                  className="block py-3 px-6 text-white hover:text-green-300 hover:bg-white/10 transition-all duration-300 rounded-lg mx-2 animate-fade-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                   onClick={() => setIsMenuOpen(false)}
                 >

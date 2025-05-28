@@ -1,4 +1,3 @@
-
 import { CreditCard, Smartphone, Zap } from "lucide-react";
 
 const StoneHero = () => {
@@ -12,11 +11,28 @@ const StoneHero = () => {
             <div className="space-y-8 animate-fade-up">
               {/* Selo Stone Oficial */}
               <div className="flex flex-col items-center lg:items-start mb-8">
-                <img 
-                  src="https://storage.googleapis.com/partnerhub_partner_badges_prod/D_61eaefd2d86db30019620e5b.png" 
-                  alt="Parceiro Oficial Stone" 
-                  className="w-48 h-auto mb-4 hover:scale-105 transition-transform duration-300"
-                />
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-4">
+                  <img 
+                    src="https://storage.googleapis.com/partnerhub_partner_badges_prod/D_61eaefd2d86db30019620e5b.png" 
+                    alt="Parceiro Oficial Stone" 
+                    className="w-48 h-auto hover:scale-105 transition-transform duration-300"
+                  />
+                  <img 
+                    src="/lovable-uploads/27467abd-8fc5-4d5f-bee4-d00db5bb9312.png" 
+                    alt="Stone Official Partner" 
+                    className="w-32 h-auto hover:scale-105 transition-transform duration-300"
+                  />
+                  <img 
+                    src="/lovable-uploads/a4e5ce30-8367-4707-b634-7ac95221a5c5.png" 
+                    alt="Stone Partner Program" 
+                    className="w-40 h-auto hover:scale-105 transition-transform duration-300"
+                  />
+                  <img 
+                    src="/lovable-uploads/5949be6f-6616-4b08-977b-903de24aa9f2.png" 
+                    alt="Stone Logo" 
+                    className="w-32 h-auto hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <p className="text-2xl md:text-3xl font-bold text-gray-900 text-center lg:text-left leading-tight">
                   🏆 <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
                     PARCEIRO OFICIAL STONE

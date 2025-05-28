@@ -12,8 +12,12 @@ import StoneContact from "@/components/stone/StoneContact";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Home } from "lucide-react";
 import { Link } from "react-router-dom";
+import QuoteModal from "@/components/ui/quote-modal";
+import { useQuoteModal } from "@/hooks/useQuoteModal";
 
 const SistemaStone = () => {
+  const { isOpen, openModal, closeModal } = useQuoteModal();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <Header />
@@ -32,16 +36,22 @@ const SistemaStone = () => {
       </div>
 
       <main className="pt-20">
-        <StoneHero />
-        <StoneServices />
+        <StoneHero openQuoteModal={openModal} />
+        <StoneServices openQuoteModal={openModal} />
         <StoneAccountProcess />
-        <StoneFeatures />
-        <StoneTerminals />
-        <StoneIntegration />
-        <StoneBenefits />
-        <StoneContact />
+        <StoneFeatures openQuoteModal={openModal} />
+        <StoneTerminals openQuoteModal={openModal} />
+        <StoneIntegration openQuoteModal={openModal} />
+        <StoneBenefits openQuoteModal={openModal} />
+        <StoneContact openQuoteModal={openModal} />
       </main>
       <Footer />
+      
+      <QuoteModal 
+        open={isOpen} 
+        onOpenChange={closeModal} 
+        service="Sistema Stone"
+      />
     </div>
   );
 };

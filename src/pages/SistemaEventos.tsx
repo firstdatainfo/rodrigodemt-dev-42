@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { Calendar, ArrowRight, Sparkles, Zap, Trophy, Home } from "lucide-react";
@@ -8,10 +9,13 @@ import BackgroundMusic from "@/components/eventos/BackgroundMusic";
 import EventosBackground from "@/components/eventos/EventosBackground";
 import EventosContact from "@/components/eventos/EventosContact";
 import EventosFeatures from "@/components/eventos/EventosFeatures";
+import QuoteModal from "@/components/ui/quote-modal";
+import { useQuoteModal } from "@/hooks/useQuoteModal";
 
 const SistemaEventos = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
+  const { isOpen, openModal, closeModal } = useQuoteModal();
 
   const handleContactClick = () => {
     window.open('https://wa.me/5566992480993', '_blank');
@@ -116,10 +120,10 @@ const SistemaEventos = () => {
                 <Button
                   size="lg"
                   className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-6 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105 text-lg font-semibold"
-                  onClick={handleContactClick}
+                  onClick={openModal}
                 >
                   <ArrowRight className="w-5 h-5 mr-2" />
-                  FALAR COM CONSULTOR
+                  SOLICITAR ORÇAMENTO
                 </Button>
               </div>
 
@@ -131,9 +135,9 @@ const SistemaEventos = () => {
                 </p>
               </div>
 
-              <EventosServices />
-              <EventosFeatures />
-              <EventosContact />
+              <EventosServices openQuoteModal={openModal} />
+              <EventosFeatures openQuoteModal={openModal} />
+              <EventosContact openQuoteModal={openModal} />
             </div>
           </div>
         </section>
@@ -151,6 +155,12 @@ const SistemaEventos = () => {
           </div>
         </footer>
       </div>
+      
+      <QuoteModal 
+        open={isOpen} 
+        onOpenChange={closeModal} 
+        service="Sistema de Eventos"
+      />
     </div>
   );
 };

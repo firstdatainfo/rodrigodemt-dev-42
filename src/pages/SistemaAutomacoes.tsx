@@ -4,10 +4,16 @@ import { Home, Zap, Settings, Cpu, Smartphone, Wifi, Shield, TrendingUp, ArrowRi
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import QuoteModal from "@/components/ui/quote-modal";
+import { useQuoteModal } from "@/hooks/useQuoteModal";
+
 const SistemaAutomacoes = () => {
+  const { isOpen, openModal, closeModal } = useQuoteModal();
+
   const handleContactClick = () => {
     window.open('https://wa.me/5566992480993', '_blank');
   };
+
   const automationTypes = [{
     icon: Home,
     title: "Automação Residencial",
@@ -46,6 +52,7 @@ const SistemaAutomacoes = () => {
     title: "Economia de Energia",
     description: "Redução de até 30% no consumo elétrico"
   }];
+
   return <div className="min-h-screen bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
       <Header />
       
@@ -80,7 +87,7 @@ const SistemaAutomacoes = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                <Button onClick={handleContactClick} className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-500/25">
+                <Button onClick={openModal} className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-500/25">
                   💬 Solicitar Orçamento
                 </Button>
                 <Button variant="outline" className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300">
@@ -125,8 +132,8 @@ const SistemaAutomacoes = () => {
                         </div>)}
                     </div>
 
-                    <Button onClick={handleContactClick} className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105">
-                      Saber Mais
+                    <Button onClick={openModal} className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105">
+                      Solicitar Orçamento
                     </Button>
                   </CardContent>
                 </Card>)}
@@ -168,8 +175,8 @@ const SistemaAutomacoes = () => {
               <Button onClick={handleContactClick} className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105">
                 💬 Falar com Especialista
               </Button>
-              <Button variant="outline" className="border-2 border-white text-white hover:text-green-600 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 bg-emerald-50">
-                Ver Portfolio
+              <Button variant="outline" onClick={openModal} className="border-2 border-white text-white hover:text-green-600 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 bg-emerald-50">
+                Solicitar Orçamento
               </Button>
             </div>
           </div>
@@ -177,6 +184,13 @@ const SistemaAutomacoes = () => {
       </main>
       
       <Footer />
+      
+      <QuoteModal 
+        open={isOpen} 
+        onOpenChange={closeModal} 
+        service="Automação"
+      />
     </div>;
 };
+
 export default SistemaAutomacoes;

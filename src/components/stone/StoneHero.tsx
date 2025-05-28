@@ -1,3 +1,4 @@
+
 import { CreditCard, Smartphone, Zap } from "lucide-react";
 
 const StoneHero = () => {
@@ -16,11 +17,6 @@ const StoneHero = () => {
                     src="https://storage.googleapis.com/partnerhub_partner_badges_prod/D_61eaefd2d86db30019620e5b.png" 
                     alt="Parceiro Oficial Stone" 
                     className="w-48 h-auto hover:scale-105 transition-transform duration-300"
-                  />
-                  <img 
-                    src="/lovable-uploads/27467abd-8fc5-4d5f-bee4-d00db5bb9312.png" 
-                    alt="Stone Official Partner" 
-                    className="w-32 h-auto hover:scale-105 transition-transform duration-300"
                   />
                   <img 
                     src="/lovable-uploads/a4e5ce30-8367-4707-b634-7ac95221a5c5.png" 

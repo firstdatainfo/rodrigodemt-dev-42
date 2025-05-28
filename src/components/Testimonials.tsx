@@ -1,0 +1,84 @@
+
+import { Star, Quote } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+
+const testimonials = [
+  {
+    name: "Carlos Silva",
+    role: "CEO, TechStart",
+    content: "O Rodrigo Dev transformou completamente nosso negócio com soluções inovadoras de IA. Resultados impressionantes!",
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: "Ana Costa",
+    role: "Diretora, InnovaCorp",
+    content: "Automação perfeita e sistema de gestão que revolucionou nossa produtividade. Recomendo totalmente!",
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: "João Santos",
+    role: "Fundador, SmartSolutions",
+    content: "Desenvolvimento mobile excepcional! App Flutter entregue no prazo com qualidade superior.",
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+  }
+];
+
+const Testimonials = () => {
+  return (
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            O Que Nossos Clientes Dizem
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Veja os depoimentos de quem já transformou seus negócios conosco
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <Card 
+              key={index} 
+              className="bg-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 overflow-hidden animate-fade-up"
+              style={{ animationDelay: `${index * 200}ms` }}
+            >
+              <CardContent className="p-8 relative">
+                <div className="absolute top-4 right-4 text-primary/20">
+                  <Quote className="w-8 h-8" />
+                </div>
+                
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                
+                <p className="text-gray-700 mb-6 italic leading-relaxed">
+                  "{testimonial.content}"
+                </p>
+                
+                <div className="flex items-center gap-4">
+                  <img 
+                    src={testimonial.avatar} 
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover border-2 border-primary/20"
+                  />
+                  <div>
+                    <h4 className="font-semibold text-primary">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Testimonials;

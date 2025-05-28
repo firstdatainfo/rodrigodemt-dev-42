@@ -1,5 +1,6 @@
+
 import { Button } from "./ui/button";
-import { Facebook, Twitter, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Star, Users, Award } from "lucide-react";
 import NeuralNetwork from "./NeuralNetwork";
 import ParticlesBackground from "./ParticlesBackground";
 import MagicParticles from "./MagicParticles";
@@ -27,6 +28,12 @@ const technologies = [
   { name: "JavaScript", icon: SiJavascript },
   { name: "TypeScript", icon: SiTypescript },
   { name: "Figma", icon: SiFigma },
+];
+
+const stats = [
+  { number: "500+", label: "Projetos Concluídos", icon: Award },
+  { number: "200+", label: "Clientes Satisfeitos", icon: Users },
+  { number: "5.0", label: "Avaliação Média", icon: Star },
 ];
 
 const Hero = () => {
@@ -60,59 +67,87 @@ const Hero = () => {
       <div className="container mx-auto relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
-            <div className="bg-white/40 backdrop-blur-sm px-4 py-2 rounded-full inline-flex items-center mb-6 block w-auto mt-20 md:mt-0 text-xs md:text-sm">
-              <span className="bg-white/50 text-white px-3 md:px-4 py-1 rounded-full mr-2 md:mr-3">New</span>
-              <span className="text-white whitespace-nowrap">Inteligência Artificial & Soluções Inovadoras</span>
+            <div className="bg-white/40 backdrop-blur-sm px-4 py-2 rounded-full inline-flex items-center mb-6 block w-auto mt-20 md:mt-0 text-xs md:text-sm animate-pulse">
+              <span className="bg-gradient-to-r from-green-400 to-blue-500 text-white px-3 md:px-4 py-1 rounded-full mr-2 md:mr-3 font-semibold">✨ NOVO</span>
+              <span className="text-white whitespace-nowrap font-medium">Inteligência Artificial & Soluções Inovadoras</span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Transformando o Futuro com Inteligência Artificial
+            <h1 className="text-3xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              Transformando o 
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent block">
+                Futuro Digital
+              </span>
+              com IA
             </h1>
 
-            <p className="text-white/80 text-lg mb-8">
-              Soluções avançadas de IA para impulsionar sua empresa ao próximo nível de inovação e eficiência.
+            <p className="text-white/90 text-lg md:text-xl mb-8 leading-relaxed">
+              Criamos soluções tecnológicas avançadas que impulsionam sua empresa ao próximo nível. 
+              <span className="block mt-2 font-semibold text-blue-300">
+                Inovação, eficiência e resultados garantidos.
+              </span>
             </p>
+
+            {/* Estatísticas */}
+            <div className="grid grid-cols-3 gap-4 mb-8 p-4 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="flex items-center justify-center mb-2">
+                    <stat.icon className="w-5 h-5 text-yellow-400 mr-1" />
+                    <span className="text-2xl md:text-3xl font-bold text-white">{stat.number}</span>
+                  </div>
+                  <p className="text-white/80 text-xs md:text-sm">{stat.label}</p>
+                </div>
+              ))}
+            </div>
 
             <div className="flex flex-wrap gap-4 justify-start mb-12 relative z-30">
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="bg-white/10 hover:bg-white/20 text-white border-white/20"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                 onClick={handleSocialRedirect}
               >
-                @first_developer_mt
+                🚀 Começar Agora
               </Button>
               <Button 
                 size="lg" 
-                className="bg-white text-primary hover:bg-white/90"
+                variant="outline"
+                className="bg-white/10 hover:bg-white/20 text-white border-white/20 px-8 py-6 rounded-full text-lg backdrop-blur-sm hover:backdrop-blur-md transition-all duration-300"
                 onClick={() => window.location.href = '#contato'}
               >
-                Fale Conosco
+                💬 Fale Conosco
               </Button>
             </div>
 
-            <div className="flex items-center gap-4 mb-6">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
+            {/* Redes Sociais */}
+            <div className="flex items-center gap-4 mb-8">
+              <span className="text-white/80 text-sm">Siga-nos:</span>
+              <div className="flex gap-3">
+                <a href="#" className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg">
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
             </div>
 
-            <div className="flex flex-wrap gap-4">
-              {technologies.map((tech) => (
-                <div
-                  key={tech.name}
-                  className="flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full w-10 h-10 transition-colors"
-                  title={tech.name}
-                >
-                  <tech.icon className="w-5 h-5 text-white" />
-                </div>
-              ))}
+            {/* Tecnologias */}
+            <div className="space-y-4">
+              <h3 className="text-white font-semibold text-lg">Tecnologias que dominamos:</h3>
+              <div className="flex flex-wrap gap-3">
+                {technologies.map((tech) => (
+                  <div
+                    key={tech.name}
+                    className="group flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-xl w-14 h-14 transition-all duration-300 hover:scale-110 cursor-pointer backdrop-blur-sm border border-white/10 hover:border-white/30"
+                    title={tech.name}
+                  >
+                    <tech.icon className="w-7 h-7 text-white group-hover:text-blue-300 transition-colors duration-300" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

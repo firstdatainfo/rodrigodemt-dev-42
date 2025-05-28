@@ -1,61 +1,58 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Home, Zap, Settings, Cpu, Smartphone, Wifi, Shield, TrendingUp, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
 const SistemaAutomacoes = () => {
   const handleContactClick = () => {
     window.open('https://wa.me/5566992480993', '_blank');
   };
-
-  const automationTypes = [
-    {
-      icon: Home,
-      title: "Automação Residencial",
-      description: "Transforme sua casa em um ambiente inteligente e conectado",
-      features: ["Controle de iluminação", "Climatização automática", "Segurança integrada", "Assistente virtual"]
-    },
-    {
-      icon: Settings,
-      title: "Automação Industrial",
-      description: "Soluções para otimização de processos industriais",
-      features: ["Controle de produção", "Monitoramento 24/7", "Manutenção preditiva", "Relatórios em tempo real"]
-    },
-    {
-      icon: Cpu,
-      title: "Automação Predial",
-      description: "Gestão inteligente de edifícios comerciais e residenciais",
-      features: ["Controle de acesso", "Gestão energética", "Elevadores inteligentes", "Sistemas de segurança"]
-    },
-    {
-      icon: Wifi,
-      title: "IoT & Sensores",
-      description: "Internet das Coisas para monitoramento e controle remoto",
-      features: ["Sensores ambientais", "Monitoramento remoto", "Alertas automáticos", "Dashboard em tempo real"]
-    }
-  ];
-
-  const benefits = [
-    { icon: TrendingUp, title: "Aumento da Eficiência", description: "Até 40% de redução nos custos operacionais" },
-    { icon: Shield, title: "Segurança Avançada", description: "Proteção 24/7 com monitoramento inteligente" },
-    { icon: Smartphone, title: "Controle Total", description: "Acesse tudo pelo smartphone ou tablet" },
-    { icon: Zap, title: "Economia de Energia", description: "Redução de até 30% no consumo elétrico" }
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
+  const automationTypes = [{
+    icon: Home,
+    title: "Automação Residencial",
+    description: "Transforme sua casa em um ambiente inteligente e conectado",
+    features: ["Controle de iluminação", "Climatização automática", "Segurança integrada", "Assistente virtual"]
+  }, {
+    icon: Settings,
+    title: "Automação Industrial",
+    description: "Soluções para otimização de processos industriais",
+    features: ["Controle de produção", "Monitoramento 24/7", "Manutenção preditiva", "Relatórios em tempo real"]
+  }, {
+    icon: Cpu,
+    title: "Automação Predial",
+    description: "Gestão inteligente de edifícios comerciais e residenciais",
+    features: ["Controle de acesso", "Gestão energética", "Elevadores inteligentes", "Sistemas de segurança"]
+  }, {
+    icon: Wifi,
+    title: "IoT & Sensores",
+    description: "Internet das Coisas para monitoramento e controle remoto",
+    features: ["Sensores ambientais", "Monitoramento remoto", "Alertas automáticos", "Dashboard em tempo real"]
+  }];
+  const benefits = [{
+    icon: TrendingUp,
+    title: "Aumento da Eficiência",
+    description: "Até 40% de redução nos custos operacionais"
+  }, {
+    icon: Shield,
+    title: "Segurança Avançada",
+    description: "Proteção 24/7 com monitoramento inteligente"
+  }, {
+    icon: Smartphone,
+    title: "Controle Total",
+    description: "Acesse tudo pelo smartphone ou tablet"
+  }, {
+    icon: Zap,
+    title: "Economia de Energia",
+    description: "Redução de até 30% no consumo elétrico"
+  }];
+  return <div className="min-h-screen bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
       <Header />
       
       {/* Botão Voltar ao Início */}
       <div className="fixed top-24 left-4 z-50">
         <Link to="/">
-          <Button
-            className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            size="sm"
-          >
+          <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105" size="sm">
             <Home className="w-4 h-4 mr-2" />
             Voltar ao Início
           </Button>
@@ -83,16 +80,10 @@ const SistemaAutomacoes = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                <Button 
-                  onClick={handleContactClick}
-                  className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-500/25"
-                >
+                <Button onClick={handleContactClick} className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-500/25">
                   💬 Solicitar Orçamento
                 </Button>
-                <Button 
-                  variant="outline"
-                  className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300"
-                >
+                <Button variant="outline" className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300">
                   Ver Projetos
                 </Button>
               </div>
@@ -113,11 +104,7 @@ const SistemaAutomacoes = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {automationTypes.map((type, index) => (
-                <Card 
-                  key={index}
-                  className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg bg-white/10 backdrop-blur-md border border-white/20"
-                >
+              {automationTypes.map((type, index) => <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg bg-white/10 backdrop-blur-md border border-white/20">
                   <CardContent className="p-8">
                     <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <type.icon className="w-8 h-8 text-green-400" />
@@ -132,26 +119,17 @@ const SistemaAutomacoes = () => {
                     </p>
 
                     <div className="space-y-3 mb-6">
-                      {type.features.map((feature, featureIndex) => (
-                        <div 
-                          key={featureIndex}
-                          className="flex items-center gap-3"
-                        >
+                      {type.features.map((feature, featureIndex) => <div key={featureIndex} className="flex items-center gap-3">
                           <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
                           <span className="text-white/90">{feature}</span>
-                        </div>
-                      ))}
+                        </div>)}
                     </div>
 
-                    <Button 
-                      onClick={handleContactClick}
-                      className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
-                    >
+                    <Button onClick={handleContactClick} className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105">
                       Saber Mais
                     </Button>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </section>
@@ -166,18 +144,13 @@ const SistemaAutomacoes = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit, index) => (
-                <div 
-                  key={index}
-                  className="text-center p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-                >
+              {benefits.map((benefit, index) => <div key={index} className="text-center p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                   <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-full flex items-center justify-center">
                     <benefit.icon className="w-8 h-8 text-green-400" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{benefit.title}</h3>
                   <p className="text-white/80">{benefit.description}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </section>
@@ -192,16 +165,10 @@ const SistemaAutomacoes = () => {
               Entre em contato conosco e descubra como a automação pode transformar seu negócio ou residência.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                onClick={handleContactClick}
-                className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105"
-              >
+              <Button onClick={handleContactClick} className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105">
                 💬 Falar com Especialista
               </Button>
-              <Button 
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300"
-              >
+              <Button variant="outline" className="border-2 border-white text-white hover:text-green-600 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 bg-emerald-50">
                 Ver Portfolio
               </Button>
             </div>
@@ -210,8 +177,6 @@ const SistemaAutomacoes = () => {
       </main>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default SistemaAutomacoes;

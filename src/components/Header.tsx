@@ -17,7 +17,7 @@ const Header = () => {
 
   const menuItems = [
     { name: "Início", path: "/" },
-    { name: "Sistema de Eventos", path: "/sistema-eventos" },
+    { name: "Sistema de Eventos", path: "/sistema-eventos-novo" },
     { name: "Integração Stone", path: "/sistema-stone" },
     { name: "Sistema de Automações", path: "/sistema-automacoes" },
     { name: "Sobre", path: "/sobre" },

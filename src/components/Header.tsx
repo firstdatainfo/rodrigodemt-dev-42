@@ -34,50 +34,61 @@ const Header = () => {
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
-          <div className="flex items-center gap-3">
-            <div className="relative group">
-              <div className="w-12 h-12 hover:scale-110 transition-all duration-300 ease-in-out transform group-hover:rotate-12">
-                <svg
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-full h-full animate-[float_3s_ease-in-out_infinite]"
-                >
-                  <rect width="48" height="48" rx="12" fill="url(#gradient)" />
-                  <rect width="48" height="48" rx="12" fill="url(#gradientOverlay)" opacity="0.3" />
-                  <text
-                    x="50%"
-                    y="50%"
-                    dominantBaseline="middle"
-                    textAnchor="middle"
-                    fill="white"
-                    fontSize="20"
-                    fontWeight="bold"
-                    style={{ 
-                      filter: 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5))',
-                      fontFamily: 'Arial, sans-serif'
-                    }}
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
+              <div className="relative group">
+                <div className="w-12 h-12 hover:scale-110 transition-all duration-300 ease-in-out transform group-hover:rotate-12">
+                  <svg
+                    viewBox="0 0 48 48"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-full h-full animate-[float_3s_ease-in-out_infinite]"
                   >
-                    RD
-                  </text>
-                  <defs>
-                    <linearGradient id="gradient" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#0046BB" />
-                      <stop offset="50%" stopColor="#8B5CF6" />
-                      <stop offset="100%" stopColor="#00A3FF" />
-                    </linearGradient>
-                    <linearGradient id="gradientOverlay" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#FFD700" />
-                      <stop offset="100%" stopColor="#FF6B35" />
-                    </linearGradient>
-                  </defs>
-                </svg>
+                    <rect width="48" height="48" rx="12" fill="url(#gradient)" />
+                    <rect width="48" height="48" rx="12" fill="url(#gradientOverlay)" opacity="0.3" />
+                    <text
+                      x="50%"
+                      y="50%"
+                      dominantBaseline="middle"
+                      textAnchor="middle"
+                      fill="white"
+                      fontSize="20"
+                      fontWeight="bold"
+                      style={{ 
+                        filter: 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5))',
+                        fontFamily: 'Arial, sans-serif'
+                      }}
+                    >
+                      RD
+                    </text>
+                    <defs>
+                      <linearGradient id="gradient" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stopColor="#0046BB" />
+                        <stop offset="50%" stopColor="#8B5CF6" />
+                        <stop offset="100%" stopColor="#00A3FF" />
+                      </linearGradient>
+                      <linearGradient id="gradientOverlay" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stopColor="#FFD700" />
+                        <stop offset="100%" stopColor="#FF6B35" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+              <Link to="/" className="text-2xl md:text-3xl font-bold text-white hover:text-blue-300 transition-colors duration-300">
+                Rodrigo Dev <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">MT</span>
+              </Link>
             </div>
-            <Link to="/" className="text-2xl md:text-3xl font-bold text-white hover:text-blue-300 transition-colors duration-300">
-              Rodrigo Dev <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">MT</span>
-            </Link>
+            
+            {/* Stone Partner Program Logo */}
+            <div className="hidden lg:block ml-4">
+              <img 
+                src="/lovable-uploads/467d83eb-7213-49d2-bd51-a536e54a8eda.png" 
+                alt="Stone Partner Program" 
+                className="h-10 w-auto hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           </div>
 
           {/* Desktop Navigation */}

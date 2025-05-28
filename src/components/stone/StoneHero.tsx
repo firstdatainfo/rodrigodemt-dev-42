@@ -49,9 +49,9 @@ const StoneHero = () => {
                   <Smartphone className="w-5 h-5 text-emerald-600" />
                   <span className="text-emerald-800 font-medium">Terminais Android</span>
                 </div>
-                <div className="flex items-center gap-2 bg-blue-100 px-4 py-2 rounded-full">
-                  <Zap className="w-5 h-5 text-blue-600" />
-                  <span className="text-blue-800 font-medium">API Integrada</span>
+                <div className="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
+                  <Zap className="w-5 h-5 text-green-600" />
+                  <span className="text-green-800 font-medium">API Integrada</span>
                 </div>
               </div>
 
@@ -79,7 +79,7 @@ const StoneHero = () => {
                   className="w-full max-w-md mx-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full opacity-20 animate-pulse"></div>
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-r from-blue-400 to-green-400 rounded-full opacity-15 animate-pulse" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full opacity-15 animate-pulse" style={{ animationDelay: '1s' }}></div>
               </div>
             </div>
           </div>

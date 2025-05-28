@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RodrigoDevLogo from "@/components/RodrigoDevLogo";
-
 const Sobre = () => {
   const handleContactClick = () => {
     window.open('https://wa.me/5566992480993', '_blank');
@@ -260,14 +259,14 @@ const Sobre = () => {
               </div>
               
               <div className="flex justify-center gap-4">
-                <Button onClick={handleContactClick} className="bg-white text-green-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
+                <Button onClick={handleContactClick} className="bg-white hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 text-green-700">
                   💬 WhatsApp
                 </Button>
-                <Button onClick={() => handleSocialRedirect('github')} variant="outline" className="border-2 border-white text-white hover:text-green-600 px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-emerald-50">
+                <Button onClick={() => handleSocialRedirect('github')} variant="outline" className="border-2 border-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-zinc-50 text-green-700">
                   <Github className="w-4 h-4 mr-2" />
                   GitHub
                 </Button>
-                <Button onClick={() => handleSocialRedirect('instagram')} variant="outline" className="border-2 border-white text-white hover:text-green-600 px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-emerald-50">
+                <Button onClick={() => handleSocialRedirect('instagram')} variant="outline" className="border-2 border-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-emerald-50 text-green-700">
                   <Instagram className="w-4 h-4 mr-2" />
                   Instagram
                 </Button>

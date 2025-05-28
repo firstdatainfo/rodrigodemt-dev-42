@@ -81,8 +81,126 @@ Gostaria de iniciar o processo de abertura da conta Stone.`;
     setOpen(false);
   };
 
-  const FormModal = () => (
+  return (
     <Dialog open={open} onOpenChange={setOpen}>
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Como Abrir sua <span className="text-green-600">Conta Stone</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Processo simplificado e acompanhamento completo para abertura da sua conta Stone 
+                e solicitação de terminais com nossa consultoria especializada.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+              {processSteps.map((step, index) => (
+                <div 
+                  key={index}
+                  className="relative animate-fade-up"
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
+                  <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-200">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
+                      <step.icon className="w-8 h-8 text-white" />
+                    </div>
+                    
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      {step.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                      {step.description}
+                    </p>
+
+                    <div className="space-y-2">
+                      {step.details.map((detail, detailIndex) => (
+                        <div 
+                          key={detailIndex}
+                          className="flex items-center gap-2 text-xs"
+                        >
+                          <div className="w-1.5 h-1.5 bg-green-500 rounded-full flex-shrink-0"></div>
+                          <span className="text-gray-700">{detail}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                      <div className="w-8 h-0.5 bg-gradient-to-r from-green-300 to-emerald-300"></div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  🏆 Vantagens de Abrir com Nossa Consultoria
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    "Acompanhamento personalizado em todo processo",
+                    "Documentação revisada antes do envio",
+                    "Negociação das melhores taxas disponíveis",
+                    "Configuração completa dos terminais",
+                    "Treinamento da equipe incluso",
+                    "Suporte técnico permanente"
+                  ].map((advantage, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">{advantage}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <DialogTrigger asChild>
+                  <Button 
+                    className="w-full mt-6 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+                  >
+                    👨‍💼 Falar com Especialista
+                  </Button>
+                </DialogTrigger>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  📋 Documentos Necessários
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    "CNPJ atualizado da empresa",
+                    "Contrato Social ou MEI",
+                    "RG e CPF dos sócios",
+                    "Comprovante de endereço da empresa",
+                    "Extrato bancário (3 meses)",
+                    "Comprovante de faturamento"
+                  ].map((document, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <FileText className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                      <span className="text-gray-700">{document}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <DialogTrigger asChild>
+                  <Button 
+                    className="w-full mt-6 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+                  >
+                    💬 Iniciar Processo Agora
+                  </Button>
+                </DialogTrigger>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <DialogContent className="max-w-6xl w-[95vw] max-h-[95vh] p-0 overflow-hidden">
         <div className="flex flex-col h-full">
           <DialogHeader className="p-4 md:p-6 pb-4 border-b shrink-0">
@@ -217,130 +335,6 @@ Gostaria de iniciar o processo de abertura da conta Stone.`;
         </div>
       </DialogContent>
     </Dialog>
-  );
-
-  return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Como Abrir sua <span className="text-green-600">Conta Stone</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Processo simplificado e acompanhamento completo para abertura da sua conta Stone 
-              e solicitação de terminais com nossa consultoria especializada.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {processSteps.map((step, index) => (
-              <div 
-                key={index}
-                className="relative animate-fade-up"
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-200">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
-                    <step.icon className="w-8 h-8 text-white" />
-                  </div>
-                  
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">
-                    {step.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                    {step.description}
-                  </p>
-
-                  <div className="space-y-2">
-                    {step.details.map((detail, detailIndex) => (
-                      <div 
-                        key={detailIndex}
-                        className="flex items-center gap-2 text-xs"
-                      >
-                        <div className="w-1.5 h-1.5 bg-green-500 rounded-full flex-shrink-0"></div>
-                        <span className="text-gray-700">{detail}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                
-                {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <div className="w-8 h-0.5 bg-gradient-to-r from-green-300 to-emerald-300"></div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                🏆 Vantagens de Abrir com Nossa Consultoria
-              </h3>
-              <div className="space-y-3">
-                {[
-                  "Acompanhamento personalizado em todo processo",
-                  "Documentação revisada antes do envio",
-                  "Negociação das melhores taxas disponíveis",
-                  "Configuração completa dos terminais",
-                  "Treinamento da equipe incluso",
-                  "Suporte técnico permanente"
-                ].map((advantage, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                    <span className="text-gray-700">{advantage}</span>
-                  </div>
-                ))}
-              </div>
-              
-              <DialogTrigger asChild>
-                <Button 
-                  className="w-full mt-6 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
-                  onClick={() => setOpen(true)}
-                >
-                  👨‍💼 Falar com Especialista
-                </Button>
-              </DialogTrigger>
-            </div>
-
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                📋 Documentos Necessários
-              </h3>
-              <div className="space-y-3">
-                {[
-                  "CNPJ atualizado da empresa",
-                  "Contrato Social ou MEI",
-                  "RG e CPF dos sócios",
-                  "Comprovante de endereço da empresa",
-                  "Extrato bancário (3 meses)",
-                  "Comprovante de faturamento"
-                ].map((document, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <FileText className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                    <span className="text-gray-700">{document}</span>
-                  </div>
-                ))}
-              </div>
-              
-              <DialogTrigger asChild>
-                <Button 
-                  className="w-full mt-6 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
-                  onClick={() => setOpen(true)}
-                >
-                  💬 Iniciar Processo Agora
-                </Button>
-              </DialogTrigger>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <FormModal />
-    </section>
   );
 };
 

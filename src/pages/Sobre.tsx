@@ -57,10 +57,7 @@ const Sobre = () => {
       {/* Botão Voltar ao Início */}
       <div className="fixed top-24 left-4 z-50">
         <Link to="/">
-          <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105" size="sm">
-            <Home className="w-4 h-4 mr-2" />
-            Voltar ao Início
-          </Button>
+          
         </Link>
       </div>
 

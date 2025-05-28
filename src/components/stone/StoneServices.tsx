@@ -1,5 +1,5 @@
 
-import { Building2, CreditCard, Calendar, Ticket, Car, Restaurant, BarChart3, Users } from "lucide-react";
+import { Building2, CreditCard, Calendar, Ticket, Car, UtensilsCrossed, BarChart3, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const services = [
@@ -40,7 +40,7 @@ const services = [
     features: ["Entrada/Saída Auto", "Cobrança por Tempo", "Ticket Digital", "Relatórios"]
   },
   {
-    icon: Restaurant,
+    icon: UtensilsCrossed,
     title: "Restaurantes",
     description: "Solução completa para restaurantes com cardápio digital, pedidos e pagamentos integrados.",
     features: ["Cardápio Digital", "Pedidos Online", "Delivery", "Comanda Eletrônica"]

@@ -37,13 +37,13 @@ const SistemaStone = () => {
 
       <main className="pt-20">
         <StoneHero openQuoteModal={openModal} />
-        <StoneServices openQuoteModal={openModal} />
+        <StoneServices />
         <StoneAccountProcess />
-        <StoneFeatures openQuoteModal={openModal} />
-        <StoneTerminals openQuoteModal={openModal} />
-        <StoneIntegration openQuoteModal={openModal} />
-        <StoneBenefits openQuoteModal={openModal} />
-        <StoneContact openQuoteModal={openModal} />
+        <StoneFeatures />
+        <StoneTerminals />
+        <StoneIntegration />
+        <StoneBenefits />
+        <StoneContact />
       </main>
       <Footer />
       

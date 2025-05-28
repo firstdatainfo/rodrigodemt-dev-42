@@ -135,9 +135,9 @@ const SistemaEventos = () => {
                 </p>
               </div>
 
-              <EventosServices openQuoteModal={openModal} />
-              <EventosFeatures openQuoteModal={openModal} />
-              <EventosContact openQuoteModal={openModal} />
+              <EventosServices />
+              <EventosFeatures />
+              <EventosContact />
             </div>
           </div>
         </section>

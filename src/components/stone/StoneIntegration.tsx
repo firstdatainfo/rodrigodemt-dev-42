@@ -26,7 +26,7 @@ const integrationSteps = [
 
 const StoneIntegration = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-red-600 relative overflow-hidden">
       <div className="absolute inset-0 bg-black/20"></div>
       
       <div className="container mx-auto px-4 relative z-10">

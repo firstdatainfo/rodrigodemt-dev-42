@@ -80,15 +80,6 @@ const Header = () => {
                 Rodrigo Dev <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">MT</span>
               </Link>
             </div>
-            
-            {/* Stone Partner Program Logo */}
-            <div className="hidden lg:block ml-4">
-              <img 
-                src="https://storage.googleapis.com/partnerhub_partner_badges_prod/D_61eaefd2d86db30019620e5b.png" 
-                alt="Stone Partner Program" 
-                className="h-12 w-auto hover:scale-105 transition-transform duration-300"
-              />
-            </div>
           </div>
 
           {/* Desktop Navigation */}

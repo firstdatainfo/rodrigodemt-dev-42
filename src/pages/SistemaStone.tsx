@@ -22,7 +22,7 @@ const SistemaStone = () => {
       <div className="fixed top-24 left-4 z-50">
         <Link to="/">
           <Button
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             size="sm"
           >
             <Home className="w-4 h-4 mr-2" />

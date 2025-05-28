@@ -12,12 +12,12 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: "Início", href: "#inicio" },
-    { name: "Serviços", href: "#servicos" },
-    { name: "Portfólio", href: "#portfolio" },
-    { name: "Sobre", href: "#sobre" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Contato", href: "#contato" }
+    { name: "Início", href: "/" },
+    { name: "Sistema ERP", href: "/sistema-erp" },
+    { name: "Sistema de Eventos", href: "/sistema-eventos" },
+    { name: "Integração Stone", href: "/sistema-stone" },
+    { name: "Sistema de Automações", href: "/sistema-automacoes" },
+    { name: "Sobre", href: "/sobre" }
   ];
 
   return (
@@ -28,12 +28,12 @@ const Footer = () => {
           {/* Sobre a empresa */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg flex items-center justify-center">
                 <span className="text-xl font-bold">RD</span>
               </div>
               <div>
                 <h3 className="text-2xl font-bold">Rodrigo Dev</h3>
-                <span className="text-blue-300">MT</span>
+                <span className="text-green-300">MT</span>
               </div>
             </div>
             <p className="text-gray-300 leading-relaxed mb-6">
@@ -61,11 +61,11 @@ const Footer = () => {
 
           {/* Serviços */}
           <div>
-            <h4 className="text-xl font-bold mb-6 text-blue-300">Nossos Serviços</h4>
+            <h4 className="text-xl font-bold mb-6 text-green-300">Nossos Serviços</h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index} className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors cursor-pointer">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                   {service}
                 </li>
               ))}
@@ -74,7 +74,7 @@ const Footer = () => {
 
           {/* Links rápidos */}
           <div>
-            <h4 className="text-xl font-bold mb-6 text-blue-300">Links Rápidos</h4>
+            <h4 className="text-xl font-bold mb-6 text-green-300">Links Rápidos</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -92,10 +92,10 @@ const Footer = () => {
 
           {/* Contato */}
           <div>
-            <h4 className="text-xl font-bold mb-6 text-blue-300">Entre em Contato</h4>
+            <h4 className="text-xl font-bold mb-6 text-green-300">Entre em Contato</h4>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
+                <MapPin className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300">Mato Grosso, Brasil</p>
                   <p className="text-sm text-gray-400">Atendimento Nacional</p>
@@ -103,7 +103,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                <Phone className="w-5 h-5 text-green-400 flex-shrink-0" />
                 <a 
                   href="tel:+5566992480993" 
                   className="text-gray-300 hover:text-white transition-colors"
@@ -113,7 +113,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                <Mail className="w-5 h-5 text-green-400 flex-shrink-0" />
                 <a 
                   href="mailto:rodrigodev@yahoo.com" 
                   className="text-gray-300 hover:text-white transition-colors"
@@ -123,7 +123,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
+                <Clock className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300">Seg - Sex: 8h às 18h</p>
                   <p className="text-sm text-gray-400">Sáb: 8h às 12h</p>

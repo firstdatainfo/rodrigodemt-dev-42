@@ -36,7 +36,7 @@ const SistemaStone = () => {
       </div>
 
       <main className="pt-20">
-        <StoneHero openQuoteModal={openModal} />
+        <StoneHero />
         <StoneServices />
         <StoneAccountProcess />
         <StoneFeatures />

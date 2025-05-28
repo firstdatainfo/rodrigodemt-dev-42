@@ -5,12 +5,10 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RodrigoDevLogo from "@/components/RodrigoDevLogo";
-
 const Sobre = () => {
   const handleContactClick = () => {
     window.open('https://wa.me/5566992480993', '_blank');
   };
-
   const handleSocialRedirect = (platform: string) => {
     const links = {
       github: 'https://github.com/RodrigoDevMT',
@@ -19,9 +17,7 @@ const Sobre = () => {
     };
     window.open(links[platform as keyof typeof links], '_blank');
   };
-
   const skills = ["Flutter & FlutterFlow", "React & TypeScript", "Node.js & Python", "Automação Industrial", "IoT & Sensores", "Inteligência Artificial", "Cloud Computing", "Banco de Dados"];
-  
   const achievements = [{
     icon: Award,
     title: "5+ Anos",
@@ -39,7 +35,6 @@ const Sobre = () => {
     title: "10+",
     description: "Tecnologias dominadas"
   }];
-
   const quickLinks = [{
     name: "Início",
     href: "/"
@@ -59,9 +54,7 @@ const Sobre = () => {
     name: "Contato",
     href: "#contato"
   }];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
+  return <div className="min-h-screen bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
       <Header />
       
       {/* Botão Voltar ao Início */}
@@ -105,11 +98,7 @@ const Sobre = () => {
                   </div>
                 </div>
                 
-                <div className="relative flex justify-center">
-                  <div className="relative transform hover:scale-105 transition-all duration-500 ease-in-out">
-                    <RodrigoDevLogo className="w-80 h-80 lg:w-96 lg:h-96 animate-[float_6s_ease-in-out_infinite]" size={320} />
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -137,11 +126,7 @@ const Sobre = () => {
                 <div className="order-1 lg:order-2 flex justify-center">
                   <div className="relative">
                     <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-green-400/20">
-                      <img 
-                        src="/lovable-uploads/55b966e4-bb87-4ffa-9a1c-be681f439d2f.png" 
-                        alt="Rodrigo Dev MT - Desenvolvedor" 
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
+                      <img src="/lovable-uploads/55b966e4-bb87-4ffa-9a1c-be681f439d2f.png" alt="Rodrigo Dev MT - Desenvolvedor" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                     </div>
                     <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-green-400 to-emerald-400 text-white px-4 py-2 rounded-lg font-semibold shadow-lg">
                       👨‍💻 Desenvolvedor
@@ -162,17 +147,11 @@ const Sobre = () => {
               </h2>
               
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {quickLinks.map((link, index) => (
-                  link.href.startsWith('#') ? (
-                    <a key={index} href={link.href} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-4 rounded-lg text-white hover:text-green-300 font-semibold transition-all duration-300 hover:scale-105 border border-white/20">
+                {quickLinks.map((link, index) => link.href.startsWith('#') ? <a key={index} href={link.href} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-4 rounded-lg text-white hover:text-green-300 font-semibold transition-all duration-300 hover:scale-105 border border-white/20">
                       {link.name}
-                    </a>
-                  ) : (
-                    <Link key={index} to={link.href} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-4 rounded-lg text-white hover:text-green-300 font-semibold transition-all duration-300 hover:scale-105 border border-white/20">
+                    </a> : <Link key={index} to={link.href} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-4 rounded-lg text-white hover:text-green-300 font-semibold transition-all duration-300 hover:scale-105 border border-white/20">
                       {link.name}
-                    </Link>
-                  )
-                ))}
+                    </Link>)}
               </div>
             </div>
           </div>
@@ -222,8 +201,7 @@ const Sobre = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {achievements.map((achievement, index) => (
-                <Card key={index} className="bg-white/10 backdrop-blur-md border border-white/20 text-center p-6 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2">
+              {achievements.map((achievement, index) => <Card key={index} className="bg-white/10 backdrop-blur-md border border-white/20 text-center p-6 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2">
                   <CardContent className="p-6">
                     <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-full flex items-center justify-center">
                       <achievement.icon className="w-8 h-8 text-green-400" />
@@ -231,8 +209,7 @@ const Sobre = () => {
                     <h3 className="text-3xl font-bold text-white mb-2">{achievement.title}</h3>
                     <p className="text-white/80">{achievement.description}</p>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </section>
@@ -246,11 +223,9 @@ const Sobre = () => {
               </h2>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {skills.map((skill, index) => (
-                  <div key={index} className="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-lg text-green-300 font-semibold hover:scale-105 hover:bg-white/20 transition-all duration-300">
+                {skills.map((skill, index) => <div key={index} className="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-lg text-green-300 font-semibold hover:scale-105 hover:bg-white/20 transition-all duration-300">
                     {skill}
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
           </div>
@@ -301,8 +276,6 @@ const Sobre = () => {
       </main>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Sobre;

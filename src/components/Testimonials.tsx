@@ -28,13 +28,13 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-20 bg-gradient-to-b from-blue-900 to-primary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             O Que Nossos Clientes Dizem
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-white/80 max-w-2xl mx-auto">
             Veja os depoimentos de quem já transformou seus negócios conosco
           </p>
         </div>
@@ -43,11 +43,11 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="bg-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 overflow-hidden animate-fade-up"
+              className="bg-white/10 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-white/20 hover:bg-white/20 overflow-hidden animate-fade-up"
               style={{ animationDelay: `${index * 200}ms` }}
             >
               <CardContent className="p-8 relative">
-                <div className="absolute top-4 right-4 text-primary/20">
+                <div className="absolute top-4 right-4 text-white/20">
                   <Quote className="w-8 h-8" />
                 </div>
                 
@@ -57,7 +57,7 @@ const Testimonials = () => {
                   ))}
                 </div>
                 
-                <p className="text-gray-700 mb-6 italic leading-relaxed">
+                <p className="text-white/90 mb-6 italic leading-relaxed">
                   "{testimonial.content}"
                 </p>
                 
@@ -65,11 +65,11 @@ const Testimonials = () => {
                   <img 
                     src={testimonial.avatar} 
                     alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-primary/20"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-white/20"
                   />
                   <div>
-                    <h4 className="font-semibold text-primary">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                    <h4 className="font-semibold text-white">{testimonial.name}</h4>
+                    <p className="text-sm text-white/70">{testimonial.role}</p>
                   </div>
                 </div>
               </CardContent>

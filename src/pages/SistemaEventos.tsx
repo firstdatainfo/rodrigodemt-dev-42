@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import { Calendar, ArrowRight, Sparkles, Zap, Trophy, Home } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
 import EventosHeader from "@/components/eventos/EventosHeader";

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RodrigoDevLogo from "@/components/RodrigoDevLogo";
+
 const Sobre = () => {
   const handleContactClick = () => {
     window.open('https://wa.me/5566992480993', '_blank');
@@ -97,8 +98,6 @@ const Sobre = () => {
                     </Button>
                   </div>
                 </div>
-                
-                
               </div>
             </div>
           </div>
@@ -168,22 +167,25 @@ const Sobre = () => {
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12">
                 <div className="space-y-8 text-lg text-white/90 leading-relaxed">
                   <p>
-                    Olá! Sou Rodrigo Oliveira, desenvolvedor de 39 anos, natural de Mato Grosso. 
-                    Minha jornada na tecnologia começou há mais de 5 anos, movida pela paixão em 
-                    criar soluções que realmente fazem a diferença na vida das pessoas.
+                    Olá! Sou o <strong>Rodrigo Dev MT</strong>, desenvolvedor full stack natural de <strong>Mato Grosso</strong>. 
+                    Minha jornada na tecnologia começou há mais de cinco anos, guiada pela paixão por 
+                    criar soluções inovadoras que realmente façam diferença na vida das pessoas.
                   </p>
                   
                   <p>
-                    Especializo-me em desenvolvimento mobile com Flutter, criação de sistemas web 
-                    modernos e soluções de automação industrial. Acredito que a tecnologia deve 
-                    ser acessível e resolver problemas reais, sempre priorizando a experiência 
-                    do usuário e a eficiência dos processos.
+                    Minha expertise está no desenvolvimento de <strong>aplicativos móveis com Flutter</strong>, na criação de 
+                    <strong> sistemas web modernos e escaláveis</strong>, na implementação de <strong>soluções em automação industrial</strong> e 
+                    em <strong>integrações com meios de pagamento digitais</strong>, como <strong>Stone, Mercado Pago, PagSeguro, 
+                    Elgin, Sipag, Getnet</strong> e outros. Acredito que a tecnologia deve ser intuitiva, acessível e 
+                    voltada para resolver problemas reais — sempre priorizando a experiência do usuário e a 
+                    eficiência operacional.
                   </p>
                   
                   <p>
-                    Além do desenvolvimento, sou apaixonado por automação residencial, IoT e 
-                    inteligência artificial. Sempre busco estar atualizado com as últimas 
-                    tendências tecnológicas para oferecer as melhores soluções aos meus clientes.
+                    Além do desenvolvimento, sou entusiasta de <strong>automação residencial</strong>, <strong>Internet das Coisas (IoT)</strong> e 
+                    <strong> inteligência artificial</strong>. Constantemente busco me atualizar sobre as tendências e inovações 
+                    do mundo tech, para entregar soluções cada vez mais inteligentes, robustas e alinhadas às 
+                    necessidades dos meus clientes.
                   </p>
                 </div>
               </div>

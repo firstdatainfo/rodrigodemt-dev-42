@@ -10,6 +10,23 @@ const StoneHero = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-fade-up">
+              {/* Selo Stone Oficial */}
+              <div className="flex flex-col items-center lg:items-start mb-8">
+                <img 
+                  src="https://storage.googleapis.com/partnerhub_partner_badges_prod/D_61eaefd2d86db30019620e5b.png" 
+                  alt="Parceiro Oficial Stone" 
+                  className="w-48 h-auto mb-4 hover:scale-105 transition-transform duration-300"
+                />
+                <p className="text-2xl md:text-3xl font-bold text-gray-900 text-center lg:text-left leading-tight">
+                  🏆 <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                    PARCEIRO OFICIAL STONE
+                  </span>
+                </p>
+                <p className="text-lg text-gray-700 font-semibold text-center lg:text-left mt-2">
+                  Credibilidade e confiança garantidas pela Stone
+                </p>
+              </div>
+
               <div className="space-y-6">
                 <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
                   Integração de

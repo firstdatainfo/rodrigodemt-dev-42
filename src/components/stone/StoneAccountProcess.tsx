@@ -210,115 +210,127 @@ Gostaria de iniciar o processo de abertura da conta Stone.`;
           </DialogHeader>
           
           <div className="flex-1 overflow-y-auto p-4 md:p-6">
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-6">
-              <div className="space-y-4">
-                <h4 className="text-lg font-semibold text-gray-900 mb-3">Dados Pessoais</h4>
+            <div className="space-y-6">
+              <div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">Dados Pessoais</h4>
                 
-                <div>
-                  <Label htmlFor="nome" className="text-sm">Nome Completo *</Label>
-                  <Input
-                    id="nome"
-                    value={formData.nome}
-                    onChange={(e) => handleInputChange('nome', e.target.value)}
-                    placeholder="Digite seu nome completo"
-                    className="mt-1"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="email" className="text-sm">Email *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => handleInputChange('email', e.target.value)}
-                    placeholder="seu@email.com"
-                    className="mt-1"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="telefone" className="text-sm">Telefone *</Label>
-                  <Input
-                    id="telefone"
-                    value={formData.telefone}
-                    onChange={(e) => handleInputChange('telefone', e.target.value)}
-                    placeholder="(00) 00000-0000"
-                    className="mt-1"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="cnpj" className="text-sm">CNPJ atualizado da empresa *</Label>
-                  <Textarea
-                    id="cnpj"
-                    value={formData.cnpj}
-                    onChange={(e) => handleInputChange('cnpj', e.target.value)}
-                    placeholder="Descreva o status do CNPJ"
-                    className="mt-1 h-16 md:h-20 resize-none"
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="contratoSocial" className="text-sm">Contrato Social ou MEI *</Label>
-                  <Textarea
-                    id="contratoSocial"
-                    value={formData.contratoSocial}
-                    onChange={(e) => handleInputChange('contratoSocial', e.target.value)}
-                    placeholder="Informações sobre contrato social"
-                    className="mt-1 h-16 md:h-20 resize-none"
-                  />
+                {/* Nome, Email e Telefone na mesma linha */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                  <div>
+                    <Label htmlFor="nome" className="text-sm">Nome Completo *</Label>
+                    <Input
+                      id="nome"
+                      value={formData.nome}
+                      onChange={(e) => handleInputChange('nome', e.target.value)}
+                      placeholder="Digite seu nome completo"
+                      className="mt-1"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="email" className="text-sm">Email *</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      placeholder="seu@email.com"
+                      className="mt-1"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="telefone" className="text-sm">Telefone *</Label>
+                    <Input
+                      id="telefone"
+                      value={formData.telefone}
+                      onChange={(e) => handleInputChange('telefone', e.target.value)}
+                      placeholder="(00) 00000-0000"
+                      className="mt-1"
+                      required
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <h4 className="text-lg font-semibold text-gray-900 mb-3">Documentos da Empresa</h4>
+              <div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">Documentos da Empresa</h4>
                 
-                <div>
-                  <Label htmlFor="rgCpf" className="text-sm">RG e CPF dos sócios *</Label>
-                  <Textarea
-                    id="rgCpf"
-                    value={formData.rgCpf}
-                    onChange={(e) => handleInputChange('rgCpf', e.target.value)}
-                    placeholder="Documentos dos sócios disponíveis"
-                    className="mt-1 h-16 md:h-20 resize-none"
-                  />
+                {/* CNPJ e Contrato Social na mesma linha */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <Label htmlFor="cnpj" className="text-sm">CNPJ atualizado da empresa *</Label>
+                    <Textarea
+                      id="cnpj"
+                      value={formData.cnpj}
+                      onChange={(e) => handleInputChange('cnpj', e.target.value)}
+                      placeholder="Descreva o status do CNPJ"
+                      className="mt-1 h-20 resize-none"
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="contratoSocial" className="text-sm">Contrato Social ou MEI *</Label>
+                    <Textarea
+                      id="contratoSocial"
+                      value={formData.contratoSocial}
+                      onChange={(e) => handleInputChange('contratoSocial', e.target.value)}
+                      placeholder="Informações sobre contrato social"
+                      className="mt-1 h-20 resize-none"
+                    />
+                  </div>
                 </div>
                 
-                <div>
-                  <Label htmlFor="comprovante" className="text-sm">Comprovante de endereço *</Label>
-                  <Textarea
-                    id="comprovante"
-                    value={formData.comprovante}
-                    onChange={(e) => handleInputChange('comprovante', e.target.value)}
-                    placeholder="Tipo de comprovante disponível"
-                    className="mt-1 h-16 md:h-20 resize-none"
-                  />
+                {/* RG/CPF e Comprovante na mesma linha */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <Label htmlFor="rgCpf" className="text-sm">RG e CPF dos sócios *</Label>
+                    <Textarea
+                      id="rgCpf"
+                      value={formData.rgCpf}
+                      onChange={(e) => handleInputChange('rgCpf', e.target.value)}
+                      placeholder="Documentos dos sócios disponíveis"
+                      className="mt-1 h-20 resize-none"
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="comprovante" className="text-sm">Comprovante de endereço *</Label>
+                    <Textarea
+                      id="comprovante"
+                      value={formData.comprovante}
+                      onChange={(e) => handleInputChange('comprovante', e.target.value)}
+                      placeholder="Tipo de comprovante disponível"
+                      className="mt-1 h-20 resize-none"
+                    />
+                  </div>
                 </div>
                 
-                <div>
-                  <Label htmlFor="extrato" className="text-sm">Extrato bancário (3 meses) *</Label>
-                  <Textarea
-                    id="extrato"
-                    value={formData.extrato}
-                    onChange={(e) => handleInputChange('extrato', e.target.value)}
-                    placeholder="Disponibilidade dos extratos"
-                    className="mt-1 h-16 md:h-20 resize-none"
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="faturamento" className="text-sm">Comprovante de faturamento *</Label>
-                  <Textarea
-                    id="faturamento"
-                    value={formData.faturamento}
-                    onChange={(e) => handleInputChange('faturamento', e.target.value)}
-                    placeholder="Informações sobre faturamento"
-                    className="mt-1 h-16 md:h-20 resize-none"
-                  />
+                {/* Extrato e Faturamento na mesma linha */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="extrato" className="text-sm">Extrato bancário (3 meses) *</Label>
+                    <Textarea
+                      id="extrato"
+                      value={formData.extrato}
+                      onChange={(e) => handleInputChange('extrato', e.target.value)}
+                      placeholder="Disponibilidade dos extratos"
+                      className="mt-1 h-20 resize-none"
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="faturamento" className="text-sm">Comprovante de faturamento *</Label>
+                    <Textarea
+                      id="faturamento"
+                      value={formData.faturamento}
+                      onChange={(e) => handleInputChange('faturamento', e.target.value)}
+                      placeholder="Informações sobre faturamento"
+                      className="mt-1 h-20 resize-none"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

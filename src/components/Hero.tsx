@@ -76,7 +76,7 @@ const Hero = () => {
               <span className="text-white whitespace-nowrap font-medium">Inteligência Artificial & Soluções Inovadoras</span>
             </div>
 
-            <h1 className="text-3xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl md:text-6xl font-bold text-white mb-6 leading-tight my-[10px]">
               Transformando o 
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent block">
                 Futuro Digital

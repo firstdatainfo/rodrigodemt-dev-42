@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -20,8 +21,8 @@ const Header = () => {
     { name: "Bio Rodrigo Dev MT", path: "/sistema-erp" },
     { name: "Sistema de Eventos", path: "/sistema-eventos" },
     { name: "Integração Stone", path: "/sistema-stone" },
-    { name: "Sistema de Automações", path: "#sistema-de-automacoes" },
-    { name: "Sobre", path: "#sobre" },
+    { name: "Sistema de Automações", path: "/sistema-automacoes" },
+    { name: "Sobre", path: "/sobre" },
     { name: "Contato", path: "#contato" }
   ];
 

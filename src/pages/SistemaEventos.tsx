@@ -1,8 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { Calendar, ArrowRight, Sparkles, Zap, Trophy } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Calendar, ArrowRight, Sparkles, Zap, Trophy, Home } from "lucide-react";
+import { useNavigate, Link } from "react-router-dom";
 import EventosHeader from "@/components/eventos/EventosHeader";
 import EventosServices from "@/components/eventos/EventosServices";
 import BackgroundMusic from "@/components/eventos/BackgroundMusic";
@@ -36,6 +35,19 @@ const SistemaEventos = () => {
     <div className="relative min-h-screen">
       <BackgroundMusic />
       <EventosBackground />
+      
+      {/* Botão Voltar ao Início */}
+      <div className="fixed top-4 left-4 z-50">
+        <Link to="/">
+          <Button
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            size="sm"
+          >
+            <Home className="w-4 h-4 mr-2" />
+            Voltar ao Início
+          </Button>
+        </Link>
+      </div>
       
       <div className="relative z-20 min-h-screen">
         <section className="container px-4 mx-auto pt-20 lg:pt-32">

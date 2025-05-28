@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import SistemaErp from "./pages/SistemaErp";
 import SistemaEventos from "./pages/SistemaEventos";
 import SistemaStone from "./pages/SistemaStone";
+import SistemaAutomacoes from "./pages/SistemaAutomacoes";
+import Sobre from "./pages/Sobre";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +24,8 @@ const App = () => (
           <Route path="/sistema-erp" element={<SistemaErp />} />
           <Route path="/sistema-eventos" element={<SistemaEventos />} />
           <Route path="/sistema-stone" element={<SistemaStone />} />
+          <Route path="/sistema-automacoes" element={<SistemaAutomacoes />} />
+          <Route path="/sobre" element={<Sobre />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

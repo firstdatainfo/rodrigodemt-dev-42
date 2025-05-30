@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface RodrigoDevLogoProps {
@@ -25,13 +24,16 @@ const RodrigoDevLogo: React.FC<RodrigoDevLogoProps> = ({ className = "", size = 
           fill="url(#logoGradient)" 
         />
         
-        {/* Efeito de brilho */}
+        {/* Efeito de brilho suavizado */}
         <rect 
           width="320" 
           height="320" 
           rx="40" 
           fill="url(#shineGradient)" 
-          opacity="0.3" 
+          opacity="0.15"
+          style={{
+            mixBlendMode: 'soft-light'
+          }}
         />
         
         {/* Círculo decorativo */}
@@ -116,15 +118,15 @@ const RodrigoDevLogo: React.FC<RodrigoDevLogoProps> = ({ className = "", size = 
         {/* Definições de gradientes */}
         <defs>
           <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#1e293b" />
-            <stop offset="50%" stopColor="#334155" />
-            <stop offset="100%" stopColor="#0f172a" />
+            <stop offset="0%" stopColor="#1a365d" />
+            <stop offset="50%" stopColor="#2c5282" />
+            <stop offset="100%" stopColor="#2b6cb0" />
           </linearGradient>
           
           <linearGradient id="shineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#22c55e" />
-            <stop offset="50%" stopColor="transparent" />
-            <stop offset="100%" stopColor="#10b981" />
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
+            <stop offset="50%" stopColor="#ffffff" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#ffffff" stopOpacity="0.7" />
           </linearGradient>
           
           <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -134,8 +136,8 @@ const RodrigoDevLogo: React.FC<RodrigoDevLogoProps> = ({ className = "", size = 
         </defs>
       </svg>
       
-      {/* Efeito de brilho ao redor */}
-      <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-[40px] blur-xl opacity-50 -z-10 animate-pulse"></div>
+      {/* Efeito de brilho ao redor mais sutil */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-green-500/5 to-emerald-400/10 rounded-[40px] blur-2xl opacity-70 -z-10"></div>
     </div>
   );
 };

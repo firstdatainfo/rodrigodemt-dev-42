@@ -5,11 +5,6 @@
 [build.environment]
   NEXT_TELEMETRY_DISABLED = "1"
 
-[[redirects]]
-  from = "/form-submission"
-  to = "/obrigado"
-  status = 200
-
 [[headers]]
   for = "/*"
   [headers.values]

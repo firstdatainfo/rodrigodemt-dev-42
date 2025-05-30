@@ -1,38 +1,38 @@
-# Welcome to your Lovable project
+# Rodrigo Dev MT - Portfólio
 
-## Project info
+## Sobre o Projeto
 
-**URL**: https://lovable.dev/projects/0f7eccfc-0b1f-4de6-bb27-d2a21a4ba8de
+Este é o portfólio de Rodrigo Dev MT, desenvolvido com React, TypeScript, Vite e Tailwind CSS.
 
-## How can I edit this code?
+## Como Executar Localmente
 
-There are several ways of editing your application.
+### Pré-requisitos
 
-**Use Lovable**
+- Node.js (versão 16 ou superior)
+- npm ou yarn
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0f7eccfc-0b1f-4de6-bb27-d2a21a4ba8de) and start prompting.
+### Instalação
 
-Changes made via Lovable will be committed automatically to this repo.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/firstdatainfo/rodrigodemt-dev-42.git
+   cd rodrigodemt-dev-42
+   ```
 
-**Use your preferred IDE**
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+3. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+4. Abra [http://localhost:8080](http://localhost:8080) no seu navegador.
 
-Follow these steps:
+## Tecnologias Utilizadas
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 

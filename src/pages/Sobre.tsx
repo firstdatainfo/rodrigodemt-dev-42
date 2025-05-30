@@ -40,7 +40,8 @@ const Sobre = () => {
     title: "100+",
     description: "Projetos entregues"
   }, {
-    icon: Heart,
+    icon: RodrigoDevLogo,
+    iconColor: "text-green-500",
     title: "50+",
     description: "Clientes satisfeitos"
   }, {
@@ -90,68 +91,41 @@ const Sobre = () => {
           <div className="absolute inset-0 bg-black/20"></div>
           
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div className="space-y-8">
-                  <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
-                    Sobre
-                    <span className="block bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
-                      Rodrigo Dev MT
-                    </span>
-                  </h1>
-                  <p className="text-xl text-white/90 leading-relaxed">
-                    Desenvolvedor apaixonado por tecnologia, especializado em criar soluções inovadoras 
-                    que transformam negócios e melhoram a vida das pessoas.
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-4">
-                    <Button onClick={handleContactClick} className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
-                      💬 Vamos Conversar
-                    </Button>
-                    <Button onClick={() => handleSocialRedirect('github')} variant="outline" className="border-2 border-green-400 px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-green-400 hover:bg-green-400 hover:text-white">
-                      <Github className="w-4 h-4 mr-2" />
-                      GitHub
-                    </Button>
-                  </div>
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="space-y-8">
+                <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
+                  Sobre
+                  <span className="block bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                    Rodrigo Dev MT
+                  </span>
+                </h1>
+                <p className="text-xl text-white/90 leading-relaxed">
+                  Desenvolvedor apaixonado por tecnologia, especializado em criar soluções inovadoras 
+                  que transformam negócios e melhoram a vida das pessoas.
+                </p>
+                
+                <div className="flex flex-wrap justify-center gap-4">
+                  <Button 
+                    onClick={handleContactClick} 
+                    className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+                  >
+                    💬 Vamos Conversar
+                  </Button>
+                  <Button 
+                    onClick={() => handleSocialRedirect('github')} 
+                    variant="outline" 
+                    className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300"
+                  >
+                    <Github className="w-5 h-5 mr-2" />
+                    GitHub
+                  </Button>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Nova seção com foto pessoal */}
-        <section className="py-16 bg-black/30 backdrop-blur-sm">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div className="order-2 lg:order-1">
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                    Conheça o <span className="text-green-400">Desenvolvedor</span>
-                  </h2>
-                  <p className="text-lg text-white/90 leading-relaxed mb-6">
-                    Rodrigo Oliveira, 39 anos, natural de Mato Grosso. Um profissional dedicado 
-                    que combina experiência técnica com paixão pela inovação tecnológica.
-                  </p>
-                  <p className="text-lg text-white/80 leading-relaxed">
-                    Sempre em busca de novos desafios e oportunidades para aplicar a tecnologia 
-                    de forma criativa e eficiente, focando em soluções que realmente fazem a diferença.
-                  </p>
-                </div>
-                
-                <div className="order-1 lg:order-2 flex justify-center">
-                  <div className="relative">
-                    <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-green-400/20">
-                      <img src="/lovable-uploads/55b966e4-bb87-4ffa-9a1c-be681f439d2f.png" alt="Rodrigo Dev MT - Desenvolvedor" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
-                    </div>
-                    <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-green-400 to-emerald-400 text-white px-4 py-2 rounded-lg font-semibold shadow-lg">
-                      👨‍💻 Desenvolvedor
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+
 
         {/* Links Rápidos */}
         <section className="py-16 bg-black/20 backdrop-blur-sm">
@@ -231,7 +205,13 @@ const Sobre = () => {
                 <Card key={index} className="bg-black/30 backdrop-blur-md border border-white/30 text-center p-6 hover:bg-black/40 transition-all duration-300 hover:-translate-y-2">
                   <CardContent className="p-6">
                     <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-full flex items-center justify-center">
-                      <achievement.icon className="w-8 h-8 text-green-400" />
+                      {achievement.icon === RodrigoDevLogo ? (
+                        <div className="w-12 h-12 flex items-center justify-center">
+                          <RodrigoDevLogo className="w-8 h-8" />
+                        </div>
+                      ) : (
+                        <achievement.icon className={`w-8 h-8 ${achievement.iconColor || 'text-green-400'}`} />
+                      )}
                     </div>
                     <h3 className="text-3xl font-bold text-white mb-2">{achievement.title}</h3>
                     <p className="text-white/80">{achievement.description}</p>
@@ -272,39 +252,97 @@ const Sobre = () => {
                 Estou sempre aberto a novos desafios e projetos interessantes.
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="flex items-center justify-center gap-3 bg-black/30 backdrop-blur-sm p-4 rounded-lg border border-white/30">
-                  <MapPin className="w-5 h-5" />
-                  <span>Mato Grosso, Brasil</span>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="flex items-center justify-center gap-3 bg-black/30 backdrop-blur-sm p-4 rounded-lg border border-white/30">
+                      <MapPin className="w-5 h-5" />
+                      <span>Mato Grosso, Brasil</span>
+                    </div>
+                    <button 
+                      onClick={handleEmailClick}
+                      className="flex items-center justify-center gap-3 bg-black/30 backdrop-blur-sm p-4 rounded-lg border border-white/30 hover:bg-black/40 transition-all duration-300 cursor-pointer"
+                    >
+                      <Mail className="w-5 h-5" />
+                      <span>rodrigodev@yahoo.com</span>
+                    </button>
+                    <button 
+                      onClick={handlePhoneClick}
+                      className="flex items-center justify-center gap-3 bg-black/30 backdrop-blur-sm p-4 rounded-lg border border-white/30 hover:bg-black/40 transition-all duration-300 cursor-pointer"
+                    >
+                      <Phone className="w-5 h-5" />
+                      <span>(66) 99248-0993</span>
+                    </button>
+                    <Button 
+                      onClick={handleContactClick} 
+                      className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white p-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.498 14.382v3.3a4.16 4.16 0 0 1-4.157 4.156H6.09a4.16 4.16 0 0 1-4.158-4.156V6.09a4.16 4.16 0 0 1 4.158-4.158h7.252a4.16 4.16 0 0 1 4.157 4.158v1.2l3.3-1.8v9.582l-3.3-1.8z"/>
+                      </svg>
+                      <span>Enviar mensagem</span>
+                    </Button>
+                  </div>
+                  
+                  <div className="flex justify-center gap-4 pt-4">
+                    <Button 
+                      onClick={() => handleSocialRedirect('github')} 
+                      variant="outline" 
+                      className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white p-3 rounded-lg font-semibold transition-all duration-300"
+                      aria-label="GitHub"
+                    >
+                      <Github className="w-5 h-5" />
+                    </Button>
+                    <Button 
+                      onClick={() => handleSocialRedirect('linkedin')} 
+                      variant="outline" 
+                      className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white p-3 rounded-lg font-semibold transition-all duration-300"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="w-5 h-5" />
+                    </Button>
+                    <Button 
+                      onClick={() => handleSocialRedirect('instagram')} 
+                      variant="outline" 
+                      className="border-2 border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white p-3 rounded-lg font-semibold transition-all duration-300"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="w-5 h-5" />
+                    </Button>
+                  </div>
                 </div>
-                <button 
-                  onClick={handleEmailClick}
-                  className="flex items-center justify-center gap-3 bg-black/30 backdrop-blur-sm p-4 rounded-lg border border-white/30 hover:bg-black/40 transition-all duration-300 cursor-pointer"
-                >
-                  <Mail className="w-5 h-5" />
-                  <span>rodrigodev@yahoo.com</span>
-                </button>
-                <button 
-                  onClick={handlePhoneClick}
-                  className="flex items-center justify-center gap-3 bg-black/30 backdrop-blur-sm p-4 rounded-lg border border-white/30 hover:bg-black/40 transition-all duration-300 cursor-pointer"
-                >
-                  <Phone className="w-5 h-5" />
-                  <span>(66) 99248-0993</span>
-                </button>
-              </div>
-              
-              <div className="flex justify-center gap-4">
-                <Button onClick={handleContactClick} className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
-                  💬 WhatsApp
-                </Button>
-                <Button onClick={() => handleSocialRedirect('github')} variant="outline" className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300">
-                  <Github className="w-4 h-4 mr-2" />
-                  GitHub
-                </Button>
-                <Button onClick={() => handleSocialRedirect('instagram')} variant="outline" className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300">
-                  <Instagram className="w-4 h-4 mr-2" />
-                  Instagram
-                </Button>
+                
+                <div className="relative h-full flex flex-col gap-6">
+                  {/* Imagem de perfil */}
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-white/20 shadow-2xl h-64">
+                    <img 
+                      src="https://id-preview--6dee4a4d-9690-4924-96dc-a80269ce4cc1.lovable.app/lovable-uploads/55b966e4-bb87-4ffa-9a1c-be681f439d2f.png" 
+                      alt="Rodrigo Dev MT" 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                      <div>
+                        <h3 className="text-2xl font-bold text-white mb-1">Rodrigo Dev MT</h3>
+                        <p className="text-green-300 font-medium">Desenvolvedor Full Stack</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* QR Code */}
+                  <div className="bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/20 text-center">
+                    <h3 className="text-lg font-semibold mb-3 text-green-400">Fale pelo WhatsApp</h3>
+                    <div className="flex justify-center">
+                      <div className="bg-white p-2 rounded-lg">
+                        <img 
+                          src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/5566992480993?text=Olá%2C%20gostaria%20de%20fazer%20um%20orçamento..." 
+                          alt="QR Code para WhatsApp" 
+                          className="w-32 h-32 object-contain"
+                        />
+                      </div>
+                    </div>
+                    <p className="text-sm mt-2 text-gray-300">Escaneie para iniciar uma conversa</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -19,12 +19,12 @@ const StoneHero = () => {
                     className="w-48 h-auto hover:scale-105 transition-transform duration-300"
                   />
                   <img 
-                    src="/lovable-uploads/a4e5ce30-8367-4707-b634-7ac95221a5c5.png" 
+                    src="/uploads/a4e5ce30-8367-4707-b634-7ac95221a5c5.png" 
                     alt="Stone Partner Program" 
                     className="w-40 h-auto hover:scale-105 transition-transform duration-300"
                   />
                   <img 
-                    src="/lovable-uploads/5949be6f-6616-4b08-977b-903de24aa9f2.png" 
+                    src="/uploads/5949be6f-6616-4b08-977b-903de24aa9f2.png" 
                     alt="Stone Logo" 
                     className="w-32 h-auto hover:scale-105 transition-transform duration-300"
                   />
@@ -86,7 +86,7 @@ const StoneHero = () => {
             <div className="relative animate-fade-up" style={{ animationDelay: '200ms' }}>
               <div className="relative">
                 <img 
-                  src="/lovable-uploads/16ac9748-7b55-4ef0-87d5-bd0e6a6c85ae.png" 
+                  src="/uploads/16ac9748-7b55-4ef0-87d5-bd0e6a6c85ae.png" 
                   alt="Terminal Stone" 
                   className="w-full max-w-md mx-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500"
                 />

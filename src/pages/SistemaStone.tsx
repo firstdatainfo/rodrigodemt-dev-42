@@ -35,7 +35,6 @@ const SistemaStone = () => {
         <StoneAccountProcess />
         <StoneFeatures />
         <StoneTerminals />
-        <StoneIntegration />
         <StoneBenefits />
         <StoneContact />
       </main>

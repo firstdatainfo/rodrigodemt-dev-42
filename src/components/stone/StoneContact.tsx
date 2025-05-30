@@ -1,7 +1,7 @@
 
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -53,6 +53,8 @@ const StoneContact = () => {
   });
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorCount, setErrorCount] = useState(0);
+  const lastErrorTime = useRef<number>(0);
   const { toast } = useToast();
 
   const handleInputChange = (field: string, value: string) => {
@@ -62,26 +64,39 @@ const StoneContact = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Validação básica
+  const validateForm = () => {
     if (!formData.nome || !formData.email || !formData.empresa || !formData.mensagem) {
       toast({
         title: "Campos obrigatórios",
         description: "Por favor, preencha todos os campos.",
         variant: "destructive"
       });
+      return false;
+    }
+    return true;
+  };
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) return;
+    
+    // Evita múltiplas tentativas em sequência
+    const now = Date.now();
+    if (now - lastErrorTime.current < 30000) { // 30 segundos de espera
+      toast({
+        title: "Aguarde",
+        description: "Por favor, aguarde alguns segundos antes de tentar novamente.",
+        variant: "destructive"
+      });
       return;
     }
-
+    
     setIsLoading(true);
 
     try {
-      // Simulação de envio de email - aqui você pode integrar com EmailJS ou outro serviço
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      console.log("Dados do formulário enviados:", formData);
+      // Aqui você pode adicionar o código para enviar por e-mail se necessário
+      // Por enquanto, vamos apenas mostrar o diálogo de sucesso
       
       // Mostrar diálogo de sucesso
       setShowSuccessDialog(true);
@@ -94,16 +109,61 @@ const StoneContact = () => {
         mensagem: ""
       });
       
-    } catch (error) {
-      console.error("Erro ao enviar email:", error);
+      // Resetar contador de erros em caso de sucesso
+      setErrorCount(0);
+      
       toast({
-        title: "Erro no envio",
-        description: "Ocorreu um erro ao enviar sua solicitação. Tente novamente.",
+        title: "Mensagem enviada!",
+        description: "Recebemos sua solicitação e entraremos em contato em breve.",
+      });
+      
+    } catch (error: any) {
+      console.error("Erro ao enviar mensagem:", error);
+      lastErrorTime.current = now;
+      setErrorCount(prev => prev + 1);
+      
+      let errorMessage = "Não foi possível enviar sua mensagem. Por favor, tente novamente.";
+      
+      if (error?.text?.includes('Yahoo: Invalid login')) {
+        errorMessage = "Problema na autenticação do e-mail. Por favor, entre em contato pelo WhatsApp.";
+      } else if (errorCount > 2) {
+        errorMessage = "Muitas tentativas sem sucesso. Por favor, tente novamente mais tarde ou entre em contato pelo WhatsApp.";
+      }
+      
+      toast({
+        title: "Erro ao enviar mensagem",
+        description: errorMessage,
         variant: "destructive"
       });
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleWhatsAppClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) return;
+    
+    // Formata a mensagem para o WhatsApp
+    const message = `*Nova solicitação de integração Stone*%0A%0A` +
+                   `*Nome:* ${formData.nome}%0A` +
+                   `*E-mail:* ${formData.email}%0A` +
+                   `*Empresa:* ${formData.empresa}%0A` +
+                   `*Mensagem:* ${formData.mensagem}`;
+    
+    const phoneNumber = '5566992480993';
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+    
+    // Não limpa o formulário para permitir que o usuário envie por e-mail depois se quiser
+    
+    toast({
+      title: "WhatsApp aberto!",
+      description: "Por favor, envie sua mensagem pelo WhatsApp.",
+    });
+    
+    // Incrementa o contador de erros para o WhatsApp também
+    setErrorCount(prev => prev + 1);
   };
 
   return (
@@ -172,7 +232,7 @@ const StoneContact = () => {
                 <h3 className="text-2xl font-bold text-white mb-6">
                   Solicite um Orçamento
                 </h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleEmailSubmit} className="space-y-6">
                   <div>
                     <Label htmlFor="nome" className="text-white/90 mb-2">Nome Completo</Label>
                     <Input 
@@ -225,13 +285,26 @@ const StoneContact = () => {
                     />
                   </div>
                   
-                  <Button 
-                    type="submit"
-                    disabled={isLoading}
-                    className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isLoading ? "Enviando..." : "📧 Enviar Solicitação"}
-                  </Button>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button 
+                      type="submit" 
+                      className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-6 text-lg"
+                      disabled={isLoading}
+                    >
+                      {isLoading ? 'Enviando...' : 'Enviar E-mail'}
+                    </Button>
+                    <Button 
+                      type="button"
+                      onClick={handleWhatsAppClick}
+                      className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white py-6 text-lg"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M17.498 14.382l-.001-.001-.003.002c-.323.242-.529.623-.529 1.06 0 .334.117.655.329.9l.006.007.004.009c.2.25.49.401.8.401h.006c.138 0 .274-.028.4-.083l.01-.004.018-.01.027-.018.02-.017.01-.01 2.72-2.22c.3-.245.48-.61.48-1.009v-7.5a1.5 1.5 0 00-1.5-1.5h-15a1.5 1.5 0 00-1.5 1.5v10a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-1.5z" />
+                        <path d="M12 12.75a.75.75 0 100-1.5.75.75 0 000 1.5z" />
+                      </svg>
+                      WhatsApp
+                    </Button>
+                  </div>
                 </form>
               </div>
             </div>

@@ -76,7 +76,7 @@ const Hero = () => {
       {/* Imagem para desktop com efeito de partículas mágicas */}
       <div className="hidden md:block absolute inset-0 pointer-events-none">
         <MagicParticles 
-          imageSrc="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png" 
+          imageSrc="/uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png" 
           className="w-full h-full object-contain object-right" 
         />
       </div>
@@ -84,7 +84,7 @@ const Hero = () => {
       {/* Imagem para mobile com efeito de partículas mágicas */}
       <div className="md:hidden absolute inset-0 pointer-events-none">
         <MagicParticles 
-          imageSrc="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png" 
+          imageSrc="/uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png" 
           className="w-full h-[80vh] object-cover mt-20" 
         />
       </div>

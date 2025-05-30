@@ -5,7 +5,7 @@ import MagicParticles from '../MagicParticles';
 
 const EventosBackground = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
-  const backgroundImage = '/lovable-uploads/6b644bc7-2f02-43e3-a255-2c3a249e4f51.png';
+  const backgroundImage = '/uploads/6b644bc7-2f02-43e3-a255-2c3a249e4f51.png';
 
   useEffect(() => {
     const img = new Image();

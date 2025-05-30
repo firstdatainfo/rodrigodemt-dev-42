@@ -12,8 +12,8 @@ const products = [
     description: "Controle total das suas vendas",
     icon: ShoppingCart,
     images: [
-      "/lovable-uploads/3cd42689-d953-409e-be7c-a086e97c130a.png",
-      "/lovable-uploads/b0db2735-0ba8-4c37-bbc2-0cec9837d6b5.png"
+      "/uploads/3cd42689-d953-409e-be7c-a086e97c130a.png",
+      "/uploads/b0db2735-0ba8-4c37-bbc2-0cec9837d6b5.png"
     ]
   },
   {

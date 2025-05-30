@@ -2,17 +2,17 @@
 const terminals = [
   {
     name: "Stone Terminal Clássico",
-    image: "/lovable-uploads/16ac9748-7b55-4ef0-87d5-bd0e6a6c85ae.png",
+    image: "/uploads/16ac9748-7b55-4ef0-87d5-bd0e6a6c85ae.png",
     features: ["Tela Touch", "Leitor de Cartão", "Conectividade 4G", "Bateria Longa Duração"]
   },
   {
     name: "Stone Mobile",
-    image: "/lovable-uploads/19fd0175-eece-4359-97f4-a969e427d819.png",
+    image: "/uploads/19fd0175-eece-4359-97f4-a969e427d819.png",
     features: ["Portátil", "Bluetooth", "Design Compacto", "Fácil Manuseio"]
   },
   {
     name: "Stone Smart",
-    image: "/lovable-uploads/8fab1bed-4326-44f1-b014-41236a07eff7.png",
+    image: "/uploads/8fab1bed-4326-44f1-b014-41236a07eff7.png",
     features: ["Teclado Físico", "Impressora Integrada", "WiFi + 4G", "Android Avançado"]
   }
 ];

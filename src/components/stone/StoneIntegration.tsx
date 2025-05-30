@@ -41,15 +41,7 @@ const StoneIntegration = () => {
             </p>
           </div>
 
-          <div className="mb-16">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Parceiros <span className="text-green-400">Oficiais</span>
-              </h3>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {integrationSteps.map((step, index) => (
               <div key={index} className="relative animate-fade-up" style={{
                 animationDelay: `${index * 150}ms`

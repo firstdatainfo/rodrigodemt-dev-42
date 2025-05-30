@@ -25,12 +25,17 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
   const PARTICLE_SIZE = 1.5;
 
   const initParticles = (ctx: CanvasRenderingContext2D, img: HTMLImageElement) => {
+    if (!canvasRef.current || !img.naturalWidth || !img.naturalHeight) {
+      console.warn('Canvas ou imagem não carregados corretamente');
+      return;
+    }
+
     const scale = Math.min(
       window.innerWidth / img.naturalWidth,
       window.innerHeight / img.naturalHeight
     );
     
-    const canvas = canvasRef.current!;
+    const canvas = canvasRef.current;
     canvas.width = img.naturalWidth * scale;
     canvas.height = img.naturalHeight * scale;
 
@@ -70,10 +75,12 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
   };
 
   const animate = (ctx: CanvasRenderingContext2D, img: HTMLImageElement) => {
+    if (!canvasRef.current) return;
+    
     const elapsed = Date.now() - animationStartRef.current;
     const progress = Math.min(elapsed / ANIMATION_DURATION, 1);
     
-    ctx.clearRect(0, 0, canvasRef.current!.width, canvasRef.current!.height);
+    ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
 
     if (progress >= 1) {
       ctx.drawImage(img, 0, 0, canvasRef.current!.width, canvasRef.current!.height);
@@ -97,15 +104,25 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      console.warn('Elemento canvas não encontrado');
+      return;
+    }
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    if (!ctx) {
+      console.warn('Contexto 2D não disponível');
+      return;
+    }
 
     const img = new Image();
+    img.crossOrigin = 'anonymous';
     img.onload = () => {
+      if (!ctx) return;
       initParticles(ctx, img);
-      animate(ctx, img);
+      if (canvasRef.current) {
+        animate(ctx, img);
+      }
 
       const handleResize = () => {
         if (canvas) {

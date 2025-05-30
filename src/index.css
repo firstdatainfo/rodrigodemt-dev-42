@@ -102,6 +102,6 @@
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-secondary;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-400;
   }
 }

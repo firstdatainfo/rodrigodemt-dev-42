@@ -1,11 +1,11 @@
 
  import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState, useRef, FormEvent } from "react";
+import { useState, FormEvent } from "react";
 import { useToast } from "@/components/ui/use-toast";
 
-// Nome do formulário no Netlify
-const NETLIFY_FORM_NAME = 'contact-form';
+// ID do formulário no Formspree (substitua pelo seu ID)
+const FORMSPREE_FORM_ID = 'xgvywzlj';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -44,16 +44,22 @@ const Contact = () => {
     
     setIsLoading(true);
     
-    // Cria um FormData com os dados do formulário
-    const form = e.currentTarget;
-    const formDataObj = new FormData(form);
-    
     try {
-      // Envia o formulário para o Netlify
-      const response = await fetch('/', {
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataObj as any).toString()
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `Nova mensagem de ${formData.name}`,
+          _format: 'plain',
+          _language: 'pt',
+          _template: 'table',
+          _next: window.location.href
+        }),
       });
       
       if (response.ok) {
@@ -185,13 +191,9 @@ const Contact = () => {
                 </div>
               ) : (
                 <form 
-                  name={NETLIFY_FORM_NAME}
-                  method="POST" 
-                  data-netlify="true"
                   onSubmit={handleSubmit}
                   className="space-y-6"
                 >
-                  <input type="hidden" name="form-name" value={NETLIFY_FORM_NAME} />
                   
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">

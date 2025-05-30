@@ -28,7 +28,7 @@ const integrationSteps = [
 
 const StoneIntegration = () => {
   return (
-    <section className="relative py-20 bg-gradient-to-r from-blue-900 via-primary to-red-900 overflow-hidden">
+    <section className="relative py-20 bg-gradient-to-r from-blue-900 via-primary to-red-900 overflow-hidden min-h-screen">
       {/* Fundo com partículas e rede neural igual ao Hero */}
       <div className="absolute inset-0 pointer-events-none">
         <ParticlesBackground />

@@ -56,7 +56,7 @@ const StoneIntegration = () => {
             </div>
             <div className="flex justify-center items-center gap-8 mb-8 flex-wrap">
               {/* Logo Stone */}
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/20 transition-all duration-300">
+              <div className="bg-black/30 backdrop-blur-sm border border-white/30 rounded-xl p-6 hover:bg-black/40 transition-all duration-300">
                 <img 
                   src="/lovable-uploads/acc8e4f3-a761-4e84-831f-8489518ac3ba.png" 
                   alt="Stone Official Partner" 
@@ -65,7 +65,7 @@ const StoneIntegration = () => {
               </div>
               
               {/* Logo Pagar.me */}
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/20 transition-all duration-300">
+              <div className="bg-black/30 backdrop-blur-sm border border-white/30 rounded-xl p-6 hover:bg-black/40 transition-all duration-300">
                 <img 
                   src="/lovable-uploads/83ed6efa-5ed6-4771-8ee8-6d1e2b56908f.png" 
                   alt="Pagar.me - Uma empresa Stone Co." 
@@ -82,7 +82,7 @@ const StoneIntegration = () => {
                 className="relative animate-fade-up"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/20">
+                <div className="bg-black/30 backdrop-blur-sm border border-white/30 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-black/40">
                   <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
                     <step.icon className="w-8 h-8 text-white" />
                   </div>
@@ -106,7 +106,7 @@ const StoneIntegration = () => {
           </div>
 
           <div className="mt-16 text-center">
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8">
+            <div className="bg-black/30 backdrop-blur-sm border border-white/30 rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-white mb-4">
                 Pronto para começar sua integração?
               </h3>

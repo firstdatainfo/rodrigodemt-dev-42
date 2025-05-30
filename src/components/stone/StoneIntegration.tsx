@@ -24,7 +24,6 @@ const integrationSteps = [{
 const StoneIntegration = () => {
   return (
     <section className="relative py-20 bg-gradient-to-r from-blue-900 via-primary to-red-900 overflow-hidden min-h-screen">
-      {/* Fundo com partículas e rede neural igual ao Hero */}
       <div className="absolute inset-0 pointer-events-none">
         <ParticlesBackground />
         <NeuralNetwork />
@@ -42,19 +41,11 @@ const StoneIntegration = () => {
             </p>
           </div>
 
-          {/* Logos das empresas parceiras */}
           <div className="mb-16">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-white mb-4">
                 Parceiros <span className="text-green-400">Oficiais</span>
               </h3>
-            </div>
-            <div className="flex justify-center items-center gap-8 mb-8 flex-wrap">
-              {/* Logo Stone */}
-              
-              
-              {/* Logo Pagar.me */}
-              
             </div>
           </div>
 

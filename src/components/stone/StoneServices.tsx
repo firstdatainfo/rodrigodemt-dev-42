@@ -106,7 +106,7 @@ Aguardo seu contato!`;
           {services.map((service, index) => (
             <Card 
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg animate-fade-up bg-black/30 backdrop-blur-sm border border-white/30"
+              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-black/30 backdrop-blur-sm border border-white/30 shadow-lg animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-6">

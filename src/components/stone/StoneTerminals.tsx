@@ -19,13 +19,13 @@ const terminals = [
 
 const StoneTerminals = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+    <section className="py-20 bg-gradient-to-r from-blue-900 via-primary to-red-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Terminais <span className="text-green-600">Compatíveis</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Terminais <span className="text-green-400">Compatíveis</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto">
             Nossa integração funciona perfeitamente com toda a linha de terminais Stone, 
             oferecendo flexibilidade para diferentes tipos de negócio.
           </p>
@@ -35,7 +35,7 @@ const StoneTerminals = () => {
           {terminals.map((terminal, index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden animate-fade-up"
+              className="bg-black/30 backdrop-blur-sm border border-white/30 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden animate-fade-up"
               style={{ animationDelay: `${index * 200}ms` }}
             >
               <div className="p-8 text-center">
@@ -48,7 +48,7 @@ const StoneTerminals = () => {
                   <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                <h3 className="text-2xl font-bold text-white mb-6">
                   {terminal.name}
                 </h3>
                 
@@ -56,10 +56,10 @@ const StoneTerminals = () => {
                   {terminal.features.map((feature, featureIndex) => (
                     <div 
                       key={featureIndex}
-                      className="flex items-center justify-center gap-2 bg-green-50 py-2 px-4 rounded-lg"
+                      className="flex items-center justify-center gap-2 bg-white/10 py-2 px-4 rounded-lg"
                     >
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-green-800 font-medium">{feature}</span>
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="text-white font-medium">{feature}</span>
                     </div>
                   ))}
                 </div>

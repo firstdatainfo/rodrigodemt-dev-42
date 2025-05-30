@@ -90,13 +90,13 @@ Aguardo seu contato!`;
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
+    <section className="py-20 bg-gradient-to-r from-blue-900 via-primary to-red-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Soluções <span className="text-green-600">Completas</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Soluções <span className="text-green-400">Completas</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+          <p className="text-xl text-white/90 max-w-4xl mx-auto">
             Oferecemos um ecossistema completo de soluções Stone para diferentes segmentos, 
             desde abertura de contas até sistemas especializados para seu tipo de negócio.
           </p>
@@ -106,19 +106,19 @@ Aguardo seu contato!`;
           {services.map((service, index) => (
             <Card 
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg animate-fade-up bg-white"
+              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg animate-fade-up bg-black/30 backdrop-blur-sm border border-white/30"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-6">
-                <div className="w-14 h-14 mx-auto mb-4 bg-gradient-to-r from-green-100 to-emerald-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="w-7 h-7 text-green-600" />
+                <div className="w-14 h-14 mx-auto mb-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="w-7 h-7 text-white" />
                 </div>
                 
-                <h3 className="text-lg font-bold text-gray-900 mb-3 text-center group-hover:text-green-600 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3 text-center group-hover:text-green-400 transition-colors">
                   {service.title}
                 </h3>
                 
-                <p className="text-gray-600 text-sm text-center mb-4 leading-relaxed">
+                <p className="text-white/80 text-sm text-center mb-4 leading-relaxed">
                   {service.description}
                 </p>
 
@@ -128,8 +128,8 @@ Aguardo seu contato!`;
                       key={featureIndex}
                       className="flex items-center gap-2 text-sm"
                     >
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full flex-shrink-0"></div>
-                      <span className="text-gray-700">{feature}</span>
+                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full flex-shrink-0"></div>
+                      <span className="text-white/80">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -145,23 +145,23 @@ Aguardo seu contato!`;
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl p-8 text-center text-white">
+        <div className="mt-16 bg-black/30 backdrop-blur-sm border border-white/30 rounded-2xl p-8 text-center text-white">
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
             Precisa de uma solução personalizada?
           </h3>
-          <p className="text-lg mb-6 opacity-90">
+          <p className="text-lg mb-6 text-white/90">
             Desenvolvemos soluções sob medida para seu negócio com integração Stone completa.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={handleSpecialistContact}
-              className="bg-white text-green-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+              className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
             >
               💬 Falar com Especialista
             </button>
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-6 py-3 rounded-lg font-semibold transition-all duration-300"
+              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-6 py-3 rounded-lg font-semibold transition-all duration-300"
             >
               Ver Todos os Serviços
             </button>

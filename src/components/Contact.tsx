@@ -1,8 +1,11 @@
 
-import { Phone, Mail, MapPin, Instagram } from "lucide-react";
+ import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useRef, FormEvent } from "react";
 import { useToast } from "@/components/ui/use-toast";
+
+// Nome do formulário no Netlify
+const NETLIFY_FORM_NAME = 'contact-form';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +14,7 @@ const Contact = () => {
     message: ''
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const { toast } = useToast();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -21,138 +25,244 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      const response = await fetch("https://formspree.io/f/xzbnbwzk", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+  const validateForm = () => {
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha todos os campos.",
+        variant: "destructive"
       });
+      return false;
+    }
+    return true;
+  };
 
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (!validateForm()) return;
+    
+    setIsLoading(true);
+    
+    // Cria um FormData com os dados do formulário
+    const form = e.currentTarget;
+    const formDataObj = new FormData(form);
+    
+    try {
+      // Envia o formulário para o Netlify
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataObj as any).toString()
+      });
+      
       if (response.ok) {
-        toast({
-          title: "Mensagem enviada!",
-          description: "Obrigado pelo contato, retornaremos em breve.",
-        });
-
+        // Sucesso
         setFormData({
           name: '',
           email: '',
           message: ''
         });
+        
+        setIsSuccess(true);
+        
+        toast({
+          title: "Mensagem enviada!",
+          description: "Retornarei o mais breve possível.",
+        });
       } else {
-        throw new Error('Falha ao enviar mensagem');
+        throw new Error('Erro ao enviar formulário');
       }
     } catch (error) {
+      console.error('Erro ao enviar formulário:', error);
+      
       toast({
         title: "Erro ao enviar mensagem",
-        description: "Por favor, tente novamente mais tarde.",
-        variant: "destructive",
+        description: "Não foi possível enviar sua mensagem. Por favor, tente novamente ou entre em contato pelo WhatsApp.",
+        variant: "destructive"
       });
     } finally {
       setIsLoading(false);
     }
   };
+  
+  const handleWhatsAppClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) return;
+    
+    const message = `Olá, meu nome é ${formData.name}. ${formData.message}`.substring(0, 140);
+    const phone = '5566992480993';
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    const whatsappMessage = `*Nova mensagem do site*%0A%0A` +
+                         `*Nome:* ${formData.name}%0A` +
+                         `*E-mail:* ${formData.email}%0A` +
+                         `*Mensagem:* ${formData.message}`;
+    
+    const phoneNumber = '5566992480993';
+    window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, '_blank');
+    
+    // Não limpa o formulário para permitir que o usuário envie por e-mail depois se quiser
+    
+    toast({
+      title: "WhatsApp aberto!",
+      description: "Por favor, envie sua mensagem pelo WhatsApp.",
+    });
+  };
 
   return (
-    <section id="contato" className="py-12 bg-gradient-to-r from-blue-900 via-primary to-red-900">
+    <section id="contact" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
-          Entre em Contato
-        </h2>
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-black/30 backdrop-blur-sm border border-white/30 p-6 rounded-xl hover:bg-black/40 transition-all duration-300 relative z-30">
-            <h3 className="text-2xl font-semibold mb-6 text-white">Vamos conversar sobre seu projeto</h3>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center">
-                  <Instagram className="w-5 h-5 text-white" />
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4">Entre em Contato</h2>
+          <p className="text-xl text-gray-600">Estou pronto para ajudar no seu próximo projeto!</p>
+        </div>
+
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div className="md:flex">
+            <div className="md:w-1/2 bg-primary p-12 text-white">
+              <h3 className="text-2xl font-bold mb-6">Informações de Contato</h3>
+              
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-white/10 p-3 rounded-lg">
+                    <Phone className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">Telefone</h4>
+                    <a href="tel:+5566992480993" className="hover:underline">(66) 99248-0993</a>
+                  </div>
                 </div>
-                <a href="https://instagram.com/first_developer_mt" target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-300 transition-colors">
-                  first_developer_mt
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-white" />
+
+                <div className="flex items-start space-x-4">
+                  <div className="bg-white/10 p-3 rounded-lg">
+                    <Mail className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">E-mail</h4>
+                    <a href="mailto:contato@rodrigodevmt.com" className="hover:underline">contato@rodrigodevmt.com</a>
+                  </div>
                 </div>
-                <a href="tel:+5566992480993" className="text-white hover:text-green-300 transition-colors">
-                  (66) 99248-0993
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-white" />
+
+                <div className="flex items-start space-x-4">
+                  <div className="bg-white/10 p-3 rounded-lg">
+                    <MapPin className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">Localização</h4>
+                    <p>Mato Grosso, Brasil</p>
+                  </div>
                 </div>
-                <a href="mailto:rodrigodev@yahoo.com" className="text-white hover:text-green-300 transition-colors">
-                  rodrigodev@yahoo.com
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-white" />
+                
+                <div className="pt-4">
+                  <div className="flex space-x-4">
+                    <a href="https://www.instagram.com/rodrigodevmt/" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 transition-opacity">
+                      <Instagram className="h-6 w-6" />
+                    </a>
+                  </div>
                 </div>
-                <span className="text-white">Mato Grosso</span>
               </div>
             </div>
-          </div>
-          <div className="bg-black/30 backdrop-blur-sm border border-white/30 p-6 rounded-xl hover:bg-black/40 transition-all duration-300 relative z-30">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-white">
-                  Nome
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md bg-black/40 border border-white/30 text-white placeholder-white/50 focus:border-green-500 focus:ring-green-500 p-2"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-white">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md bg-black/40 border border-white/30 text-white placeholder-white/50 focus:border-green-500 focus:ring-green-500 p-2"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-white">
-                  Mensagem
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md bg-black/40 border border-white/30 text-white placeholder-white/50 focus:border-green-500 focus:ring-green-500 p-2"
-                />
-              </div>
-              <Button 
-                type="submit" 
-                disabled={isLoading}
-                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white"
-              >
-                {isLoading ? 'Enviando...' : 'Enviar Mensagem'}
-              </Button>
-            </form>
+
+            <div className="md:w-1/2 p-8 md:p-12">
+              <h3 className="text-2xl font-bold mb-6">Envie uma mensagem</h3>
+              
+              {isSuccess ? (
+                <div className="text-center py-8">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
+                    <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h4 className="text-xl font-semibold mb-2">Mensagem enviada!</h4>
+                  <p className="text-gray-600">Entrarei em contato o mais breve possível.</p>
+                  <button
+                    onClick={() => setIsSuccess(false)}
+                    className="mt-6 text-primary hover:underline font-medium"
+                  >
+                    Enviar outra mensagem
+                  </button>
+                </div>
+              ) : (
+                <form 
+                  name={NETLIFY_FORM_NAME}
+                  method="POST" 
+                  data-netlify="true"
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                >
+                  <input type="hidden" name="form-name" value={NETLIFY_FORM_NAME} />
+                  
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                      Nome <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent"
+                      placeholder="Seu nome"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                      E-mail <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent"
+                      placeholder="seu@email.com"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                      Mensagem <span className="text-red-500">*</span>
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent"
+                      placeholder="Como posso te ajudar?"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-primary hover:bg-primary/90 text-white py-3 px-6 rounded-lg font-medium transition-colors"
+                      disabled={isLoading}
+                    >
+                      {isLoading ? 'Enviando...' : 'Enviar Mensagem'}
+                    </Button>
+                    
+                    <Button 
+                      type="button"
+                      variant="outline"
+                      className="w-full border-primary text-primary hover:bg-primary/10 py-3 px-6 rounded-lg font-medium transition-colors"
+                      onClick={handleWhatsAppClick}
+                      disabled={isLoading}
+                    >
+                      WhatsApp
+                    </Button>
+                  </div>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </div>

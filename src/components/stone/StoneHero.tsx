@@ -3,7 +3,7 @@ import { CreditCard, Smartphone, Zap } from "lucide-react";
 
 const StoneHero = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-green-50 via-white to-green-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-r from-blue-900 via-primary to-red-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-green-600/5 to-emerald-600/5"></div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -29,41 +29,41 @@ const StoneHero = () => {
                     className="w-32 h-auto hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <p className="text-2xl md:text-3xl font-bold text-gray-900 text-center lg:text-left leading-tight">
-                  🏆 <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                <p className="text-2xl md:text-3xl font-bold text-white text-center lg:text-left leading-tight">
+                  🏆 <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
                     PARCEIRO OFICIAL STONE
                   </span>
                 </p>
-                <p className="text-lg text-gray-700 font-semibold text-center lg:text-left mt-2">
+                <p className="text-lg text-white/90 font-semibold text-center lg:text-left mt-2">
                   Credibilidade e confiança garantidas pela Stone
                 </p>
               </div>
 
               <div className="space-y-6">
-                <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
                   Integração de
-                  <span className="block bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                  <span className="block bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
                     Pagamentos Stone
                   </span>
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-xl text-white/90 leading-relaxed">
                   Soluções completas para terminais Android com integração Stone. 
                   Processamento de pagamentos seguro, rápido e confiável para o seu negócio.
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
-                  <CreditCard className="w-5 h-5 text-green-600" />
-                  <span className="text-green-800 font-medium">Pagamentos Seguros</span>
+                <div className="flex items-center gap-2 bg-green-500/20 px-4 py-2 rounded-full border border-green-400/30">
+                  <CreditCard className="w-5 h-5 text-green-400" />
+                  <span className="text-white font-medium">Pagamentos Seguros</span>
                 </div>
-                <div className="flex items-center gap-2 bg-emerald-100 px-4 py-2 rounded-full">
-                  <Smartphone className="w-5 h-5 text-emerald-600" />
-                  <span className="text-emerald-800 font-medium">Terminais Android</span>
+                <div className="flex items-center gap-2 bg-emerald-500/20 px-4 py-2 rounded-full border border-emerald-400/30">
+                  <Smartphone className="w-5 h-5 text-emerald-400" />
+                  <span className="text-white font-medium">Terminais Android</span>
                 </div>
-                <div className="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
-                  <Zap className="w-5 h-5 text-green-600" />
-                  <span className="text-green-800 font-medium">API Integrada</span>
+                <div className="flex items-center gap-2 bg-green-500/20 px-4 py-2 rounded-full border border-green-400/30">
+                  <Zap className="w-5 h-5 text-green-400" />
+                  <span className="text-white font-medium">API Integrada</span>
                 </div>
               </div>
 
@@ -76,7 +76,7 @@ const StoneHero = () => {
                 </button>
                 <button 
                   onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300"
+                  className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300"
                 >
                   Ver Funcionalidades
                 </button>

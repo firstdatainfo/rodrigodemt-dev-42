@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+
 const processSteps = [{
   icon: FileText,
   title: "1. Documentação",
@@ -26,6 +27,7 @@ const processSteps = [{
   description: "Entregamos o terminal configurado e fazemos a ativação com treinamento completo.",
   details: ["Entrega Rápida", "Ativação Imediata", "Treinamento da Equipe", "Suporte Contínuo"]
 }];
+
 const StoneAccountProcess = () => {
   const [formData, setFormData] = useState({
     nome: "",
@@ -38,13 +40,16 @@ const StoneAccountProcess = () => {
     extrato: "",
     faturamento: ""
   });
+
   const [open, setOpen] = useState(false);
+
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
     }));
   };
+
   const handleSubmit = () => {
     const message = `*Solicitação de Abertura de Conta Stone*
 
@@ -62,66 +67,85 @@ const StoneAccountProcess = () => {
 📊 Comprovante de faturamento: ${formData.faturamento}
 
 Gostaria de iniciar o processo de abertura da conta Stone.`;
+
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/5566992480993?text=${encodedMessage}`;
+    
     window.open(whatsappUrl, '_blank');
     setOpen(false);
   };
-  return <Dialog open={open} onOpenChange={setOpen}>
-      <section className="py-20 bg-white">
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <section className="py-20 bg-gradient-to-r from-blue-900 via-primary to-red-900">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Como Abrir sua <span className="text-green-600">Conta Stone</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Como Abrir sua <span className="text-green-400">Conta Stone</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-white/90 max-w-3xl mx-auto">
                 Processo simplificado e acompanhamento completo para abertura da sua conta Stone 
                 e solicitação de terminais com nossa consultoria especializada.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-              {processSteps.map((step, index) => <div key={index} className="relative animate-fade-up" style={{
-              animationDelay: `${index * 150}ms`
-            }}>
-                  <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-200">
+              {processSteps.map((step, index) => (
+                <div key={index} className="relative animate-fade-up" style={{
+                  animationDelay: `${index * 150}ms`
+                }}>
+                  <div className="bg-black/30 backdrop-blur-sm border border-white/30 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                     <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
                       <step.icon className="w-8 h-8 text-white" />
                     </div>
                     
-                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                    <h3 className="text-lg font-bold text-white mb-3">
                       {step.title}
                     </h3>
                     
-                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                    <p className="text-white/80 text-sm mb-4 leading-relaxed">
                       {step.description}
                     </p>
 
                     <div className="space-y-2">
-                      {step.details.map((detail, detailIndex) => <div key={detailIndex} className="flex items-center gap-2 text-xs">
-                          <div className="w-1.5 h-1.5 bg-green-500 rounded-full flex-shrink-0"></div>
-                          <span className="text-gray-700">{detail}</span>
-                        </div>)}
+                      {step.details.map((detail, detailIndex) => (
+                        <div key={detailIndex} className="flex items-center gap-2 text-xs">
+                          <div className="w-1.5 h-1.5 bg-green-400 rounded-full flex-shrink-0"></div>
+                          <span className="text-white/80">{detail}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                   
-                  {index < processSteps.length - 1 && <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
                       <div className="w-8 h-0.5 bg-gradient-to-r from-green-300 to-emerald-300"></div>
-                    </div>}
-                </div>)}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <div className="bg-black/30 backdrop-blur-sm border border-white/30 rounded-2xl p-8">
+                <h3 className="text-2xl font-bold text-white mb-4">
                   🏆 Vantagens de Abrir com Nossa Consultoria
                 </h3>
                 <div className="space-y-3">
-                  {["Acompanhamento personalizado em todo processo", "Documentação revisada antes do envio", "Negociação das melhores taxas disponíveis", "Configuração completa dos terminais", "Treinamento da equipe incluso", "Suporte técnico permanente"].map((advantage, index) => <div key={index} className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">{advantage}</span>
-                    </div>)}
+                  {[
+                    "Acompanhamento personalizado em todo processo",
+                    "Documentação revisada antes do envio",
+                    "Negociação das melhores taxas disponíveis",
+                    "Configuração completa dos terminais",
+                    "Treinamento da equipe incluso",
+                    "Suporte técnico permanente"
+                  ].map((advantage, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                      <span className="text-white/90">{advantage}</span>
+                    </div>
+                  ))}
                 </div>
                 
                 <DialogTrigger asChild>
@@ -131,15 +155,24 @@ Gostaria de iniciar o processo de abertura da conta Stone.`;
                 </DialogTrigger>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <div className="bg-black/30 backdrop-blur-sm border border-white/30 rounded-2xl p-8">
+                <h3 className="text-2xl font-bold text-white mb-4">
                   📋 Documentos Necessários
                 </h3>
                 <div className="space-y-3">
-                  {["CNPJ atualizado da empresa", "Contrato Social ou MEI", "RG e CPF dos sócios", "Comprovante de endereço da empresa", "Extrato bancário (3 meses)", "Comprovante de faturamento"].map((document, index) => <div key={index} className="flex items-center gap-3">
-                      <FileText className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                      <span className="text-gray-700">{document}</span>
-                    </div>)}
+                  {[
+                    "CNPJ atualizado da empresa",
+                    "Contrato Social ou MEI",
+                    "RG e CPF dos sócios",
+                    "Comprovante de endereço da empresa",
+                    "Extrato bancário (3 meses)",
+                    "Comprovante de faturamento"
+                  ].map((document, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <FileText className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                      <span className="text-white/90">{document}</span>
+                    </div>
+                  ))}
                 </div>
                 
                 <DialogTrigger asChild>
@@ -156,7 +189,7 @@ Gostaria de iniciar o processo de abertura da conta Stone.`;
       <DialogContent className="max-w-6xl w-[95vw] max-h-[95vh] p-0 overflow-hidden">
         <div className="flex flex-col h-full">
           <DialogHeader className="p-4 md:p-6 pb-4 border-b shrink-0">
-            <DialogTitle className="text-xl md:text-2xl font-bold text-center text-gray-900">
+            <DialogTitle className="text-xl md:text-2xl font-bold text-center text-white">
               Abertura de Conta Stone
             </DialogTitle>
           </DialogHeader>
@@ -164,7 +197,7 @@ Gostaria de iniciar o processo de abertura da conta Stone.`;
           <div className="flex-1 overflow-y-auto p-4 md:p-6">
             <div className="space-y-6">
               <div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">Dados Pessoais</h4>
+                <h4 className="text-lg font-semibold text-white mb-4">Dados Pessoais</h4>
                 
                 {/* Nome, Email e Telefone na mesma linha */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
@@ -186,7 +219,7 @@ Gostaria de iniciar o processo de abertura da conta Stone.`;
               </div>
 
               <div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">Documentos da Empresa</h4>
+                <h4 className="text-lg font-semibold text-white mb-4">Documentos da Empresa</h4>
                 
                 {/* CNPJ e Contrato Social na mesma linha */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -237,6 +270,8 @@ Gostaria de iniciar o processo de abertura da conta Stone.`;
           </div>
         </div>
       </DialogContent>
-    </Dialog>;
+    </Dialog>
+  );
 };
+
 export default StoneAccountProcess;

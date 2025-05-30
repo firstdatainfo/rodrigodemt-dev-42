@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Home, Zap, Settings, Cpu, Smartphone, Wifi, Shield, TrendingUp, ArrowRight, CheckCircle2 } from "lucide-react";
@@ -6,15 +7,18 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import QuoteModal from "@/components/ui/quote-modal";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
+
 const SistemaAutomacoes = () => {
   const {
     isOpen,
     openModal,
     closeModal
   } = useQuoteModal();
+  
   const handleContactClick = () => {
     window.open('https://wa.me/5566992480993', '_blank');
   };
+  
   const automationTypes = [{
     icon: Home,
     title: "Automação Residencial",
@@ -36,6 +40,7 @@ const SistemaAutomacoes = () => {
     description: "Internet das Coisas para monitoramento e controle remoto",
     features: ["Sensores ambientais", "Monitoramento remoto", "Alertas automáticos", "Dashboard em tempo real"]
   }];
+  
   const benefits = [{
     icon: TrendingUp,
     title: "Aumento da Eficiência",
@@ -53,7 +58,9 @@ const SistemaAutomacoes = () => {
     title: "Economia de Energia",
     description: "Redução de até 30% no consumo elétrico"
   }];
-  return <div className="min-h-screen bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
       <Header />
       
       {/* Botão Voltar ao Início */}
@@ -108,7 +115,8 @@ const SistemaAutomacoes = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {automationTypes.map((type, index) => <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg bg-white/10 backdrop-blur-md border border-white/20">
+              {automationTypes.map((type, index) => (
+                <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg bg-black/30 backdrop-blur-sm border border-white/30">
                   <CardContent className="p-8">
                     <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <type.icon className="w-8 h-8 text-green-400" />
@@ -123,17 +131,20 @@ const SistemaAutomacoes = () => {
                     </p>
 
                     <div className="space-y-3 mb-6">
-                      {type.features.map((feature, featureIndex) => <div key={featureIndex} className="flex items-center gap-3">
+                      {type.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-center gap-3">
                           <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
                           <span className="text-white/90">{feature}</span>
-                        </div>)}
+                        </div>
+                      ))}
                     </div>
 
                     <Button onClick={openModal} className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105">
                       Solicitar Orçamento
                     </Button>
                   </CardContent>
-                </Card>)}
+                </Card>
+              ))}
             </div>
           </div>
         </section>
@@ -148,19 +159,21 @@ const SistemaAutomacoes = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit, index) => <div key={index} className="text-center p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="text-center p-6 bg-black/30 backdrop-blur-sm border border-white/30 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                   <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-full flex items-center justify-center">
                     <benefit.icon className="w-8 h-8 text-green-400" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{benefit.title}</h3>
                   <p className="text-white/80">{benefit.description}</p>
-                </div>)}
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-green-600/80 to-emerald-600/80 backdrop-blur-sm">
+        <section className="py-20 bg-black/30 backdrop-blur-sm">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Pronto para automatizar seu ambiente?
@@ -169,10 +182,10 @@ const SistemaAutomacoes = () => {
               Entre em contato conosco e descubra como a automação pode transformar seu negócio ou residência.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button onClick={handleContactClick} className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105">
+              <Button onClick={handleContactClick} className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105">
                 💬 Falar com Especialista
               </Button>
-              <Button variant="outline" onClick={openModal} className="border-2 border-white text-white hover:text-green-600 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 bg-emerald-50">
+              <Button variant="outline" onClick={openModal} className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300">
                 Solicitar Orçamento
               </Button>
             </div>
@@ -183,6 +196,8 @@ const SistemaAutomacoes = () => {
       <Footer />
       
       <QuoteModal open={isOpen} onOpenChange={closeModal} service="Automação" />
-    </div>;
+    </div>
+  );
 };
+
 export default SistemaAutomacoes;

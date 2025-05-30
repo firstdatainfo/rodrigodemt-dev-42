@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Home, Code, Heart, Users, Award, MapPin, Mail, Phone, Github, Linkedin, Instagram } from "lucide-react";
@@ -72,7 +73,8 @@ const Sobre = () => {
     }
   };
 
-  return <div className="min-h-screen bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
       <Header />
       
       {/* Botão Voltar ao Início */}
@@ -106,7 +108,7 @@ const Sobre = () => {
                     <Button onClick={handleContactClick} className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
                       💬 Vamos Conversar
                     </Button>
-                    <Button onClick={() => handleSocialRedirect('github')} variant="outline" className="border-2 border-green-400 px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-zinc-50 bg-green-700 hover:bg-green-600">
+                    <Button onClick={() => handleSocialRedirect('github')} variant="outline" className="border-2 border-green-400 px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-green-400 hover:bg-green-400 hover:text-white">
                       <Github className="w-4 h-4 mr-2" />
                       GitHub
                     </Button>
@@ -160,17 +162,18 @@ const Sobre = () => {
               </h2>
               
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {quickLinks.map((link, index) => link.href.startsWith('#') ? 
-                  <button 
-                    key={index} 
-                    onClick={scrollToContact}
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-4 rounded-lg text-white hover:text-green-300 font-semibold transition-all duration-300 hover:scale-105 border border-white/20"
-                  >
-                    {link.name}
-                  </button> : 
-                  <Link key={index} to={link.href} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-4 rounded-lg text-white hover:text-green-300 font-semibold transition-all duration-300 hover:scale-105 border border-white/20">
-                    {link.name}
-                  </Link>
+                {quickLinks.map((link, index) => 
+                  link.href.startsWith('#') ? 
+                    <button 
+                      key={index} 
+                      onClick={scrollToContact}
+                      className="bg-black/30 hover:bg-black/40 backdrop-blur-sm p-4 rounded-lg text-white hover:text-green-300 font-semibold transition-all duration-300 hover:scale-105 border border-white/30"
+                    >
+                      {link.name}
+                    </button> : 
+                    <Link key={index} to={link.href} className="bg-black/30 hover:bg-black/40 backdrop-blur-sm p-4 rounded-lg text-white hover:text-green-300 font-semibold transition-all duration-300 hover:scale-105 border border-white/30">
+                      {link.name}
+                    </Link>
                 )}
               </div>
             </div>
@@ -185,7 +188,7 @@ const Sobre = () => {
                 Minha <span className="text-green-400">História</span>
               </h2>
               
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12">
+              <div className="bg-black/30 backdrop-blur-md border border-white/30 rounded-2xl p-8 md:p-12">
                 <div className="space-y-8 text-lg text-white/90 leading-relaxed">
                   <p>
                     Olá! Sou o <strong>Rodrigo Dev MT</strong>, desenvolvedor full stack natural de <strong>Mato Grosso</strong>. 
@@ -224,7 +227,8 @@ const Sobre = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {achievements.map((achievement, index) => <Card key={index} className="bg-white/10 backdrop-blur-md border border-white/20 text-center p-6 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2">
+              {achievements.map((achievement, index) => (
+                <Card key={index} className="bg-black/30 backdrop-blur-md border border-white/30 text-center p-6 hover:bg-black/40 transition-all duration-300 hover:-translate-y-2">
                   <CardContent className="p-6">
                     <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-full flex items-center justify-center">
                       <achievement.icon className="w-8 h-8 text-green-400" />
@@ -232,7 +236,8 @@ const Sobre = () => {
                     <h3 className="text-3xl font-bold text-white mb-2">{achievement.title}</h3>
                     <p className="text-white/80">{achievement.description}</p>
                   </CardContent>
-                </Card>)}
+                </Card>
+              ))}
             </div>
           </div>
         </section>
@@ -246,16 +251,18 @@ const Sobre = () => {
               </h2>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {skills.map((skill, index) => <div key={index} className="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-lg text-green-300 font-semibold hover:scale-105 hover:bg-white/20 transition-all duration-300">
+                {skills.map((skill, index) => (
+                  <div key={index} className="bg-black/30 backdrop-blur-sm border border-white/30 p-4 rounded-lg text-green-300 font-semibold hover:scale-105 hover:bg-black/40 transition-all duration-300">
                     {skill}
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
         {/* Contato */}
-        <section id="contato" className="py-20 bg-gradient-to-r from-green-600/80 to-emerald-600/80 backdrop-blur-sm">
+        <section id="contato" className="py-20 bg-black/30 backdrop-blur-sm">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center text-white">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -266,20 +273,20 @@ const Sobre = () => {
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+                <div className="flex items-center justify-center gap-3 bg-black/30 backdrop-blur-sm p-4 rounded-lg border border-white/30">
                   <MapPin className="w-5 h-5" />
                   <span>Mato Grosso, Brasil</span>
                 </div>
                 <button 
                   onClick={handleEmailClick}
-                  className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300 cursor-pointer"
+                  className="flex items-center justify-center gap-3 bg-black/30 backdrop-blur-sm p-4 rounded-lg border border-white/30 hover:bg-black/40 transition-all duration-300 cursor-pointer"
                 >
                   <Mail className="w-5 h-5" />
                   <span>rodrigodev@yahoo.com</span>
                 </button>
                 <button 
                   onClick={handlePhoneClick}
-                  className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300 cursor-pointer"
+                  className="flex items-center justify-center gap-3 bg-black/30 backdrop-blur-sm p-4 rounded-lg border border-white/30 hover:bg-black/40 transition-all duration-300 cursor-pointer"
                 >
                   <Phone className="w-5 h-5" />
                   <span>(66) 99248-0993</span>
@@ -287,14 +294,14 @@ const Sobre = () => {
               </div>
               
               <div className="flex justify-center gap-4">
-                <Button onClick={handleContactClick} className="bg-white hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 text-green-700">
+                <Button onClick={handleContactClick} className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
                   💬 WhatsApp
                 </Button>
-                <Button onClick={() => handleSocialRedirect('github')} variant="outline" className="border-2 border-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-zinc-50 text-green-700">
+                <Button onClick={() => handleSocialRedirect('github')} variant="outline" className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300">
                   <Github className="w-4 h-4 mr-2" />
                   GitHub
                 </Button>
-                <Button onClick={() => handleSocialRedirect('instagram')} variant="outline" className="border-2 border-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-emerald-50 text-green-700">
+                <Button onClick={() => handleSocialRedirect('instagram')} variant="outline" className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300">
                   <Instagram className="w-4 h-4 mr-2" />
                   Instagram
                 </Button>
@@ -305,7 +312,8 @@ const Sobre = () => {
       </main>
       
       <Footer />
-    </div>;
+    </div>
+  );
 };
 
 export default Sobre;

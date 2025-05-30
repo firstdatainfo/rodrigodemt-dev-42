@@ -4,63 +4,89 @@ import NeuralNetwork from "./NeuralNetwork";
 import ParticlesBackground from "./ParticlesBackground";
 import MagicParticles from "./MagicParticles";
 import { SiNodedotjs, SiReact, SiPython, SiFirebase, SiFlutter, SiSupabase, SiEspressif, SiJavascript, SiTypescript, SiFigma } from "react-icons/si";
-const technologies = [{
-  name: "Node.js",
-  icon: SiNodedotjs
-}, {
-  name: "React",
-  icon: SiReact
-}, {
-  name: "Python",
-  icon: SiPython
-}, {
-  name: "Firebase",
-  icon: SiFirebase
-}, {
-  name: "Flutter",
-  icon: SiFlutter
-}, {
-  name: "Supabase",
-  icon: SiSupabase
-}, {
-  name: "ESP32",
-  icon: SiEspressif
-}, {
-  name: "JavaScript",
-  icon: SiJavascript
-}, {
-  name: "TypeScript",
-  icon: SiTypescript
-}, {
-  name: "Figma",
-  icon: SiFigma
-}];
-const stats = [{
-  number: "500+",
-  label: "Projetos Concluídos",
-  icon: Award
-}, {
-  number: "200+",
-  label: "Clientes Satisfeitos",
-  icon: Users
-}, {
-  number: "5.0",
-  label: "Avaliação Média",
-  icon: Star
-}];
+
+const technologies = [
+  {
+    name: "Node.js",
+    icon: SiNodedotjs
+  },
+  {
+    name: "React",
+    icon: SiReact
+  },
+  {
+    name: "Python",
+    icon: SiPython
+  },
+  {
+    name: "Firebase",
+    icon: SiFirebase
+  },
+  {
+    name: "Flutter",
+    icon: SiFlutter
+  },
+  {
+    name: "Supabase",
+    icon: SiSupabase
+  },
+  {
+    name: "ESP32",
+    icon: SiEspressif
+  },
+  {
+    name: "JavaScript",
+    icon: SiJavascript
+  },
+  {
+    name: "TypeScript",
+    icon: SiTypescript
+  },
+  {
+    name: "Figma",
+    icon: SiFigma
+  }
+];
+
+const stats = [
+  {
+    number: "100+",
+    label: "Projetos Concluídos",
+    icon: Award
+  },
+  {
+    number: "80+",
+    label: "Clientes Satisfeitos",
+    icon: Users
+  },
+  {
+    number: "7.0",
+    label: "Avaliação Média",
+    icon: Star
+  }
+];
+
 const Hero = () => {
   const handleSocialRedirect = () => {
     window.open('https://www.instagram.com/first_developer_mt/', '_blank');
   };
-  return <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
+
+  return (
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
       {/* Imagem para desktop com efeito de partículas mágicas */}
       <div className="hidden md:block absolute inset-0 pointer-events-none">
-        <MagicParticles imageSrc="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png" className="w-full h-full object-contain object-right" />
+        <MagicParticles 
+          imageSrc="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png" 
+          className="w-full h-full object-contain object-right" 
+        />
       </div>
 
       {/* Imagem para mobile com efeito de partículas mágicas */}
       <div className="md:hidden absolute inset-0 pointer-events-none">
-        <MagicParticles imageSrc="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png" className="w-full h-[80vh] object-cover mt-20" />
+        <MagicParticles 
+          imageSrc="/lovable-uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png" 
+          className="w-full h-[80vh] object-cover mt-20" 
+        />
       </div>
 
       <div className="absolute inset-0 pointer-events-none">
@@ -93,20 +119,31 @@ const Hero = () => {
 
             {/* Estatísticas */}
             <div className="grid grid-cols-3 gap-4 mb-8 p-4 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10">
-              {stats.map((stat, index) => <div key={index} className="text-center">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center">
                   <div className="flex items-center justify-center mb-2">
                     <stat.icon className="w-5 h-5 text-yellow-400 mr-1" />
                     <span className="text-2xl md:text-3xl font-bold text-white">{stat.number}</span>
                   </div>
                   <p className="text-white/80 text-xs md:text-sm">{stat.label}</p>
-                </div>)}
+                </div>
+              ))}
             </div>
 
             <div className="flex flex-wrap gap-4 justify-start mb-12 relative z-30">
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300" onClick={handleSocialRedirect}>
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                onClick={handleSocialRedirect}
+              >
                 🚀 Começar Agora
               </Button>
-              <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/20 px-8 py-6 rounded-full text-lg backdrop-blur-sm hover:backdrop-blur-md transition-all duration-300" onClick={() => window.location.href = '#contato'}>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="bg-white/10 hover:bg-white/20 text-white border-white/20 px-8 py-6 rounded-full text-lg backdrop-blur-sm hover:backdrop-blur-md transition-all duration-300"
+                onClick={() => window.location.href = '#contato'}
+              >
                 💬 Fale Conosco
               </Button>
             </div>
@@ -131,14 +168,22 @@ const Hero = () => {
             <div className="space-y-4">
               <h3 className="text-white font-semibold text-lg">Tecnologias que dominamos:</h3>
               <div className="flex flex-wrap gap-3">
-                {technologies.map(tech => <div key={tech.name} className="group flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-xl w-14 h-14 transition-all duration-300 hover:scale-110 cursor-pointer backdrop-blur-sm border border-white/10 hover:border-white/30" title={tech.name}>
+                {technologies.map((tech) => (
+                  <div 
+                    key={tech.name} 
+                    className="group flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-xl w-14 h-14 transition-all duration-300 hover:scale-110 cursor-pointer backdrop-blur-sm border border-white/10 hover:border-white/30"
+                    title={tech.name}
+                  >
                     <tech.icon className="w-7 h-7 text-white group-hover:text-blue-300 transition-colors duration-300" />
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;

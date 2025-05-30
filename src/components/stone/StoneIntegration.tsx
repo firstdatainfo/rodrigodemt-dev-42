@@ -1,5 +1,7 @@
 
 import { Code, Database, Smartphone, Zap } from "lucide-react";
+import ParticlesBackground from "../ParticlesBackground";
+import NeuralNetwork from "../NeuralNetwork";
 
 const integrationSteps = [
   {
@@ -26,8 +28,12 @@ const integrationSteps = [
 
 const StoneIntegration = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-900 via-primary to-red-900 relative overflow-hidden">
-      <div className="absolute inset-0 bg-black/20"></div>
+    <section className="relative py-20 bg-gradient-to-r from-blue-900 via-primary to-red-900 overflow-hidden">
+      {/* Fundo com partículas e rede neural igual ao Hero */}
+      <div className="absolute inset-0 pointer-events-none">
+        <ParticlesBackground />
+        <NeuralNetwork />
+      </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">

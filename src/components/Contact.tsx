@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { useState, FormEvent } from "react";
 import { useToast } from "@/components/ui/use-toast";
 
-// ID do formulário no Formspree (substitua pelo seu ID)
-const FORMSPREE_FORM_ID = 'xgvywzlj';
+// ID do formulário no Formspree
+const FORMSPREE_FORM_ID = 'xrgwqyop';  // Substitua pelo ID do seu novo formulário
 
 const Contact = () => {
   const [formData, setFormData] = useState({

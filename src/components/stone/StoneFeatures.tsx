@@ -37,13 +37,13 @@ const features = [
 
 const StoneFeatures = () => {
   return (
-    <section id="features" className="py-20 bg-white">
+    <section id="features" className="py-20 bg-gradient-to-r from-blue-900 via-primary to-red-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Funcionalidades <span className="text-green-600">Avançadas</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Funcionalidades <span className="text-green-400">Avançadas</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto">
             Nossa solução oferece tudo que você precisa para integrar pagamentos Stone 
             de forma eficiente e segura em seus terminais Android.
           </p>
@@ -53,17 +53,17 @@ const StoneFeatures = () => {
           {features.map((feature, index) => (
             <Card 
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg animate-fade-up"
+              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg animate-fade-up bg-black/30 backdrop-blur-sm border border-white/30"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-green-100 to-emerald-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-white/80 leading-relaxed">
                   {feature.description}
                 </p>
               </CardContent>

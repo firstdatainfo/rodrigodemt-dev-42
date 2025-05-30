@@ -108,7 +108,7 @@ const StoneContact = () => {
 
   return (
     <>
-      <section id="contact" className="py-20 bg-gray-900">
+      <section id="contact" className="py-20 bg-gradient-to-r from-blue-900 via-primary to-red-900">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -116,7 +116,7 @@ const StoneContact = () => {
                 Vamos Conversar sobre sua
                 <span className="block text-green-400">Integração Stone</span>
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-xl text-white/90 max-w-3xl mx-auto">
                 Entre em contato conosco e descubra como podemos transformar 
                 seu sistema de pagamentos com nossa solução Stone.
               </p>
@@ -132,7 +132,7 @@ const StoneContact = () => {
                     {contactInfo.map((info, index) => (
                       <Card 
                         key={index}
-                        className="bg-gray-800 border-gray-700 hover:bg-gray-750 transition-colors cursor-pointer"
+                        className="bg-black/30 backdrop-blur-sm border border-white/30 hover:bg-black/40 transition-colors cursor-pointer"
                         onClick={info.action}
                       >
                         <CardContent className="p-6">
@@ -142,7 +142,7 @@ const StoneContact = () => {
                             </div>
                             <div>
                               <h4 className="font-semibold text-white">{info.title}</h4>
-                              <p className="text-gray-300 text-sm">{info.value}</p>
+                              <p className="text-white/80 text-sm">{info.value}</p>
                             </div>
                           </div>
                         </CardContent>
@@ -151,11 +151,11 @@ const StoneContact = () => {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-2xl p-8 border border-green-500/30">
+                <div className="bg-black/30 backdrop-blur-sm border border-white/30 rounded-2xl p-8">
                   <h4 className="text-xl font-bold text-white mb-4">
                     🚀 Consultoria Gratuita
                   </h4>
-                  <p className="text-gray-300 mb-6">
+                  <p className="text-white/80 mb-6">
                     Agende uma conversa gratuita para entender suas necessidades 
                     e apresentar a melhor solução Stone para seu negócio.
                   </p>
@@ -168,58 +168,58 @@ const StoneContact = () => {
                 </div>
               </div>
 
-              <div className="bg-gray-800 rounded-2xl p-8 border border-gray-700">
+              <div className="bg-black/30 backdrop-blur-sm border border-white/30 rounded-2xl p-8">
                 <h3 className="text-2xl font-bold text-white mb-6">
                   Solicite um Orçamento
                 </h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <Label htmlFor="nome" className="text-gray-300 mb-2">Nome Completo</Label>
+                    <Label htmlFor="nome" className="text-white/90 mb-2">Nome Completo</Label>
                     <Input 
                       id="nome"
                       type="text" 
                       value={formData.nome}
                       onChange={(e) => handleInputChange('nome', e.target.value)}
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-green-500 focus:outline-none transition-colors"
+                      className="w-full bg-black/40 border border-white/30 rounded-lg px-4 py-3 text-white focus:border-green-400 focus:outline-none transition-colors placeholder:text-white/50"
                       placeholder="Seu nome completo"
                       required
                     />
                   </div>
                   
                   <div>
-                    <Label htmlFor="email" className="text-gray-300 mb-2">E-mail</Label>
+                    <Label htmlFor="email" className="text-white/90 mb-2">E-mail</Label>
                     <Input 
                       id="email"
                       type="email" 
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-green-500 focus:outline-none transition-colors"
+                      className="w-full bg-black/40 border border-white/30 rounded-lg px-4 py-3 text-white focus:border-green-400 focus:outline-none transition-colors placeholder:text-white/50"
                       placeholder="seu@email.com"
                       required
                     />
                   </div>
                   
                   <div>
-                    <Label htmlFor="empresa" className="text-gray-300 mb-2">Empresa</Label>
+                    <Label htmlFor="empresa" className="text-white/90 mb-2">Empresa</Label>
                     <Input 
                       id="empresa"
                       type="text" 
                       value={formData.empresa}
                       onChange={(e) => handleInputChange('empresa', e.target.value)}
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-green-500 focus:outline-none transition-colors"
+                      className="w-full bg-black/40 border border-white/30 rounded-lg px-4 py-3 text-white focus:border-green-400 focus:outline-none transition-colors placeholder:text-white/50"
                       placeholder="Nome da sua empresa"
                       required
                     />
                   </div>
                   
                   <div>
-                    <Label htmlFor="mensagem" className="text-gray-300 mb-2">Mensagem</Label>
+                    <Label htmlFor="mensagem" className="text-white/90 mb-2">Mensagem</Label>
                     <Textarea 
                       id="mensagem"
                       rows={4}
                       value={formData.mensagem}
                       onChange={(e) => handleInputChange('mensagem', e.target.value)}
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-green-500 focus:outline-none transition-colors resize-none"
+                      className="w-full bg-black/40 border border-white/30 rounded-lg px-4 py-3 text-white focus:border-green-400 focus:outline-none transition-colors resize-none placeholder:text-white/50"
                       placeholder="Conte-nos sobre seu projeto e necessidades..."
                       required
                     />
@@ -241,12 +241,12 @@ const StoneContact = () => {
 
       {/* Diálogo de Sucesso */}
       <AlertDialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
-        <AlertDialogContent className="bg-gray-800 border-gray-700">
+        <AlertDialogContent className="bg-black/90 backdrop-blur-sm border border-white/30">
           <AlertDialogHeader>
             <AlertDialogTitle className="text-white text-center text-2xl">
               ✅ Email Enviado com Sucesso!
             </AlertDialogTitle>
-            <AlertDialogDescription className="text-gray-300 text-center text-lg">
+            <AlertDialogDescription className="text-white/80 text-center text-lg">
               Sua solicitação foi enviada com sucesso. Nossa equipe entrará em contato em breve para apresentar as melhores soluções Stone para seu negócio.
               <br /><br />
               <strong>Obrigado pelo interesse!</strong>

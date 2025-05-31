@@ -3,10 +3,10 @@ import { CreditCard, Smartphone, Zap } from "lucide-react";
 
 const StoneHero = () => {
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-900 via-primary to-red-900 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-r from-blue-900 via-primary to-green-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-green-600/5 to-emerald-600/5"></div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-8 md:px-12 lg:px-16 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-fade-up">

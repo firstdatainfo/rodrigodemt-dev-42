@@ -90,14 +90,9 @@ const Contact = () => {
             className="w-48 h-auto"
           />
           <img 
-            src="/uploads/a4e5ce30-8367-4707-b634-7ac95221a5c5.png" 
-            alt="Stone Partner Program" 
-            className="w-48 h-auto"
-          />
-          <img 
             src="/uploads/27467abd-8fc5-4d5f-bee4-d00db5bb9312.png" 
             alt="PagarMe Logo" 
-            className="h-24"
+            className="h-24 ml-8"
           />
         </div>
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">

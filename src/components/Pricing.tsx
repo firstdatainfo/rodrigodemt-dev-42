@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 const plans = [
   {
     title: "Sistema de Eventos",
-    price: "299",
+    price: "400",
     period: "/mês",
     features: [
       "Gestão de Ingressos",
@@ -17,7 +17,7 @@ const plans = [
   },
   {
     title: "Básico",
-    price: "990",
+    price: "2.800",
     period: "/projeto",
     features: [
       "Site Institucional",
@@ -125,11 +125,7 @@ const Pricing = () => {
                   ))}
                 </ul>
                 <Button
-                  className={`w-full mt-8 relative z-30 ${
-                    plan.popular
-                      ? "bg-white text-primary hover:bg-white/90"
-                      : "bg-white/10 hover:bg-white/20 text-white border border-white/20"
-                  }`}
+                  className="w-full mt-8 relative z-30 bg-white/10 hover:bg-white/20 text-white border border-white/20"
                   onClick={() => handleWhatsAppRedirect(plan)}
                 >
                   Começar Agora

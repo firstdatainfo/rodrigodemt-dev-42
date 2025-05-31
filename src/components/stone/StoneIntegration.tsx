@@ -23,7 +23,7 @@ const integrationSteps = [{
 
 const StoneIntegration = () => {
   return (
-    <section className="relative py-20 bg-gradient-to-r from-blue-900 via-primary to-red-900 overflow-hidden min-h-screen">
+    <section className="relative py-20 bg-gradient-to-r from-blue-900 via-primary to-green-900 overflow-hidden min-h-screen">
       <div className="absolute inset-0 pointer-events-none">
         <ParticlesBackground />
         <NeuralNetwork />

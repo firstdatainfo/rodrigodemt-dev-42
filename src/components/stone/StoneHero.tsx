@@ -19,14 +19,9 @@ const StoneHero = () => {
                     className="w-48 h-auto hover:scale-105 transition-transform duration-300"
                   />
                   <img 
-                    src="/uploads/a4e5ce30-8367-4707-b634-7ac95221a5c5.png" 
-                    alt="Stone Partner Program" 
-                    className="w-48 h-auto hover:scale-105 transition-transform duration-300"
-                  />
-                  <img 
                     src="/uploads/27467abd-8fc5-4d5f-bee4-d00db5bb9312.png" 
                     alt="PagarMe Logo" 
-                    className="h-24 hover:scale-105 transition-transform duration-300"
+                    className="h-24 hover:scale-105 transition-transform duration-300 ml-8"
                   />
                 </div>
                 <p className="text-2xl md:text-3xl font-bold text-white text-center lg:text-left leading-tight">

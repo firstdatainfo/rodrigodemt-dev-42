@@ -40,9 +40,9 @@ const Sobre = () => {
     title: "100+",
     description: "Projetos entregues"
   }, {
-    icon: RodrigoDevLogo,
-    iconColor: "text-green-500",
-    title: "50+",
+    icon: Heart,
+    iconColor: "text-red-500",
+    title: "80+",
     description: "Clientes satisfeitos"
   }, {
     icon: Code,

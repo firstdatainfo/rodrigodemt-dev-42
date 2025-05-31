@@ -1,21 +1,11 @@
-
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
+import InputMask from 'react-input-mask';
 
 const contactInfo = [
   {
@@ -44,18 +34,21 @@ const contactInfo = [
   }
 ];
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgvywzlj'; // Endpoint do Formspree
+
 const StoneContact = () => {
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
     empresa: "",
-    mensagem: ""
+    mensagem: "",
+    cnpj: "",
+    cpf: "",
+    whatsapp: ""
   });
-  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [errorCount, setErrorCount] = useState(0);
-  const lastErrorTime = useRef<number>(0);
-  const { toast } = useToast();
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
@@ -64,77 +57,54 @@ const StoneContact = () => {
     }));
   };
 
-  const validateForm = () => {
-    if (!formData.nome || !formData.email || !formData.empresa || !formData.mensagem) {
-      toast({
-        title: "Campos obrigatórios",
-        description: "Por favor, preencha todos os campos.",
-        variant: "destructive"
-      });
-      return false;
-    }
-    return true;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
+
+
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!validateForm()) return;
-    
-    // Evita múltiplas tentativas em sequência
-    const now = Date.now();
-    if (now - lastErrorTime.current < 30000) { // 30 segundos de espera
-      toast({
-        title: "Aguarde",
-        description: "Por favor, aguarde alguns segundos antes de tentar novamente.",
-        variant: "destructive"
-      });
+    if (isLoading) return;
+
+    // Validação básica
+    if (!formData.nome || !formData.email || !formData.mensagem) {
       return;
     }
-    
-    setIsLoading(true);
 
+    setIsLoading(true);
+    
     try {
-      // Aqui você pode adicionar o código para enviar por e-mail se necessário
-      // Por enquanto, vamos apenas mostrar o diálogo de sucesso
+      const form = e.target as HTMLFormElement;
+      const formDataToSend = new FormData(form);
       
-      // Mostrar diálogo de sucesso
-      setShowSuccessDialog(true);
-      
-      // Limpar formulário
-      setFormData({
-        nome: "",
-        email: "",
-        empresa: "",
-        mensagem: ""
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
       
-      // Resetar contador de erros em caso de sucesso
-      setErrorCount(0);
-      
-      toast({
-        title: "Mensagem enviada!",
-        description: "Recebemos sua solicitação e entraremos em contato em breve.",
-      });
-      
-    } catch (error: any) {
-      console.error("Erro ao enviar mensagem:", error);
-      lastErrorTime.current = now;
-      setErrorCount(prev => prev + 1);
-      
-      let errorMessage = "Não foi possível enviar sua mensagem. Por favor, tente novamente.";
-      
-      if (error?.text?.includes('Yahoo: Invalid login')) {
-        errorMessage = "Problema na autenticação do e-mail. Por favor, entre em contato pelo WhatsApp.";
-      } else if (errorCount > 2) {
-        errorMessage = "Muitas tentativas sem sucesso. Por favor, tente novamente mais tarde ou entre em contato pelo WhatsApp.";
+      if (response.ok) {
+        setFormData({
+          nome: "",
+          email: "",
+          empresa: "",
+          mensagem: "",
+          cnpj: "",
+          cpf: "",
+          whatsapp: ""
+        });
+        setShowSuccessMessage(true);
+        setTimeout(() => setShowSuccessMessage(false), 5000); // Esconde a mensagem após 5 segundos
       }
-      
-      toast({
-        title: "Erro ao enviar mensagem",
-        description: errorMessage,
-        variant: "destructive"
-      });
+    } catch (error) {
+      console.error('Erro ao enviar mensagem:', error);
     } finally {
       setIsLoading(false);
     }
@@ -143,35 +113,38 @@ const StoneContact = () => {
   const handleWhatsAppClick = (e: React.MouseEvent) => {
     e.preventDefault();
     
-    if (!validateForm()) return;
+    if (!formData.nome || !formData.email || !formData.mensagem) {
+      console.log('Por favor, preencha todos os campos antes de enviar.');
+      return;
+    }
     
-    // Formata a mensagem para o WhatsApp
     const message = `*Nova solicitação de integração Stone*%0A%0A` +
                    `*Nome:* ${formData.nome}%0A` +
                    `*E-mail:* ${formData.email}%0A` +
                    `*Empresa:* ${formData.empresa}%0A` +
+                   `*CNPJ:* ${formData.cnpj}%0A` +
+                   `*CPF:* ${formData.cpf}%0A` +
+                   `*WhatsApp:* ${formData.whatsapp}%0A` +
                    `*Mensagem:* ${formData.mensagem}`;
     
-    const phoneNumber = '5566992480993';
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-    
-    // Não limpa o formulário para permitir que o usuário envie por e-mail depois se quiser
-    
-    toast({
-      title: "WhatsApp aberto!",
-      description: "Por favor, envie sua mensagem pelo WhatsApp.",
-    });
-    
-    // Incrementa o contador de erros para o WhatsApp também
-    setErrorCount(prev => prev + 1);
+    window.open(`https://wa.me/5566992480993?text=${message}`, '_blank');
   };
 
   return (
     <>
+
+
       <section id="contact" className="py-20 bg-gradient-to-r from-blue-900 via-primary to-red-900">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
+              <div className="flex justify-center mb-8">
+                <img 
+                  src="/uploads/27467abd-8fc5-4d5f-bee4-d00db5bb9312.png" 
+                  alt="PagarMe Logo" 
+                  className="h-16"
+                />
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 Vamos Conversar sobre sua
                 <span className="block text-green-400">Integração Stone</span>
@@ -232,27 +205,86 @@ const StoneContact = () => {
                 <h3 className="text-2xl font-bold text-white mb-6">
                   Solicite um Orçamento
                 </h3>
-                <form onSubmit={handleEmailSubmit} className="space-y-6">
+                <form onSubmit={handleEmailSubmit} action={FORMSPREE_ENDPOINT} method="POST" className="space-y-6">
                   <div>
                     <Label htmlFor="nome" className="text-white/90 mb-2">Nome Completo</Label>
                     <Input 
                       id="nome"
                       type="text" 
+                      name="nome"
                       value={formData.nome}
-                      onChange={(e) => handleInputChange('nome', e.target.value)}
+                      onChange={handleChange}
                       className="w-full bg-black/40 border border-white/30 rounded-lg px-4 py-3 text-white focus:border-green-400 focus:outline-none transition-colors placeholder:text-white/50"
                       placeholder="Seu nome completo"
                       required
                     />
                   </div>
-                  
+
+                  <div>
+                    <Label htmlFor="cnpj" className="text-white/90 mb-2">CNPJ</Label>
+                    <InputMask
+                      mask="99.999.999/9999-99"
+                      name="cnpj"
+                      value={formData.cnpj}
+                      onChange={handleChange}
+                    >
+                      {(inputProps: any) => (
+                        <Input
+                          {...inputProps}
+                          id="cnpj"
+                          className="w-full bg-black/40 border border-white/30 rounded-lg px-4 py-3 text-white focus:border-green-400 focus:outline-none transition-colors placeholder:text-white/50"
+                          placeholder="00.000.000/0000-00"
+                        />
+                      )}
+                    </InputMask>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="cpf" className="text-white/90 mb-2">CPF</Label>
+                    <InputMask
+                      mask="999.999.999-99"
+                      name="cpf"
+                      value={formData.cpf}
+                      onChange={handleChange}
+                    >
+                      {(inputProps: any) => (
+                        <Input
+                          {...inputProps}
+                          id="cpf"
+                          className="w-full bg-black/40 border border-white/30 rounded-lg px-4 py-3 text-white focus:border-green-400 focus:outline-none transition-colors placeholder:text-white/50"
+                          placeholder="000.000.000-00"
+                        />
+                      )}
+                    </InputMask>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="whatsapp" className="text-white/90 mb-2">WhatsApp</Label>
+                    <InputMask
+                      mask="(99) 99999-9999"
+                      name="whatsapp"
+                      value={formData.whatsapp}
+                      onChange={handleChange}
+                    >
+                      {(inputProps: any) => (
+                        <Input
+                          {...inputProps}
+                          id="whatsapp"
+                          className="w-full bg-black/40 border border-white/30 rounded-lg px-4 py-3 text-white focus:border-green-400 focus:outline-none transition-colors placeholder:text-white/50"
+                          placeholder="(00) 00000-0000"
+                        />
+                      )}
+                    </InputMask>
+                  </div>
+
                   <div>
                     <Label htmlFor="email" className="text-white/90 mb-2">E-mail</Label>
                     <Input 
                       id="email"
                       type="email" 
+                      name="email"
                       value={formData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      onChange={handleChange}
                       className="w-full bg-black/40 border border-white/30 rounded-lg px-4 py-3 text-white focus:border-green-400 focus:outline-none transition-colors placeholder:text-white/50"
                       placeholder="seu@email.com"
                       required
@@ -264,8 +296,9 @@ const StoneContact = () => {
                     <Input 
                       id="empresa"
                       type="text" 
+                      name="empresa"
                       value={formData.empresa}
-                      onChange={(e) => handleInputChange('empresa', e.target.value)}
+                      onChange={handleChange}
                       className="w-full bg-black/40 border border-white/30 rounded-lg px-4 py-3 text-white focus:border-green-400 focus:outline-none transition-colors placeholder:text-white/50"
                       placeholder="Nome da sua empresa"
                       required
@@ -277,14 +310,21 @@ const StoneContact = () => {
                     <Textarea 
                       id="mensagem"
                       rows={4}
+                      name="mensagem"
                       value={formData.mensagem}
-                      onChange={(e) => handleInputChange('mensagem', e.target.value)}
+                      onChange={handleChange}
                       className="w-full bg-black/40 border border-white/30 rounded-lg px-4 py-3 text-white focus:border-green-400 focus:outline-none transition-colors resize-none placeholder:text-white/50"
                       placeholder="Conte-nos sobre seu projeto e necessidades..."
                       required
                     />
                   </div>
                   
+                  {showSuccessMessage && (
+                    <div className="bg-green-600/20 border border-green-500/50 rounded-lg p-4 mb-4 text-white flex items-center">
+                      <CheckCircle className="w-5 h-5 mr-2" />
+                      Mensagem enviada com sucesso!
+                    </div>
+                  )}
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button 
                       type="submit" 
@@ -298,10 +338,6 @@ const StoneContact = () => {
                       onClick={handleWhatsAppClick}
                       className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white py-6 text-lg"
                     >
-                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M17.498 14.382l-.001-.001-.003.002c-.323.242-.529.623-.529 1.06 0 .334.117.655.329.9l.006.007.004.009c.2.25.49.401.8.401h.006c.138 0 .274-.028.4-.083l.01-.004.018-.01.027-.018.02-.017.01-.01 2.72-2.22c.3-.245.48-.61.48-1.009v-7.5a1.5 1.5 0 00-1.5-1.5h-15a1.5 1.5 0 00-1.5 1.5v10a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-1.5z" />
-                        <path d="M12 12.75a.75.75 0 100-1.5.75.75 0 000 1.5z" />
-                      </svg>
                       WhatsApp
                     </Button>
                   </div>
@@ -312,29 +348,6 @@ const StoneContact = () => {
         </div>
       </section>
 
-      {/* Diálogo de Sucesso */}
-      <AlertDialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
-        <AlertDialogContent className="bg-black/90 backdrop-blur-sm border border-white/30">
-          <AlertDialogHeader>
-            <AlertDialogTitle className="text-white text-center text-2xl">
-              ✅ Email Enviado com Sucesso!
-            </AlertDialogTitle>
-            <AlertDialogDescription className="text-white/80 text-center text-lg">
-              Sua solicitação foi enviada com sucesso. Nossa equipe entrará em contato em breve para apresentar as melhores soluções Stone para seu negócio.
-              <br /><br />
-              <strong>Obrigado pelo interesse!</strong>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter className="justify-center">
-            <AlertDialogAction 
-              onClick={() => setShowSuccessDialog(false)}
-              className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-8 py-2 rounded-lg font-semibold"
-            >
-              Entendi
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </>
   );
 };

@@ -1,21 +1,25 @@
-
- import { Phone, Mail, MapPin, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState, FormEvent } from "react";
-import { useToast } from "@/components/ui/use-toast";
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import InputMask from 'react-input-mask';
 
-// ID do formulário no Formspree
-const FORMSPREE_FORM_ID = 'xrgwqyop';  // Substitua pelo ID do seu novo formulário
+// Configuração do Formspree
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgvywzlj'; // Endpoint do Formspree
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    cnpj: '',
+    cpf: '',
+    whatsapp: ''
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const { toast } = useToast();
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -25,250 +29,296 @@ const Contact = () => {
     }));
   };
 
-  const validateForm = () => {
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Campos obrigatórios",
-        description: "Por favor, preencha todos os campos.",
-        variant: "destructive"
-      });
-      return false;
-    }
-    return true;
-  };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!validateForm()) return;
-    
+    if (isLoading) return;
+
+    // Validação básica
+    if (!formData.name || !formData.email || !formData.message) {
+      return;
+    }
+
     setIsLoading(true);
     
     try {
-      const response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
+      const form = e.target as HTMLFormElement;
+      const formDataToSend = new FormData(form);
+      
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
+        body: formDataToSend,
         headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          _subject: `Nova mensagem de ${formData.name}`,
-          _format: 'plain',
-          _language: 'pt',
-          _template: 'table',
-          _next: window.location.href
-        }),
+          'Accept': 'application/json'
+        }
       });
       
       if (response.ok) {
-        // Sucesso
-        setFormData({
-          name: '',
-          email: '',
-          message: ''
-        });
-        
-        setIsSuccess(true);
-        
-        toast({
-          title: "Mensagem enviada!",
-          description: "Retornarei o mais breve possível.",
-        });
-      } else {
-        throw new Error('Erro ao enviar formulário');
+        setFormData({ name: '', email: '', message: '', cnpj: '', cpf: '', whatsapp: '' });
+        setShowSuccessMessage(true);
+        setTimeout(() => setShowSuccessMessage(false), 5000); // Esconde a mensagem após 5 segundos
       }
     } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
-      
-      toast({
-        title: "Erro ao enviar mensagem",
-        description: "Não foi possível enviar sua mensagem. Por favor, tente novamente ou entre em contato pelo WhatsApp.",
-        variant: "destructive"
-      });
+      console.error('Erro ao enviar mensagem:', error);
     } finally {
       setIsLoading(false);
     }
   };
-  
+
   const handleWhatsAppClick = (e: React.MouseEvent) => {
     e.preventDefault();
     
-    if (!validateForm()) return;
+    if (!formData.name || !formData.email || !formData.message) {
+      console.log('Por favor, preencha todos os campos antes de enviar.');
+      return;
+    }
     
-    const message = `Olá, meu nome é ${formData.name}. ${formData.message}`.substring(0, 140);
-    const phone = '5566992480993';
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
-    const whatsappMessage = `*Nova mensagem do site*%0A%0A` +
-                         `*Nome:* ${formData.name}%0A` +
-                         `*E-mail:* ${formData.email}%0A` +
-                         `*Mensagem:* ${formData.message}`;
+    const message = `*Nome:* ${formData.name}%0A` +
+                   `*Email:* ${formData.email}%0A` +
+                   `*Mensagem:* ${formData.message}`;
     
-    const phoneNumber = '5566992480993';
-    window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, '_blank');
-    
-    // Não limpa o formulário para permitir que o usuário envie por e-mail depois se quiser
-    
-    toast({
-      title: "WhatsApp aberto!",
-      description: "Por favor, envie sua mensagem pelo WhatsApp.",
-    });
+    window.open(`https://wa.me/5566992480993?text=${message}`, '_blank');
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <>
+      <section id="contato" className="py-12 bg-gradient-to-r from-blue-900 via-primary to-red-900">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Entre em Contato</h2>
-          <p className="text-xl text-gray-600">Estou pronto para ajudar no seu próximo projeto!</p>
+        <div className="flex items-center justify-center gap-4 mb-8">
+          <img 
+            src="/uploads/5949be6f-6616-4b08-977b-903de24aa9f2.png" 
+            alt="Stone Logo" 
+            className="w-48 h-auto"
+          />
+          <img 
+            src="/uploads/a4e5ce30-8367-4707-b634-7ac95221a5c5.png" 
+            alt="Stone Partner Program" 
+            className="w-48 h-auto"
+          />
+          <img 
+            src="/uploads/27467abd-8fc5-4d5f-bee4-d00db5bb9312.png" 
+            alt="PagarMe Logo" 
+            className="h-24"
+          />
         </div>
-
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-          <div className="md:flex">
-            <div className="md:w-1/2 bg-primary p-12 text-white">
-              <h3 className="text-2xl font-bold mb-6">Informações de Contato</h3>
-              
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-white/10 p-3 rounded-lg">
-                    <Phone className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">Telefone</h4>
-                    <a href="tel:+5566992480993" className="hover:underline">(66) 99248-0993</a>
-                  </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
+          Entre em Contato
+        </h2>
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-black/30 backdrop-blur-sm border border-white/30 p-6 rounded-xl hover:bg-black/40 transition-all duration-300 relative z-30">
+            <h3 className="text-2xl font-semibold mb-6 text-white">Vamos conversar sobre seu projeto</h3>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center">
+                  <Instagram className="w-5 h-5 text-white" />
                 </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="bg-white/10 p-3 rounded-lg">
-                    <Mail className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">E-mail</h4>
-                    <a href="mailto:contato@rodrigodevmt.com" className="hover:underline">contato@rodrigodevmt.com</a>
-                  </div>
+                <a href="https://instagram.com/first_developer_mt" target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-300 transition-colors">
+                  first_developer_mt
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-white" />
                 </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="bg-white/10 p-3 rounded-lg">
-                    <MapPin className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">Localização</h4>
-                    <p>Mato Grosso, Brasil</p>
-                  </div>
+                <a href="tel:+5566992480993" className="text-white hover:text-green-300 transition-colors">
+                  (66) 99248-0993
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-white" />
                 </div>
-                
-                <div className="pt-4">
-                  <div className="flex space-x-4">
-                    <a href="https://www.instagram.com/rodrigodevmt/" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 transition-opacity">
-                      <Instagram className="h-6 w-6" />
-                    </a>
-                  </div>
+                <a href="mailto:rodrigodev@yahoo.com" className="text-white hover:text-green-300 transition-colors">
+                  rodrigodev@yahoo.com
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-white" />
                 </div>
+                <span className="text-white">Mato Grosso</span>
               </div>
             </div>
-
-            <div className="md:w-1/2 p-8 md:p-12">
-              <h3 className="text-2xl font-bold mb-6">Envie uma mensagem</h3>
-              
-              {isSuccess ? (
-                <div className="text-center py-8">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
-                    <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <h4 className="text-xl font-semibold mb-2">Mensagem enviada!</h4>
-                  <p className="text-gray-600">Entrarei em contato o mais breve possível.</p>
-                  <button
-                    onClick={() => setIsSuccess(false)}
-                    className="mt-6 text-primary hover:underline font-medium"
-                  >
-                    Enviar outra mensagem
-                  </button>
-                </div>
-              ) : (
-                <form 
-                  onSubmit={handleSubmit}
-                  className="space-y-6"
+          </div>
+          <div className="bg-black/30 backdrop-blur-sm border border-white/30 p-6 rounded-xl hover:bg-black/40 transition-all duration-300 relative z-30">
+            <form 
+              onSubmit={handleSubmit} 
+              action={FORMSPREE_ENDPOINT} 
+              method="POST" 
+              className="space-y-4"
+              name="contato"
+            >
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-white">
+                  Nome *
+                </label>
+                <Input
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="mt-1 w-full bg-transparent border-white/20 text-white placeholder-white/50 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  style={{
+                    color: 'white',
+                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    backdropFilter: 'blur(4px)'
+                  }}
+                  placeholder="Seu nome"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-white">
+                  E-mail *
+                </label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="mt-1 w-full bg-transparent border-white/20 text-white placeholder-white/50 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  style={{
+                    color: 'white',
+                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    backdropFilter: 'blur(4px)'
+                  }}
+                  placeholder="seu@email.com"
+                />
+              </div>
+              <div>
+                <label htmlFor="cnpj" className="block text-sm font-medium text-white">
+                  CNPJ
+                </label>
+                <InputMask
+                  mask="99.999.999/9999-99"
+                  value={formData.cnpj}
+                  onChange={handleChange}
                 >
-                  
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Nome <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent"
-                      placeholder="Seu nome"
-                      required
+                  {(inputProps: any) => (
+                    <Input
+                      {...inputProps}
+                      id="cnpj"
+                      name="cnpj"
+                      className="mt-1 w-full bg-transparent border-white/20 text-white placeholder-white/50 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      style={{
+                        color: 'white',
+                        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                        borderColor: 'rgba(255, 255, 255, 0.2)',
+                        backdropFilter: 'blur(4px)'
+                      }}
+                      placeholder="00.000.000/0000-00"
                     />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      E-mail <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent"
-                      placeholder="seu@email.com"
-                      required
+                  )}
+                </InputMask>
+              </div>
+              <div>
+                <label htmlFor="cpf" className="block text-sm font-medium text-white">
+                  CPF
+                </label>
+                <InputMask
+                  mask="999.999.999-99"
+                  value={formData.cpf}
+                  onChange={handleChange}
+                >
+                  {(inputProps: any) => (
+                    <Input
+                      {...inputProps}
+                      id="cpf"
+                      name="cpf"
+                      className="mt-1 w-full bg-transparent border-white/20 text-white placeholder-white/50 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      style={{
+                        color: 'white',
+                        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                        borderColor: 'rgba(255, 255, 255, 0.2)',
+                        backdropFilter: 'blur(4px)'
+                      }}
+                      placeholder="000.000.000-00"
                     />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      Mensagem <span className="text-red-500">*</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent"
-                      placeholder="Como posso te ajudar?"
-                      required
-                    ></textarea>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-primary hover:bg-primary/90 text-white py-3 px-6 rounded-lg font-medium transition-colors"
-                      disabled={isLoading}
-                    >
-                      {isLoading ? 'Enviando...' : 'Enviar Mensagem'}
-                    </Button>
-                    
-                    <Button 
-                      type="button"
-                      variant="outline"
-                      className="w-full border-primary text-primary hover:bg-primary/10 py-3 px-6 rounded-lg font-medium transition-colors"
-                      onClick={handleWhatsAppClick}
-                      disabled={isLoading}
-                    >
-                      WhatsApp
-                    </Button>
-                  </div>
-                </form>
+                  )}
+                </InputMask>
+              </div>
+              <div>
+                <label htmlFor="whatsapp" className="block text-sm font-medium text-white">
+                  WhatsApp
+                </label>
+                <InputMask
+                  mask="(99) 99999-9999"
+                  value={formData.whatsapp}
+                  onChange={handleChange}
+                >
+                  {(inputProps: any) => (
+                    <Input
+                      {...inputProps}
+                      id="whatsapp"
+                      name="whatsapp"
+                      className="mt-1 w-full bg-transparent border-white/20 text-white placeholder-white/50 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      style={{
+                        color: 'white',
+                        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                        borderColor: 'rgba(255, 255, 255, 0.2)',
+                        backdropFilter: 'blur(4px)'
+                      }}
+                      placeholder="(00) 00000-0000"
+                    />
+                  )}
+                </InputMask>
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-white">
+                  Mensagem *
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={4}
+                  className="mt-1 w-full bg-transparent border-white/20 text-white placeholder-white/50 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  style={{
+                    color: 'white',
+                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    backdropFilter: 'blur(4px)'
+                  }}
+                  placeholder="Como posso te ajudar?"
+                />
+              </div>
+              {showSuccessMessage && (
+                <div className="bg-green-600/20 border border-green-500/50 rounded-lg p-4 mb-4 text-white flex items-center">
+                  <CheckCircle className="w-5 h-5 mr-2" />
+                  Mensagem enviada com sucesso!
+                </div>
               )}
-            </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  type="submit" 
+                  disabled={isLoading}
+                  className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white"
+                >
+                  {isLoading ? 'Enviando...' : 'Enviar E-mail'}
+                </Button>
+                <Button 
+                  type="button"
+                  onClick={handleWhatsAppClick}
+                  className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M17.498 14.382l-.001-.001-.003.002c-.323.242-.529.623-.529 1.06 0 .334.117.655.329.9l.006.007.004.009c.2.25.49.401.8.401h.006c.138 0 .274-.028.4-.083l.01-.004.018-.01.027-.018.02-.017.01-.01 2.72-2.22c.3-.245.48-.61.48-1.009v-7.5a1.5 1.5 0 00-1.5-1.5h-15a1.5 1.5 0 00-1.5 1.5v10a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-1.5z" />
+                    <path d="M12 12.75a.75.75 0 100-1.5.75.75 0 000 1.5z" />
+                  </svg>
+                  WhatsApp
+                </Button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </>
   );
 };
 

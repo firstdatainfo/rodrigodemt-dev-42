@@ -5,24 +5,45 @@ import { Card, CardContent } from "@/components/ui/card";
 const testimonials = [
   {
     name: "Carlos Silva",
-    role: "CEO, TechStart",
+    role: "CEO",
     content: "O Rodrigo Dev transformou completamente nosso negócio com soluções inovadoras de IA. Resultados impressionantes!",
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
   },
   {
     name: "Ana Costa",
-    role: "Diretora, InnovaCorp",
+    role: "Diretora",
     content: "Automação perfeita e sistema de gestão que revolucionou nossa produtividade. Recomendo totalmente!",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=100&h=100&fit=crop&crop=face"
+    avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop&crop=face"
   },
   {
     name: "João Santos",
-    role: "Fundador, SmartSolutions",
+    role: "Fundador",
     content: "Desenvolvimento mobile excepcional! App Flutter entregue no prazo com qualidade superior.",
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: "Mariana Lima",
+    role: "Gerente de Projetos",
+    content: "A integração com a Stone foi perfeita! Sistema funcionando sem problemas e suporte excelente.",
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: "Pedro Oliveira",
+    role: "Diretor Comercial",
+    content: "Excelente trabalho na implementação do sistema de pagamentos. Equipe muito profissional e dedicada.",
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: "Beatriz Souza",
+    role: "Coordenadora de TI",
+    content: "Sistema de automação entregue com alta qualidade e dentro do prazo. Superou nossas expectativas!",
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face"
   }
 ];
 

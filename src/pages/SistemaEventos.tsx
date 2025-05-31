@@ -1,6 +1,5 @@
 
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
 import { Calendar, ArrowRight, Sparkles, Zap, Trophy, Home } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
 import EventosHeader from "@/components/eventos/EventosHeader";
@@ -13,7 +12,6 @@ import QuoteModal from "@/components/ui/quote-modal";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
 
 const SistemaEventos = () => {
-  const { toast } = useToast();
   const navigate = useNavigate();
   const { isOpen, openModal, closeModal } = useQuoteModal();
 

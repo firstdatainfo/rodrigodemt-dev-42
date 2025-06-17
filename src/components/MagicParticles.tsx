@@ -117,6 +117,28 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
 
     const img = new Image();
     img.crossOrigin = 'anonymous';
+    
+    // Adiciona timestamp para evitar cache
+    const timestamp = new Date().getTime();
+    const imageUrl = imageSrc.includes('?') 
+      ? `${imageSrc}&t=${timestamp}`
+      : `${imageSrc}?t=${timestamp}`;
+    
+    // Configura manipuladores de erro
+    img.onerror = (e) => {
+      console.error('Erro ao carregar a imagem:', e);
+      if (canvasRef.current) {
+        const ctx = canvasRef.current.getContext('2d');
+        if (ctx) {
+          ctx.fillStyle = 'rgba(0,0,0,0.1)';
+          ctx.fillRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+          ctx.fillStyle = 'black';
+          ctx.textAlign = 'center';
+          ctx.fillText('Erro ao carregar a imagem', canvasRef.current.width/2, canvasRef.current.height/2);
+        }
+      }
+    };
+    
     img.onload = () => {
       if (!ctx) return;
       initParticles(ctx, img);
@@ -147,7 +169,8 @@ const MagicParticles = ({ imageSrc, className = '' }: MagicParticlesProps) => {
       };
     };
 
-    img.src = imageSrc;
+    // Usa o URL com timestamp para evitar cache
+    img.src = imageUrl;
 
     return () => {
       if (requestRef.current) {

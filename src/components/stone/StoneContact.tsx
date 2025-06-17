@@ -34,7 +34,7 @@ const contactInfo = [
   }
 ];
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgvywzlj'; // Endpoint do Formspree
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xgvywzlj'; // Endpoint do Formspree
 
 const StoneContact = () => {
   const [formData, setFormData] = useState({
@@ -142,7 +142,7 @@ const StoneContact = () => {
                 <img 
                   src="/uploads/27467abd-8fc5-4d5f-bee4-d00db5bb9312.png" 
                   alt="PagarMe Logo" 
-                  className="h-16"
+                  className="h-12 sm:h-16 md:h-20 w-auto"
                 />
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">

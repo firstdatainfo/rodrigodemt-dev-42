@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import InputMask from 'react-input-mask';
 
 // Configuração do Formspree
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgvywzlj'; // Endpoint do Formspree
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xgvywzlj'; // Endpoint do Formspree
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -83,16 +83,16 @@ const Contact = () => {
     <>
       <section id="contato" className="py-12 bg-gradient-to-r from-blue-900 via-primary to-red-900">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-8">
           <img 
             src="/uploads/5949be6f-6616-4b08-977b-903de24aa9f2.png" 
             alt="Stone Logo" 
-            className="w-48 h-auto"
+            className="w-32 sm:w-40 md:w-48 h-auto"
           />
           <img 
             src="/uploads/27467abd-8fc5-4d5f-bee4-d00db5bb9312.png" 
             alt="PagarMe Logo" 
-            className="h-24 ml-8"
+            className="h-16 sm:h-20 md:h-24 sm:ml-4 md:ml-8 mt-2 sm:mt-0"
           />
         </div>
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">

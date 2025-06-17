@@ -12,17 +12,21 @@ const StoneHero = () => {
             <div className="space-y-8 animate-fade-up">
               {/* Selo Stone Oficial */}
               <div className="flex flex-col items-center lg:items-start mb-8">
-                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4 mb-4 flex-nowrap">
-                  <img 
-                    src="/uploads/5949be6f-6616-4b08-977b-903de24aa9f2.png" 
-                    alt="Stone Logo" 
-                    className="w-32 sm:w-40 md:w-48 h-auto hover:scale-105 transition-transform duration-300"
-                  />
-                  <img 
-                    src="/uploads/27467abd-8fc5-4d5f-bee4-d00db5bb9312.png" 
-                    alt="PagarMe Logo" 
-                    className="h-16 sm:h-20 md:h-24 hover:scale-105 transition-transform duration-300 sm:ml-4 md:ml-8 mt-2 sm:mt-0"
-                  />
+                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4 mb-4 flex-nowrap w-full">
+                  <div className="flex-shrink-0 w-32 sm:w-40 md:w-48">
+                    <img 
+                      src="/uploads/5949be6f-6616-4b08-977b-903de24aa9f2.png" 
+                      alt="Stone Logo" 
+                      className="w-full h-auto max-w-full object-contain hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="flex-shrink-0 h-16 sm:h-20 md:h-24 px-2">
+                    <img 
+                      src="/uploads/27467abd-8fc5-4d5f-bee4-d00db5bb9312.png" 
+                      alt="PagarMe Logo" 
+                      className="h-full w-auto max-w-full object-contain hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                 </div>
                 <p className="text-2xl md:text-3xl font-bold text-white text-center lg:text-left leading-tight">
                   🏆 <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">

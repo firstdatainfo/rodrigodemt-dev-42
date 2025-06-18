@@ -73,20 +73,14 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
-      {/* Imagem para desktop com efeito de partículas mágicas */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none">
-        <MagicParticles 
-          imageSrc="/uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png" 
-          className="w-full h-full object-contain object-right" 
-        />
-      </div>
-
-      {/* Imagem para mobile com efeito de partículas mágicas */}
-      <div className="md:hidden absolute inset-0 pointer-events-none">
-        <MagicParticles 
-          imageSrc="/uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png" 
-          className="w-full h-[80vh] object-cover mt-20" 
-        />
+      {/* Apenas para desktop/notebook - Imagem com efeito de partículas mágicas */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 right-0 w-full h-full max-w-[50%] xl:max-w-[40%] 2xl:max-w-[35%]">
+          <MagicParticles 
+            imageSrc="/uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png" 
+            className="w-full h-full object-contain object-right-top" 
+          />
+        </div>
       </div>
 
       <div className="absolute inset-0 pointer-events-none">

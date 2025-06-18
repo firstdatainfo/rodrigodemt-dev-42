@@ -34,7 +34,7 @@ const contactInfo = [
   }
 ];
 
-const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xgvywzlj'; // Endpoint do Formspree
+const FORMCARRY_ENDPOINT = import.meta.env.VITE_FORMCARRY_ENDPOINT || 'https://formcarry.com/s/0g-FRjNAasi'; // Endpoint do Formcarry
 
 const StoneContact = () => {
   const [formData, setFormData] = useState({
@@ -79,13 +79,23 @@ const StoneContact = () => {
     setIsLoading(true);
     
     try {
-      const form = e.target as HTMLFormElement;
-      const formDataToSend = new FormData(form);
-      
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetch(FORMCARRY_ENDPOINT, {
         method: 'POST',
-        body: formDataToSend,
+        body: JSON.stringify({
+          nome: formData.nome,
+          email: formData.email,
+          empresa: formData.empresa,
+          mensagem: formData.mensagem,
+          cnpj: formData.cnpj,
+          cpf: formData.cpf,
+          whatsapp: formData.whatsapp,
+          _subject: 'Nova mensagem do site - Integração Stone',
+          _language: 'pt-br',
+          _template: 'table',
+          _format: 'plain'
+        }),
         headers: {
+          'Content-Type': 'application/json',
           'Accept': 'application/json'
         }
       });
@@ -205,7 +215,11 @@ const StoneContact = () => {
                 <h3 className="text-2xl font-bold text-white mb-6">
                   Solicite um Orçamento
                 </h3>
-                <form onSubmit={handleEmailSubmit} action={FORMSPREE_ENDPOINT} method="POST" className="space-y-6">
+                <form 
+                  onSubmit={handleEmailSubmit}
+                  className="space-y-6"
+                  name="stone-contact"
+                >
                   <div>
                     <Label htmlFor="nome" className="text-white/90 mb-2">Nome Completo</Label>
                     <Input 

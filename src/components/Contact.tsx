@@ -5,8 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import InputMask from 'react-input-mask';
 
-// Configuração do Formspree
-const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xgvywzlj'; // Endpoint do Formspree
+// Configuração do Formcarry
+const FORMCARRY_ENDPOINT = import.meta.env.VITE_FORMCARRY_ENDPOINT || 'https://formcarry.com/s/0g-FRjNAasi'; // Endpoint do Formcarry
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -41,13 +41,22 @@ const Contact = () => {
     setIsLoading(true);
     
     try {
-      const form = e.target as HTMLFormElement;
-      const formDataToSend = new FormData(form);
-      
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetch(FORMCARRY_ENDPOINT, {
         method: 'POST',
-        body: formDataToSend,
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          cnpj: formData.cnpj,
+          cpf: formData.cpf,
+          whatsapp: formData.whatsapp,
+          _subject: 'Nova mensagem do site - Contato',
+          _language: 'pt-br',
+          _template: 'table',
+          _format: 'plain'
+        }),
         headers: {
+          'Content-Type': 'application/json',
           'Accept': 'application/json'
         }
       });
@@ -136,9 +145,7 @@ const Contact = () => {
           </div>
           <div className="bg-black/30 backdrop-blur-sm border border-white/30 p-6 rounded-xl hover:bg-black/40 transition-all duration-300 relative z-30">
             <form 
-              onSubmit={handleSubmit} 
-              action={FORMSPREE_ENDPOINT} 
-              method="POST" 
+              onSubmit={handleSubmit}
               className="space-y-4"
               name="contato"
             >

@@ -17,8 +17,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "E-mail",
-    value: "contato@rodrigodevmt.com",
-    action: () => window.open('mailto:contato@rodrigodevmt.com', '_blank')
+    value: "developer@rodrigodevmt.com.br",
+    action: () => window.open('mailto:developer@rodrigodevmt.com.br', '_blank')
   },
   {
     icon: MapPin,

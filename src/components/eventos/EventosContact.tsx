@@ -34,18 +34,18 @@ const EventosContact = () => {
           (66) 99248-0993 / 99225-8469
         </a>
         <a 
-          href="mailto:rodrigodev@yahoo.com"
+          href="mailto:developer@rodrigodevmt.com.br"
           className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
         >
           <Mail className="w-5 h-5" />
-          rodrigodev@yahoo.com
+          developer@rodrigodevmt.com.br
         </a>
         <a 
-          href="mailto:rodrigodev@firstsistemas.com.br"
+          href="mailto:developer@rodrigodevmt.com.br"
           className="flex items-center gap-2 text-white/80 hover:text-white transition-colors md:col-span-2"
         >
           <Mail className="w-5 h-5" />
-          rodrigodev@firstsistemas.com.br
+          developer@rodrigodevmt.com.br
         </a>
       </div>
     </div>

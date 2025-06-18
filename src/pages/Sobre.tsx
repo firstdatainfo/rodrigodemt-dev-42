@@ -13,7 +13,7 @@ const Sobre = () => {
   };
 
   const handleEmailClick = () => {
-    window.open('mailto:rodrigodev@yahoo.com', '_blank');
+    window.open('mailto:developer@rodrigodevmt.com.br', '_blank');
   };
 
   const handlePhoneClick = () => {
@@ -264,7 +264,7 @@ const Sobre = () => {
                       className="flex items-center justify-center gap-3 bg-black/30 backdrop-blur-sm p-4 rounded-lg border border-white/30 hover:bg-black/40 transition-all duration-300 cursor-pointer"
                     >
                       <Mail className="w-5 h-5" />
-                      <span>rodrigodev@yahoo.com</span>
+                      <span>developer@rodrigodevmt.com.br</span>
                     </button>
                     <button 
                       onClick={handlePhoneClick}

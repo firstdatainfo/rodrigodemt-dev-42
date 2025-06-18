@@ -131,8 +131,8 @@ const Contact = () => {
                 <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center">
                   <Mail className="w-5 h-5 text-white" />
                 </div>
-                <a href="mailto:rodrigodev@yahoo.com" className="text-white hover:text-green-300 transition-colors">
-                  rodrigodev@yahoo.com
+                <a href="mailto:developer@rodrigodevmt.com.br" className="text-white hover:text-green-300 transition-colors">
+                  developer@rodrigodevmt.com.br
                 </a>
               </div>
               <div className="flex items-center space-x-3">

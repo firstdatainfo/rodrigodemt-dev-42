@@ -12,6 +12,9 @@ const ParticlesBackground = () => {
     console.log("Particles loaded", container);
   }, []);
 
+  // Verifica se é um dispositivo móvel
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
   return (
     <Particles
       id="tsparticles"
@@ -23,15 +26,17 @@ const ParticlesBackground = () => {
             value: "transparent",
           },
         },
-        fpsLimit: 120,
+        // Reduz o FPS em dispositivos móveis
+        fpsLimit: isMobile ? 30 : 60,
+        // Desativa interações em dispositivos móveis
         interactivity: {
           events: {
             onClick: {
-              enable: true,
+              enable: !isMobile,
               mode: "push",
             },
             onHover: {
-              enable: true,
+              enable: !isMobile,
               mode: "repulse",
             },
             resize: true,
@@ -41,7 +46,7 @@ const ParticlesBackground = () => {
               quantity: 4,
             },
             repulse: {
-              distance: 200,
+              distance: isMobile ? 100 : 200,
               duration: 0.4,
             },
           },
@@ -50,10 +55,11 @@ const ParticlesBackground = () => {
           color: {
             value: ["#8B5CF6", "#D946EF", "#F97316", "#0EA5E9", "#EC4899", "#F43F5E"],
           },
+          // Desativa links em dispositivos móveis
           links: {
             color: "#ffffff",
             distance: 150,
-            enable: true,
+            enable: !isMobile, // Desativa links em dispositivos móveis
             opacity: 0.5,
             width: 1,
           },
@@ -64,27 +70,35 @@ const ParticlesBackground = () => {
               default: "bounce",
             },
             random: false,
-            speed: 2,
+            // Reduz a velocidade em dispositivos móveis
+            speed: isMobile ? 1 : 2,
             straight: false,
           },
           number: {
             density: {
               enable: true,
-              area: 800,
+              area: isMobile ? 1000 : 800, // Reduz a densidade em dispositivos móveis
             },
-            value: 80,
+            // Reduz o número de partículas em dispositivos móveis
+            value: isMobile ? 30 : 60,
           },
           opacity: {
-            value: 0.7,
+            value: isMobile ? 0.5 : 0.7, // Reduz a opacidade em dispositivos móveis
           },
           shape: {
             type: "circle",
           },
           size: {
-            value: { min: 1, max: 5 },
+            value: { min: 1, max: isMobile ? 3 : 5 }, // Reduz o tamanho máximo em dispositivos móveis
           },
         },
         detectRetina: true,
+        // Melhora o desempenho em dispositivos móveis
+        smooth: true,
+        // Reduz a qualidade em dispositivos móveis
+        motion: {
+          reduce: isMobile,
+        },
       }}
     />
   );

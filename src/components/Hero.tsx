@@ -70,29 +70,38 @@ const Hero = () => {
     window.open('https://www.instagram.com/first_developer_mt/', '_blank');
   };
 
+  // Verifica se é um dispositivo móvel
+  const isMobile = typeof window !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
       {/* Imagem do robô futurista - Apenas desktop */}
-      <div className="hidden lg:block absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute bottom-0 right-0 w-full h-auto max-w-[45%] xl:max-w-[40%] 2xl:max-w-[35%] flex items-end justify-end pr-4 xl:pr-8 2xl:pr-12">
-          <div className="relative w-full h-full max-h-[80vh]">
-            <img 
-              src="/uploads/robo21.png" 
-              alt="Robô futurista"
-              className="w-full h-full object-contain object-bottom"
-              style={{
-                filter: 'drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3))',
-                WebkitFilter: 'drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3))',
-                transform: 'scale(1.1) translateY(10px)'
-              }}
-              loading="eager"
-            />
+      {!isMobile && (
+        <div className="hidden lg:block absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute bottom-0 right-0 w-full h-auto max-w-[45%] xl:max-w-[40%] 2xl:max-w-[35%] flex items-end justify-end pr-4 xl:pr-8 2xl:pr-12">
+            <div className="relative w-full h-full max-h-[80vh]">
+              <img 
+                src="/uploads/robo21.png" 
+                alt="Robô futurista"
+                className="w-full h-full object-contain object-bottom"
+                style={{
+                  filter: 'drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3))',
+                  WebkitFilter: 'drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3))',
+                  transform: 'scale(1.1) translateY(10px)'
+                }}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+              />
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
+      {/* Renderiza o efeito de partículas apenas se não for mobile ou se o usuário já interagiu */}
       <div className="absolute inset-0 pointer-events-none">
-        <ParticlesBackground />
+        {!isMobile && <ParticlesBackground />}
+        {/* NeuralNetwork já está otimizado para retornar null */}
         <NeuralNetwork />
       </div>
       

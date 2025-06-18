@@ -2,7 +2,6 @@ import { Button } from "./ui/button";
 import { Facebook, Twitter, Linkedin, Star, Users, Award } from "lucide-react";
 import NeuralNetwork from "./NeuralNetwork";
 import ParticlesBackground from "./ParticlesBackground";
-import MagicParticles from "./MagicParticles";
 import { SiNodedotjs, SiReact, SiPython, SiFirebase, SiFlutter, SiSupabase, SiEspressif, SiJavascript, SiTypescript, SiFigma } from "react-icons/si";
 
 const technologies = [
@@ -73,13 +72,22 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-r from-blue-900 via-primary to-red-900">
-      {/* Apenas para desktop/notebook - Imagem com efeito de partículas mágicas */}
+      {/* Imagem do robô futurista - Apenas desktop */}
       <div className="hidden lg:block absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 right-0 w-full h-full max-w-[50%] xl:max-w-[40%] 2xl:max-w-[35%]">
-          <MagicParticles 
-            imageSrc="/uploads/8ce6711e-4c5f-45db-b9cd-0d7edf3d53dd.png" 
-            className="w-full h-full object-contain object-right-top" 
-          />
+        <div className="absolute bottom-0 right-0 w-full h-auto max-w-[45%] xl:max-w-[40%] 2xl:max-w-[35%] flex items-end justify-end pr-4 xl:pr-8 2xl:pr-12">
+          <div className="relative w-full h-full max-h-[80vh]">
+            <img 
+              src="/uploads/robo21.png" 
+              alt="Robô futurista"
+              className="w-full h-full object-contain object-bottom"
+              style={{
+                filter: 'drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3))',
+                WebkitFilter: 'drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3))',
+                transform: 'scale(1.1) translateY(10px)'
+              }}
+              loading="eager"
+            />
+          </div>
         </div>
       </div>
 
